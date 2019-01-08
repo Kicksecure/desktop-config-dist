@@ -1,3 +1,49 @@
+commit 54ea1ef27ff01750d3b23c9e2bf5359316068502
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Dec 24 05:53:15 2018 -0500
+
+    consistency
+
+commit 5929bb810cdc368bc8332549dfadd87c1af4869a
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Dec 24 05:51:11 2018 -0500
+
+    minor
+
+commit e53dca323c4af42a97ce4c6f3f28d9bdfedd98da
+Merge: 7eab817 b28c503
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Dec 24 05:50:18 2018 -0500
+
+    Merge remote-tracking branch 'origin/master'
+
+commit b28c5030a9a3336dbc894ea2708ddafd42412b2e
+Merge: 7eab817 38b5396
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Dec 24 05:47:29 2018 -0500
+
+    Merge pull request #5 from Algernon-01/master
+    
+    Add x-www-browser
+
+commit 38b5396c04db7c3fb717f51cdcec74f2f77e1c54
+Author: Algernon-01 <33966997+Algernon-01@users.noreply.github.com>
+Date:   Mon Dec 24 09:56:46 2018 +0000
+
+    Add x-www-browser.
+
+commit 17e98ac1943d7d8256ab24e65f6abe50629d0ff3
+Author: Algernon-01 <33966997+Algernon-01@users.noreply.github.com>
+Date:   Sun Dec 23 19:33:15 2018 +0000
+
+    Open browser on click.
+
+commit 7eab817ff74fc81f8954ca0029d06497c1464218
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Dec 14 10:04:07 2018 +0000
+
+    bumped changelog version
+
 commit 6b58613e7b4e53dda42830bc4acfd4fc32dbce70
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Fri Dec 14 04:57:00 2018 -0500
