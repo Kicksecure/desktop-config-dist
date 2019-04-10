@@ -15,7 +15,23 @@ Package: whonix-xfce-desktop-config
 Architecture: all
 Depends: xfce4-whiskermenu-plugin, xfce4-genmon-plugin, ${misc:Depends}
 Description: Configuration for Whonix Xfce Desktop
- Installs the configuration for the Whonix Xfce Desktop
- like wallpaper and task bar.
+ Sets desktop and display setting, wallpaper and desktop icons.
+ Sets icon theme and style.
+ Settings for the default panel aka task bar, like panel position/color/size
+ and panel plugins/shortcuts.
  .
- Also disables thumbnails.
+ Autologin for user 'user' setting in lightdm.
+ .
+ Live check systray indicator which indicates the status of grub-live, whether
+ the system was booted into persistent or live mode. See also:
+ https://www.whonix.org/wiki/Whonix_Live
+ .
+ Adds start menu entries for web browser, terminal emulator, file manager.
+ .
+ Sets Whisker Menu for better usability.
+ .
+ Disable maximize windows when moving to top for better privacy.
+ .
+ Disables thumbnails for better security.
+ .
+ Disables save on exit for better privacy.
