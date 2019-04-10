@@ -1,6 +1,25 @@
 # xfce4 Desktop config #
 
-xfce4 Desktop config
+Sets desktop and display setting, wallpaper and desktop icons.
+Sets icon theme and style.
+Settings for the default panel aka task bar, like panel position/color/size
+and panel plugins/shortcuts.
+
+Autologin for user 'user' setting in lightdm.
+
+Live check systray indicator which indicates the status of grub-live, whether
+the system was booted into persistent or live mode. See also:
+https://www.whonix.org/wiki/Whonix_Live
+
+Adds start menu entries for web browser, terminal emulator, file manager.
+
+Sets Whisker Menu for better usability.
+
+Disable maximize windows when moving to top for better privacy.
+
+Disables thumbnails for better security.
+
+Disables save on exit for better privacy.
 
 ## How to install `whonix-xfce-desktop-config` using apt-get ##
 
