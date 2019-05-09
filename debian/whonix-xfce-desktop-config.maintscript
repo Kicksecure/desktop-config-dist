@@ -1,0 +1,14 @@
+## Copyright (C) 2019 - 2019 ENCRYPTED SUPPORT LP <adrelanos@riseup.net>
+## See the file COPYING for copying conditions.
+
+## Was moved to folder /etc/xdg/xfce4.
+rm_conffile /etc/skel/.config/xfce4/panel/genmon-12.rc
+rm_conffile /etc/skel/.config/xfce4/panel/launcher-5/15404745781.desktop
+rm_conffile /etc/skel/.config/xfce4/panel/launcher-6/15404746372.desktop
+rm_conffile /etc/skel/.config/xfce4/panel/launcher-7/15404746583.desktop
+rm_conffile /etc/skel/.config/xfce4/panel/whiskermenu-1.rc
+rm_conffile /etc/skel/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml
+rm_conffile /etc/skel/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml
+rm_conffile /etc/skel/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-session.xml
+rm_conffile /etc/skel/.config/xfce4/xfconf/xfce-perchannel-xml/xfwm4.xml
+rm_conffile /etc/skel/.config/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml
