@@ -1,3 +1,17 @@
+commit c8959135d699bc3ce74b95f736cbfbbc8ff391d9
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed May 8 21:48:33 2019 -0400
+
+    port to /etc/xdg/xfce4/xfconf/xfce-perchannel-xml
+    
+    https://forums.whonix.org/t/whonix-xfce-development/6213/84?u=patrick
+
+commit dfb3d6c2513bbdfcb38dffd40beba77f25573d89
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri May 3 11:49:51 2019 +0000
+
+    bumped changelog version
+
 commit d3ea34b7e3a18fcd4fa2348cc5c6ab47b264ba2b
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Fri May 3 10:57:00 2019 +0000
