@@ -1,3 +1,15 @@
+commit 2319311d1bd656a6e25a64c79af2837de8d497f0
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon May 13 06:01:56 2019 +0000
+
+    config-package-dev displace /etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml
+
+commit dbdf9b444cca209d439782fdd2644820b01f40a0
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon May 13 02:59:09 2019 +0000
+
+    bumped changelog version
+
 commit 0e9daa97e9f9e70120c969aa9c9d52cace46971a
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Mon May 13 02:40:41 2019 +0000
