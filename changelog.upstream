@@ -1,3 +1,15 @@
+commit db388d4bdd5ecb35c57dcc6420749dbd1b230cee
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu May 16 19:55:25 2019 +0000
+
+    merge Debian package xfce4-session default settings
+
+commit 5a20e6798d654da13761cd8b66566cbde5c251dd
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon May 13 06:03:25 2019 +0000
+
+    bumped changelog version
+
 commit 2319311d1bd656a6e25a64c79af2837de8d497f0
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Mon May 13 06:01:56 2019 +0000
