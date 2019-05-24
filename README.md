@@ -1,4 +1,4 @@
-# xfce4 Desktop config #
+# Configuration for Whonix Xfce Desktop #
 
 Sets desktop and display setting, wallpaper and desktop icons.
 Sets icon theme and style.
@@ -20,7 +20,6 @@ Disable maximize windows when moving to top for better privacy.
 Disables thumbnails for better security.
 
 Disables save on exit for better privacy.
-
 ## How to install `whonix-xfce-desktop-config` using apt-get ##
 
 1\. Add [Whonix's Signing Key](https://www.whonix.org/wiki/Whonix_Signing_Key).
@@ -32,7 +31,7 @@ sudo apt-key --keyring /etc/apt/trusted.gpg.d/whonix.gpg adv --keyserver hkp://i
 3\. Add Whonix's APT repository.
 
 ```
-echo "deb http://deb.whonix.org buster main" | sudo tee /etc/apt/sources.list.d/whonix.list
+echo "deb http://deb.whonix.org buster main contrib non-free" | sudo tee /etc/apt/sources.list.d/whonix.list
 ```
 
 4\. Update your package lists.
@@ -56,6 +55,6 @@ Replace `apparmor-profile-torbrowser` with the actual name of this package with 
 * [Free Forum Support](https://forums.whonix.org)
 * [Professional Support](https://www.whonix.org/wiki/Professional_Support)
 
-## Payments ##
+## Donate ##
 
-`whonix-xfce-desktop-config` requires [payments](https://www.whonix.org/wiki/Payments) to stay alive!
+`whonix-xfce-desktop-config` requires [donations](https://www.whonix.org/wiki/Donate) to stay alive!
