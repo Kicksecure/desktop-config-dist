@@ -7,7 +7,7 @@
 
 %:
 
-	dh $@ --with=config-package
+	dh $@
 
 override_dh_installchangelogs:
 	dh_installchangelogs changelog.upstream upstream
