@@ -1,3 +1,55 @@
+commit d83d1e7c947d9d889f29584e560e59f7351182fa
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Jun 14 13:16:42 2019 +0000
+
+    merge Debian package xfce4-session default settings
+
+commit edc955fd5320a94a57a127128923a345630a4465
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Jun 14 13:15:03 2019 +0000
+
+    Revert "lintian"
+    
+    This reverts commit 1575664ca7a020cc51dc2defcf1d6b0d242baeff.
+
+commit 9843f28997f88a6e12d8c162cdd8219c57196fba
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Jun 14 13:14:11 2019 +0000
+
+    Revert "port to /etc/xdg/xfce4/xfconf/xfce-perchannel-xml"
+    
+    This reverts commit c8959135d699bc3ce74b95f736cbfbbc8ff391d9.
+
+commit 578a77c33489e5ba6af61a791bf3e1b66c3f3742
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Jun 14 13:13:49 2019 +0000
+
+    Revert "take over ownership of /etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-session.xml"
+    
+    This reverts commit 0e9daa97e9f9e70120c969aa9c9d52cace46971a.
+
+commit 9fc8ea4ae7175acc377f43f6becd05361e9c1222
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Jun 14 13:13:35 2019 +0000
+
+    Revert "config-package-dev displace /etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml"
+    
+    This reverts commit 2319311d1bd656a6e25a64c79af2837de8d497f0.
+
+commit e0a6ab3a3cb2225bc99c379c4705dafd3391351e
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Jun 14 13:13:10 2019 +0000
+
+    Revert "merge Debian package xfce4-session default settings"
+    
+    This reverts commit db388d4bdd5ecb35c57dcc6420749dbd1b230cee.
+
+commit ffba20172ffb7d13b2d7d38b1664469196a18db8
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Jun 9 01:26:24 2019 +0000
+
+    bumped changelog version
+
 commit e4e0894d02935ef6b3fab15d1270588fcecd2384
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sat Jun 8 00:05:40 2019 -0400
