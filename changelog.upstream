@@ -1,3 +1,15 @@
+commit 0aba7c2c3676469ea28f7949a5e58795cd529e34
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Jun 27 07:57:32 2019 +0000
+
+    show pulseaudio plugin by default
+
+commit d150e269b4bcf6da4db0ec62c6bdb6080c44ab37
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Jun 27 07:29:55 2019 +0000
+
+    bumped changelog version
+
 commit fce762a380f50b4e91b529f6838081fe7e99bfb3
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Thu Jun 27 07:23:52 2019 +0000
