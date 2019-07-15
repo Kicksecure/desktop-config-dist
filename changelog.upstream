@@ -1,3 +1,49 @@
+commit c95b9ee393e4439f680ee0b22e416e6e390a1a96
+Merge: 86ea58a 68f7dc2
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Jul 15 13:32:42 2019 +0000
+
+    Merge remote-tracking branch 'origin/master'
+
+commit 68f7dc2384bb93db5bb4d9875dedb8966af6d088
+Merge: 86ea58a 5e7c486
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Jul 15 13:32:12 2019 +0000
+
+    Merge pull request #6 from onions-knight/master
+    
+    Update xsettings.xml
+
+commit 86ea58a935b2932b06dcb63368d5439304937986
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Jul 15 13:31:22 2019 +0000
+
+    add arc-theme, gnome-themes-extra, gnome-themes-extra-data, gtk2-engines-murrine
+    
+    to Depends:
+    
+    as suggested by @onions-knight
+    
+    https://forums.whonix.org/t/xfce-theming-a-few-suggestions/7205/55
+
+commit 5e7c486e115b883cac9d3c84b89e92841ef24179
+Author: onions-knight <38859709+onions-knight@users.noreply.github.com>
+Date:   Mon Jul 15 11:50:25 2019 +0000
+
+    Update xfwm4.xml
+
+commit 700d95e044863de202ae7b561f995a958c65e620
+Author: onions-knight <38859709+onions-knight@users.noreply.github.com>
+Date:   Mon Jul 15 11:42:06 2019 +0000
+
+    Update xsettings.xml
+
+commit 0aa3457c18fdea8292fcb12bbf05c474d60758a3
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Jun 27 12:17:24 2019 +0000
+
+    bumped changelog version
+
 commit 0aba7c2c3676469ea28f7949a5e58795cd529e34
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Thu Jun 27 07:57:32 2019 +0000
