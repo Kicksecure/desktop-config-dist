@@ -5,5 +5,6 @@
 <channel name="xfwm4" version="1.0">
   <property name="general" type="empty">
     <property name="tile_on_move" type="bool" value="false"/>
+    <property name="theme" type="string" value="Arc"/>
   </property>
 </channel>
