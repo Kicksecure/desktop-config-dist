@@ -13,7 +13,9 @@ Standards-Version: 4.3.0
 
 Package: whonix-xfce-desktop-config
 Architecture: all
-Depends: xfce4-whiskermenu-plugin, xfce4-genmon-plugin, ${misc:Depends}
+Depends: xfce4-whiskermenu-plugin, xfce4-genmon-plugin,
+ arc-theme, gnome-themes-extra, gnome-themes-extra-data, gtk2-engines-murrine,
+ ${misc:Depends}
 Description: Configuration for Whonix Xfce Desktop
  Sets desktop and display setting, wallpaper and desktop icons.
  Sets icon theme and style.
