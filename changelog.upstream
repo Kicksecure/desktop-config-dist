@@ -1,3 +1,17 @@
+commit 12dad74b906c675f834fa6431a3892e7dc499128
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Aug 16 10:21:17 2019 -0400
+
+    enable volume control;
+    enable workspace switcher;
+    showing seconds by default in clock
+
+commit e10c014f2da3993c9540f25684193e6c1e630fcc
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Aug 1 12:19:14 2019 +0000
+
+    bumped changelog version
+
 commit 00580e898550c07021dd7967e72fdbaa769dc88c
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Thu Aug 1 11:13:51 2019 +0000
