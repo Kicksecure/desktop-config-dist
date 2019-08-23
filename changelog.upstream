@@ -1,3 +1,19 @@
+commit a02502a45c754d18856e984bc0d4547cbe759a9a
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Aug 21 12:24:17 2019 -0400
+
+    rename /etc/lightdm/lightdm.conf.d/whonix.conf to /etc/lightdm/lightdm.conf.d/whonix-autologin.conf and
+    
+    remove /etc/lightdm/lightdm.conf.d/whonix.conf
+    
+    to make it a single purpose file which can be easily config-package-dev `displace`ed
+
+commit 1d475825ac737a0f07a9bdd89a8421a51fb26eea
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Aug 16 16:01:43 2019 +0000
+
+    bumped changelog version
+
 commit 12dad74b906c675f834fa6431a3892e7dc499128
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Fri Aug 16 10:21:17 2019 -0400
