@@ -1,0 +1,6 @@
+## Copyright (C) 2019 - 2019 ENCRYPTED SUPPORT LP <adrelanos@riseup.net>
+## See the file COPYING for copying conditions.
+
+## required by /usr/share/livecheck/livecheck.sh
+## http://forums.whonix.org/t/restrict-hardware-information-to-root-testers-wanted/8618/13
+user ALL=NOPASSWD: /bin/lsblk /dev/disk/by-uuid/26ada0c0-1165-4098-884d-aafd2220c2c6 -o RO
