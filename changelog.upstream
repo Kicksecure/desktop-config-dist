@@ -1,3 +1,21 @@
+commit 64454f237d36bd3ce3ba80b2a62dc1dded7bd441
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Jan 21 10:06:01 2020 -0500
+
+    fix live indicator detection of ro-mode-init (when disk is set to read-only)
+
+commit f38401a713aa2167b6182fc10ca9770fd8d4eeeb
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Jan 21 09:38:40 2020 -0500
+
+    minor
+
+commit ae1b168f48f67044a85fbbe8cf88220524856fca
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Dec 20 07:15:40 2019 -0500
+
+    bumped changelog version
+
 commit 003526a6c33bec48128bef0a5c89714038f5f92e
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Mon Dec 16 06:41:27 2019 -0500
