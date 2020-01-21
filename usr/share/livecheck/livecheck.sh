@@ -12,7 +12,7 @@ if grep -qs "boot=live" /proc/cmdline; then
    ## root, not user.
    ## https://forums.whonix.org/t/restrict-hardware-information-to-root-testers-wanted/8618/13
    if [ -n "$(sudo --non-interactive /bin/lsblk /dev/disk/by-uuid/26ada0c0-1165-4098-884d-aafd2220c2c6 -o RO | grep "1")" ]; then
-      # disk is set to RO, too
+      ## disk is set to RO, too
       echo "<img>/usr/share/icons/gnome-colors-common/16x16/actions/dialog-apply.png</img>"
       echo "<txt>Live</txt>"
       echo "<tool>Live mode is enabled. All changes to the disk will be gone after a reboot. See: https://whonix.org/wiki/Whonix_Live or click on the icon for more information.</tool>"
