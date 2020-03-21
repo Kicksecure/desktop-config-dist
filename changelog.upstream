@@ -1,3 +1,17 @@
+commit ffea0fb43105369dd8349cf0c251d2914d7dafc8
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Mar 21 13:54:37 2020 -0400
+
+    set non-image desktop background color for workstation (grey)
+    
+    https://forums.whonix.org/t/whonix-host-calamares-branding-suggestion/7772/25
+
+commit a6c3787381a362ddc92c1ab6a98894e28724e139
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Jan 21 10:13:38 2020 -0500
+
+    bumped changelog version
+
 commit 64454f237d36bd3ce3ba80b2a62dc1dded7bd441
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Tue Jan 21 10:06:01 2020 -0500
