@@ -1,6 +1,6 @@
 #!/bin/bash
 
-## Copyright (C) 2018 - 2018 ENCRYPTED SUPPORT LP <adrelanos@riseup.net>
+## Copyright (C) 2018 - 2020 ENCRYPTED SUPPORT LP <adrelanos@riseup.net>
 ## Copyright (C) 2018 Algernon <33966997+Algernon-01@users.noreply.github.com>
 ## See the file COPYING for copying conditions.
 
