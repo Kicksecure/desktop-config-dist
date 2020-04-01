@@ -5,7 +5,7 @@ Source: whonix-xfce-desktop-config
 Section: misc
 Priority: optional
 Maintainer: Algernon <33966997+Algernon-01@users.noreply.github.com>
-Build-Depends: debhelper (>= 12), genmkfile
+Build-Depends: debhelper (>= 12)
 Homepage: https://github.com/Whonix/whonix-xfce-desktop-config
 Vcs-Browser: https://github.com/Whonix/whonix-xfce-desktop-config
 Vcs-Git: https://github.com/Whonix/whonix-xfce-desktop-config.git
