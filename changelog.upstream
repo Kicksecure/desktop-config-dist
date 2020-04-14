@@ -1,3 +1,15 @@
+commit 869a4d82f8c953b485ea761c8e72b1ba57982185
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Apr 14 19:01:23 2020 -0400
+
+    fix livecheck
+
+commit f13905afa716bc88ca532fa76c124a6ed2db48cc
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Apr 14 14:04:29 2020 -0400
+
+    bumped changelog version
+
 commit 984fc9824e26539cd36627ad8a2b2783f7783871
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Tue Apr 14 14:02:34 2020 -0400
