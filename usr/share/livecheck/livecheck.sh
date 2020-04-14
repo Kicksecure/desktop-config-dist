@@ -17,8 +17,8 @@ set -e
 ## Using sudo because hide-hardware-info.service makes this only readable by
 ## root, not user.
 ## https://forums.whonix.org/t/restrict-hardware-information-to-root-testers-wanted/8618/13
-if sudo --non-interactive /bin/lsblk --all --raw --output RO | grep "0" ; then
-   ## Output of lsblk did not contain zero ("0"), meaning no read-write devices found.
+if sudo --non-interactive /bin/lsblk --noheadings --all --raw --output RO | grep --invert-match "0" ; then
+   ## Output of lsblk does not contain zero ("0"), meaning no read-write devices found.
    ## In other words, all disks are set set to read-only.
    echo "<img>/usr/share/icons/gnome-colors-common/16x16/actions/dialog-apply.png</img>"
    ## Show "Live" next to info symbol in systray.

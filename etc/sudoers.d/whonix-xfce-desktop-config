@@ -3,4 +3,4 @@
 
 ## required by /usr/share/livecheck/livecheck.sh
 ## http://forums.whonix.org/t/restrict-hardware-information-to-root-testers-wanted/8618/13
-user ALL=NOPASSWD: /bin/lsblk --all --raw --output RO
+user ALL=NOPASSWD: /bin/lsblk --noheadings --all --raw --output RO
