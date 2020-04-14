@@ -1,3 +1,25 @@
+commit 984fc9824e26539cd36627ad8a2b2783f7783871
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Apr 14 14:02:34 2020 -0400
+
+    livecheck: different output in case of Whonix VM vs others
+    
+    (Debian hosts, Kicksecure hosts, non-Whonix hosts, Whonix-Host)
+    
+    implemented for Whonix VMs vs Whonix-Host
+
+commit 71b5d9dc1ff71944c4ee1428d54d46264a7e9123
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Apr 14 13:40:02 2020 -0400
+
+    livecheck: test if all devices are set to read-only
+
+commit 862399ef37d4b46dc6128aff6d4c49d0eafe9b08
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Apr 2 08:15:46 2020 -0400
+
+    bumped changelog version
+
 commit a0b6211448c0a820e9a49b8cecf319afd13afed9
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Thu Apr 2 07:23:12 2020 -0400
