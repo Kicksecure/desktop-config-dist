@@ -1,3 +1,33 @@
+commit 708b69eb1338eb90b36d50b6cbb7270e4131407b
+Merge: 5fd21a1 25b1987
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun May 17 06:47:28 2020 -0400
+
+    Merge remote-tracking branch 'origin/master'
+
+commit 25b198700cb3d3edde68cdc2f660613b7deb2814
+Merge: 5fd21a1 4aca959
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun May 17 10:46:41 2020 +0000
+
+    Merge pull request #7 from onions-knight/patch-4
+    
+    Update xfce4-desktop.xml
+
+commit 4aca959040fa96355642922911da74b1934ff044
+Author: onions-knight <38859709+onions-knight@users.noreply.github.com>
+Date:   Sun May 17 09:08:56 2020 +0000
+
+    Update xfce4-desktop.xml
+    
+    Chaning default Whonix-Host desktop colors, see https://forums.whonix.org/t/whonix-host-calamares-branding-suggestion/7772/33
+
+commit 5fd21a1580297b2be1616d9b5c9b0622bb0a7b99
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Apr 16 08:56:23 2020 -0400
+
+    bumped changelog version
+
 commit b49441472ae4ea79bb9be5c030d5e1b69363922e
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Wed Apr 15 14:05:43 2020 -0400
