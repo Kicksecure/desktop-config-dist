@@ -1,3 +1,50 @@
+commit ed6bbb6f69f84486fcd10e923a7ca9c025cf06d4
+Merge: 76e687e cbc92d1
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun May 17 14:44:19 2020 -0400
+
+    Merge remote-tracking branch 'origin/master'
+
+commit cbc92d12ad1cea7ba9f0ee29c1966c8a3b2a4e5b
+Merge: 066ea8b cdf8f03
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun May 17 18:43:19 2020 +0000
+
+    Merge pull request #9 from onions-knight/patch-6
+    
+    Update xfce4-panel.xml
+
+commit 066ea8b8e6d7be30c47919a35c8181cfde4e5a57
+Merge: 76e687e ca534cb
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun May 17 18:43:09 2020 +0000
+
+    Merge pull request #8 from onions-knight/patch-5
+    
+    Update xfce4-desktop.xml
+
+commit cdf8f03eb1beb6d8f698d8cc0f713cd48e6d743b
+Author: onions-knight <38859709+onions-knight@users.noreply.github.com>
+Date:   Sun May 17 18:41:15 2020 +0000
+
+    Update xfce4-panel.xml
+    
+    Placing panel on top, reducing alpha to 50 (transparency), see https://forums.whonix.org/t/xfce-theming-a-few-suggestions/7205/67
+
+commit ca534cbaf3537fbc20cf1e472c225553fd3c6f75
+Author: onions-knight <38859709+onions-knight@users.noreply.github.com>
+Date:   Sun May 17 18:31:46 2020 +0000
+
+    Update xfce4-desktop.xml
+    
+    Adding desktop icons on Whonix-Host, see https://forums.whonix.org/t/whonix-host-calamares-branding-suggestion/7772/37
+
+commit 76e687e04904147988ab9050dbf9caac7b18766e
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun May 17 06:56:20 2020 -0400
+
+    bumped changelog version
+
 commit 708b69eb1338eb90b36d50b6cbb7270e4131407b
 Merge: 5fd21a1 25b1987
 Author: Patrick Schleizer <adrelanos@riseup.net>
