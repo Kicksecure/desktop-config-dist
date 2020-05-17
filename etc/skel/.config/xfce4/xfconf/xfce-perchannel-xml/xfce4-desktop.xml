@@ -6,17 +6,33 @@
   <property name="backdrop" type="empty">
     <property name="screen0" type="empty">
       <property name="monitor0" type="empty">
+        <property name="brightness" type="empty"/>
+        <property name="color1" type="empty"/>
+        <property name="color2" type="empty"/>
+        <property name="color-style" type="empty"/>
+        <property name="image-path" type="empty"/>
+        <property name="image-show" type="empty"/>
+        <property name="last-image" type="empty"/>
+        <property name="last-single-image" type="empty"/>
         <property name="workspace0" type="empty">
+          <property name="color-style" type="int" value="2"/>
           <property name="color1" type="array">
-            <value type="uint" value="24158"/>
-            <value type="uint" value="25186"/>
-            <value type="uint" value="26214"/>
+            <value type="uint" value="15163"/>
+            <value type="uint" value="6168"/>
+            <value type="uint" value="31611"/>
             <value type="uint" value="65535"/>
           </property>
-          <property name="color-style" type="int" value="0"/>
+          <property name="color2" type="array">
+            <value type="uint" value="43433"/>
+            <value type="uint" value="57054"/>
+            <value type="uint" value="62194"/>
+            <value type="uint" value="65535"/>
+          </property>
           <property name="image-style" type="int" value="0"/>
         </property>
-       </property>
+      </property>
+    </property>
+    <property name="last" type="empty">
     </property>
   </property>
   <property name="desktop-icons" type="empty">
