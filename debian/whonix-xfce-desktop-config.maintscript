@@ -1,1 +1,4 @@
 rm_conffile /etc/lightdm/lightdm.conf.d/whonix.conf
+
+## moved to vm-config-dist
+rm_conffile /etc/lightdm/lightdm.conf.d/whonix-autologin.conf
