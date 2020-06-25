@@ -1,3 +1,27 @@
+commit d9b12efe358c4f9aeb1e781fab73bbe99f4b6501
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Jun 25 10:42:18 2020 -0400
+
+    live mod indicator: fix false positive live mode detection
+    
+    when installing snapd
+    
+    Thanks to DooSkagg for the bug report!
+    
+    https://forums.whonix.org/t/wickr-me-gets-whonix-stuck-in-live-mode/9834
+
+commit 224adf9562f2c1e4a4be5fe9af919bfa96b6654c
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Jun 21 13:32:09 2020 -0400
+
+    moved /etc/lightdm/lightdm.conf.d/whonix-autologin.conf to vm-config-dist
+
+commit b6790752c710457878e157c327dbd723dfa7908b
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun May 17 14:44:30 2020 -0400
+
+    bumped changelog version
+
 commit ed6bbb6f69f84486fcd10e923a7ca9c025cf06d4
 Merge: 76e687e cbc92d1
 Author: Patrick Schleizer <adrelanos@riseup.net>
