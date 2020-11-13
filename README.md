@@ -22,7 +22,7 @@ Disables thumbnails for better security.
 Disables save on exit for better privacy.
 ## How to install `whonix-xfce-desktop-config` using apt-get ##
 
-1\. Download [Whonix's Signing Key]().
+1\. Download Whonix's Signing Key.
 
 ```
 wget https://www.whonix.org/patrick.asc
