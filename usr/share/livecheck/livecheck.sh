@@ -68,14 +68,14 @@ if sudo --non-interactive /bin/lsblk --noheadings --all --raw --output RO | grep
 
       if test -f /usr/share/anon-gw-base-files/gateway || test -f /usr/share/anon-ws-base-files/workstation ; then
          ## case: Whonix VM
-         echo "<tool>Live mode is enabled but it is still possible to write to the disk. Please power off the machine and set the disk to read-only. See: https://whonix.org/wiki/Whonix_Live or click on the icon for more information.</tool>"
-         echo "<click>x-www-browser https://whonix.org/wiki/Whonix_Live</click>"
-         echo "<txtclick>x-www-browser https://whonix.org/wiki/Whonix_Live</txtclick>"
+         echo "<tool>Live mode is enabled but it is still possible to write to the disk. Please power off the machine and set the disk to read-only. See: https://www.whonix.org/wiki/VM_Live_Mode or click on the icon for more information.</tool>"
+         echo "<click>x-www-browser https://www.whonix.org/wiki/VM_Live_Mode</click>"
+         echo "<txtclick>x-www-browser https://www.whonix.org/wiki/VM_Live_Mode</txtclick>"
       else
          ## case: Debian hosts, Kicksecure hosts, non-Whonix hosts, Whonix-Host
-         echo "<tool>Live mode is enabled but it is still possible to write to the disk. Please power off the machine and set the disk to read-only, if possible. See: https://whonix.org/wiki/grub-live or click on the icon for more information.</tool>"
-         echo "<click>x-www-browser https://whonix.org/wiki/grub-live</click>"
-         echo "<txtclick>x-www-browser https://whonix.org/wiki/grub-live</txtclick>"
+         echo "<tool>Live mode is enabled but it is still possible to write to the disk. Please power off the machine and set the disk to read-only, if possible. See: https://www.whonix.org/wiki/Host_Live_Mode or click on the icon for more information.</tool>"
+         echo "<click>x-www-browser https://www.whonix.org/wiki/Host_Live_Mode</click>"
+         echo "<txtclick>x-www-browser https://www.whonix.org/wiki/Host_Live_Mode</txtclick>"
       fi
    else
       true "INFO: Live mode is disabled."
@@ -85,14 +85,14 @@ if sudo --non-interactive /bin/lsblk --noheadings --all --raw --output RO | grep
 
       if test -f /usr/share/anon-gw-base-files/gateway || test -f /usr/share/anon-ws-base-files/workstation ; then
          ## case: Whonix VM
-         echo "<tool>You are using persistent mode. All changes to the disk will be preserved after a reboot. For using live mode, see: https://whonix.org/wiki/Whonix_Live or click on the icon for more information.</tool>"
-         echo "<click>x-www-browser https://whonix.org/wiki/Whonix_Live</click>"
-         echo "<txtclick>x-www-browser https://whonix.org/wiki/Whonix_Live<txtclick>"
+         echo "<tool>You are using persistent mode. All changes to the disk will be preserved after a reboot. For using live mode, see: https://www.whonix.org/wiki/VM_Live_Mode or click on the icon for more information.</tool>"
+         echo "<click>x-www-browser https://www.whonix.org/wiki/VM_Live_Mode</click>"
+         echo "<txtclick>x-www-browser https://www.whonix.org/wiki/VM_Live_Mode<txtclick>"
       else
          ## case: Debian hosts, Kicksecure hosts, non-Whonix hosts, Whonix-Host
-         echo "<tool>You are using persistent mode. All changes to the disk will be preserved after a reboot. For using live mode, see: https://whonix.org/wiki/grub-live or click on the icon for more information.</tool>"
-         echo "<click>x-www-browser https://whonix.org/wiki/grub-live</click>"
-         echo "<txtclick>x-www-browser https://whonix.org/wiki/grub-live<txtclick>"
+         echo "<tool>You are using persistent mode. All changes to the disk will be preserved after a reboot. For using live mode, see: https://www.whonix.org/wiki/Host_Live_Mode or click on the icon for more information.</tool>"
+         echo "<click>x-www-browser https://www.whonix.org/wiki/Host_Live_Mode</click>"
+         echo "<txtclick>x-www-browser https://www.whonix.org/wiki/Host_Live_Mode<txtclick>"
       fi
    fi
 else
@@ -104,13 +104,13 @@ else
 
    if test -f /usr/share/anon-gw-base-files/gateway || test -f /usr/share/anon-ws-base-files/workstation ; then
       ## case: Whonix VM
-      echo "<tool>Live mode is enabled. All changes to the disk will be gone after a reboot. See: https://whonix.org/wiki/Whonix_Live or click on the icon for more information.</tool>"
-      echo "<click>x-www-browser https://whonix.org/wiki/Whonix_Live</click>"
-      echo "<txtclick>x-www-browser https://whonix.org/wiki/Whonix_Live</txtclick>"
+      echo "<tool>Live mode is enabled. All changes to the disk will be gone after a reboot. See: https://www.whonix.org/wiki/VM_Live_Mode or click on the icon for more information.</tool>"
+      echo "<click>x-www-browser https://www.whonix.org/wiki/VM_Live_Mode</click>"
+      echo "<txtclick>x-www-browser https://www.whonix.org/wiki/VM_Live_Mode</txtclick>"
    else
       ## case: Debian hosts, Kicksecure hosts, non-Whonix hosts, Whonix-Host
-      echo "<tool>Live mode is enabled. All changes to the disk will be gone after a reboot. See: https://whonix.org/wiki/grub-live or click on the icon for more information.</tool>"
-      echo "<click>x-www-browser https://whonix.org/wiki/grub-live</click>"
-      echo "<txtclick>x-www-browser https://whonix.org/wiki/grub-live</txtclick>"
+      echo "<tool>Live mode is enabled. All changes to the disk will be gone after a reboot. See: https://www.whonix.org/wiki/Host_Live_Mode or click on the icon for more information.</tool>"
+      echo "<click>x-www-browser https://www.whonix.org/wiki/Host_Live_Mode</click>"
+      echo "<txtclick>x-www-browser https://www.whonix.org/wiki/Host_Live_Mode</txtclick>"
    fi
 fi
