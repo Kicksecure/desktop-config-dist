@@ -64,9 +64,9 @@ if ! lsblk_output="$(sudo --non-interactive /bin/lsblk --noheadings --all --raw 
    echo "<img>/usr/share/icons/gnome-colors-common/16x16/status/dialog-error.png</img>"
    ## Show "Error" next to info symbol in systray.
    echo "<txt>Error</txt>"
-   echo "<tool>Do not panic. Live mode detection failed. Could not determine if booted into live mode or persistent mode. Please report this bug. See: https://www.whonix.org/wiki/Reporting_Bugs or click on the icon for more information.</tool>"
-   echo "<click>x-www-browser https://www.whonix.org/wiki/Reporting_Bugs</click>"
-   echo "<txtclick>x-www-browser https://www.whonix.org/wiki/Reporting_Bugs</txtclick>"
+   echo "<tool>Do not panic. Live mode detection failed. Could not determine if booted into live mode or persistent mode. Please report this bug. See: https://www.whonix.org/wiki/Grub-live#Live_Check_Systray_Issues or click on the icon for more information.</tool>"
+   echo "<click>x-www-browser https://www.whonix.org/wiki/Grub-live#Live_Check_Systray_Issues</click>"
+   echo "<txtclick>x-www-browser https://www.whonix.org/wiki/Grub-live#Live_Check_Systray_Issues</txtclick>"
    exit 0
 fi
 ## lsblk exited with exit code 0.
