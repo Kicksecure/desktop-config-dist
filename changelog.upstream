@@ -1,3 +1,25 @@
+commit 52f63f783c617be359516e9c039f9f178e531f0a
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Nov 24 09:24:37 2020 -0500
+
+    add to `Depends:` `gnome-colors-common` and `adwaita-icon-theme`
+    
+    because used by livecheck
+
+commit ece5ab373e4b1a74cce5c86621b8dca53795b18a
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Nov 24 09:23:40 2020 -0500
+
+    improve livecheck
+    
+    Notice if execution of lsblk fails with a non-zero exit code such as in case of missing sudoers permissions.
+
+commit 9bddd4335bba347e9f705fdcf67b428256270a11
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Nov 13 09:24:15 2020 -0500
+
+    bumped changelog version
+
 commit 2b14e643fb96367a1fef6265481c6a0d0a31da5a
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Fri Nov 13 09:24:14 2020 -0500
