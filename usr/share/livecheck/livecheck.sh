@@ -62,6 +62,7 @@ if ! lsblk_output="$(sudo --non-interactive /bin/lsblk --noheadings --all --raw 
    ## lsblk exited a non-zero exit code.
    true "INFO: Running 'sudo --non-interactive /bin/lsblk --noheadings --all --raw --output RO' failed!"
    echo "<img>/usr/share/icons/gnome-colors-common/16x16/status/dialog-error.png</img>"
+   ## Show "Error" next to info symbol in systray.
    echo "<txt>Error</txt>"
    if test -f /usr/share/anon-gw-base-files/gateway || test -f /usr/share/anon-ws-base-files/workstation ; then
       ## case: Whonix VM
@@ -84,6 +85,7 @@ if echo "$lsblk_output" | grep --quiet "0" ; then
    if grep -qs "boot=live" /proc/cmdline; then
       true "INFO: grub-live is enabled."
       echo "<img>/usr/share/icons/Adwaita/16x16/status/dialog-warning.png</img>"
+      ## Show "Live" next to info symbol in systray.
       echo "<txt>Live</txt>"
 
       if test -f /usr/share/anon-gw-base-files/gateway || test -f /usr/share/anon-ws-base-files/workstation ; then
