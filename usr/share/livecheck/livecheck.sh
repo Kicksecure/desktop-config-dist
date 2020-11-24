@@ -58,7 +58,26 @@ set -e
 ## Output of lsblk does not contain zero ("0"), meaning no read-write devices found.
 ## In other words, all disks are set set to read-only.
 
-if sudo --non-interactive /bin/lsblk --noheadings --all --raw --output RO | grep "0" ; then
+## Notice if execution of lsblk fails with a non-zero exit code such as in case of missing sudoers permissions.
+if ! lsblk_output="$(sudo --non-interactive /bin/lsblk --noheadings --all --raw --output RO)" ; then
+   true "INFO: Running 'sudo --non-interactive /bin/lsblk --noheadings --all --raw --output RO' failed!"
+   echo "<img>/usr/share/icons/gnome-colors-common/16x16/status/dialog-error.png</img>"
+   echo "<txt>Error</txt>"
+   if test -f /usr/share/anon-gw-base-files/gateway || test -f /usr/share/anon-ws-base-files/workstation ; then
+      ## case: Whonix VM
+      echo "<tool>Do not panic. Live mode detection failed. Could not determine if booted into live mode or persistent mode. Please report this bug. See: https://www.whonix.org/wiki/Reporting_Bugs or click on the icon for more information.</tool>"
+      echo "<click>x-www-browser https://www.whonix.org/wiki/Reporting_Bugs</click>"
+      echo "<txtclick>x-www-browser https://www.whonix.org/wiki/Reporting_Bugs</txtclick>"
+   else
+      ## case: Debian hosts, Kicksecure hosts, non-Whonix hosts, Whonix-Host
+      echo "<tool>Do not panic. Live mode detection failed. Could not determine if booted into live mode or persistent mode. Please report this bug. See: https://www.whonix.org/wiki/Reporting_Bugs or click on the icon for more information.</tool>"
+      echo "<click>x-www-browser https://www.whonix.org/wiki/Reporting_Bugs</click>"
+      echo "<txtclick>x-www-browser https://www.whonix.org/wiki/Reporting_Bugs</txtclick>"
+   fi
+   exit 0
+fi
+
+if echo "$lsblk_output" | grep --quiet "0" ; then
    true "INFO: If at least one '0' was found. Conclusion: not all read-only. Some read-write."
 
    if grep -qs "boot=live" /proc/cmdline; then
