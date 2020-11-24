@@ -6,7 +6,7 @@
 
 set -e
 
-## lsblk --all
+## sudo /bin/lsblk --all
 ##
 ## NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
 ## sda      8:0    0  100G  1 disk
@@ -14,11 +14,11 @@ set -e
 ## 1 means read-only
 ## 0 means read-write
 
-## as soon as we have at least one "0" -> not live mode
+## As soon as we have at least one "0" it is concluded: not live mode.
 
 ## when using snapd:
 ##
-## dsudo /bin/lsblk --all
+## sudo /bin/lsblk --all
 ##
 ## NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
 ## loop0    7:0    0   55M  1 loop /snap/core18/1754
@@ -35,7 +35,7 @@ set -e
 
 ## when using snapd:
 ##
-## dsudo /bin/lsblk --all
+## sudo /bin/lsblk --noheadings --all --raw --output RO
 ##
 ## 1
 ## 1
@@ -49,17 +49,17 @@ set -e
 ## 0
 ## 0
 
-## Using sudo because hide-hardware-info.service makes this only readable by
-## root, not user.
-## https://forums.whonix.org/t/restrict-hardware-information-to-root-testers-wanted/8618/13
-## This did not work with snapd
+## The following did not work with snapd:
 ## http://forums.whonix.org/t/wickr-me-gets-whonix-stuck-in-live-mode/9834/1
 #if sudo --non-interactive /bin/lsblk --noheadings --all --raw --output RO | grep --invert-match "0" ; then
-## Output of lsblk does not contain zero ("0"), meaning no read-write devices found.
-## In other words, all disks are set set to read-only.
 
-## Notice if execution of lsblk fails with a non-zero exit code such as in case of missing sudoers permissions.
+## Using `sudo` to run `lsblk` because `hide-hardware-info.service` makes this no longer
+## readable by user `root`. Only readable by user `root`.
+## https://forums.whonix.org/t/restrict-hardware-information-to-root-testers-wanted/8618/13
+
+## Check if execution of lsblk fails with a non-zero exit code such as in case of missing sudoers permissions.
 if ! lsblk_output="$(sudo --non-interactive /bin/lsblk --noheadings --all --raw --output RO)" ; then
+   ## lsblk exited a non-zero exit code.
    true "INFO: Running 'sudo --non-interactive /bin/lsblk --noheadings --all --raw --output RO' failed!"
    echo "<img>/usr/share/icons/gnome-colors-common/16x16/status/dialog-error.png</img>"
    echo "<txt>Error</txt>"
@@ -76,6 +76,7 @@ if ! lsblk_output="$(sudo --non-interactive /bin/lsblk --noheadings --all --raw 
    fi
    exit 0
 fi
+## lsblk exited with exit code 0.
 
 if echo "$lsblk_output" | grep --quiet "0" ; then
    true "INFO: If at least one '0' was found. Conclusion: not all read-only. Some read-write."
