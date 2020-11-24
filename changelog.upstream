@@ -1,3 +1,24 @@
+commit fd12e37f87efea1f1c228c9b292c8ceeb6e06ce9
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Nov 24 10:47:58 2020 -0500
+
+    livecheck: allow members of the following user groups to run livecheck
+    
+    `users`
+    `staff`
+    `adm`
+    `sudo`
+    `root`
+    `wheel`
+    `console`
+    `console-unrestricted`
+
+commit 00304a12a04af971eacfc546bb6f8754254437a1
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Nov 24 09:25:42 2020 -0500
+
+    bumped changelog version
+
 commit 52f63f783c617be359516e9c039f9f178e531f0a
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Tue Nov 24 09:24:37 2020 -0500
