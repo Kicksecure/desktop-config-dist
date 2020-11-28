@@ -1,3 +1,33 @@
+commit 9031de8f1391aace1ce311bab08906045e1ec32b
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Nov 24 11:41:48 2020 -0500
+
+    output
+
+commit b0597a0eb0278f98a1fb149af0fbf7b32ee5e2a6
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Nov 24 11:16:06 2020 -0500
+
+    refactoring
+
+commit 8a366117ea494936f00074a93c15c076be05e161
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Nov 24 11:14:03 2020 -0500
+
+    comments
+
+commit 35de90870ada5c770aef7d3c380d6c2f75572911
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Nov 24 11:12:18 2020 -0500
+
+    comments
+
+commit c53b4c0f20547515ecc3b5f4c9783683092a3f41
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Nov 24 11:00:50 2020 -0500
+
+    bumped changelog version
+
 commit fd12e37f87efea1f1c228c9b292c8ceeb6e06ce9
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Tue Nov 24 10:47:58 2020 -0500
