@@ -4,6 +4,7 @@
   <property name="general" type="empty">
     <property name="FailsafeSessionName" type="string" value="Failsafe"/>
     <property name="SaveOnExit" type="bool" value="false"/>
+    <property name="StartAssistiveTechnologies" type="bool" value="true"/>
   </property>
   <property name="sessions" type="empty">
     <property name="Failsafe" type="empty">
