@@ -1,3 +1,17 @@
+commit b40b0f74cdc232e3367e993e2e676e9b58f8713e
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Dec 29 09:39:04 2020 -0500
+
+    enable StartAssistiveTechnologies
+    
+    https://www.whonix.org/wiki/Orca
+
+commit 315e42cf7d13e37f881df0dd1ff5dd4dd4037a3d
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Nov 28 06:08:59 2020 -0500
+
+    bumped changelog version
+
 commit 9031de8f1391aace1ce311bab08906045e1ec32b
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Tue Nov 24 11:41:48 2020 -0500
