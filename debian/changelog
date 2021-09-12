@@ -1,3 +1,9 @@
+whonix-xfce-desktop-config (3:4.7-1) unstable; urgency=medium
+
+  * New upstream version (local package).
+
+ -- Patrick Schleizer <adrelanos@whonix.org>  Sun, 12 Sep 2021 16:09:35 +0000
+
 whonix-xfce-desktop-config (3:4.6-1) unstable; urgency=medium
 
   * New upstream version (local package).
