@@ -30,16 +30,16 @@
           </property>
           <property name="image-style" type="int" value="0"/>
           <property name="rgba2" type="array">
-            <value type="double" value="15163"/>
-            <value type="double" value="6168"/>
-            <value type="double" value="31611"/>
-            <value type="double" value="65535"/>
+            <value type="double" value="0.662745"/>
+            <value type="double" value="0.870588"/>
+            <value type="double" value="0.949020"/>
+            <value type="double" value="1.000000"/>
           </property>
           <property name="rgba1" type="array">
-            <value type="double" value="15163"/>
-            <value type="double" value="6168"/>
-            <value type="double" value="31611"/>
-            <value type="double" value="65535"/>
+            <value type="double" value="0.231373"/>
+            <value type="double" value="0.094118"/>
+            <value type="double" value="0.482353"/>
+            <value type="double" value="1.000000"/>
           </property>
         </property>
         <property name="workspace1" type="empty">
