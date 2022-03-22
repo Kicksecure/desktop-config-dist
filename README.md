@@ -20,7 +20,7 @@ Disable maximize windows when moving to top for better privacy.
 Disables thumbnails for better security.
 
 Disables save on exit for better privacy.
-## How to install `whonix-xfce-desktop-config` using apt-get ##
+## How to install `desktop-config-dist` using apt-get ##
 
 1\. Download the APT Signing Key.
 
@@ -48,10 +48,10 @@ echo "deb [signed-by=/usr/share/keyrings/derivative.asc] https://deb.whonix.org 
 sudo apt-get update
 ```
 
-5\. Install `whonix-xfce-desktop-config`.
+5\. Install `desktop-config-dist`.
 
 ```
-sudo apt-get install whonix-xfce-desktop-config
+sudo apt-get install desktop-config-dist
 ```
 
 ## How to Build deb Package from Source Code ##
@@ -62,7 +62,7 @@ Can be build using standard Debian package build tools such as:
 dpkg-buildpackage -b
 ```
 
-See instructions. (Replace `generic-package` with the actual name of this package `whonix-xfce-desktop-config`.)
+See instructions. (Replace `generic-package` with the actual name of this package `desktop-config-dist`.)
 
 * **A)** [easy](https://www.whonix.org/wiki/Dev/Build_Documentation/generic-package/easy), _OR_
 * **B)** [including verifying software signatures](https://www.whonix.org/wiki/Dev/Build_Documentation/generic-package)
@@ -74,4 +74,4 @@ See instructions. (Replace `generic-package` with the actual name of this packag
 
 ## Donate ##
 
-`whonix-xfce-desktop-config` requires [donations](https://www.whonix.org/wiki/Donate) to stay alive!
+`desktop-config-dist` requires [donations](https://www.whonix.org/wiki/Donate) to stay alive!

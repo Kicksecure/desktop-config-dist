@@ -1,19 +1,22 @@
 ## Copyright (C) 2012 - 2021 ENCRYPTED SUPPORT LP <adrelanos@whonix.org>
 ## See the file COPYING for copying conditions.
 
-Source: whonix-xfce-desktop-config
+Source: desktop-config-dist
 Section: misc
 Priority: optional
 Maintainer: Algernon <33966997+Algernon-01@users.noreply.github.com>
 Build-Depends: debhelper (>= 13), debhelper-compat (= 13)
-Homepage: https://github.com/Whonix/whonix-xfce-desktop-config
-Vcs-Browser: https://github.com/Whonix/whonix-xfce-desktop-config
-Vcs-Git: https://github.com/Whonix/whonix-xfce-desktop-config.git
+Homepage: https://github.com/Whonix/desktop-config-dist
+Vcs-Browser: https://github.com/Whonix/desktop-config-dist
+Vcs-Git: https://github.com/Whonix/desktop-config-dist.git
 Standards-Version: 4.5.1
 Rules-Requires-Root: no
 
-Package: whonix-xfce-desktop-config
+Package: desktop-config-dist
 Architecture: all
+Provides: whonix-xfce-desktop-config
+Replaces: whonix-xfce-desktop-config
+Conficts: whonix-xfce-desktop-config
 Depends: xfce4-whiskermenu-plugin, xfce4-genmon-plugin,
  arc-theme, gnome-themes-extra, gnome-themes-extra-data, gtk2-engines-murrine,
  gnome-colors-common, adwaita-icon-theme,

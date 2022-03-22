@@ -2,4 +2,4 @@
 ## See the file COPYING for copying conditions.
 
 ## The whole point of the package.
-whonix-xfce-desktop-config: package-contains-file-in-etc-skel etc/skel/*
+desktop-config-dist: package-contains-file-in-etc-skel etc/skel/*

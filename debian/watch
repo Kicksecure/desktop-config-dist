@@ -2,5 +2,5 @@
 ## See the file COPYING for copying conditions.
 
 version=4
-opts=filenamemangle=s/.+\/v?(\d\S+)\.tar\.gz/whonix-xfce-desktop-config-$1\.tar\.gz/ \
-  https://github.com/Whonix/whonix-xfce-desktop-config/tags .*/v?(\d\S+)\.tar\.gz
+opts=filenamemangle=s/.+\/v?(\d\S+)\.tar\.gz/desktop-config-dist-$1\.tar\.gz/ \
+  https://github.com/Whonix/desktop-config-dist/tags .*/v?(\d\S+)\.tar\.gz
