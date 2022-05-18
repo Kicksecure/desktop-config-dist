@@ -1,4 +1,4 @@
-# Configuration for Whonix Xfce Desktop #
+# Configuration for Derivative Xfce Desktop #
 
 Sets desktop and display setting, wallpaper and desktop icons.
 Sets icon theme and style.
@@ -9,7 +9,7 @@ Autologin for user 'user' setting in lightdm.
 
 Live check systray indicator which indicates the status of grub-live, whether
 the system was booted into persistent or live mode. See also:
-https://www.whonix.org/wiki/Whonix_Live
+https://www.kicksecure.com/wiki/grub-live
 
 Adds start menu entries for web browser, terminal emulator, file manager.
 
@@ -29,7 +29,7 @@ Disables save on exit for better privacy.
 wget https://www.kicksecure.com/derivative.asc
 ```
 
-Users can [check Whonix Signing Key](https://www.kicksecure.com/wiki/Signing_Key) for better security.
+Users can [check Derivative Signing Key](https://www.kicksecure.com/wiki/Signing_Key) for better security.
 
 2\. Add the APT Signing Key..
 

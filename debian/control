@@ -6,9 +6,9 @@ Section: misc
 Priority: optional
 Maintainer: Algernon <33966997+Algernon-01@users.noreply.github.com>
 Build-Depends: debhelper (>= 13), debhelper-compat (= 13)
-Homepage: https://github.com/Whonix/desktop-config-dist
-Vcs-Browser: https://github.com/Whonix/desktop-config-dist
-Vcs-Git: https://github.com/Whonix/desktop-config-dist.git
+Homepage: https://github.com/Kicksecure/desktop-config-dist
+Vcs-Browser: https://github.com/Kicksecure/desktop-config-dist
+Vcs-Git: https://github.com/Kicksecure/desktop-config-dist.git
 Standards-Version: 4.5.1
 Rules-Requires-Root: no
 
@@ -21,7 +21,7 @@ Depends: xfce4-whiskermenu-plugin, xfce4-genmon-plugin,
  arc-theme, gnome-themes-extra, gnome-themes-extra-data, gtk2-engines-murrine,
  gnome-colors-common, adwaita-icon-theme,
  ${misc:Depends}
-Description: Configuration for Whonix Xfce Desktop
+Description: Configuration for Derivative Xfce Desktop
  Sets desktop and display setting, wallpaper and desktop icons.
  Sets icon theme and style.
  Settings for the default panel aka task bar, like panel position/color/size
@@ -31,7 +31,7 @@ Description: Configuration for Whonix Xfce Desktop
  .
  Live check systray indicator which indicates the status of grub-live, whether
  the system was booted into persistent or live mode. See also:
- https://www.whonix.org/wiki/Whonix_Live
+ https://www.kicksecure.com/wiki/grub-live
  .
  Adds start menu entries for web browser, terminal emulator, file manager.
  .
