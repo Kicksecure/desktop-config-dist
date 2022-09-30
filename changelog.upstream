@@ -1,3 +1,39 @@
+commit 6058791683507c5c17fafdcf364e27efa49e2169
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Sep 30 08:19:46 2022 -0400
+
+    comment
+
+commit 86ae7cd7e274fea7f64209f1c22d1a1a3bf7762a
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Sep 30 08:18:41 2022 -0400
+
+    ignore lintian error
+    
+    desktop-config-dist: missing-dep-for-interpreter zsh => zsh | zsh-beta (etc/zsh/dist/.zshrc) #!zsh
+    
+    to avoid zsh being a dependency of this package
+
+commit adc380ad667ba8ba06d68b9e0cc66964249d1c6b
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Sep 30 07:39:04 2022 -0400
+
+    minor
+
+commit 64761c8f525b991d40c842f05878ce2ad4469621
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Sep 30 07:37:43 2022 -0400
+
+    make executable to fix lintian warning
+    
+    https://forums.whonix.org/t/change-default-shell-from-bash-to-zsh-by-default/14792/30
+
+commit d9efa1d54ff8bc31e319470befc8051dd00f71d1
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Sep 30 07:34:06 2022 -0400
+
+    bumped changelog version
+
 commit 26f22bf49d2418a1e0ecc16fd48aa78d174f7836
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Fri Sep 30 07:25:43 2022 -0400
