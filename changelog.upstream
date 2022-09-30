@@ -1,3 +1,37 @@
+commit 26f22bf49d2418a1e0ecc16fd48aa78d174f7836
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Sep 30 07:25:43 2022 -0400
+
+    renamed:    usr/lib/systemd/system.conf.d/30_kicksecure.conf -> usr/lib/systemd/system.conf.d/30_kicksecure-desktop-config-dist-zsh.conf
+
+commit 533f7353fb1ebcb1e267af6248c6503b01d823e8
+Merge: a361d37 e7b499a
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Sep 30 07:24:44 2022 -0400
+
+    Merge remote-tracking branch 'github-kicksecure/master'
+
+commit e7b499aecc7581951e9caaf26b0c96aeff13c8ad
+Merge: a361d37 0e6ec56
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Sep 30 07:21:29 2022 -0400
+
+    Merge pull request #1 from nyxnor/master
+    
+    add zsh files
+
+commit 0e6ec566a99d7805a9b33895b2a66e2dbb317a16
+Author: nyxnor <nyxnor@protonmail.com>
+Date:   Thu Sep 29 21:31:56 2022 +0000
+
+    add zsh files
+
+commit a361d370ed8c7da743b273c2e7d52ddd1348c262
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed May 25 06:05:44 2022 -0400
+
+    bumped changelog version
+
 commit 29ee6b641f49122a929908fbf666d76da4c59dbc
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Fri May 20 15:27:04 2022 -0400
