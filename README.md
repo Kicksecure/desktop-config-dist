@@ -22,6 +22,8 @@ Disables thumbnails for better security.
 Disables save on exit for better privacy.
 
 Ships `zsh` derivative configuration settings folder `/etc/zsh/dist`.
+Set environment variable `ZDOTDIR=/etc/zsh/dist` through use of file
+`/usr/lib/systemd/system.conf.d/30_kicksecure-desktop-config-dist-zsh.conf`.
 But does not configure `zsh` as default shell.
 (That is up to package `dist-base-files`.)
 
