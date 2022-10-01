@@ -18,7 +18,7 @@ Provides: whonix-xfce-desktop-config
 Replaces: whonix-xfce-desktop-config
 Conficts: whonix-xfce-desktop-config
 Depends: ${misc:Depends}
-Description: Configuration for Derivative Xfce Desktop
+Description: Configuration for Derivative Desktop
  Sets desktop and display setting, wallpaper and desktop icons.
  Sets icon theme and style.
  Settings for the default panel aka task bar, like panel position/color/size

@@ -1,4 +1,4 @@
-# Configuration for Derivative Xfce Desktop #
+# Configuration for Derivative Desktop #
 
 Sets desktop and display setting, wallpaper and desktop icons.
 Sets icon theme and style.
