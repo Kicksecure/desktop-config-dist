@@ -1,3 +1,41 @@
+commit 9a55251b271636d93cd12c6fc7e69394a6870c44
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Oct 1 10:22:51 2022 -0400
+
+    description
+
+commit e4a88c57057e5fe5f714870d407f2f8eb00152e5
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Oct 1 10:18:47 2022 -0400
+
+    description
+
+commit 3ede5b548979f41610119eef8431683c2b7bb986
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Oct 1 10:15:53 2022 -0400
+
+    description
+
+commit c84605e61dbeedd09159a57890c85508cf8143c5
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Oct 1 10:10:48 2022 -0400
+
+    split into desktop-config-dist and desktop-config-dist-dependencies
+    
+    https://forums.whonix.org/t/change-default-shell-from-bash-to-zsh-by-default/14792
+
+commit 62347318519e7a65ab4c637f2e1ad76dc462a016
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Sep 30 09:01:08 2022 -0400
+
+    genmkfile debinstfile
+
+commit 7d31cf50771b0e92d1625e3663a5e12079276247
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Sep 30 08:43:35 2022 -0400
+
+    bumped changelog version
+
 commit 6058791683507c5c17fafdcf364e27efa49e2169
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Fri Sep 30 08:19:46 2022 -0400
