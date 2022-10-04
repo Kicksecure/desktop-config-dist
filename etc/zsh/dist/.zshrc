@@ -53,10 +53,14 @@ esac
 [ $UID = '0' ] && usercolor=$'\e[00;97m'
 reset_color=$'\e[00m'
 
-## user prompt
-PROMPT="%{$fg[red]%}[\$(_get_dist_prompt)%{$usercolor%}%n%{$reset_color%}%{$reset_color%} %{$dircolor%}%~%{$reset_color%}%{$fg[red]%}]%{$reset_color%}%# "
-## developer prompt
-#PROMPT="%{$fg[red]%}[\$(_get_dist_prompt)%{$usercolor%}%n%{$reset_color%}%{$reset_color%} %{$dircolor%}%30<...<%~%<<%{$reset_color%}\$(_git_prompt_info)%{$fg[red]%}]%{$reset_color%}%# "
+if test -f /etc/zsh/dist/dev; then
+  ## developer prompt
+  PROMPT="%{$fg[red]%}[\$(_get_dist_prompt)%{$usercolor%}%n%{$reset_color%}%{$reset_color%} %{$dircolor%}%20<...<%~%<<%{$reset_color%}\$(_git_prompt_info)%{$fg[red]%}]%{$reset_color%}%# "
+else
+  ## user prompt
+  PROMPT="%{$fg[red]%}[\$(_get_dist_prompt)%{$usercolor%}%n%{$reset_color%}%{$reset_color%} %{$dircolor%}%~%{$reset_color%}%{$fg[red]%}]%{$reset_color%}%# "
+fi
+
 ## print previous command exit code 
 #RPS1="%(?..(%{"$'\e[01;35m'"%}%?%{$reset_color%}%)%<<)"
 
@@ -162,6 +166,7 @@ bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
+bindkey -M menuselect '^M' send-break
 bindkey -v '^?' backward-delete-char
 # Use vim keys during insert mode:
 bindkey -M viins '^A' beginning-of-line
@@ -170,18 +175,30 @@ bindkey -M viins '^D' delete-char-or-list
 bindkey -M viins '^E' end-of-line
 bindkey -M viins '^F' forward-char
 bindkey -M viins '^K' kill-line
-bindkey -M viins '^U' vi-kill-line
+bindkey -M viins '^U' backward-kill-line
 bindkey -M viins '^N' down-line-or-history
 bindkey -M viins '^P' up-line-or-history
 bindkey -M viins '^R' history-incremental-search-backward
 bindkey -M viins '^S' history-incremental-search-forward
 bindkey -M viins '^T' transpose-chars
+bindkey -M viins '^W' backward-kill-word
 bindkey -M viins '^Y' yank
+bindkey -M viins '^_' undo
 bindkey -M viins ' ' magic-space
-#bindkey -M viins '^J' accept-search 2>/dev/null
-bindkey -M viins '^J' accept-line 2>/dev/null
-#bindkey -M viins '^J' accept-2>/dev/null
-#bindkey -M isearch '^J' accept-search 2>/dev/null
+bindkey -M viins '^J' accept-search 2>/dev/null
+bindkey -M isearch '^J' accept-search 2>/dev/null
+
+# Mode agnostic editing for POS1 and ENDE
+bindkey -M viins '^[[H'  beginning-of-line
+bindkey -M vicmd '^[[H'  beginning-of-line
+bindkey -M viins '^[[F'  end-of-line
+bindkey -M vicmd '^[[F'  end-of-line
+bindkey -M viins '^[[3~' delete-char
+bindkey -M vicmd '^[[3~' delete-char
+
+bindkey -M vicmd '^[[P' vi-delete-char
+bindkey -M visual '^[[P' vi-delete
+
 
 # Change cursor shape for different vi modes.
 function zle-keymap-select() {
@@ -252,10 +269,7 @@ zle -N new-screen
 # Edit line in vim with ctrl-e:
 autoload -Uz edit-command-line
 zle -N edit-command-line
-bindkey '^e' edit-command-line
-bindkey -M vicmd '^[[P' vi-delete-char
-bindkey -M vicmd '^e' edit-command-line
-bindkey -M visual '^[[P' vi-delete
+bindkey -M vicmd v edit-command-line
 
 
 # The following lines were added by Whonix
