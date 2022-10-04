@@ -22,7 +22,7 @@ _git_prompt_info() {
     ref=${$(command git symbolic-ref HEAD 2> /dev/null)#refs/heads/} || \
       ref=${$(command git rev-parse HEAD 2>/dev/null)[1][1,7]} || \
       return
-  fi  
+  fi
   case "$TERM" in
     *-256color|xterm-kitty) branchcolor=$'\e[38;5;31m'   ;;
     *-88color|rxvt-unicode) branchcolor=$'\e[38;5;22m'   ;;
@@ -61,7 +61,7 @@ else
   PROMPT="%{$fg[red]%}[\$(_get_dist_prompt)%{$usercolor%}%n%{$reset_color%}%{$reset_color%} %{$dircolor%}%~%{$reset_color%}%{$fg[red]%}]%{$reset_color%}%# "
 fi
 
-## print previous command exit code 
+## print previous command exit code
 #RPS1="%(?..(%{"$'\e[01;35m'"%}%?%{$reset_color%}%)%<<)"
 
 ## necessary when there is functions inside the prompt
@@ -221,7 +221,7 @@ zle -N zle-line-init
 ##  https://unix.stackexchange.com/questions/433273/changing-cursor-style-based-on-mode-in-both-zsh-and-vim
 ## The only result that worked is by adding this to the vimrc:
 ##  autocmd VimEnter * silent exec "! echo -ne '\e[1 q'"
-##  autocmd VimLeave * silent exec "! echo -ne '\e[5 q'" 
+##  autocmd VimLeave * silent exec "! echo -ne '\e[5 q'"
 
 
 autoload -Uz select-word-style
