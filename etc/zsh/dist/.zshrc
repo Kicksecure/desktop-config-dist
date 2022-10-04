@@ -9,8 +9,8 @@
 source /etc/zsh/dist/.shrc
 
 autoload -U colors && colors	# Load colors
-# the host has the symbol %M, but not inserted because whonix always sets
-# the host as "host"
+# the host has the symbol %M, but not inserted because whonix always
+# sets the host as "host"
 
 _git_prompt_info() {
   case "$PWD" in
@@ -24,9 +24,9 @@ _git_prompt_info() {
       return
   fi  
   case "$TERM" in
-    *-256color|xterm-kitty) branchcolor=$'\e[38;5;31m'   ;;  
-    *-88color|rxvt-unicode) branchcolor=$'\e[38;5;22m'   ;;  
-    *)                      branchcolor=$'\e[00;94m'     ;;  
+    *-256color|xterm-kitty) branchcolor=$'\e[38;5;31m'   ;;
+    *-88color|rxvt-unicode) branchcolor=$'\e[38;5;22m'   ;;
+    *)                      branchcolor=$'\e[00;94m'     ;;
   esac
 print -Pn '(%%{$branchcolor%%}%20>...>$ref%<<%%{\e[00m%%})'
 }
