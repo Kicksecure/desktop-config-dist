@@ -1,3 +1,31 @@
+commit 446b003e945b80e0b306f86f61af14283bc1b55d
+Merge: a0eb3b6 2670ec0
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Oct 11 11:03:29 2022 -0400
+
+    Merge remote-tracking branch 'github-kicksecure/master'
+
+commit 2670ec06f7f1e323a49f2ae3c86038380e491184
+Merge: a0eb3b6 4e1b49c
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Oct 11 11:03:16 2022 -0400
+
+    Merge pull request #3 from nyxnor/master
+    
+    forward-word
+
+commit 4e1b49cd057be7dd484a56c5133b051f230c4ec3
+Author: nyxnor <nyxnor@protonmail.com>
+Date:   Mon Oct 10 14:15:48 2022 +0000
+
+    forward-word
+
+commit a0eb3b6f562e47ba93f1e0e25ab863355ef2d9ba
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Oct 6 14:45:10 2022 -0400
+
+    bumped changelog version
+
 commit 901341e8eaaa73d3dc36c20a1d377b1a94d726fd
 Merge: ba82079 f8912ba
 Author: Patrick Schleizer <adrelanos@whonix.org>
