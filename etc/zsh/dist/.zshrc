@@ -16,8 +16,6 @@ SAVEHIST=1000
 # Base for any shell
 source ${zsh_custom_dir}/.shrc
 
-autoload -U colors && colors	# Load colors
-
 ## prompt
 if test -f ${zsh_custom_dir}/.zshrc_prompt; then
   source ${zsh_custom_dir}/.zshrc_prompt

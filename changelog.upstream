@@ -1,3 +1,90 @@
+commit 52287806f4c81fe60cb13799c9707fe4453741b8
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Oct 11 12:48:35 2022 -0400
+
+    fix accept enter key to accept tab completion
+
+commit 7c309ee9055c3e92b17f5e8bac99699ac1f2c201
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Oct 11 12:40:51 2022 -0400
+
+    bumped changelog version
+
+commit 446b003e945b80e0b306f86f61af14283bc1b55d
+Merge: a0eb3b6 2670ec0
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Oct 11 11:03:29 2022 -0400
+
+    Merge remote-tracking branch 'github-kicksecure/master'
+
+commit 2670ec06f7f1e323a49f2ae3c86038380e491184
+Merge: a0eb3b6 4e1b49c
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Oct 11 11:03:16 2022 -0400
+
+    Merge pull request #3 from nyxnor/master
+    
+    forward-word
+
+commit 4e1b49cd057be7dd484a56c5133b051f230c4ec3
+Author: nyxnor <nyxnor@protonmail.com>
+Date:   Mon Oct 10 14:15:48 2022 +0000
+
+    forward-word
+
+commit a0eb3b6f562e47ba93f1e0e25ab863355ef2d9ba
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Oct 6 14:45:10 2022 -0400
+
+    bumped changelog version
+
+commit 901341e8eaaa73d3dc36c20a1d377b1a94d726fd
+Merge: ba82079 f8912ba
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Oct 4 16:56:11 2022 -0400
+
+    Merge remote-tracking branch 'github-kicksecure/master'
+
+commit f8912ba1d66e013fcb12eca383afed6e994e067b
+Merge: ba82079 28dbde0
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Oct 4 16:54:45 2022 -0400
+
+    Merge pull request #2 from nyxnor/master
+    
+    correct pos1 and ende keys
+
+commit 28dbde082c4c85eed70744049be112cfc4ffd59a
+Author: nyxnor <nyxnor@protonmail.com>
+Date:   Tue Oct 4 19:07:31 2022 +0000
+
+    another round of rm whitespaces
+
+commit b30365468281d160cacf97c443b7fdeb35ce02a9
+Author: nyxnor <nyxnor@protonmail.com>
+Date:   Tue Oct 4 19:05:07 2022 +0000
+
+    remove whitespace
+
+commit 9b4ea37918eb0f55f8f6b69443016915fd4ed87e
+Merge: 42b89df ba82079
+Author: nyxnor <nyxnor@protonmail.com>
+Date:   Tue Oct 4 18:59:42 2022 +0000
+
+    merge
+
+commit 42b89df8c859b99be877856915557383fdc91c45
+Author: nyxnor <nyxnor@protonmail.com>
+Date:   Tue Oct 4 18:55:25 2022 +0000
+
+    correct zsh POS1 and ENDE keys
+
+commit ba82079af7be30cbb0f0ecf1f8a77482ada70b45
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Oct 1 10:28:03 2022 -0400
+
+    bumped changelog version
+
 commit 9a55251b271636d93cd12c6fc7e69394a6870c44
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Sat Oct 1 10:22:51 2022 -0400
