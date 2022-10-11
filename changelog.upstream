@@ -1,3 +1,15 @@
+commit 52287806f4c81fe60cb13799c9707fe4453741b8
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Oct 11 12:48:35 2022 -0400
+
+    fix accept enter key to accept tab completion
+
+commit 7c309ee9055c3e92b17f5e8bac99699ac1f2c201
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Oct 11 12:40:51 2022 -0400
+
+    bumped changelog version
+
 commit 446b003e945b80e0b306f86f61af14283bc1b55d
 Merge: a0eb3b6 2670ec0
 Author: Patrick Schleizer <adrelanos@whonix.org>
