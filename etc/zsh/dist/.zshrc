@@ -1,8 +1,9 @@
 #!/usr/bin/env zsh
 
 ## Credits:
-## github.com/tpope/dotfiles
-## github.com/LukeSmithXYZ/voidrice
+## https://github.com/tpope/dotfiles
+## https://github.com/LukeSmithXYZ/voidrice
+## https://github.com/jeffreytse/zsh-vi-mode/blob/master/zsh-vi-mode.zsh
 
 
 # Base for any shell
@@ -65,7 +66,8 @@ fi
 #RPS1="%(?..(%{"$'\e[01;35m'"%}%?%{$reset_color%}%)%<<)"
 
 ## necessary when there is functions inside the prompt
-setopt promptsubst
+setopt PROMPT_SUBST
+#setopt promptsubst
 setopt PRINT_EXIT_VALUE
 
 ## set window title
@@ -157,7 +159,9 @@ SAVEHIST=1000
 setopt autocd beep extendedglob nomatch
 # End of lines configured by zsh-newuser-install
 
+
 ## key bindings
+# {{{
 bindkey -v
 export KEYTIMEOUT=1
 
@@ -168,61 +172,64 @@ bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -M menuselect '^M' send-break
 bindkey -v '^?' backward-delete-char
+
 # Use vim keys during insert mode:
 bindkey -M viins '^A' beginning-of-line
 bindkey -M viins '^B' backward-char
 bindkey -M viins '^D' delete-char-or-list
 bindkey -M viins '^E' end-of-line
 bindkey -M viins '^F' forward-char
+bindkey -M viins '^H' backward-delete-char
+bindkey -M viins '^J' accept-search 2>/dev/null
 bindkey -M viins '^K' kill-line
-bindkey -M viins '^U' backward-kill-line
+bindkey -M viins '^L' clear-screen
+bindkey -M viins '^M' accept-line
 bindkey -M viins '^N' down-line-or-history
 bindkey -M viins '^P' up-line-or-history
 bindkey -M viins '^R' history-incremental-search-backward
 bindkey -M viins '^S' history-incremental-search-forward
 bindkey -M viins '^T' transpose-chars
+bindkey -M viins '^U' backward-kill-line
 bindkey -M viins '^W' backward-kill-word
 bindkey -M viins '^Y' yank
+bindkey -M viins '^?' backward-delete-char
 bindkey -M viins '^_' undo
+bindkey -M viins '^ ' forward-word
 bindkey -M viins ' ' magic-space
-bindkey -M viins '^J' accept-search 2>/dev/null
-bindkey -M isearch '^J' accept-search 2>/dev/null
 
-# Mode agnostic editing for POS1 and ENDE
+# Mode agnostic editing for Home (Pos1) and End (Ende)
 bindkey -M viins '^[[H'  beginning-of-line
 bindkey -M vicmd '^[[H'  beginning-of-line
 bindkey -M viins '^[[F'  end-of-line
 bindkey -M vicmd '^[[F'  end-of-line
+
 bindkey -M viins '^[[3~' delete-char
 bindkey -M vicmd '^[[3~' delete-char
-
 bindkey -M vicmd '^[[P' vi-delete-char
 bindkey -M visual '^[[P' vi-delete
 
-
-# Change cursor shape for different vi modes.
-function zle-keymap-select() {
-  case $KEYMAP in
-    viins|main) printf "\e[5 q";; # beam
-    vicmd) printf "\e[1 q" ;; # block
-  esac
-}
-zle -N zle-keymap-select
-zle-line-init() {
-  # initiate `vi insert` as keymap (can be removed if `bindkey -V` has
-  # been set elsewhere)
-  zle -K viins
-  printf "\e[5 q"
-}
-zle -N zle-line-init
-
+## Change cursor shape for different vi modes.
 ## Problem is that the cursor is still beam when entering the Vi editor.
 ## Found this results, but none that only edited the zshrc worked:
 ##  https://unix.stackexchange.com/questions/433273/changing-cursor-style-based-on-mode-in-both-zsh-and-vim
 ## The only result that worked is by adding this to the vimrc:
 ##  autocmd VimEnter * silent exec "! echo -ne '\e[1 q'"
 ##  autocmd VimLeave * silent exec "! echo -ne '\e[5 q'"
-
+#function zle-keymap-select() {
+#  case $KEYMAP in
+#    viins|main) printf "\e[5 q";; # beam
+#    vicmd) printf "\e[1 q" ;; # block
+#  esac
+#}
+#zle -N zle-keymap-select
+#zle-line-init() {
+#  # initiate `vi insert` as keymap (can be removed if `bindkey -V` has
+#  # been set elsewhere)
+#  zle -K viins
+#  printf "\e[5 q"
+#}
+#zle -N zle-line-init
+#
 
 autoload -Uz select-word-style
 select-word-style bash
@@ -266,36 +273,42 @@ new-screen() {
 zle -N new-screen
 [[ -z "$terminfo[kf12]" ]] || bindkey "$terminfo[kf12]" new-screen
 
-# Edit line in vim with ctrl-e:
 autoload -Uz edit-command-line
 zle -N edit-command-line
-bindkey -M vicmd v edit-command-line
+bindkey -M emacs '^[e'  edit-command-line
+bindkey -M emacs '^X^E' edit-command-line
+bindkey -M visual v      edit-command-line
 
+for binding in ${(f)$(bindkey -M emacs|grep '^"\^X')}; do
+  bindkey -M viins "${(@Qz)binding}"
+done
+unset binding
 
-# The following lines were added by Whonix
+# }}}
+
 
 # enable color support of ls, less and man, and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
-    # Take advantage of $LS_COLORS for completion as well
-    zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
-    zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
+  # Take advantage of $LS_COLORS for completion as well
+  zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+  zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 fi
 
 # enable auto-suggestions based on the history
 if test -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh; then
-    source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-    # change suggestion color
-    ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#999'
+  source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+  # change suggestion color
+  ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#999'
 fi
 
 if test -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh &&
-    [ "$color_prompt" = yes ]
+  [ "$color_prompt" = yes ]
 then
-    source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+  source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
 # enable command-not-found if installed
 if test -f /etc/zsh_command_not_found; then
-    source /etc/zsh_command_not_found
+  source /etc/zsh_command_not_found
 fi
 
