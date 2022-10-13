@@ -109,4 +109,3 @@ esac
 
 unset hostcolor hostletter hostcode dircolor usercolor usercode reset_color
 
-

@@ -4,6 +4,7 @@
 ## https://github.com/tpope/dotfiles
 ## https://github.com/LukeSmithXYZ/voidrice
 ## https://github.com/jeffreytse/zsh-vi-mode/blob/master/zsh-vi-mode.zsh
+## https://github.com/cloudhead/dotfiles/blob/master/.zshrc
 
 ## base dir
 zsh_custom_dir="/etc/zsh/dist"
