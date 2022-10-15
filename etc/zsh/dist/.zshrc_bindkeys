@@ -1,3 +1,5 @@
+#!/usr/bin/env sh
+
 ## Control keys "Ctrl" or "Strg" equals to the "^" (caret) symbol
 ## For more information, read https://en.wikipedia.org/wiki/Caret_notation
 ## To discover new keys, use

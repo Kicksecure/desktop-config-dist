@@ -1,3 +1,5 @@
+#!/usr/bin/env sh
+
 zstyle ':completion:*' auto-description 'specify: %d'
 zstyle ':completion:*' completer _expand _complete _ignored _approximate
 zstyle ':completion:*' expand prefix suffix
