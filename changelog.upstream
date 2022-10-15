@@ -1,3 +1,36 @@
+commit 23de91ea3f1e9473d486339101f821cf9caf52b4
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Oct 15 13:29:27 2022 -0400
+
+    fix lightdm compatibility with desktop-config-dist Zsh
+    
+    set `ZDOTDIR=/etc/zsh/dist` environment variable
+    
+    also using `/etc/X11/Xsession.d` mechanism
+    
+    For compatibility with lightdm, the ZDOTDIR environment variable cannot only be set inside:
+    `/usr/lib/systemd/system.conf.d/30_kicksecure-desktop-config-dist-zsh.conf`
+    
+    `export ZDOTDIR=/etc/zsh/dist`
+    
+    https://forums.whonix.org/t/change-default-shell-from-bash-to-zsh-by-default/14792/54
+
+commit eaff2362e06ef985a733310fa18a7dbd60a4a5d0
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Oct 15 13:24:20 2022 -0400
+
+    add zsh shebang to fix lintian warnings:
+    
+    W: desktop-config-dist: executable-not-elf-or-script etc/zsh/dist/.zshrc_bindkeys
+    W: desktop-config-dist: executable-not-elf-or-script etc/zsh/dist/.zshrc_completions
+    W: desktop-config-dist: executable-not-elf-or-script etc/zsh/dist/.zshrc_prompt
+
+commit ffa301a652a87d5f3851aa585e1bc3ac6b09a44b
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Oct 15 11:56:00 2022 -0400
+
+    bumped changelog version
+
 commit 7bfd0688f57fe6e8c31e8144c4cd896164510187
 Merge: 739e3e6 13d7c8d
 Author: Patrick Schleizer <adrelanos@whonix.org>
