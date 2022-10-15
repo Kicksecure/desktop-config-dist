@@ -1,0 +1,10 @@
+#!/bin/sh
+
+## Copyright (C) 2022 - 2022 ENCRYPTED SUPPORT LP <adrelanos@whonix.org>
+## See the file COPYING for copying conditions.
+
+## lightdm compatibility with desktop-config-dist Zsh
+## For compatibility with lightdm, the ZDOTDIR environment variable cannot only be set inside:
+## /usr/lib/systemd/system.conf.d/30_kicksecure-desktop-config-dist-zsh.conf
+## https://forums.whonix.org/t/change-default-shell-from-bash-to-zsh-by-default/14792/54
+export ZDOTDIR=/etc/zsh/dist
