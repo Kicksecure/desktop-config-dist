@@ -1,3 +1,46 @@
+commit 7bfd0688f57fe6e8c31e8144c4cd896164510187
+Merge: 739e3e6 13d7c8d
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Oct 15 11:50:29 2022 -0400
+
+    Merge remote-tracking branch 'github-kicksecure/master'
+
+commit 13d7c8d60eee6cc366ab8b535232c13c73d83b00
+Merge: 739e3e6 57ff75a
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Oct 15 11:48:51 2022 -0400
+
+    Merge pull request #4 from nyxnor/master
+    
+    separate zsh scripts
+
+commit 57ff75a400ef0c5c939b4b61b14b5300f0448baf
+Author: nyxnor <nyxnor@protonmail.com>
+Date:   Thu Oct 13 23:16:22 2022 +0000
+
+    correct vi cursor type
+    
+    bulletproof method that doesn't require fixing the cursor on external applications
+
+commit 2a436b3082005c624f07d69de0570b23d819b3db
+Merge: d74ca73 739e3e6
+Author: nyxnor <nyxnor@protonmail.com>
+Date:   Tue Oct 11 17:38:42 2022 +0000
+
+    merge
+
+commit d74ca7371bda56fb3f4aadbe0a13ce7da23c6de8
+Author: nyxnor <nyxnor@protonmail.com>
+Date:   Tue Oct 11 17:33:58 2022 +0000
+
+    separate zshrc into small files
+
+commit 739e3e6beec7082859ac71262a5042c7fe5f28ed
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Oct 11 12:50:11 2022 -0400
+
+    bumped changelog version
+
 commit 52287806f4c81fe60cb13799c9707fe4453741b8
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Tue Oct 11 12:48:35 2022 -0400
