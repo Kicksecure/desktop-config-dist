@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env zsh
 
 ## Control keys "Ctrl" or "Strg" equals to the "^" (caret) symbol
 ## For more information, read https://en.wikipedia.org/wiki/Caret_notation
