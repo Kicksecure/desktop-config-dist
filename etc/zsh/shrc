@@ -3,7 +3,7 @@
 # Default shell commands for Whonix
 
 # source aliases
-test -f /etc/zsh/.aliasrc && . /etc/zsh/.aliasrc
+test -f /etc/zsh/aliasrc && . /etc/zsh/aliasrc
 
 
 # set variable identifying the chroot you work in (used in the prompt below)
