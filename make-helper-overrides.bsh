@@ -3,5 +3,5 @@
 ## Copyright (C) 2022 - 2022 ENCRYPTED SUPPORT LP <adrelanos@whonix.org>
 ## See the file COPYING for copying conditions.
 
-## Avoid zsh being a dependency of this package due to /etc/zsh/dist folder.
+## Avoid zsh being a dependency of this package due to /etc/zsh folder.
 genmkfile_lintian_post_opts+=" --suppress-tags missing-dep-for-interpreter "
