@@ -1,3 +1,55 @@
+commit 3afc615e9c7a8ab0e56324e90a04992c310c18fd
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 16 07:18:59 2022 -0400
+
+    switch Zsh configuration to use config-package-dev method
+    
+    https://forums.whonix.org/t/change-default-shell-from-bash-to-zsh-by-default/14792/74
+
+commit d0f3c35d177ebf63e891ad432b4457f27e799c25
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 16 06:00:42 2022 -0400
+
+    renamed:    etc/zsh/.aliasrc -> etc/zsh/aliasrc
+    renamed:    etc/zsh/.shrc -> etc/zsh/shrc
+    renamed:    etc/zsh/.zshrc -> etc/zsh/zshrc
+    renamed:    etc/zsh/.zshrc_bindkeys -> etc/zsh/zshrc_bindkeys
+    renamed:    etc/zsh/.zshrc_completions -> etc/zsh/zshrc_completions
+    renamed:    etc/zsh/.zshrc_prompt -> etc/zsh/zshrc_prompt
+
+commit 6728e0c09f1328c9636d73771700cc5436a6fcea
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 16 05:53:18 2022 -0400
+
+    stop setting environment variable ZDOTDIR=/etc/zsh/dist
+    
+    https://forums.whonix.org/t/change-default-shell-from-bash-to-zsh-by-default/14792/74
+
+commit 0fbfa1428417fc0db2611a8c86f00b5fd40c019e
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 16 05:51:16 2022 -0400
+
+    /etc/zsh/dist -> /etc/zsh
+    
+    https://forums.whonix.org/t/change-default-shell-from-bash-to-zsh-by-default/14792/74
+
+commit ce61280c9ae8dee28407160b1781abfbd38770c2
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 16 05:47:39 2022 -0400
+
+    renamed:    etc/zsh/dist/.aliasrc -> etc/zsh/.aliasrc
+    renamed:    etc/zsh/dist/.shrc -> etc/zsh/.shrc
+    renamed:    etc/zsh/dist/.zshrc -> etc/zsh/.zshrc
+    renamed:    etc/zsh/dist/.zshrc_bindkeys -> etc/zsh/.zshrc_bindkeys
+    renamed:    etc/zsh/dist/.zshrc_completions -> etc/zsh/.zshrc_completions
+    renamed:    etc/zsh/dist/.zshrc_prompt -> etc/zsh/.zshrc_prompt
+
+commit 635df4e5b7bd21ef54a1f198b2d2a129cd0d99f0
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Oct 15 14:53:51 2022 -0400
+
+    bumped changelog version
+
 commit ca19efac4d689d88a37ab26a5ab2b641f8232fca
 Merge: 69b1939 cd3e40f
 Author: Patrick Schleizer <adrelanos@whonix.org>
