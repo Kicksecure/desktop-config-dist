@@ -15,21 +15,21 @@ HISTSIZE=1000
 SAVEHIST=1000
 
 # Base for any shell
-source ${zsh_custom_dir}/.shrc
+source ${zsh_custom_dir}/shrc
 
 ## prompt
-if test -f ${zsh_custom_dir}/.zshrc_prompt; then
-  source ${zsh_custom_dir}/.zshrc_prompt
+if test -f ${zsh_custom_dir}/zshrc_prompt; then
+  source ${zsh_custom_dir}/zshrc_prompt
 fi
 
 ## completion
-if test -f ${zsh_custom_dir}/.zshrc_completions; then
-  source ${zsh_custom_dir}/.zshrc_completions
+if test -f ${zsh_custom_dir}/zshrc_completions; then
+  source ${zsh_custom_dir}/zshrc_completions
 fi
 
 ## key bindings
-if test -f ${zsh_custom_dir}/.zshrc_bindkeys; then
-  source ${zsh_custom_dir}/.zshrc_bindkeys
+if test -f ${zsh_custom_dir}/zshrc_bindkeys; then
+  source ${zsh_custom_dir}/zshrc_bindkeys
 fi
 
 ## enable auto-suggestions based on the history
@@ -50,4 +50,3 @@ fi
 if test -f /etc/zsh_command_not_found; then
   source /etc/zsh_command_not_found
 fi
-
