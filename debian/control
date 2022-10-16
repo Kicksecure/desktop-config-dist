@@ -5,7 +5,7 @@ Source: desktop-config-dist
 Section: misc
 Priority: optional
 Maintainer: Algernon <33966997+Algernon-01@users.noreply.github.com>
-Build-Depends: debhelper (>= 13), debhelper-compat (= 13)
+Build-Depends: debhelper (>= 13), debhelper-compat (= 13), config-package-dev
 Homepage: https://github.com/Kicksecure/desktop-config-dist
 Vcs-Browser: https://github.com/Kicksecure/desktop-config-dist
 Vcs-Git: https://github.com/Kicksecure/desktop-config-dist.git
