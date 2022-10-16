@@ -34,4 +34,3 @@ compinit -u
 #_comp_options+=(globdots)		# Include hidden files.
 # End of lines added by compinstall
 
-setopt autocd beep extendedglob nomatch

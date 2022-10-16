@@ -14,7 +14,24 @@ HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
 
-# Base for any shell
+## options
+## - history
+setopt hist_expire_dups_first # purge dups first
+setopt hist_ignore_dups # ignore dups in history list
+setopt hist_verify # if command has hist expansion, show it before executing
+## - files
+setopt autocd
+setopt extendedglob
+setopt nomatch # if a pattern has no matches print an error
+setopt numericglobsort # sort file names numerically when relevant
+setopt magicequalsubst # filename expansion for 'opt=arg'
+## - words
+setopt interactivecomments
+## - prompt
+setopt promptsubst
+setopt printexitvalue
+
+## base for any shell
 source ${zsh_custom_dir}/shrc
 
 ## prompt
