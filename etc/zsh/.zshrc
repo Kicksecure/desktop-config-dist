@@ -7,7 +7,7 @@
 ## https://github.com/cloudhead/dotfiles/blob/master/.zshrc
 
 ## base dir
-zsh_custom_dir="/etc/zsh/dist"
+zsh_custom_dir="/etc/zsh"
 
 ## history
 HISTFILE=~/.histfile

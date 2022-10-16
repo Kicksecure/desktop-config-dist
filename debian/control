@@ -40,7 +40,7 @@ Description: Configuration for Derivative Desktop
  .
  Disables save on exit for better privacy.
  .
- Ships `zsh` derivative configuration settings folder `/etc/zsh/dist`.
+ Ships `zsh` derivative configuration settings folder `/etc/zsh`.
  Set environment variable `ZDOTDIR=/etc/zsh/dist` through use of file
  `/usr/lib/systemd/system.conf.d/30_kicksecure-desktop-config-dist-zsh.conf`.
  But does not configure `zsh` as default shell.
