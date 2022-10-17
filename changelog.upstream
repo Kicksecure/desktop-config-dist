@@ -1,3 +1,38 @@
+commit 9193a3e6d123268b6db24d9c922a645f79a24d85
+Merge: f1cee01 f779307
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Oct 17 06:32:49 2022 -0400
+
+    Merge remote-tracking branch 'github-kicksecure/master'
+
+commit f7793074855eaa3bc998a58ec50f4275cd45352e
+Merge: f1cee01 8108d2d
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Oct 17 06:33:06 2022 -0400
+
+    Merge pull request #7 from nyxnor/master
+    
+    improve with kali version
+
+commit 8108d2d760aeda55cd1937d5445b63257d9b245a
+Merge: 0a72e7b f1cee01
+Author: nyxnor <nyxnor@protonmail.com>
+Date:   Sun Oct 16 15:51:27 2022 +0000
+
+    Merge branch 'master' of https://github.com/Kicksecure/desktop-config-dist
+
+commit 0a72e7b720a7acd9661c5c24361669c143a6664d
+Author: nyxnor <nyxnor@protonmail.com>
+Date:   Sun Oct 16 15:50:51 2022 +0000
+
+    improve following kali linux
+
+commit f1cee017531235f0113a48ef1fbb0b0afc35a85c
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 16 11:19:42 2022 -0400
+
+    bumped changelog version
+
 commit a3fb048067bcf04620df0a59b969b07123a43d4e
 Merge: 8bd8be1 8052533
 Author: Patrick Schleizer <adrelanos@whonix.org>
