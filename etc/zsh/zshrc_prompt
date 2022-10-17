@@ -54,11 +54,6 @@ fi
 ## print previous command exit code
 #RPS1="%(?..(%{"$'\e[01;35m'"%}%?%{$reset_color%}%)%<<)"
 
-## necessary when there is functions inside the prompt
-setopt PROMPT_SUBST
-#setopt promptsubst
-setopt PRINT_EXIT_VALUE
-
 ## set window title
 _set_title() {
   case "$1" in
