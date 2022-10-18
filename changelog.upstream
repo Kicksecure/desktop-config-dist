@@ -1,3 +1,33 @@
+commit ab1926a3679b77f7b95079a1d274104732c7dff1
+Merge: 2e4d623 10841d9
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Oct 18 09:06:21 2022 -0400
+
+    Merge remote-tracking branch 'github-kicksecure/master'
+
+commit 10841d9d78943bafea74a05c93b5c0a931adf6bf
+Merge: 2e4d623 71fd969
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Oct 18 09:01:46 2022 -0400
+
+    Merge pull request #8 from nyxnor/master
+    
+    create empty .zshrc to skip zsh-newuser-install
+
+commit 71fd9691f8bac25e7d4f1f9fc95f6ece31a56c65
+Author: nyxnor <nyxnor@protonmail.com>
+Date:   Tue Oct 18 12:36:44 2022 +0000
+
+    create empty .zshrc to skip zsh-newuser-install
+    
+    https://www.kicksecure.com/wiki/Shell
+
+commit 2e4d623fba127ccdb41f3c2bffa8aefb6d4021ec
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Oct 17 06:40:03 2022 -0400
+
+    bumped changelog version
+
 commit 9193a3e6d123268b6db24d9c922a645f79a24d85
 Merge: f1cee01 f779307
 Author: Patrick Schleizer <adrelanos@whonix.org>
