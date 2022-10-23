@@ -1,3 +1,33 @@
+commit f7f2b3c4bce420d483f6941e2fe976e0dafc7b66
+Merge: ab2de54 e767720
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 23 18:42:05 2022 -0400
+
+    Merge remote-tracking branch 'github-kicksecure/master'
+
+commit e76772047f17ca726f0ed5e05541306192021caa
+Merge: ab2de54 ed323d1
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 23 18:41:18 2022 -0400
+
+    Merge pull request #9 from nyxnor/master
+    
+    remove extendedglob, too advanced
+    
+    https://forums.whonix.org/t/change-default-shell-from-bash-to-zsh-by-default/14792/100
+
+commit ed323d1252b1da25cd682670aeba7dbc40ec04f7
+Author: nyxnor <nyxnor@protonmail.com>
+Date:   Sun Oct 23 22:34:09 2022 +0000
+
+    remove extendedglob, too advanced
+
+commit ab2de54c5841a49959aee447156b23012bd136ac
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Oct 18 13:04:58 2022 -0400
+
+    bumped changelog version
+
 commit ab1926a3679b77f7b95079a1d274104732c7dff1
 Merge: 2e4d623 10841d9
 Author: Patrick Schleizer <adrelanos@whonix.org>
