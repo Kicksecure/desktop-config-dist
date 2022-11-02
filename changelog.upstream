@@ -1,3 +1,33 @@
+commit dad235582713fc3e6b47362d041ab11aaa1df43c
+Merge: 185eba5 f50fac7
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Nov 2 13:10:49 2022 -0400
+
+    Merge remote-tracking branch 'github-kicksecure/master'
+
+commit f50fac7b38da6a416bd90a94d3b85c097a2be349
+Merge: 185eba5 5d5c5fd
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Nov 2 13:10:17 2022 -0400
+
+    Merge pull request #10 from nyxnor/master
+    
+    enabled bracketed paste by default
+
+commit 5d5c5fd68c9c4513cd317a3ff4e4e5d518801e94
+Author: nyxnor <nyxnor@protonmail.com>
+Date:   Mon Oct 31 16:13:53 2022 +0000
+
+    enabled bracketed paste by default
+    
+    not sure it works using every paste method, but will leave enabled as it may cause more good than harm
+
+commit 185eba5cb5f27ed3428e6a6ba5d385b03d58f98a
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 23 18:45:25 2022 -0400
+
+    bumped changelog version
+
 commit f7f2b3c4bce420d483f6941e2fe976e0dafc7b66
 Merge: ab2de54 e767720
 Author: Patrick Schleizer <adrelanos@whonix.org>
