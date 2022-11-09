@@ -1,3 +1,31 @@
+commit 3fdb09a92b57ca7b0baa4cd8653e51ab8f6a6b47
+Merge: 38d4837 4cdf19f
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Nov 9 11:16:02 2022 -0500
+
+    Merge remote-tracking branch 'github-kicksecure/master'
+
+commit 4cdf19fe5d1ce1c35313f62878a248e868f9c302
+Merge: 38d4837 8090f41
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Nov 9 11:10:36 2022 -0500
+
+    Merge pull request #11 from ntninja/patch-1
+    
+    Fix /etc/zsh_prompt for shells with `no_unset` shell option (aka `set -u`) set
+
+commit 8090f417bfebf07867473bc8a98bcaa744601f73
+Author: Erin Schlarb <erin-dev@ninetailed.ninja>
+Date:   Wed Nov 2 22:03:41 2022 +0000
+
+    Fix /etc/zsh_prompt for shells with `no_unset` shell option (aka `set -u`) set
+
+commit 38d48376c713d765a309605ee2b828320aa4cd98
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Nov 2 13:18:12 2022 -0400
+
+    bumped changelog version
+
 commit dad235582713fc3e6b47362d041ab11aaa1df43c
 Merge: 185eba5 f50fac7
 Author: Patrick Schleizer <adrelanos@whonix.org>
