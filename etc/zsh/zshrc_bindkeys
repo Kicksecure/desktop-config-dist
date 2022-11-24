@@ -48,13 +48,15 @@ bindkey -M viins '^[[1;5C' forward-word
 ## Home (Pos1)
 bindkey -M viins '^[[H'  beginning-of-line
 bindkey -M vicmd '^[[H'  beginning-of-line
+bindkey -M viins '^[[1~' beginning-of-line
+bindkey -M vicmd '^[[1~' beginning-of-line
 ## End (Ende)
-bindkey -M viins '^[[F'  end-of-line
-bindkey -M vicmd '^[[F'  end-of-line
+bindkey -M viins '^[[4~' end-of-line
+bindkey -M vicmd '^[[4~' end-of-line
 ## Del
 bindkey -M viins '^[[3~' delete-char
 bindkey -M vicmd '^[[3~' delete-char
-bindkey -M vicmd '^[[P' vi-delete-char
+bindkey -M vicmd '^[[P'  vi-delete-char
 bindkey -M visual '^[[P' vi-delete
 
 
