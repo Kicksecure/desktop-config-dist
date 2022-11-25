@@ -1,3 +1,37 @@
+commit edda3fd729262dbd27df0eceede77b861ef7115b
+Merge: 54cf830 c659f2c
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Nov 25 04:32:28 2022 -0500
+
+    Merge remote-tracking branch 'github-kicksecure/master'
+
+commit c659f2c6a4267939884b11624014e9c9855c1d35
+Merge: 54cf830 c013259
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Nov 25 04:31:58 2022 -0500
+
+    Merge pull request #12 from nyxnor/home-end
+    
+    fix home and end for different keyboards
+
+commit c013259caefa2c64c298dc1c9e9a8d458ee0a87d
+Author: nyxnor <nyxnor@protonmail.com>
+Date:   Thu Nov 24 21:47:14 2022 +0000
+
+    fix removal of items in the previous commit
+
+commit e06d54741e6fac219d9ba0048466b19cf0b60182
+Author: nyxnor <nyxnor@protonmail.com>
+Date:   Thu Nov 24 21:36:23 2022 +0000
+
+    fix home and end for different keyboards
+
+commit 54cf830981c9107992b9fb91ab23c4b0ea69b25b
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Nov 9 11:42:41 2022 -0500
+
+    bumped changelog version
+
 commit 3fdb09a92b57ca7b0baa4cd8653e51ab8f6a6b47
 Merge: 38d4837 4cdf19f
 Author: Patrick Schleizer <adrelanos@whonix.org>
