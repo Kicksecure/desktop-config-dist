@@ -1,3 +1,43 @@
+commit cf86e0d1d7a3ecff962d3bd872331f67f009f428
+Merge: 4e7cd3d ee7c972
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Feb 22 07:10:58 2023 -0500
+
+    Merge remote-tracking branch 'github-kicksecure/master'
+
+commit ee7c972ce3a6b536f0acc9d47430e63cb2d37f8f
+Merge: 4e7cd3d 57c5306
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Feb 22 07:09:27 2023 -0500
+
+    Merge pull request #13 from nyxnor/noequals
+    
+    Noequals and more
+
+commit 57c53061777b1a3517eff2a64e19c46b7eff5932
+Author: nyxnor <nyxnor@protonmail.com>
+Date:   Mon Feb 20 22:49:49 2023 +0000
+
+    remove unncessary comments
+
+commit 4cf9026ffe192c8d80e5b0ec3887c8ddf3e3284e
+Author: nyxnor <nyxnor@protonmail.com>
+Date:   Mon Feb 20 22:32:50 2023 +0000
+
+    improve highlight colors and fix =command problem
+
+commit 03b19e8a4ccd5286c4ecaf9d12688fa7a728f837
+Author: nyxnor <nyxnor@protonmail.com>
+Date:   Mon Feb 20 22:32:05 2023 +0000
+
+    fix zsh prompt mising color
+
+commit 4e7cd3dc24608ed5360f1b4c30a208e99f03f31f
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Nov 25 04:33:48 2022 -0500
+
+    bumped changelog version
+
 commit edda3fd729262dbd27df0eceede77b861ef7115b
 Merge: 54cf830 c659f2c
 Author: Patrick Schleizer <adrelanos@whonix.org>
