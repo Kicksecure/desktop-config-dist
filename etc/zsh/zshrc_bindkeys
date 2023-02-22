@@ -61,30 +61,7 @@ bindkey -M vicmd '^[[3~' delete-char
 bindkey -M vicmd '^[[P'  vi-delete-char
 bindkey -M visual '^[[P' vi-delete
 
-
 ## Change cursor shape for different vi modes.
-## Problem is that the cursor is still beam when entering the Vi editor.
-## Found this results, but none that only edited the zshrc worked:
-##  https://unix.stackexchange.com/questions/433273/changing-cursor-style-based-on-mode-in-both-zsh-and-vim
-## The only result that worked is by adding this to the vimrc:
-##  autocmd VimEnter * silent exec "! echo -ne '\e[1 q'"
-##  autocmd VimLeave * silent exec "! echo -ne '\e[5 q'"
-#function zle-keymap-select() {
-#  case $KEYMAP in
-#    viins|main) printf "\e[5 q";; # beam
-#    vicmd) printf "\e[1 q" ;; # block
-#  esac
-#}
-#zle -N zle-keymap-select
-#zle-line-init() {
-#  # initiate `vi insert` as keymap (can be removed if `bindkey -V` has
-#  # been set elsewhere)
-#  zle -K viins
-#  printf "\e[5 q"
-#}
-#zle -N zle-line-init
-#
-
 zle-keymap-select zle-line-init() {
   # Check ~/.st/config.h for the cursor escape sequences.
   case $KEYMAP in

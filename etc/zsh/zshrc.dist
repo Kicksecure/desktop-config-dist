@@ -9,6 +9,9 @@
 ## base dir
 zsh_custom_dir="/etc/zsh"
 
+## Use root path from /etc/profile so programs in /sbin are highlighted in green
+PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+
 ## history
 HISTFILE=~/.histfile
 HISTSIZE=1000
@@ -26,6 +29,7 @@ setopt numericglobsort # sort file names numerically when relevant
 setopt magicequalsubst # filename expansion for 'opt=arg'
 ## - words
 setopt interactivecomments
+setopt noequals
 ## - prompt
 setopt promptsubst
 setopt printexitvalue
@@ -53,18 +57,33 @@ if test -f ${zsh_custom_dir}/zshrc_bindkeys; then
   source ${zsh_custom_dir}/zshrc_bindkeys
 fi
 
-## enable auto-suggestions based on the history
-if test -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh; then
-  source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-  # change suggestion color
-  ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#999'
-fi
-
-## highlight commands as you type
-if test -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh &&
-  [ "$color_prompt" = yes ]
-then
-  source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+if test "$color_prompt" = "yes"; then
+  ## Enable auto-suggestions based on the history
+  if test -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh; then
+    ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=30
+    source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+  fi
+  ## Highlight commands as you type
+  if test -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh; then
+    ## https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/docs/hig +hlighters
+    ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern regexp)
+    typeset -A ZSH_HIGHLIGHT_STYLES
+    ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=red'
+    ZSH_HIGHLIGHT_STYLES[default]='fg=white'
+    ZSH_HIGHLIGHT_STYLES[alias]='fg=cyan'
+    ZSH_HIGHLIGHT_STYLES[function]='fg=cyan'
+    ZSH_HIGHLIGHT_STYLES[builtin]='fg=green'
+    ZSH_HIGHLIGHT_STYLES[command]='fg=green'
+    ZSH_HIGHLIGHT_STYLES[precommand]='fg=green'
+    ZSH_HIGHLIGHT_STYLES[comment]='fg=black,bold'
+    ZSH_HIGHLIGHT_STYLES[globbing]='fg=cyan'
+    typeset -A ZSH_HIGHLIGHT_REGEXP
+    ZSH_HIGHLIGHT_REGEXP+=('^rm .*' 'fg=magenta')
+    typeset -A ZSH_HIGHLIGHT_PATTERNS
+    ZSH_HIGHLIGHT_PATTERNS+=('sudo*' 'fg=magenta')
+    ZSH_HIGHLIGHT_PATTERNS+=('doas*' 'fg=magenta')
+    source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+  fi
 fi
 
 ## enable command-not-found if installed

@@ -42,13 +42,14 @@ case "$TERM" in
 esac
 [ $UID = '0' ] && usercolor=$'\e[00;97m'
 reset_color=$'\e[00m'
-
+red=$'\e[00;31m'
+autoload -U colors && colors
 if test -f ${zsh_custom_dir}/dev; then
   ## developer prompt
-  PROMPT="%{$fg[red]%}[\$(_get_dist_prompt)%{$usercolor%}%n%{$reset_color%}%{$reset_color%} %{$dircolor%}%20<...<%~%<<%{$reset_color%}\$(_git_prompt_info)%{$fg[red]%}]%{$reset_color%}%# "
+  PS1="%{$red%}[\$(_get_dist_prompt)%{$usercolor%}%n%{$reset_color%}%{$reset_color%} %{$dircolor%}%20<...<%~%<<%{$reset_color%}\$(_git_prompt_info)%{$red%}]%{$reset_color%}%# "
 else
   ## user prompt
-  PROMPT="%{$fg[red]%}[\$(_get_dist_prompt)%{$usercolor%}%n%{$reset_color%}%{$reset_color%} %{$dircolor%}%~%{$reset_color%}%{$fg[red]%}]%{$reset_color%}%# "
+  PS1="%{$red%}[\$(_get_dist_prompt)%{$usercolor%}%n%{$reset_color%}%{$reset_color%} %{$dircolor%}%~%{$reset_color%}%{$red%}]%{$reset_color%}%# "
 fi
 
 ## print previous command exit code
@@ -104,5 +105,5 @@ case $TERM in
     ;;
 esac
 
-unset hostcolor hostletter hostcode dircolor usercolor usercode reset_color
+unset hostcolor hostletter hostcode dircolor usercolor usercode reset_color red
 
