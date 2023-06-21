@@ -57,6 +57,12 @@ set -e
 ## readable by user `root`. Only readable by user `root`.
 ## https://forums.whonix.org/t/restrict-hardware-information-to-root-testers-wanted/8618/13
 
+if test -f /usr/share/anon-gw-base-files/gateway || test -f /usr/share/anon-ws-base-files/workstation ; then
+   homepage="https://www.whonix.org"
+else
+   homepage="https://www.kicksecure.com"
+fi
+
 ## Check if execution of lsblk fails with a non-zero exit code such as in case of missing sudoers permissions.
 if ! lsblk_output="$(sudo --non-interactive /bin/lsblk --noheadings --all --raw --output RO)" ; then
    ## lsblk exited a non-zero exit code.
@@ -116,15 +122,7 @@ else
    ## Show "Live" next to info symbol in systray.
    echo "<txt>Live</txt>"
 
-   if test -f /usr/share/anon-gw-base-files/gateway || test -f /usr/share/anon-ws-base-files/workstation ; then
-      ## case: Whonix VM
-      echo "<tool>Live mode is enabled. All changes to the disk will be gone after a reboot. See: https://www.whonix.org/wiki/Live_Mode or click on the icon for more information.</tool>"
-      echo "<click>x-www-browser https://www.whonix.org/wiki/Live_Mode</click>"
-      echo "<txtclick>x-www-browser https://www.whonix.org/wiki/Live_Mode</txtclick>"
-   else
-      ## case: Debian hosts, Kicksecure hosts, non-Whonix hosts, Whonix-Host
-      echo "<tool>Live mode is enabled. All changes to the disk will be gone after a reboot. See: https://www.kicksecure.com/wiki/Live_Mode or click on the icon for more information.</tool>"
-      echo "<click>x-www-browser https://www.kicksecure.com/wiki/Live_Mode</click>"
-      echo "<txtclick>x-www-browser https://www.kicksecure.com/wiki/Live_Mode</txtclick>"
-   fi
+   echo "<tool>Live mode is enabled. All changes to the disk will be gone after a reboot. See: $homepage/wiki/Live_Mode or click on the icon for more information.</tool>"
+   echo "<click>x-www-browser $homepage/wiki/Live_Mode</click>"
+   echo "<txtclick>x-www-browser $homepage/wiki/Live_Mode</txtclick>"
 fi
