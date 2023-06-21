@@ -1,3 +1,33 @@
+commit 990313f4c12dec9404329b550fd0fe8c77b60411
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Jun 21 11:21:27 2023 +0000
+
+    check if images exist
+
+commit eb4a70f1322488855ee0c3413a982bc5db9ef6c6
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Jun 21 11:14:03 2023 +0000
+
+    refactoring
+
+commit 715818e276ed9c7c33032357cf4d6fec35855f08
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Jun 21 11:10:35 2023 +0000
+
+    refactoring
+
+commit ec8fe789305b669de2c53dc96ab2db48f4b0679b
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Jun 21 10:53:23 2023 +0000
+
+    output
+
+commit def197bc4b7da05c1afe9f911afac0c21cef4b12
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Jun 21 09:14:59 2023 +0000
+
+    bumped changelog version
+
 commit 8f0ad49b1d1ea13a2c7465ae5e973fda2fb73cb8
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Wed Jun 21 09:11:26 2023 +0000
