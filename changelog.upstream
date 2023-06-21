@@ -1,3 +1,17 @@
+commit ba48bd9c73f49886069188d4722dcc178ec2ca2a
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Jun 21 11:55:47 2023 +0000
+
+    Revert "`Depends: gnome-colors-common` for livecheck"
+    
+    This reverts commit 14544b881dccc81a63b76d0126e9a0ca4cc28c1a.
+
+commit d9ab22cce96fca816eb385730f066db67de87934
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Jun 21 11:48:14 2023 +0000
+
+    bumped changelog version
+
 commit 14544b881dccc81a63b76d0126e9a0ca4cc28c1a
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Wed Jun 21 11:47:55 2023 +0000
