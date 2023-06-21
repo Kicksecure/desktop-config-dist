@@ -1,3 +1,21 @@
+commit 14544b881dccc81a63b76d0126e9a0ca4cc28c1a
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Jun 21 11:47:55 2023 +0000
+
+    `Depends: gnome-colors-common` for livecheck
+
+commit e1d4dbca4124aec09c0227ef503cb2225b84d1c6
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Jun 21 11:47:02 2023 +0000
+
+    livecheck systray icons
+
+commit 0ee7cb80e927d6ca0af3ff8ff93eab3663931ae5
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Jun 21 11:31:03 2023 +0000
+
+    bumped changelog version
+
 commit 990313f4c12dec9404329b550fd0fe8c77b60411
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Wed Jun 21 11:21:27 2023 +0000
