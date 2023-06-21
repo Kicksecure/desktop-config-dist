@@ -57,12 +57,26 @@ set -e
 ## readable by user `root`. Only readable by user `root`.
 ## https://forums.whonix.org/t/restrict-hardware-information-to-root-testers-wanted/8618/13
 
+missing_image=""
+test -f /usr/share/icons/gnome-colors-common/16x16/status/dialog-error.png || missing_image=true
+test -f /usr/share/icons/Adwaita/16x16/status/dialog-warning.png || missing_image=true
+test -f /usr/share/icons/gnome-colors-common/22x22/status/gtk-info.png || missing_image=true
+test -f /usr/share/icons/gnome-colors-common/16x16/actions/dialog-apply.png || missing_image=true
+
 if test -f /usr/share/anon-gw-base-files/gateway || test -f /usr/share/anon-ws-base-files/workstation ; then
    homepage="https://www.whonix.org"
    sentence_ending="."
 else
    homepage="https://www.kicksecure.com"
    sentence_ending=", if possible."
+fi
+
+if [ "$missing_image" = "true" ]; then
+   bug_message="
+
+(Minor bug: Missing illustrative image.)"
+else
+   bug_message=""
 fi
 
 ## Check if execution of lsblk fails with a non-zero exit code such as in case of missing sudoers permissions.
@@ -72,7 +86,7 @@ if ! lsblk_output="$(sudo --non-interactive /bin/lsblk --noheadings --all --raw 
    echo "<img>/usr/share/icons/gnome-colors-common/16x16/status/dialog-error.png</img>"
    ## Show "Error" next to info symbol in systray.
    echo "<txt>Error</txt>"
-   echo "<tool>Do not panic. Live mode detection failed. Could not determine if booted into live mode or persistent mode. Please report this bug. See: $homepage/wiki/Grub-live#Live_Check_Systray_Issues or click on the icon for more information.</tool>"
+   echo "<tool>Do not panic. Live mode detection failed. Could not determine if booted into live mode or persistent mode. Please report this bug. See: $homepage/wiki/Grub-live#Live_Check_Systray_Issues or click on the icon for more information.$bug_message</tool>"
    echo "<click>x-www-browser $homepage/wiki/Grub-live#Live_Check_Systray_Issues</click>"
    echo "<txtclick>x-www-browser $homepage/wiki/Grub-live#Live_Check_Systray_Issues</txtclick>"
    exit 0
@@ -87,7 +101,7 @@ if echo "$lsblk_output" | grep --quiet "0" ; then
       echo "<img>/usr/share/icons/Adwaita/16x16/status/dialog-warning.png</img>"
       ## Show "Live" next to info symbol in systray.
       echo "<txt>Live</txt>"
-      echo "<tool>Live mode is enabled but it is still possible to write to the disk. Please power off the machine and set the disk to read-only$sentence_ending See: $homepage/wiki/Live_Mode or click on the icon for more information.</tool>"
+      echo "<tool>Live mode is enabled but it is still possible to write to the disk. Please power off the machine and set the disk to read-only$sentence_ending See: $homepage/wiki/Live_Mode or click on the icon for more information.$bug_message</tool>"
       echo "<click>x-www-browser $homepage/wiki/Live_Mode</click>"
       echo "<txtclick>x-www-browser $homepage/wiki/Live_Mode</txtclick>"
    else
@@ -95,7 +109,7 @@ if echo "$lsblk_output" | grep --quiet "0" ; then
       echo "<img>/usr/share/icons/gnome-colors-common/22x22/status/gtk-info.png</img>"
       ## Do not show "Persistent" next to info symbol in systray.
       #echo "<txt>Persistent</txt>"
-      echo "<tool>You are using persistent mode. All changes to the disk will be preserved after a reboot. For using live mode, see: $homepage/wiki/Live_Mode or click on the icon for more information.</tool>"
+      echo "<tool>You are using persistent mode. All changes to the disk will be preserved after a reboot. For using live mode, see: $homepage/wiki/Live_Mode or click on the icon for more information.$bug_message</tool>"
       echo "<click>x-www-browser $homepage/wiki/Live_Mode</click>"
       echo "<txtclick>x-www-browser $homepage/wiki/Live_Mode<txtclick>"
    fi
@@ -106,7 +120,7 @@ else
    ## Show "Live" next to info symbol in systray.
    echo "<txt>Live</txt>"
 
-   echo "<tool>Live mode is enabled. All changes to the disk will be gone after a reboot. See: $homepage/wiki/Live_Mode or click on the icon for more information.</tool>"
+   echo "<tool>Live mode is enabled. All changes to the disk will be gone after a reboot. See: $homepage/wiki/Live_Mode or click on the icon for more information.$bug_message</tool>"
    echo "<click>x-www-browser $homepage/wiki/Live_Mode</click>"
    echo "<txtclick>x-www-browser $homepage/wiki/Live_Mode</txtclick>"
 fi
