@@ -59,8 +59,10 @@ set -e
 
 if test -f /usr/share/anon-gw-base-files/gateway || test -f /usr/share/anon-ws-base-files/workstation ; then
    homepage="https://www.whonix.org"
+   sentence_ending="."
 else
    homepage="https://www.kicksecure.com"
+   sentence_ending=", if possible."
 fi
 
 ## Check if execution of lsblk fails with a non-zero exit code such as in case of missing sudoers permissions.
@@ -70,9 +72,9 @@ if ! lsblk_output="$(sudo --non-interactive /bin/lsblk --noheadings --all --raw 
    echo "<img>/usr/share/icons/gnome-colors-common/16x16/status/dialog-error.png</img>"
    ## Show "Error" next to info symbol in systray.
    echo "<txt>Error</txt>"
-   echo "<tool>Do not panic. Live mode detection failed. Could not determine if booted into live mode or persistent mode. Please report this bug. See: https://www.kicksecure.com/wiki/Grub-live#Live_Check_Systray_Issues or click on the icon for more information.</tool>"
-   echo "<click>x-www-browser https://www.kicksecure.com/wiki/Grub-live#Live_Check_Systray_Issues</click>"
-   echo "<txtclick>x-www-browser https://www.kicksecure.com/wiki/Grub-live#Live_Check_Systray_Issues</txtclick>"
+   echo "<tool>Do not panic. Live mode detection failed. Could not determine if booted into live mode or persistent mode. Please report this bug. See: $homepage/wiki/Grub-live#Live_Check_Systray_Issues or click on the icon for more information.</tool>"
+   echo "<click>x-www-browser $homepage/wiki/Grub-live#Live_Check_Systray_Issues</click>"
+   echo "<txtclick>x-www-browser $homepage/wiki/Grub-live#Live_Check_Systray_Issues</txtclick>"
    exit 0
 fi
 ## lsblk exited with exit code 0.
@@ -85,35 +87,17 @@ if echo "$lsblk_output" | grep --quiet "0" ; then
       echo "<img>/usr/share/icons/Adwaita/16x16/status/dialog-warning.png</img>"
       ## Show "Live" next to info symbol in systray.
       echo "<txt>Live</txt>"
-
-      if test -f /usr/share/anon-gw-base-files/gateway || test -f /usr/share/anon-ws-base-files/workstation ; then
-         ## case: Whonix VM
-         echo "<tool>Live mode is enabled but it is still possible to write to the disk. Please power off the machine and set the disk to read-only. See: https://www.whonix.org/wiki/Live_Mode or click on the icon for more information.</tool>"
-         echo "<click>x-www-browser https://www.whonix.org/wiki/Live_Mode</click>"
-         echo "<txtclick>x-www-browser https://www.whonix.org/wiki/Live_Mode</txtclick>"
-      else
-         ## case: Debian hosts, Kicksecure hosts, non-Whonix hosts, Whonix-Host
-         echo "<tool>Live mode is enabled but it is still possible to write to the disk. Please power off the machine and set the disk to read-only, if possible. See: https://www.kicksecure.com/wiki/Live_Mode or click on the icon for more information.</tool>"
-         echo "<click>x-www-browser https://www.kicksecure.com/wiki/Live_Mode</click>"
-         echo "<txtclick>x-www-browser https://www.kicksecure.com/wiki/Live_Mode</txtclick>"
-      fi
+      echo "<tool>Live mode is enabled but it is still possible to write to the disk. Please power off the machine and set the disk to read-only$sentence_ending See: $homepage/wiki/Live_Mode or click on the icon for more information.</tool>"
+      echo "<click>x-www-browser $homepage/wiki/Live_Mode</click>"
+      echo "<txtclick>x-www-browser $homepage/wiki/Live_Mode</txtclick>"
    else
       true "INFO: Live mode is disabled."
       echo "<img>/usr/share/icons/gnome-colors-common/22x22/status/gtk-info.png</img>"
       ## Do not show "Persistent" next to info symbol in systray.
       #echo "<txt>Persistent</txt>"
-
-      if test -f /usr/share/anon-gw-base-files/gateway || test -f /usr/share/anon-ws-base-files/workstation ; then
-         ## case: Whonix VM
-         echo "<tool>You are using persistent mode. All changes to the disk will be preserved after a reboot. For using live mode, see: https://www.whonix.org/wiki/Live_Mode or click on the icon for more information.</tool>"
-         echo "<click>x-www-browser https://www.whonix.org/wiki/Live_Mode</click>"
-         echo "<txtclick>x-www-browser https://www.whonix.org/wiki/Live_Mode<txtclick>"
-      else
-         ## case: Debian hosts, Kicksecure hosts, non-Whonix hosts, Whonix-Host
-         echo "<tool>You are using persistent mode. All changes to the disk will be preserved after a reboot. For using live mode, see: https://www.kicksecure.com/wiki/Live_Mode or click on the icon for more information.</tool>"
-         echo "<click>x-www-browser https://www.kicksecure.com/wiki/Live_Mode</click>"
-         echo "<txtclick>x-www-browser https://www.kicksecure.com/wiki/Live_Mode<txtclick>"
-      fi
+      echo "<tool>You are using persistent mode. All changes to the disk will be preserved after a reboot. For using live mode, see: $homepage/wiki/Live_Mode or click on the icon for more information.</tool>"
+      echo "<click>x-www-browser $homepage/wiki/Live_Mode</click>"
+      echo "<txtclick>x-www-browser $homepage/wiki/Live_Mode<txtclick>"
    fi
 else
    true "INFO: No '0' is found. Therefore only '1' found. Conclusion: read-only."
