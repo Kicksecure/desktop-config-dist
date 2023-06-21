@@ -58,10 +58,10 @@ set -e
 ## https://forums.whonix.org/t/restrict-hardware-information-to-root-testers-wanted/8618/13
 
 missing_image=""
-test -f /usr/share/icons/gnome-colors-common/16x16/status/dialog-error.png || missing_image=true
-test -f /usr/share/icons/Adwaita/16x16/status/dialog-warning.png || missing_image=true
-test -f /usr/share/icons/gnome-colors-common/22x22/status/gtk-info.png || missing_image=true
-test -f /usr/share/icons/gnome-colors-common/16x16/actions/dialog-apply.png || missing_image=true
+test -f /usr/share/icons/gnome-colors-common/scalable/status/dialog-error.svg || missing_image=true
+test -f /usr/share/icons/gnome-colors-common/scalable/status/dialog-warning.svg || missing_image=true
+test -f /usr/share/icons/gnome-colors-common/scalable/status/gtk-info.svg || missing_image=true
+test -f /usr/share/icons/gnome-colors-common/scalable/actions/dialog-apply.svg || missing_image=true
 
 if test -f /usr/share/anon-gw-base-files/gateway || test -f /usr/share/anon-ws-base-files/workstation ; then
    homepage="https://www.whonix.org"
@@ -83,7 +83,7 @@ fi
 if ! lsblk_output="$(sudo --non-interactive /bin/lsblk --noheadings --all --raw --output RO)" ; then
    ## lsblk exited a non-zero exit code.
    true "INFO: Running 'sudo --non-interactive /bin/lsblk --noheadings --all --raw --output RO' failed!"
-   echo "<img>/usr/share/icons/gnome-colors-common/16x16/status/dialog-error.png</img>"
+   echo "<img>/usr/share/icons/gnome-colors-common/scalable/status/dialog-error.svg</img>"
    ## Show "Error" next to info symbol in systray.
    echo "<txt>Error</txt>"
    echo "<tool>Do not panic. Live mode detection failed. Could not determine if booted into live mode or persistent mode. Please report this bug. See: $homepage/wiki/Grub-live#Live_Check_Systray_Issues or click on the icon for more information.$bug_message</tool>"
@@ -98,7 +98,7 @@ if echo "$lsblk_output" | grep --quiet "0" ; then
 
    if grep -qs "boot=live" /proc/cmdline; then
       true "INFO: grub-live is enabled."
-      echo "<img>/usr/share/icons/Adwaita/16x16/status/dialog-warning.png</img>"
+      echo "<img>/usr/share/icons/gnome-colors-common/scalable/status/dialog-warning.svg</img>"
       ## Show "Live" next to info symbol in systray.
       echo "<txt>Live</txt>"
       echo "<tool>Live mode is enabled but it is still possible to write to the disk. Please power off the machine and set the disk to read-only$sentence_ending See: $homepage/wiki/Live_Mode or click on the icon for more information.$bug_message</tool>"
@@ -116,7 +116,7 @@ if echo "$lsblk_output" | grep --quiet "0" ; then
 else
    true "INFO: No '0' is found. Therefore only '1' found. Conclusion: read-only."
 
-   echo "<img>/usr/share/icons/gnome-colors-common/16x16/actions/dialog-apply.png</img>"
+   echo "<img>/usr/share/icons/gnome-colors-common/scalable/actions/dialog-apply.svg</img>"
    ## Show "Live" next to info symbol in systray.
    echo "<txt>Live</txt>"
 
