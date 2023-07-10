@@ -24,7 +24,7 @@ setopt hist_ignore_dups # ignore dups in history list
 setopt hist_verify # if command has hist expansion, show it before executing
 ## - files
 setopt autocd
-setopt nomatch # if a pattern has no matches print an error
+setopt nonomatch # if a pattern has no matches, avoid printing an error
 setopt numericglobsort # sort file names numerically when relevant
 setopt magicequalsubst # filename expansion for 'opt=arg'
 ## - words
