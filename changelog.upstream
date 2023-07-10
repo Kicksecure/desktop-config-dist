@@ -1,3 +1,22 @@
+commit 1fe66a2224aa048308ef0642d1c44f5223c6cba9
+Merge: 3e29a5b 48ea095
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Jul 10 17:07:41 2023 -0400
+
+    Merge remote-tracking branch 'nyxnor/master'
+
+commit 48ea095c5839d69c0281e980e705145161333168
+Author: nyxnor <nyxnor@protonmail.com>
+Date:   Mon Jul 10 09:30:56 2023 +0000
+
+    Fix zsh failing other commands when it has no matches
+
+commit 3e29a5b12d461f330e653c881a011fd5165172e1
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Jun 21 11:56:01 2023 +0000
+
+    bumped changelog version
+
 commit ba48bd9c73f49886069188d4722dcc178ec2ca2a
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Wed Jun 21 11:55:47 2023 +0000
