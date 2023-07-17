@@ -1,3 +1,29 @@
+commit 8c521e2222ec64faba3f0e9ab38e091553dceffb
+Merge: d4a681f d380b02
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Jul 17 10:12:28 2023 -0400
+
+    Merge remote-tracking branch 'nyxnor/master'
+
+commit d380b02fcb4c44b6b2c250309f005b0822243265
+Merge: 284d8bc d4a681f
+Author: nyxnor <nyxnor@protonmail.com>
+Date:   Mon Jul 17 12:56:01 2023 +0000
+
+    Merge remote-tracking branch 'upstream/master'
+
+commit 284d8bc2fc3109b34f1ddc61fa1bd9530bc8a1fc
+Author: nyxnor <nyxnor@protonmail.com>
+Date:   Mon Jul 17 12:53:19 2023 +0000
+
+    Fix zsh deleting spaces after specific chars
+
+commit d4a681fed3272665d2521069111bdc28473b2a83
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Jul 10 17:07:54 2023 -0400
+
+    bumped changelog version
+
 commit 1fe66a2224aa048308ef0642d1c44f5223c6cba9
 Merge: 3e29a5b 48ea095
 Author: Patrick Schleizer <adrelanos@whonix.org>
