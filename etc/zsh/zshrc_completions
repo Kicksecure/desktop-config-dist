@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+ZLE_SPACE_SUFFIX_CHARS=$'|&'
+
 zstyle ':completion:*' auto-description 'specify: %d'
 zstyle ':completion:*' completer _expand _complete _ignored _approximate
 zstyle ':completion:*' expand prefix suffix
