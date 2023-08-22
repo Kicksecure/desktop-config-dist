@@ -2,6 +2,7 @@
 
 ## Copyright (C) 2018 - 2023 ENCRYPTED SUPPORT LP <adrelanos@whonix.org>
 ## Copyright (C) 2018 Algernon <33966997+Algernon-01@users.noreply.github.com>
+## Copyright (C) 2023 PXLKNG <79484393+pxlkng@users.noreply.github.com>
 ## See the file COPYING for copying conditions.
 
 set -e
@@ -80,9 +81,14 @@ else
 fi
 
 ## Check if execution of lsblk fails with a non-zero exit code such as in case of missing sudoers permissions.
-if ! lsblk_output="$(sudo --non-interactive /bin/lsblk --noheadings --all --raw --output RO)" ; then
+
+## FIX: https://forums.kicksecure.com/t/livecheck-sh-script-broken-on-bookworm/269
+## Change lsblk call to not include `--output RO` anymore since all info is needed to sanitize and crop accordingly
+## Sanitize lsblk output with RegEx (PCRE) to remove all empty read-write loop devices
+## Crop sanitized string down to only the RO values (removing everything before and after the RO values) with RegEx (ERE)
+if ! lsblk_output="$(sudo --non-interactive /bin/lsblk --all --raw --noheadings | grep -vPx '\S+\s+\d{1,3}:\d{1,3}\s+\d\s+0B\s+0\s+loop\s+' | sed -r 's/^.+\s+([0-9]{1,3}:[0-9]{1,3})\s+([0-9])\s+([0-9]+\.?\S{1,2})\s+//g' | sed -r 's/(\s+[^0-9]+\s+\S*)$//g')" ; then
    ## lsblk exited a non-zero exit code.
-   true "INFO: Running 'sudo --non-interactive /bin/lsblk --noheadings --all --raw --output RO' failed!"
+   true "INFO: Running 'sudo --non-interactive /bin/lsblk --noheadings --all --raw' failed!"
    echo "<img>/usr/share/icons/gnome-colors-common/scalable/status/dialog-error.svg</img>"
    ## Show "Error" next to info symbol in systray.
    echo "<txt>Error</txt>"
