@@ -100,7 +100,7 @@ fi
 ## Sanitize lsblk output with RegEx (PCRE) to remove all empty read-write loop devices
 ## Crop sanitized string down to only the RO values (removing everything before and after the RO values) with RegEx (ERE)
 ## (See FIX above)
-echo $lsblk_output_unsanitized | grep -vPx '\S+\s+\d{1,3}:\d{1,3}\s+\d\s+0B\s+0\s+loop\s+' | sed -r 's/^.+\s+([0-9]{1,3}:[0-9]{1,3})\s+([0-9])\s+([0-9]+\.?\S{1,2})\s+//g' | sed -r 's/(\s+[^0-9]+\s+\S*)$//g'
+lsblk_output=$(echo "${lsblk_output_unsanitized}" | grep -vPx '\S+\s+\d{1,3}:\d{1,3}\s+\d\s+0B\s+0\s+loop\s+' | sed -r 's/^.+\s+([0-9]{1,3}:[0-9]{1,3})\s+([0-9])\s+([0-9]+\.?\S{1,2})\s+//g' | sed -r 's/(\s+[^0-9]+\s+\S*)$//g')
 
 if echo "$lsblk_output" | grep --quiet "0" ; then
    true "INFO: If at least one '0' was found. Conclusion: not all read-only. Some read-write."
