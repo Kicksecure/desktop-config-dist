@@ -7,15 +7,26 @@
 
 set -e
 
+## NOTICE: As of Linux 6 `lsblk --all` outputs 8 empty read-writeable loop devices. Those seem to be placeholders and not actually active. (without snapd)
+## See: https://forums.kicksecure.com/t/livecheck-sh-script-broken-on-bookworm/269
+##
 ## sudo /bin/lsblk --all
 ##
 ## NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+## loop0    7:0    0   0B   0 loop  
+## loop1    7:1    0   0B   0 loop  
+## loop2    7:2    0   0B   0 loop  
+## loop3    7:3    0   0B   0 loop  
+## loop4    7:4    0   0B   0 loop  
+## loop5    7:5    0   0B   0 loop  
+## loop6    7:6    0   0B   0 loop  
+## loop7    7:7    0   0B   0 loop
 ## sda      8:0    0  100G  1 disk
 ##
 ## 1 means read-only
 ## 0 means read-write
 
-## As soon as we have at least one "0" it is concluded: not live mode.
+## As soon as we have at least one "0" (empty/0B loop devices are ignored) it is concluded: not live mode.
 
 ## when using snapd:
 ##
@@ -83,10 +94,10 @@ fi
 ## Check if execution of lsblk fails with a non-zero exit code such as in case of missing sudoers permissions.
 
 ## FIX: https://forums.kicksecure.com/t/livecheck-sh-script-broken-on-bookworm/269
-## Change lsblk call to not include `--output RO` anymore since all info is needed to sanitize and crop accordingly
-if ! lsblk_output_unsanitized="$(sudo --non-interactive /bin/lsblk --all --raw --noheadings)" ; then
+## Change lsblk call to include `--output SIZE,RO,TYPE` since this info is needed to sanitize and crop accordingly later.
+if ! lsblk_output_unsanitized="$(sudo --non-interactive /bin/lsblk --all --raw --noheadings --output SIZE,RO,TYPE)" ; then
    ## lsblk exited a non-zero exit code.
-   true "INFO: Running 'sudo --non-interactive /bin/lsblk --noheadings --all --raw' failed!"
+   true "INFO: Running 'sudo --non-interactive /bin/lsblk --all --raw --noheadings --output SIZE,RO,TYPE' failed!"
    echo "<img>/usr/share/icons/gnome-colors-common/scalable/status/dialog-error.svg</img>"
    ## Show "Error" next to info symbol in systray.
    echo "<txt>Error</txt>"
@@ -97,11 +108,21 @@ if ! lsblk_output_unsanitized="$(sudo --non-interactive /bin/lsblk --all --raw -
 fi
 ## lsblk exited with exit code 0.
 
-## Sanitize lsblk output with RegEx (PCRE) to remove all empty read-write loop devices
-## Crop sanitized string down to only the RO values (removing everything before and after the RO values) with RegEx (ERE)
+## Sanitize lsblk output with RegEx (PCRE) to remove all empty loop devices.
+## The following RegEx does an inverted grep search for "^0B\space+\digit\space+loop$" (simplified) thus matching every line of "0B 0 loop" or "0B 1 loop" effectively removing all empty loop devices.
 ## (See FIX above)
-lsblk_output=$(echo "${lsblk_output_unsanitized}" | grep -vPx '\S+\s+\d{1,3}:\d{1,3}\s+\d\s+0B\s+0\s+loop\s+' | sed -r 's/^.+\s+([0-9]{1,3}:[0-9]{1,3})\s+([0-9])\s+([0-9]+\.?\S{1,2})\s+//g' | sed -r 's/(\s+[^0-9]+\s+\S*)$//g')
+lsblk_output_pre1=$(echo "${lsblk_output_unsanitized}" | grep -vPx '^0B\s+\d\s+loop$')
 
+## For the livecheck we only need the RO values. But because we needed to include `SIZE` and `TYPE` for sanitization we now have to remove those.
+## In the next two steps we remove the unwanted string overhead BEFORE and AFTER the RO value, with RegEx (ERE).
+
+## The following RegEx (ERE) searches for "^\digit+\.?\digit+\nonspace+\space+" (simplified) and replaces every occurence with "" thus removing everything BEFORE the RO values.
+lsblk_output_pre2=$(echo "${lsblk_output_pre1}" | sed -r 's/^[0-9]+\.?[0-9]+\S+\s+//g')
+## The following RegEx (ERE) searches for "\space+\nonspace+$" (simplified) and replaces every occurence with "" thus removing everything AFTER the RO values.
+lsblk_output=$(echo "${lsblk_output_pre2}" | sed -r 's/\s+\S+$//g')
+## lsblk_output is now only the RO values of the whole `lsblk --all [...]` output except the empty loop devices.
+
+## Checking if there is any 0 / read-write device.
 if echo "$lsblk_output" | grep --quiet "0" ; then
    true "INFO: If at least one '0' was found. Conclusion: not all read-only. Some read-write."
 
