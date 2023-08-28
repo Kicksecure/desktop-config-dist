@@ -2,3 +2,4 @@
 ## See the file COPYING for copying conditions.
 
 /etc/zsh/zshrc.dist
+/etc/zsh/zprofile.dist
