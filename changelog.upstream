@@ -1,3 +1,31 @@
+commit 8b19dbf1fe7c69ddbf750874dc02b904386eb4eb
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Aug 28 12:39:41 2023 -0400
+
+    move `/etc/zprofile.d` parsing from `/etc/zshrc` to `/etc/zprofile`
+    
+    to avoid these scripts being parsed in terminal emulators running in X11
+    
+    https://forums.whonix.org/t/change-default-shell-from-bash-to-zsh-by-default/14792/147
+
+commit f87a8878fd3ff43e1efe7dbbc45ccd79604a8760
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Aug 28 12:38:28 2023 -0400
+
+    chmod +x /etc/zsh/zprofile.dist
+
+commit ad560a1a59bf1651db7ed9679fbdfc0fa1bfbdcf
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Aug 28 12:37:31 2023 -0400
+
+    ship `/etc/zsh/zprofile`
+
+commit a1368bbfba2f0b3e6e8946dbaf9b21d9da47ae01
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Aug 28 11:01:46 2023 -0400
+
+    bumped changelog version
+
 commit 1e9a9b77475da74cb5a6554cd7f764f7bc4da406
 Merge: fcb1ea8 42e3034
 Author: Patrick Schleizer <adrelanos@whonix.org>
