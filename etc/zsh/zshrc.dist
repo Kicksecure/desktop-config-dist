@@ -6,15 +6,6 @@
 ## https://github.com/jeffreytse/zsh-vi-mode/blob/master/zsh-vi-mode.zsh
 ## https://github.com/cloudhead/dotfiles/blob/master/.zshrc
 
-if [ -d /etc/zprofile.d ]; then
-  for i in /etc/zprofile.d/*.zsh; do
-    if [ -r $i ]; then
-      . $i
-    fi
-  done
-  unset i
-fi
-
 ## base dir
 zsh_custom_dir="/etc/zsh"
 
@@ -101,4 +92,11 @@ if test -f /etc/zsh_command_not_found; then
 fi
 
 
-
+if [ -d /etc/zprofile.d ]; then
+  for i in /etc/zprofile.d/*.zsh; do
+    if [ -r $i ]; then
+      . $i
+    fi
+  done
+  unset i
+fi
