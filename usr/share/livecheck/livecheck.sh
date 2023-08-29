@@ -6,7 +6,7 @@
 
 set -e
 
-## sudo /bin/lsblk --all
+## sudo /bin/lsblk
 ##
 ## NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
 ## sda      8:0    0  100G  1 disk
@@ -18,7 +18,7 @@ set -e
 
 ## when using snapd:
 ##
-## sudo /bin/lsblk --all
+## sudo /bin/lsblk
 ##
 ## NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
 ## loop0    7:0    0   55M  1 loop /snap/core18/1754
@@ -35,7 +35,7 @@ set -e
 
 ## when using snapd:
 ##
-## sudo /bin/lsblk --noheadings --all --raw --output RO
+## sudo /bin/lsblk --noheadings --raw --output RO
 ##
 ## 1
 ## 1
@@ -51,7 +51,7 @@ set -e
 
 ## The following did not work with snapd:
 ## http://forums.whonix.org/t/wickr-me-gets-whonix-stuck-in-live-mode/9834/1
-#if sudo --non-interactive /bin/lsblk --noheadings --all --raw --output RO | grep --invert-match "0" ; then
+#if sudo --non-interactive /bin/lsblk --noheadings --raw --output RO | grep --invert-match "0" ; then
 
 ## Using `sudo` to run `lsblk` because `hide-hardware-info.service` makes this no longer
 ## readable by user `root`. Only readable by user `root`.
@@ -80,9 +80,9 @@ else
 fi
 
 ## Check if execution of lsblk fails with a non-zero exit code such as in case of missing sudoers permissions.
-if ! lsblk_output="$(sudo --non-interactive /bin/lsblk --noheadings --all --raw --output RO)" ; then
+if ! lsblk_output="$(sudo --non-interactive /bin/lsblk --noheadings --raw --output RO)" ; then
    ## lsblk exited a non-zero exit code.
-   true "INFO: Running 'sudo --non-interactive /bin/lsblk --noheadings --all --raw --output RO' failed!"
+   true "INFO: Running 'sudo --non-interactive /bin/lsblk --noheadings --raw --output RO' failed!"
    echo "<img>/usr/share/icons/gnome-colors-common/scalable/status/dialog-error.svg</img>"
    ## Show "Error" next to info symbol in systray.
    echo "<txt>Error</txt>"
