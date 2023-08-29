@@ -1,3 +1,21 @@
+commit 7dbb50806e7f7fe0b1e0db15b569faa9add75a45
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Aug 29 08:22:32 2023 -0400
+
+    Fix Live Check systray
+    
+    fix `livecheck.sh`
+    
+    drop `--all` from `lsblk` options
+    
+    https://forums.kicksecure.com/t/livecheck-sh-script-broken-on-bookworm/269/13
+
+commit 7f3612ebba246eae92bf2e6945005b5e03847456
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Aug 28 12:58:55 2023 -0400
+
+    bumped changelog version
+
 commit 2157d542c3816ba842f11169979232bf5f4aba37
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Mon Aug 28 12:58:36 2023 -0400
