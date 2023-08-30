@@ -3,13 +3,13 @@
 
 ## required by /usr/share/livecheck/livecheck.sh
 ## http://forums.whonix.org/t/restrict-hardware-information-to-root-testers-wanted/8618/13
-user ALL=NOPASSWD: /bin/lsblk --noheadings --all --raw --output RO
+user ALL=NOPASSWD: /bin/lsblk --noheadings --raw --output RO
 
 ## https://forums.whonix.org/t/whonix-xfce-development/6213/102
-%staff ALL=NOPASSWD: /bin/lsblk --noheadings --all --raw --output RO
-%adm ALL=NOPASSWD: /bin/lsblk --noheadings --all --raw --output RO
-%sudo ALL=NOPASSWD: /bin/lsblk --noheadings --all --raw --output RO
-%root ALL=NOPASSWD: /bin/lsblk --noheadings --all --raw --output RO
-%wheel ALL=NOPASSWD: /bin/lsblk --noheadings --all --raw --output RO
-%console ALL=NOPASSWD: /bin/lsblk --noheadings --all --raw --output RO
-%console-unrestricted ALL=NOPASSWD: /bin/lsblk --noheadings --all --raw --output RO
+%staff ALL=NOPASSWD: /bin/lsblk --noheadings --raw --output RO
+%adm ALL=NOPASSWD: /bin/lsblk --noheadings --raw --output RO
+%sudo ALL=NOPASSWD: /bin/lsblk --noheadings --raw --output RO
+%root ALL=NOPASSWD: /bin/lsblk --noheadings --raw --output RO
+%wheel ALL=NOPASSWD: /bin/lsblk --noheadings --raw --output RO
+%console ALL=NOPASSWD: /bin/lsblk --noheadings --raw --output RO
+%console-unrestricted ALL=NOPASSWD: /bin/lsblk --noheadings --raw --output RO
