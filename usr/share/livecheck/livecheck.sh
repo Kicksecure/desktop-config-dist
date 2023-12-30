@@ -96,8 +96,10 @@ fi
 if echo "$lsblk_output" | grep --quiet "0" ; then
    true "INFO: If at least one '0' was found. Conclusion: not all read-only. Some read-write."
 
-   if grep -qs "boot=live" /proc/cmdline; then
-      true "INFO: grub-live is enabled."
+   ## boot=live: grub-live
+   ## root=live: dracut based Live ISO
+   if grep --no-messages --quiet 'boot=live\|root=live' /proc/cmdline; then
+      true "INFO: grub-live or ISO live is enabled."
       echo "<img>/usr/share/icons/gnome-colors-common/scalable/status/dialog-warning.svg</img>"
       ## Show "Live" next to info symbol in systray.
       echo "<txt>Live</txt>"
@@ -105,7 +107,7 @@ if echo "$lsblk_output" | grep --quiet "0" ; then
       echo "<click>x-www-browser $homepage/wiki/Live_Mode</click>"
       echo "<txtclick>x-www-browser $homepage/wiki/Live_Mode</txtclick>"
    else
-      true "INFO: Live mode is disabled."
+      true "INFO: Live mode and/or ISO live is disabled."
       echo "<img>/usr/share/icons/gnome-colors-common/22x22/status/gtk-info.png</img>"
       ## Do not show "Persistent" next to info symbol in systray.
       #echo "<txt>Persistent</txt>"
