@@ -1,3 +1,15 @@
+commit 5f9030fe74d8bb18f7f452ef0b2260d2f8c933d6
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Dec 29 19:48:51 2023 -0500
+
+    fix: livecheck also detect ISO live mode
+
+commit 5ce5f0ae98f6669f866ba6769ca2518e79eab2c9
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Nov 11 20:14:01 2023 +0000
+
+    bumped changelog version
+
 commit 4603c96fd3769a44cb22390442180d43cb03ab47
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Sat Nov 11 13:41:29 2023 -0500
