@@ -93,17 +93,20 @@ if ! lsblk_output="$(sudo --non-interactive /bin/lsblk --noheadings --raw --outp
 fi
 ## lsblk exited with exit code 0.
 
+if grep --no-messages --quiet 'boot=live' /proc/cmdline; then
+   live_mode_environment="grub-live"
+elif grep --no-messages --quiet 'root=live' /proc/cmdline; then
+   live_mode_environment="ISO Live"
+fi
+
 if echo "$lsblk_output" | grep --quiet "0" ; then
    true "INFO: If at least one '0' was found. Conclusion: not all read-only. Some read-write."
-
-   ## boot=live: grub-live
-   ## root=live: dracut based Live ISO
    if grep --no-messages --quiet 'boot=live\|root=live' /proc/cmdline; then
       true "INFO: grub-live or ISO live is enabled."
       echo "<img>/usr/share/icons/gnome-colors-common/scalable/status/dialog-warning.svg</img>"
       ## Show "Live" next to info symbol in systray.
       echo "<txt>Live</txt>"
-      echo "<tool>Live mode is enabled but it is still possible to write to the disk. Please power off the machine and set the disk to read-only$sentence_ending See: $homepage/wiki/Live_Mode or click on the icon for more information.$bug_message</tool>"
+      echo "<tool>Live mode ($live_mode_environment) is enabled but it is still possible to write to the disk. Please power off the machine and set the disk to read-only$sentence_ending See: $homepage/wiki/Live_Mode or click on the icon for more information.$bug_message</tool>"
       echo "<click>x-www-browser $homepage/wiki/Live_Mode</click>"
       echo "<txtclick>x-www-browser $homepage/wiki/Live_Mode</txtclick>"
    else
@@ -122,7 +125,7 @@ else
    ## Show "Live" next to info symbol in systray.
    echo "<txt>Live</txt>"
 
-   echo "<tool>Live mode is enabled. All changes to the disk will be gone after a reboot. See: $homepage/wiki/Live_Mode or click on the icon for more information.$bug_message</tool>"
+   echo "<tool>Live mode ($live_mode_environment) is enabled. All changes to the disk will be gone after a reboot. See: $homepage/wiki/Live_Mode or click on the icon for more information.$bug_message</tool>"
    echo "<click>x-www-browser $homepage/wiki/Live_Mode</click>"
    echo "<txtclick>x-www-browser $homepage/wiki/Live_Mode</txtclick>"
 fi
