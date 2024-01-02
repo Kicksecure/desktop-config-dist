@@ -1,3 +1,15 @@
+commit b38079e1b19219e6b6fbb757cf2e72f360ac7372
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Jan 2 09:26:43 2024 -0500
+
+    detect grub-live vs ISO live in livecheck
+
+commit d2ac0d27daa1d71a19e598195b91650e12cd96b7
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Dec 30 01:31:34 2023 +0000
+
+    bumped changelog version
+
 commit 5f9030fe74d8bb18f7f452ef0b2260d2f8c933d6
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Fri Dec 29 19:48:51 2023 -0500
