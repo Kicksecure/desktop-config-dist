@@ -57,11 +57,16 @@ set -e
 ## readable by user `root`. Only readable by user `root`.
 ## https://forums.whonix.org/t/restrict-hardware-information-to-root-testers-wanted/8618/13
 
-missing_image=""
-test -f /usr/share/icons/gnome-colors-common/scalable/status/dialog-error.svg || missing_image=true
-test -f /usr/share/icons/gnome-colors-common/scalable/status/dialog-warning.svg || missing_image=true
-test -f /usr/share/icons/gnome-colors-common/scalable/status/gtk-info.svg || missing_image=true
-test -f /usr/share/icons/gnome-colors-common/scalable/actions/dialog-apply.svg || missing_image=true
+missing_icon=""
+icon_dir="/usr/share/icons/gnome-colors-common/32x32"
+icon_error="${icon_dir}/status/dialog-error.png"
+icon_warn="${icon_dir}/status/dialog-warning.png"
+icon_info="${icon_dir}/status/dialog-information.png"
+icon_apply="${icon_dir}/actions/dialog-apply.png"
+test -f "${icon_error}" || missing_icon=true
+test -f "${icon_warn}" || missing_icon=true
+test -f "${icon_info}" || missing_icon=true
+test -f "${icon_apply}" || missing_icon=true
 
 if test -f /usr/share/anon-gw-base-files/gateway || test -f /usr/share/anon-ws-base-files/workstation ; then
    homepage="https://www.whonix.org"
@@ -71,10 +76,10 @@ else
    sentence_ending=", if possible."
 fi
 
-if [ "$missing_image" = "true" ]; then
+if [ "$missing_icon" = "true" ]; then
    bug_message="
 
-(Minor bug: Missing illustrative image.)"
+(Minor bug: Missing icons.)"
 else
    bug_message=""
 fi
@@ -83,7 +88,7 @@ fi
 if ! lsblk_output="$(sudo --non-interactive /bin/lsblk --noheadings --raw --output RO)" ; then
    ## lsblk exited a non-zero exit code.
    true "INFO: Running 'sudo --non-interactive /bin/lsblk --noheadings --raw --output RO' failed!"
-   echo "<img>/usr/share/icons/gnome-colors-common/scalable/status/dialog-error.svg</img>"
+   echo "<img>${icon_error}</img>"
    ## Show "Error" next to info symbol in systray.
    echo "<txt>Error</txt>"
    echo "<tool>Do not panic. Live mode detection failed. Could not determine if booted into live mode or persistent mode. Please report this bug. See: $homepage/wiki/Grub-live#Live_Check_Systray_Issues or click on the icon for more information.$bug_message</tool>"
@@ -103,7 +108,7 @@ if echo "$lsblk_output" | grep --quiet "0" ; then
    true "INFO: If at least one '0' was found. Conclusion: not all read-only. Some read-write."
    if grep --no-messages --quiet 'boot=live\|root=live' /proc/cmdline; then
       true "INFO: grub-live or ISO live is enabled."
-      echo "<img>/usr/share/icons/gnome-colors-common/scalable/status/dialog-warning.svg</img>"
+      echo "<img>${icon_warn}</img>"
       ## Show "Live" next to info symbol in systray.
       echo "<txt>Live</txt>"
       echo "<tool>Live mode ($live_mode_environment) is enabled but it is still possible to write to the disk. Please power off the machine and set the disk to read-only$sentence_ending See: $homepage/wiki/Live_Mode or click on the icon for more information.$bug_message</tool>"
@@ -111,7 +116,7 @@ if echo "$lsblk_output" | grep --quiet "0" ; then
       echo "<txtclick>x-www-browser $homepage/wiki/Live_Mode</txtclick>"
    else
       true "INFO: Live mode and/or ISO live is disabled."
-      echo "<img>/usr/share/icons/gnome-colors-common/22x22/status/gtk-info.png</img>"
+      echo "<img>${icon_info}</img>"
       ## Do not show "Persistent" next to info symbol in systray.
       #echo "<txt>Persistent</txt>"
       echo "<tool>You are using persistent mode. All changes to the disk will be preserved after a reboot. For using live mode, see: $homepage/wiki/Live_Mode or click on the icon for more information.$bug_message</tool>"
@@ -121,7 +126,7 @@ if echo "$lsblk_output" | grep --quiet "0" ; then
 else
    true "INFO: No '0' is found. Therefore only '1' found. Conclusion: read-only."
 
-   echo "<img>/usr/share/icons/gnome-colors-common/scalable/actions/dialog-apply.svg</img>"
+   echo "<img>${icon_apply}</img>"
    ## Show "Live" next to info symbol in systray.
    echo "<txt>Live</txt>"
 
