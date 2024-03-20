@@ -1,3 +1,35 @@
+commit c09608731c70674c7bc5df3de4e44f41b97d1938
+Merge: c8f31f8 8397c03
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Mar 20 11:15:02 2024 -0400
+
+    Merge remote-tracking branch 'github-kicksecure/master'
+
+commit 8397c03d521ac73da10a94fb74883887952b384b
+Merge: c8f31f8 13d68ee
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Mar 20 10:52:52 2024 -0400
+
+    Merge pull request #17 from ben-grande/icon-resolution
+    
+    Fix icon resolution
+
+commit 13d68eeb0ed93dd00799dacd97db256aeed23fdc
+Author: Ben Grande <ben.grande.b@gmail.com>
+Date:   Wed Mar 20 14:31:58 2024 +0100
+
+    Fix icon resolution
+    
+    Scalable is too expanded on Xfce default row pixel size of 30. The other
+    resolution is 22x22, but that is also relatively small. 32x32 is almost
+    perfect, just the top border is a bit cut off.
+
+commit c8f31f8804cd11f4e980e5d426874eee8550434f
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Jan 2 14:54:35 2024 +0000
+
+    bumped changelog version
+
 commit b38079e1b19219e6b6fbb757cf2e72f360ac7372
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Tue Jan 2 09:26:43 2024 -0500
