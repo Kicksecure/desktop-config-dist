@@ -104,8 +104,8 @@ if echo "$lsblk_output" | grep --quiet "0" ; then
       ## Show "Live" next to info symbol in systray.
       echo "<txt>Live</txt>"
       echo "<tool>Live Mode Active ($live_mode_environment): Your system is currently running in live mode, ensuring no changes are made to the disk. For added security, consider setting your disk to read-only mode, if possible. See: $homepage/wiki/Live_Mode or click on the icon for more information.$bug_message</tool>"
-      echo "<click>x-www-browser $homepage/wiki/Live_Mode</click>"
-      echo "<txtclick>x-www-browser $homepage/wiki/Live_Mode</txtclick>"
+      echo "<click>x-www-browser $homepage/wiki/read-only</click>"
+      echo "<txtclick>x-www-browser $homepage/wiki/read-only</txtclick>"
    else
       true "INFO: Live mode and/or ISO live is disabled."
       echo "<img>${icon_info}</img>"
