@@ -68,14 +68,6 @@ test -f "${icon_warn}" || missing_icon=true
 test -f "${icon_info}" || missing_icon=true
 test -f "${icon_apply}" || missing_icon=true
 
-if test -f /usr/share/anon-gw-base-files/gateway || test -f /usr/share/anon-ws-base-files/workstation ; then
-   homepage="https://www.whonix.org"
-   sentence_ending="."
-else
-   homepage="https://www.kicksecure.com"
-   sentence_ending=", if possible."
-fi
-
 if [ "$missing_icon" = "true" ]; then
    bug_message="
 
@@ -91,7 +83,7 @@ if ! lsblk_output="$(sudo --non-interactive /bin/lsblk --noheadings --raw --outp
    echo "<img>${icon_error}</img>"
    ## Show "Error" next to info symbol in systray.
    echo "<txt>Error</txt>"
-   echo "<tool>Do not panic. Live mode detection failed. Could not determine if booted into live mode or persistent mode. Please report this bug. See: $homepage/wiki/Grub-live#Live_Check_Systray_Issues or click on the icon for more information.$bug_message</tool>"
+   echo "<tool>Live Detection Test: Minor issue. Do not panic. Unable to determine if booted into live mode or persistent mode. For assistance and to report this issue, please visit: $homepage/wiki/Grub-live#Live_Check_Systray_Issues or click on the icon for more information.$bug_message</tool>"
    echo "<click>x-www-browser $homepage/wiki/Grub-live#Live_Check_Systray_Issues</click>"
    echo "<txtclick>x-www-browser $homepage/wiki/Grub-live#Live_Check_Systray_Issues</txtclick>"
    exit 0
@@ -111,7 +103,7 @@ if echo "$lsblk_output" | grep --quiet "0" ; then
       echo "<img>${icon_warn}</img>"
       ## Show "Live" next to info symbol in systray.
       echo "<txt>Live</txt>"
-      echo "<tool>Live mode ($live_mode_environment) is enabled but it is still possible to write to the disk. Please power off the machine and set the disk to read-only$sentence_ending See: $homepage/wiki/Live_Mode or click on the icon for more information.$bug_message</tool>"
+      echo "<tool>Live Mode Active ($live_mode_environment): Your system is currently running in live mode, ensuring no changes are made to the disk. For added security, consider setting your disk to read-only mode, if possible. See: $homepage/wiki/Live_Mode or click on the icon for more information.$bug_message</tool>"
       echo "<click>x-www-browser $homepage/wiki/Live_Mode</click>"
       echo "<txtclick>x-www-browser $homepage/wiki/Live_Mode</txtclick>"
    else
@@ -119,7 +111,7 @@ if echo "$lsblk_output" | grep --quiet "0" ; then
       echo "<img>${icon_info}</img>"
       ## Do not show "Persistent" next to info symbol in systray.
       #echo "<txt>Persistent</txt>"
-      echo "<tool>You are using persistent mode. All changes to the disk will be preserved after a reboot. For using live mode, see: $homepage/wiki/Live_Mode or click on the icon for more information.$bug_message</tool>"
+      echo "<tool>Persistent Mode Active: Your system is currently in persistent mode, and all changes to the disk will be preserved after a reboot. For using live mode, which enables temporary sessions where changes are not saved to the disk, see: $homepage/wiki/Live_Mode or click on the icon for more information.$bug_message</tool>"
       echo "<click>x-www-browser $homepage/wiki/Live_Mode</click>"
       echo "<txtclick>x-www-browser $homepage/wiki/Live_Mode<txtclick>"
    fi
@@ -129,8 +121,7 @@ else
    echo "<img>${icon_apply}</img>"
    ## Show "Live" next to info symbol in systray.
    echo "<txt>Live</txt>"
-
-   echo "<tool>Live mode ($live_mode_environment) is enabled. All changes to the disk will be gone after a reboot. See: $homepage/wiki/Live_Mode or click on the icon for more information.$bug_message</tool>"
+   echo "<tool>Live Mode Active ($live_mode_environment): All changes to the disk will be gone after a reboot. See: $homepage/wiki/Live_Mode or click on the icon for more information.$bug_message</tool>"
    echo "<click>x-www-browser $homepage/wiki/Live_Mode</click>"
    echo "<txtclick>x-www-browser $homepage/wiki/Live_Mode</txtclick>"
 fi
