@@ -98,10 +98,14 @@ fi
 
 proc_cmdline_output=$(cat /proc/cmdline)
 
-if grep --no-messages --quiet 'boot=live' "${proc_cmdline_output}"; then
+## Manual testing.
+#proc_cmdline_output="boot=live"
+#proc_cmdline_output="root=live"
+
+if echo "${proc_cmdline_output}" | grep --no-messages --quiet 'boot=live' ; then
    live_mode_environment="grub-live"
    maybe_iso_live_message=""
-elif grep --no-messages --quiet 'root=live' "${proc_cmdline_output}"; then
+elif echo "${proc_cmdline_output}" | grep --no-messages --quiet 'root=live' ; then
    live_mode_environment="ISO Live"
    maybe_iso_live_message="
 
@@ -110,7 +114,7 @@ fi
 
 if echo "$lsblk_output" | grep --quiet "0" ; then
    true "INFO: If at least one '0' was found. Conclusion: not all read-only. Some read-write."
-   if grep --no-messages --quiet 'boot=live\|root=live' "${proc_cmdline_output}"; then
+   if echo "${proc_cmdline_output}" | grep --no-messages --quiet 'boot=live\|root=live'; then
       true "INFO: grub-live or ISO live is enabled."
       echo "<img>${icon_warn}</img>"
       ## Show "Live" next to info symbol in systray.
