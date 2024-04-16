@@ -57,6 +57,12 @@ set -e
 ## readable by user `root`. Only readable by user `root`.
 ## https://forums.whonix.org/t/restrict-hardware-information-to-root-testers-wanted/8618/13
 
+if test -f /usr/share/whonix/marker ; then
+   homepage="https://www.whonix.org"
+else
+   homepage="https://www.kicksecure.com"
+fi
+
 missing_icon=""
 icon_dir="/usr/share/icons/gnome-colors-common/32x32"
 icon_error="${icon_dir}/status/dialog-error.png"
