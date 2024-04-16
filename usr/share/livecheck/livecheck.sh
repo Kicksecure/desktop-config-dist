@@ -98,8 +98,12 @@ fi
 
 if grep --no-messages --quiet 'boot=live' /proc/cmdline; then
    live_mode_environment="grub-live"
+   maybe_iso_live_message=""
 elif grep --no-messages --quiet 'root=live' /proc/cmdline; then
    live_mode_environment="ISO Live"
+   maybe_iso_live_message="
+
+This does not matter if you are only using this ISO to to hard drive. In that case, this message can be safely ignored."
 fi
 
 if echo "$lsblk_output" | grep --quiet "0" ; then
@@ -109,7 +113,7 @@ if echo "$lsblk_output" | grep --quiet "0" ; then
       echo "<img>${icon_warn}</img>"
       ## Show "Live" next to info symbol in systray.
       echo "<txt>Live</txt>"
-      echo "<tool>Live Mode Active ($live_mode_environment): Your system is currently running in live mode, ensuring no changes are made to the disk. For added security, consider setting your disk to read-only mode, if possible. See: $homepage/wiki/Live_Mode or click on the icon for more information.$bug_message</tool>"
+      echo "<tool>Live Mode Active ($live_mode_environment): Your system is currently running in live mode, ensuring no changes are made to the disk. For added security, consider setting your disk to read-only mode, if possible. See: $homepage/wiki/Live_Mode or click on the icon for more information.$maybe_iso_live_message$bug_message</tool>"
       echo "<click>x-www-browser $homepage/wiki/read-only</click>"
       echo "<txtclick>x-www-browser $homepage/wiki/read-only</txtclick>"
    else
