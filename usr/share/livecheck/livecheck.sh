@@ -89,9 +89,9 @@ if ! lsblk_output="$(sudo --non-interactive /bin/lsblk --noheadings --raw --outp
    echo "<img>${icon_error}</img>"
    ## Show "Error" next to info symbol in systray.
    echo "<txt>Error</txt>"
-   echo "<tool>Live Detection Test: Minor issue. Do not panic. Unable to determine if booted into live mode or persistent mode. For assistance and to report this issue, please visit: $homepage/wiki/Grub-live#Live_Check_Systray_Issues or click on the icon for more information.$bug_message</tool>"
-   echo "<click>x-www-browser $homepage/wiki/Grub-live#Live_Check_Systray_Issues</click>"
-   echo "<txtclick>x-www-browser $homepage/wiki/Grub-live#Live_Check_Systray_Issues</txtclick>"
+   echo "<tool>Live Detection Test: Minor issue. Do not panic. Unable to determine if booted into live mode or persistent mode. For assistance and to report this issue, please visit: ${homepage}/wiki/Grub-live#Live_Check_Systray_Issues or click on the icon for more information.${bug_message}</tool>"
+   echo "<click>x-www-browser ${homepage}/wiki/Grub-live#Live_Check_Systray_Issues</click>"
+   echo "<txtclick>x-www-browser ${homepage}/wiki/Grub-live#Live_Check_Systray_Issues</txtclick>"
    exit 0
 fi
 ## lsblk exited with exit code 0.
@@ -113,17 +113,17 @@ if echo "$lsblk_output" | grep --quiet "0" ; then
       echo "<img>${icon_warn}</img>"
       ## Show "Live" next to info symbol in systray.
       echo "<txt>Live</txt>"
-      echo "<tool>Live Mode Active ($live_mode_environment): Your system is currently running in live mode, ensuring no changes are made to the disk. For added security, consider setting your disk to read-only mode, if possible. See: $homepage/wiki/Live_Mode or click on the icon for more information.$maybe_iso_live_message$bug_message</tool>"
-      echo "<click>x-www-browser $homepage/wiki/read-only</click>"
-      echo "<txtclick>x-www-browser $homepage/wiki/read-only</txtclick>"
+      echo "<tool>Live Mode Active (${live_mode_environment}): Your system is currently running in live mode, ensuring no changes are made to the disk. For added security, consider setting your disk to read-only mode, if possible. See: ${homepage}/wiki/Live_Mode or click on the icon for more information.${maybe_iso_live_message${bug_message}}</tool>"
+      echo "<click>x-www-browser ${homepage}/wiki/read-only</click>"
+      echo "<txtclick>x-www-browser ${homepage}/wiki/read-only</txtclick>"
    else
       true "INFO: Live mode and/or ISO live is disabled."
       echo "<img>${icon_info}</img>"
       ## Do not show "Persistent" next to info symbol in systray.
       #echo "<txt>Persistent</txt>"
-      echo "<tool>Persistent Mode Active: Your system is currently in persistent mode, and all changes to the disk will be preserved after a reboot. For using live mode, which enables temporary sessions where changes are not saved to the disk, see: $homepage/wiki/Live_Mode or click on the icon for more information.$bug_message</tool>"
-      echo "<click>x-www-browser $homepage/wiki/Live_Mode</click>"
-      echo "<txtclick>x-www-browser $homepage/wiki/Live_Mode<txtclick>"
+      echo "<tool>Persistent Mode Active: Your system is currently in persistent mode, and all changes to the disk will be preserved after a reboot. For using live mode, which enables temporary sessions where changes are not saved to the disk, see: ${homepage}/wiki/Live_Mode or click on the icon for more information.${bug_message}</tool>"
+      echo "<click>x-www-browser ${homepage}/wiki/Live_Mode</click>"
+      echo "<txtclick>x-www-browser ${homepage}/wiki/Live_Mode<txtclick>"
    fi
 else
    true "INFO: No '0' is found. Therefore only '1' found. Conclusion: read-only."
@@ -131,7 +131,7 @@ else
    echo "<img>${icon_apply}</img>"
    ## Show "Live" next to info symbol in systray.
    echo "<txt>Live</txt>"
-   echo "<tool>Live Mode Active ($live_mode_environment): All changes to the disk will be gone after a reboot. See: $homepage/wiki/Live_Mode or click on the icon for more information.$bug_message</tool>"
-   echo "<click>x-www-browser $homepage/wiki/Live_Mode</click>"
-   echo "<txtclick>x-www-browser $homepage/wiki/Live_Mode</txtclick>"
+   echo "<tool>Live Mode Active (${live_mode_environment}): All changes to the disk will be gone after a reboot. See: ${homepage}/wiki/Live_Mode or click on the icon for more information.${bug_message}</tool>"
+   echo "<click>x-www-browser ${homepage}/wiki/Live_Mode</click>"
+   echo "<txtclick>x-www-browser ${homepage}/wiki/Live_Mode</txtclick>"
 fi
