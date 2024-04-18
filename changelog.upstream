@@ -1,3 +1,51 @@
+commit 9e8f7973dc1722c9a1cae7ddd5360bf1c50116da
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Apr 16 04:43:46 2024 -0400
+
+    output
+
+commit 3b11000ae58a9601ddd52892bc0dc815ab12d07d
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Apr 16 04:41:39 2024 -0400
+
+    fix
+
+commit 7f3f5b00b4d19cbf40849d16c2a38a6eb6dd4719
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Apr 16 04:38:47 2024 -0400
+
+    refactoring
+
+commit 248f4663e2897ab57d9416e2170da22d853a806b
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Apr 16 04:37:38 2024 -0400
+
+    fix
+
+commit 0095dce45b37e6c18634868d4ea835aba2489d90
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Apr 16 04:36:12 2024 -0400
+
+    refactoring
+
+commit 8960292e8bd64f9eac8f7bd343982fe4a5cfac1f
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Apr 16 04:34:28 2024 -0400
+
+    output
+
+commit b2cdb59d03681d0ca1fb791d43b3b2e46c67df94
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Apr 16 04:30:56 2024 -0400
+
+    fix livecheck homepage link
+
+commit 31759a9f6cf9c2ea8cf53982c7feee85615a37f1
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Apr 4 09:29:53 2024 +0000
+
+    bumped changelog version
+
 commit 8a2d1abf8132db909f27b45542c63f044db0eff0
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Thu Apr 4 05:29:41 2024 -0400
