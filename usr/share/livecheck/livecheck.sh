@@ -109,7 +109,7 @@ elif echo "${proc_cmdline_output}" | grep --no-messages --quiet 'root=live' ; th
    live_mode_environment="ISO Live"
    maybe_iso_live_message="
 
-This does not matter if you are only using this ISO to the hard drive. In that case, this message can be safely ignored."
+This does not matter if you are only using this ISO to install to the hard drive. In that case, this message can be safely ignored."
 fi
 
 if echo "$lsblk_output" | grep --quiet "0" ; then
