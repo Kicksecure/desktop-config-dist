@@ -1,3 +1,20 @@
+commit 0f079feaa97511fd600d9a4dc19d6db72fa63768
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Apr 24 16:12:18 2024 -0400
+
+    improve livecheck symbols and output
+    
+    * Keep showing info symbol when using persistent mode.
+    * Show green filled circle symbol and text "live" in grub-live mode but without read-only. No longer showing a scary warning symbol.
+    * Show CD symbol and text "ISO" when using ISO but without read-only mode.
+    * Show green checkmark symbol and text "read-only" if using read-only mode.
+
+commit ff9b2ddc1780bf5307614de9be432e673cd2eee4
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Apr 23 20:10:29 2024 +0000
+
+    bumped changelog version
+
 commit b82d937211ebffbce1a8430736da37807c221718
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Tue Apr 23 15:52:20 2024 -0400
