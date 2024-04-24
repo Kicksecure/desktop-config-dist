@@ -65,14 +65,18 @@ fi
 
 missing_icon=""
 icon_dir="/usr/share/icons/gnome-colors-common/32x32"
+
 icon_error="${icon_dir}/status/dialog-error.png"
-icon_warn="${icon_dir}/status/dialog-warning.png"
-icon_info="${icon_dir}/status/dialog-information.png"
-icon_apply="${icon_dir}/actions/dialog-apply.png"
+icon_persistent_mode="${icon_dir}/status/dialog-information.png"
+icon_grub_live_without_read_only="${icon_dir}/status/user-online.png"
+icon_iso="${icon_dir}/devices/media-optical.png"
+icon_grub_live_with_read_only="${icon_dir}/actions/dialog-apply.png"
+
 test -f "${icon_error}" || missing_icon=true
-test -f "${icon_warn}" || missing_icon=true
-test -f "${icon_info}" || missing_icon=true
-test -f "${icon_apply}" || missing_icon=true
+test -f "${icon_persistent_mode}" || missing_icon=true
+test -f "${icon_grub_live_without_read_only}" || missing_icon=true
+test -f "${icon_iso}" || missing_icon=true
+test -f "${icon_grub_live_with_read_only}" || missing_icon=true
 
 if [ "$missing_icon" = "true" ]; then
    bug_message="
@@ -101,12 +105,15 @@ proc_cmdline_output=$(cat /proc/cmdline)
 ## Manual testing.
 #proc_cmdline_output="boot=live"
 #proc_cmdline_output="root=live"
+#lsblk_output=""
 
 if echo "${proc_cmdline_output}" | grep --no-messages --quiet 'boot=live' ; then
    live_mode_environment="grub-live"
+   status_word="Live"
    maybe_iso_live_message=""
 elif echo "${proc_cmdline_output}" | grep --no-messages --quiet 'root=live' ; then
    live_mode_environment="ISO Live"
+   status_word="ISO"
    maybe_iso_live_message="
 
 This does not matter if you are only using this ISO to install to the hard drive. In that case, this message can be safely ignored."
@@ -116,15 +123,21 @@ if echo "$lsblk_output" | grep --quiet "0" ; then
    true "INFO: If at least one '0' was found. Conclusion: not all read-only. Some read-write."
    if echo "${proc_cmdline_output}" | grep --no-messages --quiet 'boot=live\|root=live'; then
       true "INFO: grub-live or ISO live is enabled."
-      echo "<img>${icon_warn}</img>"
-      ## Show "Live" next to info symbol in systray.
-      echo "<txt>Live</txt>"
+      if [ "$live_mode_environment" = "grub-live" ]; then
+         echo "<img>${icon_grub_live_without_read_only}</img>"
+      elif [ "$live_mode_environment" = "ISO Live" ]; then
+         echo "<img>${icon_iso}</img>"
+      else
+         echo "<img>${icon_error}</img>"
+      fi
+      ## Show "Live" or "ISO" next to info symbol in systray.
+      echo "<txt>$status_word</txt>"
       echo "<tool>Live Mode Active (${live_mode_environment}): Your system is currently running in live mode, ensuring no changes are made to the disk. For added security, consider setting your disk to read-only mode, if possible. See: ${homepage}/wiki/Live_Mode or click on the icon for more information.${maybe_iso_live_message}${bug_message}</tool>"
       echo "<click>x-www-browser ${homepage}/wiki/read-only</click>"
       echo "<txtclick>x-www-browser ${homepage}/wiki/read-only</txtclick>"
    else
       true "INFO: Live mode and/or ISO live is disabled."
-      echo "<img>${icon_info}</img>"
+      echo "<img>${icon_persistent_mode}</img>"
       ## Do not show "Persistent" next to info symbol in systray.
       #echo "<txt>Persistent</txt>"
       echo "<tool>Persistent Mode Active: Your system is currently in persistent mode, and all changes to the disk will be preserved after a reboot. For using live mode, which enables temporary sessions where changes are not saved to the disk, see: ${homepage}/wiki/Live_Mode or click on the icon for more information.${bug_message}</tool>"
@@ -134,9 +147,9 @@ if echo "$lsblk_output" | grep --quiet "0" ; then
 else
    true "INFO: No '0' is found. Therefore only '1' found. Conclusion: read-only."
 
-   echo "<img>${icon_apply}</img>"
-   ## Show "Live" next to info symbol in systray.
-   echo "<txt>Live</txt>"
+   echo "<img>${icon_grub_live_with_read_only}</img>"
+   ## Show "read-only" next to info symbol in systray.
+   echo "<txt>read-only</txt>"
    echo "<tool>Live Mode Active (${live_mode_environment}): All changes to the disk will be gone after a reboot. See: ${homepage}/wiki/Live_Mode or click on the icon for more information.${bug_message}</tool>"
    echo "<click>x-www-browser ${homepage}/wiki/Live_Mode</click>"
    echo "<txtclick>x-www-browser ${homepage}/wiki/Live_Mode</txtclick>"
