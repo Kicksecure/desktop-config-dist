@@ -1,3 +1,21 @@
+commit da6243d95a4c01198ac9b9bbfeaa101c8b939c64
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Jul 5 10:43:53 2024 -0400
+
+    config-package-dev hide /usr/share/backgrounds/xfce/xfce-shapes.svg
+    
+    Due to different monitor names file
+    /etc/skel/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml
+    cannot list them all.
+    Avoid the confusing Xfce logo, default image by hiding Xfce's default
+    background image file.
+
+commit 7523e35e0911c70ae70658f51412091de32ce999
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu May 23 14:42:03 2024 +0000
+
+    bumped changelog version
+
 commit 23f7b7b08608afad91e48c9f5383c7255587b1b0
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Thu May 23 10:40:47 2024 -0400
