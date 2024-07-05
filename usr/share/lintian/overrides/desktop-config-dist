@@ -3,3 +3,6 @@
 
 ## The whole point of the package.
 desktop-config-dist: package-contains-file-in-etc-skel [etc/skel/*]
+
+## Because of config-package-dev hide.
+desktop-config-dist: package-contains-empty-directory [usr/share/desktop-config-dist/]
