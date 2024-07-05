@@ -1,0 +1,9 @@
+## Copyright (C) 2019 - 2023 ENCRYPTED SUPPORT LP <adrelanos@whonix.org>
+## See the file COPYING for copying conditions.
+
+## Due to different monitor names file
+## /etc/skel/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml
+## cannot list them all.
+## Avoid the confusing Xfce logo, default image by hiding Xfce's default
+## background image file.
+/usr/share/backgrounds/xfce/xfce-shapes.svg
