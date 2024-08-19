@@ -66,6 +66,8 @@ fi
 missing_icon=""
 icon_dir="/usr/share/icons/gnome-colors-common/32x32"
 
+msg_cmd="/usr/libexec/msgcollector/generic_gui_message"
+
 icon_error="${icon_dir}/status/dialog-error.png"
 icon_persistent_mode="${icon_dir}/status/dialog-information.png"
 icon_grub_live_without_read_only="${icon_dir}/status/user-online.png"
@@ -93,9 +95,12 @@ if ! lsblk_output="$(sudo --non-interactive /bin/lsblk --noheadings --raw --outp
    echo "<img>${icon_error}</img>"
    ## Show "Error" next to info symbol in systray.
    echo "<txt>Error</txt>"
-   echo "<tool>Live Detection Test: Minor issue. Do not panic. Unable to determine if booted into live mode or persistent mode. For assistance and to report this issue, please visit: ${homepage}/wiki/Grub-live#Live_Check_Systray_Issues or click on the icon for more information.${bug_message}</tool>"
-   echo "<click>x-www-browser ${homepage}/wiki/Grub-live#Live_Check_Systray_Issues</click>"
-   echo "<txtclick>x-www-browser ${homepage}/wiki/Grub-live#Live_Check_Systray_Issues</txtclick>"
+   title="Livecheck"
+   link="<a href=\"${homepage}/wiki/Grub-live#Live_Check_Systray_Issues\">${homepage}/wiki/Grub-live#Live_Check_Systray_Issues</a>"
+   msg="Live Detection Test: Minor issue. Do not panic. Unable to determine if booted into live mode or persistent mode. For assistance and to report this issue, please visit: ${link}.${bug_message}"
+   click="${msg_cmd} error '${title}' '${msg}' '' ok"
+   echo "<click>${click}</click>"
+   echo "<txtclick>${click}</txtclick>"
    exit 0
 fi
 ## lsblk exited with exit code 0.
@@ -125,24 +130,33 @@ if echo "$lsblk_output" | grep --quiet "0" ; then
       true "INFO: grub-live or ISO live is enabled."
       if [ "$live_mode_environment" = "grub-live" ]; then
          echo "<img>${icon_grub_live_without_read_only}</img>"
+         msg_type="warning"
       elif [ "$live_mode_environment" = "ISO Live" ]; then
          echo "<img>${icon_iso}</img>"
+         msg_type="warning"
       else
          echo "<img>${icon_error}</img>"
+         msg_type="error"
       fi
       ## Show "Live" or "ISO" next to info symbol in systray.
       echo "<txt>$status_word</txt>"
-      echo "<tool>Live Mode Active (${live_mode_environment}): No changes will be made to disk. For added security and if possible, consider setting your disk to read-only mode. See: ${homepage}/wiki/Live_Mode or click on the icon for more information.${maybe_iso_live_message}${bug_message}</tool>"
-      echo "<click>x-www-browser ${homepage}/wiki/read-only</click>"
-      echo "<txtclick>x-www-browser ${homepage}/wiki/read-only</txtclick>"
+      title="Livecheck"
+      link="<a href=\"${homepage}/wiki/Live_mode\">${homepage}/wiki/Live_Mode</a>"
+      msg="Live Mode Active (${live_mode_environment}): No changes will be made to disk. For added security and if possible, consider <a href=\"${homepage}/wiki/Read-only\">setting your disk to read-only mode</a>. See: ${link}.${maybe_iso_live_message}${bug_message}"
+      click="${msg_cmd} ${msg_type} '${title}' '${msg}' '' ok"
+      echo "<click>${click}</click>"
+      echo "<txtclick>${click}</txtclick>"
    else
       true "INFO: Live mode and/or ISO live is disabled."
       echo "<img>${icon_persistent_mode}</img>"
       ## Do not show "Persistent" next to info symbol in systray.
       #echo "<txt>Persistent</txt>"
-      echo "<tool>Persistent Mode Active: All changes to the disk will be preserved after a reboot. If, instead, you would like to be in live mode, which enables temporary sessions where changes are not saved to the disk, see: ${homepage}/wiki/Live_Mode or click on the icon for more information.${bug_message}</tool>"
-      echo "<click>x-www-browser ${homepage}/wiki/Live_Mode</click>"
-      echo "<txtclick>x-www-browser ${homepage}/wiki/Live_Mode<txtclick>"
+      title="Livecheck"
+      link="<a href=\"${homepage}/wiki/Live_Mode\">${homepage}/wiki/Live_mode</a>"
+      msg="Persistent Mode Active: All changes to the disk will be preserved after a reboot. If, instead, you would like to be in live mode, which enables temporary sessions where changes are not saved to the disk. See: ${link}.${bug_message}"
+      click="${msg_cmd} info '${title}' '${msg}' '' ok"
+      echo "<click>${click}</click>"
+      echo "<txtclick>${click}</txtclick>"
    fi
 else
    true "INFO: No '0' found. Therefore only '1' found. Conclusion: read-only."
@@ -150,7 +164,10 @@ else
    echo "<img>${icon_grub_live_with_read_only}</img>"
    ## Show "read-only" next to info symbol in systray.
    echo "<txt>read-only</txt>"
-   echo "<tool>Live Mode Active (${live_mode_environment}): No changes will be made to disk. See: ${homepage}/wiki/Live_Mode or click on the icon for more information.${bug_message}</tool>"
-   echo "<click>x-www-browser ${homepage}/wiki/Live_Mode</click>"
-   echo "<txtclick>x-www-browser ${homepage}/wiki/Live_Mode</txtclick>"
+   title="Livecheck"
+   link="<a href=\"${homepage}/wiki/Live_mode\">${homepage}/wiki/Live_Mode</a>"
+   msg="Live Mode Active (${live_mode_environment}): No changes will be made to disk. See: ${link}.${bug_message}"
+   click="${msg_cmd} warning '${title}' '${msg}' '' ok"
+   echo "<click>${click}</click>"
+   echo "<txtclick>${click}</txtclick>"
 fi
