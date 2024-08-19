@@ -81,7 +81,7 @@ test -f "${icon_grub_live_with_read_only}" || missing_icon=true
 if [ "$missing_icon" = "true" ]; then
    bug_message="
 
-(Minor bug: Missing icons.)"
+(Minor bug: Missing icons)"
 else
    bug_message=""
 fi
@@ -116,7 +116,7 @@ elif echo "${proc_cmdline_output}" | grep --no-messages --quiet 'root=live' ; th
    status_word="ISO"
    maybe_iso_live_message="
 
-This does not matter if you are only using this ISO to install to the hard drive. In that case, this message can be safely ignored."
+This message can be safely ignored if only using this ISO to install to the hard drive."
 fi
 
 if echo "$lsblk_output" | grep --quiet "0" ; then
@@ -132,7 +132,7 @@ if echo "$lsblk_output" | grep --quiet "0" ; then
       fi
       ## Show "Live" or "ISO" next to info symbol in systray.
       echo "<txt>$status_word</txt>"
-      echo "<tool>Live Mode Active (${live_mode_environment}): Your system is currently running in live mode, ensuring no changes are made to the disk. For added security, consider setting your disk to read-only mode, if possible. See: ${homepage}/wiki/Live_Mode or click on the icon for more information.${maybe_iso_live_message}${bug_message}</tool>"
+      echo "<tool>Live Mode Active (${live_mode_environment}): No changes will be made to disk. For added security and if possible, consider setting your disk to read-only mode. See: ${homepage}/wiki/Live_Mode or click on the icon for more information.${maybe_iso_live_message}${bug_message}</tool>"
       echo "<click>x-www-browser ${homepage}/wiki/read-only</click>"
       echo "<txtclick>x-www-browser ${homepage}/wiki/read-only</txtclick>"
    else
@@ -140,17 +140,17 @@ if echo "$lsblk_output" | grep --quiet "0" ; then
       echo "<img>${icon_persistent_mode}</img>"
       ## Do not show "Persistent" next to info symbol in systray.
       #echo "<txt>Persistent</txt>"
-      echo "<tool>Persistent Mode Active: Your system is currently in persistent mode, and all changes to the disk will be preserved after a reboot. For using live mode, which enables temporary sessions where changes are not saved to the disk, see: ${homepage}/wiki/Live_Mode or click on the icon for more information.${bug_message}</tool>"
+      echo "<tool>Persistent Mode Active: All changes to the disk will be preserved after a reboot. If, instead, you would like to be in live mode, which enables temporary sessions where changes are not saved to the disk, see: ${homepage}/wiki/Live_Mode or click on the icon for more information.${bug_message}</tool>"
       echo "<click>x-www-browser ${homepage}/wiki/Live_Mode</click>"
       echo "<txtclick>x-www-browser ${homepage}/wiki/Live_Mode<txtclick>"
    fi
 else
-   true "INFO: No '0' is found. Therefore only '1' found. Conclusion: read-only."
+   true "INFO: No '0' found. Therefore only '1' found. Conclusion: read-only."
 
    echo "<img>${icon_grub_live_with_read_only}</img>"
    ## Show "read-only" next to info symbol in systray.
    echo "<txt>read-only</txt>"
-   echo "<tool>Live Mode Active (${live_mode_environment}): All changes to the disk will be gone after a reboot. See: ${homepage}/wiki/Live_Mode or click on the icon for more information.${bug_message}</tool>"
+   echo "<tool>Live Mode Active (${live_mode_environment}): No changes will be made to disk. See: ${homepage}/wiki/Live_Mode or click on the icon for more information.${bug_message}</tool>"
    echo "<click>x-www-browser ${homepage}/wiki/Live_Mode</click>"
    echo "<txtclick>x-www-browser ${homepage}/wiki/Live_Mode</txtclick>"
 fi
