@@ -6,20 +6,24 @@
 
 set -e
 
+## The following command lists the block devices:
 ## sudo /bin/lsblk
 ##
+## Example output:
 ## NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
 ## sda      8:0    0  100G  1 disk
 ##
-## 1 means read-only
-## 0 means read-write
+## RO (Read-Only) column:
+## 1 indicates read-only
+## 0 indicates read-write
+##
+## If any "0" appears, the system is not in live mode.
 
-## As soon as we have at least one "0" it is concluded: not live mode.
-
-## when using snapd:
+## Special case when using snapd:
 ##
 ## sudo /bin/lsblk
 ##
+## Example output:
 ## NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
 ## loop0    7:0    0   55M  1 loop /snap/core18/1754
 ## loop1    7:1    0        0 loop
@@ -33,10 +37,11 @@ set -e
 ##   sda1   8:1    0  100G  0 part /
 ## sr0     11:0    1 1024M  0 rom
 
-## when using snapd:
+## Running:
 ##
 ## sudo /bin/lsblk --noheadings --raw --output RO
 ##
+## Example output:
 ## 1
 ## 1
 ## 0
@@ -49,12 +54,11 @@ set -e
 ## 0
 ## 0
 
-## The following did not work with snapd:
+## The following method did not work properly with snapd:
 ## http://forums.whonix.org/t/wickr-me-gets-whonix-stuck-in-live-mode/9834/1
 #if sudo --non-interactive /bin/lsblk --noheadings --raw --output RO | grep --invert-match "0" ; then
 
-## Using `sudo` to run `lsblk` because `hide-hardware-info.service` makes this no longer
-## readable by user `root`. Only readable by user `root`.
+## We use `sudo` to run `lsblk` because `hide-hardware-info.service` makes it readable only by the `root` user.
 ## https://forums.whonix.org/t/restrict-hardware-information-to-root-testers-wanted/8618/13
 
 if test -f /usr/share/whonix/marker ; then
@@ -88,12 +92,11 @@ else
    bug_message=""
 fi
 
-## Check if execution of lsblk fails with a non-zero exit code such as in case of missing sudoers permissions.
+# Check if the lsblk command fails (e.g., due to insufficient sudo permissions)
 if ! lsblk_output="$(sudo --non-interactive /bin/lsblk --noheadings --raw --output RO)" ; then
-   ## lsblk exited a non-zero exit code.
+   # lsblk command failed with a non-zero exit code
    true "INFO: Running 'sudo --non-interactive /bin/lsblk --noheadings --raw --output RO' failed!"
    echo "<img>${icon_error}</img>"
-   ## Show "Error" next to info symbol in systray.
    echo "<txt>Error</txt>"
    title="Livecheck"
    link="<a href=\"${homepage}/wiki/Grub-live#Live_Check_Systray_Issues\">${homepage}/wiki/Grub-live#Live_Check_Systray_Issues</a>"
@@ -103,15 +106,16 @@ if ! lsblk_output="$(sudo --non-interactive /bin/lsblk --noheadings --raw --outp
    echo "<txtclick>${click}</txtclick>"
    exit 0
 fi
-## lsblk exited with exit code 0.
+## lsblk command succeeded
 
 proc_cmdline_output=$(cat /proc/cmdline)
 
-## Manual testing.
+## Manual testing examples:
 #proc_cmdline_output="boot=live"
 #proc_cmdline_output="root=live"
 #lsblk_output=""
 
+## Detect if the system was booted in live mode
 if echo "${proc_cmdline_output}" | grep --no-messages --quiet 'boot=live' ; then
    live_mode_environment="grub-live"
    status_word="Live"
@@ -124,10 +128,11 @@ elif echo "${proc_cmdline_output}" | grep --no-messages --quiet 'root=live' ; th
 This message can be safely ignored if only using this ISO to install to the hard drive."
 fi
 
+## Check if there are any read-write devices
 if echo "$lsblk_output" | grep --quiet "0" ; then
-   true "INFO: If at least one '0' was found. Conclusion: not all read-only. Some read-write."
+   true "INFO: At least one '0' found. Conclusion: not all devices are read-only; some are read-write."
    if echo "${proc_cmdline_output}" | grep --no-messages --quiet 'boot=live\|root=live'; then
-      true "INFO: grub-live or ISO live is enabled."
+      true "INFO: Live mode (grub-live or ISO live) is enabled."
       if [ "$live_mode_environment" = "grub-live" ]; then
          echo "<img>${icon_grub_live_without_read_only}</img>"
          msg_type="warning"
@@ -142,24 +147,24 @@ if echo "$lsblk_output" | grep --quiet "0" ; then
       echo "<txt>$status_word</txt>"
       title="Livecheck"
       link="<a href=\"${homepage}/wiki/Live_mode\">${homepage}/wiki/Live_Mode</a>"
-      msg="Live Mode Active (${live_mode_environment}): No changes will be made to disk. For added security and if possible, consider <a href=\"${homepage}/wiki/Read-only\">setting your disk to read-only mode</a>. See: ${link}.${maybe_iso_live_message}${bug_message}"
+      msg="Live Mode Active (${live_mode_environment}): No changes will be made to disk. For added security, consider <a href=\"${homepage}/wiki/Read-only\">setting your disk to read-only mode</a>. See: ${link}.${maybe_iso_live_message}${bug_message}"
       click="${msg_cmd} ${msg_type} '${title}' '${msg}' '' ok"
       echo "<click>${click}</click>"
       echo "<txtclick>${click}</txtclick>"
    else
-      true "INFO: Live mode and/or ISO live is disabled."
+      true "INFO: Live mode (grub-live or ISO live) is disabled."
       echo "<img>${icon_persistent_mode}</img>"
       ## Do not show "Persistent" next to info symbol in systray.
       #echo "<txt>Persistent</txt>"
       title="Livecheck"
       link="<a href=\"${homepage}/wiki/Live_Mode\">${homepage}/wiki/Live_mode</a>"
-      msg="Persistent Mode Active: All changes to the disk will be preserved after a reboot. If, instead, you would like to be in live mode, which enables temporary sessions where changes are not saved to the disk. See: ${link}.${bug_message}"
+      msg="Persistent Mode Active: All changes to the disk will be preserved after a reboot. If you prefer a temporary session where changes are not saved, consider switching to live mode. See: ${link}.${bug_message}"
       click="${msg_cmd} info '${title}' '${msg}' '' ok"
       echo "<click>${click}</click>"
       echo "<txtclick>${click}</txtclick>"
    fi
 else
-   true "INFO: No '0' found. Therefore only '1' found. Conclusion: read-only."
+   true "INFO: No '0' found. Conclusion: All devices are read-only."
 
    echo "<img>${icon_grub_live_with_read_only}</img>"
    ## Show "read-only" next to info symbol in systray.
