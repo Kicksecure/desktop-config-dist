@@ -1,3 +1,43 @@
+commit 5f09f78fb2c2bbf4cb5e5e7a9e197c35121b2d73
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Aug 20 08:30:58 2024 -0400
+
+    output
+
+commit f6d94a8455b1cad10f81170f84db22f7e847accc
+Merge: 097a41f 268cc74
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Aug 20 08:19:21 2024 -0400
+
+    Merge remote-tracking branch 'github-kicksecure/master'
+
+commit 268cc748e6777349faff71ed4b450193bccbb753
+Merge: 097a41f a98c372
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Aug 20 08:18:07 2024 -0400
+
+    Merge pull request #19 from ben-grande/live-msg
+    
+    Convert livecheck tooltips to dialog
+
+commit a98c3722a7df4f46238db87f5395806469092041
+Author: Ben Grande <ben.grande.b@gmail.com>
+Date:   Mon Aug 19 16:49:40 2024 +0200
+
+    Convert tooltips to dialog
+
+commit 097bab29ee9c9384c6916af3f48c59ad4edf4a81
+Author: Ben Grande <ben.grande.b@gmail.com>
+Date:   Mon Aug 19 15:24:43 2024 +0200
+
+    Standardize tooltips
+
+commit 097a41fb8bdcfc31d6cbbf984c03357bee06e57c
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Jul 5 14:51:22 2024 +0000
+
+    bumped changelog version
+
 commit 906f2843cfff919e7e1c6764a482bfe4e18886ad
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Fri Jul 5 10:51:08 2024 -0400
