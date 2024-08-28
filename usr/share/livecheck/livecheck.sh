@@ -152,7 +152,7 @@ if echo "$lsblk_output" | grep --quiet "0" ; then
       click="${msg_cmd} ${msg_type} '${title}' '${msg}' '' ok"
       echo "<click>${click}</click>"
       echo "<txtclick>${click}</txtclick>"
-      echo "<tool>Live Mode Active (${live_mode_environment}): No changes will be made to disk. For added security, click on the icon for more information.${bug_message}.</tool>"
+      echo "<tool>Live Mode Active (${live_mode_environment}): No changes will be made to disk. For added security, click on the icon for more information.${maybe_iso_live_message}${bug_message}.</tool>"
    else
       true "INFO: Live mode (grub-live or ISO live) is disabled."
       echo "<img>${icon_persistent_mode}</img>"
