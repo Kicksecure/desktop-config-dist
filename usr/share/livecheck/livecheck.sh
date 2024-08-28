@@ -154,7 +154,7 @@ For added security, consider <a href=\"${homepage}/wiki/Read-only\">setting your
 
 ${maybe_iso_live_message}
 
-See: ${link}
+For more information, see: ${link}
 
 ${bug_message}
 "
@@ -175,7 +175,7 @@ Persistent Mode Active: Yes
 
 All changes to the disk will be preserved after a reboot. If you prefer a temporary session where changes are not saved, consider switching to live mode.
 
-See: ${link}
+For more information, see: ${link}
 
 ${bug_message}
 "
@@ -198,7 +198,7 @@ Persistent Mode Active: No
 
 No changes will be made to disk.
 
-See: ${link}
+For more information, see: ${link}
 
 ${bug_message}
 "
