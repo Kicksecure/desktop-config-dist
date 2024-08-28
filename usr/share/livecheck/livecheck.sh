@@ -90,6 +90,8 @@ else
    bug_message=""
 fi
 
+heading_line="<u><b>Live Check Result</b></u>"
+
 # Check if the lsblk command fails (e.g., due to insufficient sudo permissions)
 if ! lsblk_output="$(sudo --non-interactive /bin/lsblk --noheadings --raw --output RO)" ; then
    # lsblk command failed with a non-zero exit code
@@ -98,7 +100,12 @@ if ! lsblk_output="$(sudo --non-interactive /bin/lsblk --noheadings --raw --outp
    echo "<txt>Error</txt>"
    title="Livecheck"
    link="<a href=\"${homepage}/wiki/Grub-live#Live_Check_Systray_Issues\">${homepage}/wiki/Grub-live#Live_Check_Systray_Issues</a>"
-   msg="Live Detection Test: Minor issue. Do not panic. Unable to determine if booted into live mode or persistent mode. For assistance and to report this issue, please visit: ${link}.${bug_message}"
+   msg="\
+${heading_line}
+
+Live Detection Test: Minor issue. Do not panic. Unable to determine if booted into live mode or persistent mode. For assistance and to report this issue, please visit: ${link}.
+
+${bug_message}"
    click="${msg_cmd} error '${title}' '${msg}' '' ok"
    echo "<click>${click}</click>"
    echo "<txtclick>${click}</txtclick>"
@@ -145,6 +152,8 @@ if echo "$lsblk_output" | grep --quiet "0" ; then
       title="Livecheck"
       link="<a href=\"${homepage}/wiki/Live_mode\">${homepage}/wiki/Live_Mode</a>"
       msg="\
+${heading_line}
+
 Live Mode Active: Yes (${live_mode_environment})
 Persistent Mode Active: No
 
@@ -170,6 +179,8 @@ ${bug_message}
       title="Livecheck"
       link="<a href=\"${homepage}/wiki/Live_Mode\">${homepage}/wiki/Live_mode</a>"
       msg="\
+${heading_line}
+
 Live Mode Active: No
 Persistent Mode Active: Yes
 
@@ -193,6 +204,8 @@ else
    title="Livecheck"
    link="<a href=\"${homepage}/wiki/Live_mode\">${homepage}/wiki/Live_Mode</a>"
    msg="\
+${heading_line}
+
 Live Mode Active: Yes (${live_mode_environment})
 Persistent Mode Active: No
 
