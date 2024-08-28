@@ -156,7 +156,7 @@ if echo "$lsblk_output" | grep --quiet "0" ; then
 ${heading_line}<br/><br/>
 <b>Live Mode Active:</b> <b>Yes</b> (${live_mode_environment})<br/>
 <b>Persistent Mode Active:</b> No<br/><br/>
-No changes will be made to disk.<br/><br/>
+No changes will be made to disk.
 <ul>
    <li>For added security, consider <a href=\"${homepage}/wiki/Read-only\">setting your disk to read-only mode</a>.</li>
 </ul>
@@ -177,7 +177,7 @@ ${bug_message}"
       msg="\
 ${heading_line}<br/><br/>
 <b>Live Mode Active:</b> No<br/>
-<b>Persistent Mode Active:</b> <b>Yes</b><br/><br/>
+<b>Persistent Mode Active:</b> <b>Yes</b>
 <ul>
    <li>All changes to the disk will be preserved after a reboot.</li>
    <li>If you prefer a temporary session where changes are not saved, consider switching to live mode.</li>
@@ -200,7 +200,7 @@ else
    msg="\
 ${heading_line}<br/><br/>
 <b>Live Mode Active:</b> <b>Yes</b> (${live_mode_environment})<br/>
-<b>Persistent Mode Active:</b> No<br/><br/>
+<b>Persistent Mode Active:</b> No
 <ul>
    <li>No changes will be made to disk.</li>
    <li>For more information, see the following link:</li>
