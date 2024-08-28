@@ -104,6 +104,7 @@ if ! lsblk_output="$(sudo --non-interactive /bin/lsblk --noheadings --raw --outp
    click="${msg_cmd} error '${title}' '${msg}' '' ok"
    echo "<click>${click}</click>"
    echo "<txtclick>${click}</txtclick>"
+   echo "<tool>Live Detection Test: Minor issue. Do not panic. Click on the icon for more information.</tool>"
    exit 0
 fi
 ## lsblk command succeeded
@@ -151,6 +152,7 @@ if echo "$lsblk_output" | grep --quiet "0" ; then
       click="${msg_cmd} ${msg_type} '${title}' '${msg}' '' ok"
       echo "<click>${click}</click>"
       echo "<txtclick>${click}</txtclick>"
+      echo "<tool>Live Mode Active (${live_mode_environment}): No changes will be made to disk. For added security, click on the icon for more information.${bug_message}.</tool>"
    else
       true "INFO: Live mode (grub-live or ISO live) is disabled."
       echo "<img>${icon_persistent_mode}</img>"
@@ -162,6 +164,7 @@ if echo "$lsblk_output" | grep --quiet "0" ; then
       click="${msg_cmd} info '${title}' '${msg}' '' ok"
       echo "<click>${click}</click>"
       echo "<txtclick>${click}</txtclick>"
+      echo "<tool>Persistent Mode Active: All changes to the disk will be preserved after a reboot. If you prefer a temporary session where changes are not saved, consider switching to live mode. Click on the icon for more information.${bug_message}</tool>"
    fi
 else
    true "INFO: No '0' found. Conclusion: All devices are read-only."
@@ -175,4 +178,5 @@ else
    click="${msg_cmd} warning '${title}' '${msg}' '' ok"
    echo "<click>${click}</click>"
    echo "<txtclick>${click}</txtclick>"
+   echo "<tool>Live Mode Active (${live_mode_environment}): No changes will be made to disk. Click on the icon for more information.${bug_message}</tool>"
 fi
