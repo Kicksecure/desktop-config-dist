@@ -85,9 +85,7 @@ test -f "${icon_iso}" || missing_icon=true
 test -f "${icon_grub_live_with_read_only}" || missing_icon=true
 
 if [ "$missing_icon" = "true" ]; then
-   bug_message="
-
-(Minor bug: Missing icons)"
+   bug_message="(Minor bug: Missing icons)"
 else
    bug_message=""
 fi
@@ -124,9 +122,7 @@ if echo "${proc_cmdline_output}" | grep --no-messages --quiet 'boot=live' ; then
 elif echo "${proc_cmdline_output}" | grep --no-messages --quiet 'root=live' ; then
    live_mode_environment="ISO Live"
    status_word="ISO"
-   maybe_iso_live_message="
-
-This message can be safely ignored if only using this ISO to install to the hard drive."
+   maybe_iso_live_message="This message can be safely ignored if only using this ISO to install to the hard drive."
 fi
 
 ## Check if there are any read-write devices
@@ -148,7 +144,20 @@ if echo "$lsblk_output" | grep --quiet "0" ; then
       echo "<txt>$status_word</txt>"
       title="Livecheck"
       link="<a href=\"${homepage}/wiki/Live_mode\">${homepage}/wiki/Live_Mode</a>"
-      msg="Live Mode Active (${live_mode_environment}): No changes will be made to disk. For added security, consider <a href=\"${homepage}/wiki/Read-only\">setting your disk to read-only mode</a>. See: ${link}.${maybe_iso_live_message}${bug_message}"
+      msg="\
+Live Mode Active: Yes (${live_mode_environment})
+Persistent Mode Active: No
+
+No changes will be made to disk.
+
+For added security, consider <a href=\"${homepage}/wiki/Read-only\">setting your disk to read-only mode</a>.
+
+${maybe_iso_live_message}
+
+See: ${link}
+
+${bug_message}
+"
       click="${msg_cmd} ${msg_type} '${title}' '${msg}' '' ok"
       echo "<click>${click}</click>"
       echo "<txtclick>${click}</txtclick>"
@@ -160,7 +169,16 @@ if echo "$lsblk_output" | grep --quiet "0" ; then
       #echo "<txt>Persistent</txt>"
       title="Livecheck"
       link="<a href=\"${homepage}/wiki/Live_Mode\">${homepage}/wiki/Live_mode</a>"
-      msg="Persistent Mode Active: All changes to the disk will be preserved after a reboot. If you prefer a temporary session where changes are not saved, consider switching to live mode. See: ${link}.${bug_message}"
+      msg="\
+Live Mode Active: No
+Persistent Mode Active: Yes
+
+All changes to the disk will be preserved after a reboot. If you prefer a temporary session where changes are not saved, consider switching to live mode.
+
+See: ${link}
+
+${bug_message}
+"
       click="${msg_cmd} info '${title}' '${msg}' '' ok"
       echo "<click>${click}</click>"
       echo "<txtclick>${click}</txtclick>"
@@ -174,7 +192,16 @@ else
    echo "<txt>read-only</txt>"
    title="Livecheck"
    link="<a href=\"${homepage}/wiki/Live_mode\">${homepage}/wiki/Live_Mode</a>"
-   msg="Live Mode Active (${live_mode_environment}): No changes will be made to disk. See: ${link}.${bug_message}"
+   msg="\
+Live Mode Active: Yes (${live_mode_environment})
+Persistent Mode Active: No
+
+No changes will be made to disk.
+
+See: ${link}
+
+${bug_message}
+"
    click="${msg_cmd} warning '${title}' '${msg}' '' ok"
    echo "<click>${click}</click>"
    echo "<txtclick>${click}</txtclick>"
