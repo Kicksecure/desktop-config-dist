@@ -85,7 +85,7 @@ test -f "${icon_iso}" || missing_icon=true
 test -f "${icon_grub_live_with_read_only}" || missing_icon=true
 
 if [ "$missing_icon" = "true" ]; then
-   bug_message="(Minor bug: Missing icons)"
+   bug_message="<br/>(Minor bug: Missing icons)<br/>"
 else
    bug_message=""
 fi
@@ -101,10 +101,9 @@ if ! lsblk_output="$(sudo --non-interactive /bin/lsblk --noheadings --raw --outp
    title="Livecheck"
    link="<a href=\"${homepage}/wiki/Grub-live#Live_Check_Systray_Issues\">${homepage}/wiki/Grub-live#Live_Check_Systray_Issues</a>"
    msg="\
-${heading_line}
-
-Live Detection Test: Minor issue. Do not panic. Unable to determine if booted into live mode or persistent mode. For assistance and to report this issue, please visit: ${link}.
-
+${heading_line}<br/>
+<br/>
+Live Detection Test: Minor issue. Do not panic. Unable to determine if booted into live mode or persistent mode. For assistance and to report this issue, please visit: ${link}.<br/>
 ${bug_message}"
    click="${msg_cmd} error '${title}' '${msg}' '' ok"
    echo "<click>${click}</click>"
@@ -129,7 +128,7 @@ if echo "${proc_cmdline_output}" | grep --no-messages --quiet 'boot=live' ; then
 elif echo "${proc_cmdline_output}" | grep --no-messages --quiet 'root=live' ; then
    live_mode_environment="ISO Live"
    status_word="ISO"
-   maybe_iso_live_message="This message can be safely ignored if only using this ISO to install to the hard drive."
+   maybe_iso_live_message="<br/><u>This message can be safely ignored if only using this ISO to install to the hard drive.</u><br/>"
 fi
 
 ## Check if there are any read-write devices
@@ -152,19 +151,16 @@ if echo "$lsblk_output" | grep --quiet "0" ; then
       title="Livecheck"
       link="<a href=\"${homepage}/wiki/Live_mode\">${homepage}/wiki/Live_Mode</a>"
       msg="\
-${heading_line}
-
-Live Mode Active: Yes (${live_mode_environment})
-Persistent Mode Active: No
-
-No changes will be made to disk.
-
-For added security, consider <a href=\"${homepage}/wiki/Read-only\">setting your disk to read-only mode</a>.
-
+${heading_line}<br/>
+<br/>
+Live Mode Active: Yes (${live_mode_environment})<br/>
+Persistent Mode Active: No<br/>
+<br/>
+No changes will be made to disk.<br/>
+<br/>
+For added security, consider <a href=\"${homepage}/wiki/Read-only\">setting your disk to read-only mode</a>.<br/>
 ${maybe_iso_live_message}
-
-For more information, see: ${link}
-
+<br/>For more information, see: ${link}<br/>
 ${bug_message}
 "
       click="${msg_cmd} ${msg_type} '${title}' '${msg}' '' ok"
@@ -179,15 +175,14 @@ ${bug_message}
       title="Livecheck"
       link="<a href=\"${homepage}/wiki/Live_Mode\">${homepage}/wiki/Live_mode</a>"
       msg="\
-${heading_line}
-
-Live Mode Active: No
-Persistent Mode Active: Yes
-
-All changes to the disk will be preserved after a reboot. If you prefer a temporary session where changes are not saved, consider switching to live mode.
-
-For more information, see: ${link}
-
+${heading_line}<br/>
+<br/>
+Live Mode Active: No<br/>
+Persistent Mode Active: Yes<br/>
+<br/>
+All changes to the disk will be preserved after a reboot. If you prefer a temporary session where changes are not saved, consider switching to live mode.<br/>
+<br/>
+For more information, see: ${link}<br/>
 ${bug_message}
 "
       click="${msg_cmd} info '${title}' '${msg}' '' ok"
@@ -204,15 +199,14 @@ else
    title="Livecheck"
    link="<a href=\"${homepage}/wiki/Live_mode\">${homepage}/wiki/Live_Mode</a>"
    msg="\
-${heading_line}
-
-Live Mode Active: Yes (${live_mode_environment})
-Persistent Mode Active: No
-
-No changes will be made to disk.
-
-For more information, see: ${link}
-
+${heading_line}<br/>
+<br/>
+Live Mode Active: Yes (${live_mode_environment})<br/>
+Persistent Mode Active: No<br/>
+<br/>
+No changes will be made to disk.<br/>
+<br/>
+For more information, see: ${link}<br/>
 ${bug_message}
 "
    click="${msg_cmd} warning '${title}' '${msg}' '' ok"
