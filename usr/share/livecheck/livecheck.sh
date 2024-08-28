@@ -151,7 +151,7 @@ if echo "$lsblk_output" | grep --quiet "0" ; then
       ## Show "Live" or "ISO" next to info symbol in systray.
       echo "<txt>$status_word</txt>"
       title="Livecheck"
-      link="<a href=\"${homepage}/wiki/Live_mode\">${homepage}/wiki/Live_Mode</a>"
+      link="<a href=\"${homepage}/wiki/Live_Mode\">${homepage}/wiki/Live_Mode</a>"
       msg="\
 ${heading_line}<br/><br/>
 <b>Live Mode Active:</b> <b>Yes</b> (${live_mode_environment})<br/>
@@ -173,7 +173,7 @@ ${bug_message}"
       ## Do not show "Persistent" next to info symbol in systray.
       #echo "<txt>Persistent</txt>"
       title="Livecheck"
-      link="<a href=\"${homepage}/wiki/Live_Mode\">${homepage}/wiki/Live_mode</a>"
+      link="<a href=\"${homepage}/wiki/Persistent_Mode\">${homepage}/wiki/Persistent_Mode</a>"
       msg="\
 ${heading_line}<br/><br/>
 <b>Live Mode Active:</b> No<br/>
@@ -196,7 +196,7 @@ else
    ## Show "read-only" next to info symbol in systray.
    echo "<txt>read-only</txt>"
    title="Livecheck"
-   link="<a href=\"${homepage}/wiki/Live_mode\">${homepage}/wiki/Live_Mode</a>"
+   link="<a href=\"${homepage}/wiki/Live_Mode\">${homepage}/wiki/Live_Mode</a>"
    msg="\
 ${heading_line}<br/><br/>
 <b>Live Mode Active:</b> <b>Yes</b> (${live_mode_environment})<br/>
