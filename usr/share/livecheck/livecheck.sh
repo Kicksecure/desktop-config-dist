@@ -90,7 +90,7 @@ else
    bug_message=""
 fi
 
-heading_line="<u><b>Live Check Result</b></u>"
+heading_line="<u><b>Live Check Result:</b></u>"
 
 # Check if the lsblk command fails (e.g., due to insufficient sudo permissions)
 if ! lsblk_output="$(sudo --non-interactive /bin/lsblk --noheadings --raw --output RO)" ; then
