@@ -153,7 +153,7 @@ if echo "$lsblk_output" | grep --quiet "0" ; then
       msg="\
 ${heading_line}<br/>
 <br/>
-<b>Live Mode Active:</b> Yes (${live_mode_environment})<br/>
+<b>Live Mode Active:</b> <b>Yes</b> (${live_mode_environment})<br/>
 <b>Persistent Mode Active:</b> No<br/>
 <br/>
 No changes will be made to disk.<br/>
@@ -178,7 +178,7 @@ ${bug_message}
 ${heading_line}<br/>
 <br/>
 <b>Live Mode Active:</b> No<br/>
-<b>Persistent Mode Active:</b> Yes<br/>
+<b>Persistent Mode Active:</b> <b>Yes</b><br/>
 <br/>
 All changes to the disk will be preserved after a reboot. If you prefer a temporary session where changes are not saved, consider switching to live mode.<br/>
 <br/>
@@ -201,7 +201,7 @@ else
    msg="\
 ${heading_line}<br/>
 <br/>
-<b>Live Mode Active:</b> Yes (${live_mode_environment})<br/>
+<b>Live Mode Active:</b> <b>Yes</b> (${live_mode_environment})<br/>
 <b>Persistent Mode Active:</b> No<br/>
 <br/>
 No changes will be made to disk.<br/>
