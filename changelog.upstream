@@ -1,3 +1,81 @@
+commit 5f949dc67daf7477326ad76358030210fd3e8e46
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Aug 28 08:14:54 2024 -0400
+
+    output
+
+commit 6c2ad8479c5362b5e0fee3deb4166feae2caf09a
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Aug 28 08:11:38 2024 -0400
+
+    output
+
+commit 8f6533efb41eccd79777994935d7b273ab8cd1fc
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Aug 28 08:08:40 2024 -0400
+
+    output
+
+commit 3ff415b2043770df834cf18127ec26c0042b729e
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Aug 28 08:03:55 2024 -0400
+
+    output
+
+commit 17f5da23dcfffa7fabdbbc5d85e977a3c32f62bf
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Aug 28 08:01:44 2024 -0400
+
+    output
+
+commit e758d2abd13553c652474c8e3d803d084d0f75a7
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Aug 28 07:56:38 2024 -0400
+
+    output
+
+commit c149f0693dae12d976dd5c22ae6e5847979f3ed7
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Aug 28 07:56:13 2024 -0400
+
+    output
+
+commit e229cef1d3c675188676a05a217b39abec9215e8
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Aug 28 07:51:12 2024 -0400
+
+    output
+
+commit 8e9d9d20f4e055b0dc72fe093e8f769b47136ff1
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Aug 28 07:48:13 2024 -0400
+
+    output
+
+commit f26aacfcbb8fec9b922481bac32ae830a2df1b19
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Aug 28 07:47:13 2024 -0400
+
+    output
+
+commit 85cba83cdeb9d3cf0ec77afaaa627db697cbf5cc
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Aug 28 07:39:39 2024 -0400
+
+    output
+
+commit 38297dac7f99e741db5b6b391904fc4e3c9cf00d
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Aug 28 07:37:31 2024 -0400
+
+    restore livecheck tooltips
+
+commit 4bd5f4f79149feaba74cff43d428d53eea6822c8
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Aug 24 12:18:00 2024 +0000
+
+    bumped changelog version
+
 commit 5f09f78fb2c2bbf4cb5e5e7a9e197c35121b2d73
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Tue Aug 20 08:30:58 2024 -0400
