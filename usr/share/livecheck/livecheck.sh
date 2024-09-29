@@ -181,6 +181,7 @@ ${bug_message}"
       img="${icon_persistent_mode}"
       ## Do not show "Persistent" next to info symbol in systray.
       #txt="Persistent"
+      txt=""
       title="Livecheck"
       link="<a href=\"${homepage}/wiki/Persistent_Mode\">${homepage}/wiki/Persistent_Mode</a>"
       msg="\
