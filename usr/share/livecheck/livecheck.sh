@@ -94,6 +94,7 @@ icon_grub_live_without_read_only="${icon_dir}/status/user-online.png"
 icon_iso="${icon_dir}/devices/media-optical.png"
 icon_grub_live_with_read_only="${icon_dir}/actions/dialog-apply.png"
 
+## If at least one icon is missing, set 'missing_icon=true'.
 test -f "${icon_error}" || missing_icon=true
 test -f "${icon_persistent_mode}" || missing_icon=true
 test -f "${icon_grub_live_without_read_only}" || missing_icon=true
