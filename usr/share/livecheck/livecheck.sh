@@ -10,6 +10,10 @@ set -o nounset
 set -o errtrace
 set -o pipefail
 
+## 'true' versus 'echo':
+## Using 'true' for output and not 'echo' because this script's output gets
+## parsed by Xfce genmon, which gets confused by additional 'echo's.
+
 ## The following command lists the block devices:
 ## sudo /bin/lsblk
 ##
