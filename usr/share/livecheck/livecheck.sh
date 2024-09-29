@@ -109,7 +109,9 @@ fi
 
 heading_line="<u><b>Live Check Result:</b></u>"
 
-# Check if the lsblk command fails (e.g., due to insufficient sudo permissions)
+## This has a sudoers exception in file:
+## /etc/sudoers.d/desktop-config-dist
+## Check if the lsblk command fails (e.g., due to insufficient sudo permissions)
 if ! lsblk_output="$(sudo --non-interactive /bin/lsblk --noheadings --raw --output RO)" ; then
    # lsblk command failed with a non-zero exit code
    true "INFO: Running 'sudo --non-interactive /bin/lsblk --noheadings --raw --output RO' failed!"
