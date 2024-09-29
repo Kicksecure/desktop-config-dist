@@ -136,10 +136,11 @@ fi
 
 proc_cmdline_output=$(cat /proc/cmdline)
 
-## Manual testing examples:
-#proc_cmdline_output="boot=live"
-#proc_cmdline_output="root=live"
-#lsblk_output=""
+## Test mode overrides
+if [[ "${1:-}" == "test" ]]; then
+   proc_cmdline_output="$2"
+   lsblk_output="$3"
+fi
 
 ## Detect if the system was booted in live mode
 if echo "${proc_cmdline_output}" | grep --quiet --fixed-strings -- 'boot=live' ; then
