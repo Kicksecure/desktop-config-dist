@@ -66,9 +66,6 @@ set -o pipefail
 ## http://forums.whonix.org/t/wickr-me-gets-whonix-stuck-in-live-mode/9834/1
 #if sudo --non-interactive /bin/lsblk --noheadings --raw --output RO | grep --invert-match --fixed-strings -- "0" ; then
 
-## We use `sudo` to run `lsblk` because `hide-hardware-info.service` makes it readable only by the `root` user.
-## https://forums.whonix.org/t/restrict-hardware-information-to-root-testers-wanted/8618/13
-
 output_function() {
    echo "<img>${img}</img>"
    echo "<txt>${txt}</txt>"
@@ -109,8 +106,12 @@ fi
 
 heading_line="<u><b>Live Check Result:</b></u>"
 
+## We use `sudo` to run `lsblk` because `hide-hardware-info.service` makes it readable only by the `root` user.
+## https://forums.whonix.org/t/restrict-hardware-information-to-root-testers-wanted/8618/13
+##
 ## This has a sudoers exception in file:
 ## /etc/sudoers.d/desktop-config-dist
+##
 ## Check if the lsblk command fails (e.g., due to insufficient sudo permissions)
 if ! lsblk_output="$(sudo --non-interactive /bin/lsblk --noheadings --raw --output RO)" ; then
    # lsblk command failed with a non-zero exit code
