@@ -151,6 +151,8 @@ elif echo "${proc_cmdline_output}" | grep --quiet --fixed-strings -- 'root=live'
    maybe_iso_live_message="<br/><u>This message can be safely ignored if only using this ISO to install to the hard drive.</u><br/>"
 else
    live_mode_environment="false"
+   status_word="persistent"
+   maybe_iso_live_message=""
 fi
 
 ## Check if there are any read-write devices
@@ -169,7 +171,7 @@ if echo "$lsblk_output" | grep --quiet --fixed-strings -- "0" ; then
          msg_type="error"
       fi
       ## Show "Live" or "ISO" next to info symbol in systray.
-      txt="$status_word"
+      txt="${status_word}"
       title="Livecheck"
       link="<a href=\"${homepage}/wiki/Live_Mode\">${homepage}/wiki/Live_Mode</a>"
       msg="\
@@ -189,7 +191,7 @@ ${bug_message}"
       true "INFO: Live mode (grub-live or ISO live) is disabled."
       img="${icon_persistent_mode}"
       ## Do not show "Persistent" next to info symbol in systray.
-      #txt="Persistent"
+      #txt="${status_word}"
       txt=""
       title="Livecheck"
       link="<a href=\"${homepage}/wiki/Persistent_Mode\">${homepage}/wiki/Persistent_Mode</a>"
