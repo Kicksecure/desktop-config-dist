@@ -5,6 +5,10 @@
 ## See the file COPYING for copying conditions.
 
 set -e
+set -o errexit
+set -o nounset
+set -o errtrace
+set -o pipefail
 
 ## The following command lists the block devices:
 ## sudo /bin/lsblk
