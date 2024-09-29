@@ -142,6 +142,8 @@ elif echo "${proc_cmdline_output}" | grep --no-messages --quiet --fixed-strings 
    live_mode_environment="ISO Live"
    status_word="ISO"
    maybe_iso_live_message="<br/><u>This message can be safely ignored if only using this ISO to install to the hard drive.</u><br/>"
+else
+   live_mode_environment="false"
 fi
 
 ## Check if there are any read-write devices
