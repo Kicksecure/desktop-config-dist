@@ -96,8 +96,8 @@ heading_line="<u><b>Live Check Result:</b></u>"
 if ! lsblk_output="$(sudo --non-interactive /bin/lsblk --noheadings --raw --output RO)" ; then
    # lsblk command failed with a non-zero exit code
    true "INFO: Running 'sudo --non-interactive /bin/lsblk --noheadings --raw --output RO' failed!"
-   echo "<img>${icon_error}</img>"
-   echo "<txt>Error</txt>"
+   img="${icon_error}"
+   txt="Error"
    title="Livecheck"
    link="<a href=\"${homepage}/wiki/Grub-live#Live_Check_Systray_Issues\">${homepage}/wiki/Grub-live#Live_Check_Systray_Issues</a>"
    msg="\
@@ -108,9 +108,7 @@ ${heading_line}<br/><br/>
 ${link}.<br/><br/>
 ${bug_message}"
    click="${msg_cmd} error '${title}' '${msg}' '' ok"
-   echo "<click>${click}</click>"
-   echo "<txtclick>${click}</txtclick>"
-   echo "<tool><b>Live Detection Test:</b> Minor issue. Click on the icon for more information.</tool>"
+   tool="<b>Live Detection Test:</b> Minor issue. Click on the icon for more information."
    exit 0
 fi
 ## lsblk command succeeded
@@ -139,17 +137,17 @@ if echo "$lsblk_output" | grep --quiet --fixed-strings -- "0" ; then
    if echo "${proc_cmdline_output}" | grep --no-messages --quiet -- 'boot=live\|root=live'; then
       true "INFO: Live mode (grub-live or ISO live) is enabled."
       if [ "$live_mode_environment" = "grub-live" ]; then
-         echo "<img>${icon_grub_live_without_read_only}</img>"
+         img="${icon_grub_live_without_read_only}"
          msg_type="warning"
       elif [ "$live_mode_environment" = "ISO Live" ]; then
-         echo "<img>${icon_iso}</img>"
+         img="${icon_iso}"
          msg_type="warning"
       else
-         echo "<img>${icon_error}</img>"
+         img="${icon_error}"
          msg_type="error"
       fi
       ## Show "Live" or "ISO" next to info symbol in systray.
-      echo "<txt>$status_word</txt>"
+      txt="$status_word"
       title="Livecheck"
       link="<a href=\"${homepage}/wiki/Live_Mode\">${homepage}/wiki/Live_Mode</a>"
       msg="\
@@ -164,14 +162,12 @@ ${maybe_iso_live_message}<br/>
 For more information, see: ${link}<br/><br/>
 ${bug_message}"
       click="${msg_cmd} ${msg_type} '${title}' '${msg}' '' ok"
-      echo "<click>${click}</click>"
-      echo "<txtclick>${click}</txtclick>"
-      echo "<tool><b>Live Mode Active (${live_mode_environment}):</b> No changes will be made to disk. Click on the icon for more information.${maybe_iso_live_message}${bug_message}</tool>"
+      tool="<b>Live Mode Active (${live_mode_environment}):</b> No changes will be made to disk. Click on the icon for more information.${maybe_iso_live_message}${bug_message}"
    else
       true "INFO: Live mode (grub-live or ISO live) is disabled."
-      echo "<img>${icon_persistent_mode}</img>"
+      img="${icon_persistent_mode}"
       ## Do not show "Persistent" next to info symbol in systray.
-      #echo "<txt>Persistent</txt>"
+      #txt="Persistent"
       title="Livecheck"
       link="<a href=\"${homepage}/wiki/Persistent_Mode\">${homepage}/wiki/Persistent_Mode</a>"
       msg="\
@@ -185,16 +181,14 @@ ${heading_line}<br/><br/>
 For more information, see: ${link}<br/><br/>
 ${bug_message}"
       click="${msg_cmd} info '${title}' '${msg}' '' ok"
-      echo "<click>${click}</click>"
-      echo "<txtclick>${click}</txtclick>"
-      echo "<tool><b>Persistent Mode Active:</b> All changes to the disk will be preserved after a reboot. Click on the icon for more information.${bug_message}</tool>"
+      tool="<b>Persistent Mode Active:</b> All changes to the disk will be preserved after a reboot. Click on the icon for more information.${bug_message}"
    fi
 else
    true "INFO: No '0' found. Conclusion: All devices are read-only."
 
-   echo "<img>${icon_grub_live_with_read_only}</img>"
+   img="${icon_grub_live_with_read_only}"
    ## Show "read-only" next to info symbol in systray.
-   echo "<txt>read-only</txt>"
+   txt="read-only"
    title="Livecheck"
    link="<a href=\"${homepage}/wiki/Live_Mode\">${homepage}/wiki/Live_Mode</a>"
    msg="\
@@ -208,7 +202,12 @@ ${heading_line}<br/><br/>
 ${link}<br/><br/>
 ${bug_message}"
    click="${msg_cmd} warning '${title}' '${msg}' '' ok"
-   echo "<click>${click}</click>"
-   echo "<txtclick>${click}</txtclick>"
-   echo "<tool><b>Live Mode Active (${live_mode_environment}):</b> No changes will be made to disk. Click on the icon for more information.${bug_message}</tool>"
+
+   tool="<b>Live Mode Active (${live_mode_environment}):</b> No changes will be made to disk. Click on the icon for more information.${bug_message}"
 fi
+
+echo "<img>${img}</img>"
+echo "<txt>${txt}</txt>"
+echo "<tool>${tool}</tool>"
+echo "<click>${click}</click>"
+echo "<txtclick>${click}</txtclick>"
