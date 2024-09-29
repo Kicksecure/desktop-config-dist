@@ -61,6 +61,14 @@ set -e
 ## We use `sudo` to run `lsblk` because `hide-hardware-info.service` makes it readable only by the `root` user.
 ## https://forums.whonix.org/t/restrict-hardware-information-to-root-testers-wanted/8618/13
 
+output_function() {
+   echo "<img>${img}</img>"
+   echo "<txt>${txt}</txt>"
+   echo "<tool>${tool}</tool>"
+   echo "<click>${click}</click>"
+   echo "<txtclick>${click}</txtclick>"
+}
+
 if test -f /usr/share/whonix/marker ; then
    homepage="https://www.whonix.org"
 else
@@ -109,6 +117,7 @@ ${link}.<br/><br/>
 ${bug_message}"
    click="${msg_cmd} error '${title}' '${msg}' '' ok"
    tool="<b>Live Detection Test:</b> Minor issue. Click on the icon for more information."
+   output_function
    exit 0
 fi
 ## lsblk command succeeded
@@ -183,15 +192,18 @@ ${bug_message}"
       click="${msg_cmd} info '${title}' '${msg}' '' ok"
       tool="<b>Persistent Mode Active:</b> All changes to the disk will be preserved after a reboot. Click on the icon for more information.${bug_message}"
    fi
-else
-   true "INFO: No '0' found. Conclusion: All devices are read-only."
+   output_function
+   exit 0
+fi
 
-   img="${icon_grub_live_with_read_only}"
-   ## Show "read-only" next to info symbol in systray.
-   txt="read-only"
-   title="Livecheck"
-   link="<a href=\"${homepage}/wiki/Live_Mode\">${homepage}/wiki/Live_Mode</a>"
-   msg="\
+true "INFO: No '0' found. Conclusion: All devices are read-only."
+
+img="${icon_grub_live_with_read_only}"
+## Show "read-only" next to info symbol in systray.
+txt="read-only"
+title="Livecheck"
+link="<a href=\"${homepage}/wiki/Live_Mode\">${homepage}/wiki/Live_Mode</a>"
+msg="\
 ${heading_line}<br/><br/>
 <b>Live Mode Active:</b> <b>Yes</b> (${live_mode_environment})<br/>
 <b>Persistent Mode Active:</b> No
@@ -201,13 +213,8 @@ ${heading_line}<br/><br/>
 </ul>
 ${link}<br/><br/>
 ${bug_message}"
-   click="${msg_cmd} warning '${title}' '${msg}' '' ok"
+click="${msg_cmd} warning '${title}' '${msg}' '' ok"
+tool="<b>Live Mode Active (${live_mode_environment}):</b> No changes will be made to disk. Click on the icon for more information.${bug_message}"
 
-   tool="<b>Live Mode Active (${live_mode_environment}):</b> No changes will be made to disk. Click on the icon for more information.${bug_message}"
-fi
-
-echo "<img>${img}</img>"
-echo "<txt>${txt}</txt>"
-echo "<tool>${tool}</tool>"
-echo "<click>${click}</click>"
-echo "<txtclick>${click}</txtclick>"
+output_function
+exit 0
