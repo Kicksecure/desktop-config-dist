@@ -62,9 +62,9 @@ set -o pipefail
 ## 0
 ## 0
 
-## The following method did not work properly with snapd:
+## The following method did not work properly with 'snapd':
 ## http://forums.whonix.org/t/wickr-me-gets-whonix-stuck-in-live-mode/9834/1
-#if sudo --non-interactive /bin/lsblk --noheadings --raw --output RO | grep --invert-match "0" ; then
+#if sudo --non-interactive /bin/lsblk --noheadings --raw --output RO | grep --invert-match --fixed-strings -- "0" ; then
 
 ## We use `sudo` to run `lsblk` because `hide-hardware-info.service` makes it readable only by the `root` user.
 ## https://forums.whonix.org/t/restrict-hardware-information-to-root-testers-wanted/8618/13
