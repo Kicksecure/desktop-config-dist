@@ -1,3 +1,99 @@
+commit fcaaa7c4759e5b5a5218d8907ccb2b59a4b9ef30
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Sep 30 05:12:26 2024 -0400
+
+    improve livecheck tests
+
+commit e51760e443d55be035450c00b8cf2f94b6ca3d51
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Sep 29 03:48:17 2024 -0400
+
+    add `/usr/share/livecheck/livecheck-test.sh`
+
+commit 10516322fcaf790db272896d36baae38568ff775
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Sep 29 03:37:32 2024 -0400
+
+    comment
+
+commit c6aec00b4b06b5f9dd5fd5199768185a024a9710
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Sep 29 03:36:43 2024 -0400
+
+    comment
+
+commit 92816f8bd0ce07398c28056108dc3035b96c41b6
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Sep 29 03:22:21 2024 -0400
+
+    consistent variable initialization
+
+commit 4594156436c426203d65dbdf178b82f9db1d8a1e
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Sep 29 03:19:36 2024 -0400
+
+    cleanup
+
+commit 156e19104d8086080e0ff1fabbf96b530a2b16fd
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Sep 29 03:15:32 2024 -0400
+
+    comment
+
+commit 65b272daf496d8438756db74b0e987e8796e684d
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Sep 29 03:11:27 2024 -0400
+
+    comment
+
+commit 74b76027d6f91d315931c9493f3ecb8861ddc303
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Sep 29 03:10:34 2024 -0400
+
+    comment
+
+commit cd4c9af424db9b4ae5a61c4f816153a1461fb3ec
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Sep 29 03:07:50 2024 -0400
+
+    compatibility with nounset
+
+commit d61ee256f15a5ec1b8b400490cb81190d6a15f4c
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Sep 29 03:04:39 2024 -0400
+
+    compatibility with nounset
+
+commit b14ea988b8deb0d56dc06bc3a9f44c37d94b6e29
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Sep 29 03:03:39 2024 -0400
+
+    strict shell options
+
+commit 4f7e578b8917f1229bebd560d7965374f250d903
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Sep 29 03:01:57 2024 -0400
+
+    refactoring
+
+commit 659b3bdaa2db4c179b8fc5f3634090ed5e20ecf0
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Sep 29 02:58:59 2024 -0400
+
+    refactoring
+
+commit 7b108af27b3f71835a88087603703561ac0026a6
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Sep 29 02:49:38 2024 -0400
+
+    use grep with end-of-options
+
+commit 391db55aac76c16c95473034bbd817c75d30927c
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Aug 29 08:04:41 2024 +0000
+
+    bumped changelog version
+
 commit 5f949dc67daf7477326ad76358030210fd3e8e46
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Wed Aug 28 08:14:54 2024 -0400
