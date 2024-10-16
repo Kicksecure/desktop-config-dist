@@ -67,11 +67,13 @@ set -o pipefail
 #if sudo --non-interactive /bin/lsblk --noheadings --raw --output RO | grep --invert-match --fixed-strings -- "0" ; then
 
 output_function() {
-   echo "<img>${img}</img>"
-   echo "<txt>${txt}</txt>"
-   echo "<tool>${tool}</tool>"
-   echo "<click>${click}</click>"
-   echo "<txtclick>${click}</txtclick>"
+   [ -n "${img}" ] && echo "<img>${img}</img>"
+   [ -n "${txt}" ] && echo "<txt>${txt}</txt>"
+   [ -n "${tool}" ] && echo "<tool>${tool}</tool>"
+   [ -n "${click}" ] && {
+      echo "<click>${click}</click>"
+      echo "<txtclick>${click}</txtclick>"
+   }
 }
 
 if test -f /usr/share/whonix/marker ; then
