@@ -1,3 +1,28 @@
+commit 20b67ff9bc17a4e95fd959c1697c51aa38371431
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Oct 16 05:32:59 2024 -0400
+
+    fix(livecheck.sh): accept also `rd.live.image` kernel parameter as alternative to `boot=live`
+
+commit e3360ac643a505b576a9a2dea2b56af0a8efb250
+Merge: 871fdea 6b0ec41
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Oct 16 05:27:31 2024 -0400
+
+    Merge remote-tracking branch 'ArrayBolt3/master'
+
+commit 6b0ec41a2ec75b11dbe1b50d9040fb56761bc583
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Tue Oct 15 19:57:03 2024 -0500
+
+    Don't echo empty lines in output_function
+
+commit 871fdea1c370b7fadb65181046366a4872df806c
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Oct 3 07:19:54 2024 +0000
+
+    bumped changelog version
+
 commit fcaaa7c4759e5b5a5218d8907ccb2b59a4b9ef30
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Mon Sep 30 05:12:26 2024 -0400
