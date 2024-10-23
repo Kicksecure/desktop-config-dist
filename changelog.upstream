@@ -1,3 +1,15 @@
+commit d4324d8334c2872c0331b9ad0f265a83bb384095
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Oct 23 05:52:10 2024 -0400
+
+    fix grub-live vs ISO live detection
+
+commit 42741d9d63fa75d4de5f95791a298455225106e1
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Oct 16 09:37:59 2024 +0000
+
+    bumped changelog version
+
 commit 20b67ff9bc17a4e95fd959c1697c51aa38371431
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Wed Oct 16 05:32:59 2024 -0400
