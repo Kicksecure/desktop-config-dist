@@ -146,11 +146,11 @@ fi
 
 ## Detect if the system was booted in live mode
 ## Check for 'rd.live.image' first, because both, ISO and grub-live come with 'boot=live' kernel parameter.
-if echo "${proc_cmdline_output}" | grep --quiet -- 'root=live\|rd.live.image' ; then
+if echo "${proc_cmdline_output}" | grep --quiet --fixed-strings -e 'root=live' -e 'rd.live.image'; then
    live_mode_environment="ISO Live"
    status_word="ISO"
    maybe_iso_live_message="<br/><u>This message can be safely ignored if only using this ISO to install to the hard drive.</u><br/>"
-elif echo "${proc_cmdline_output}" | grep --quiet -- 'boot=live' ; then
+elif echo "${proc_cmdline_output}" | grep --quiet --fixed-strings -e 'boot=live' ; then
    live_mode_environment="grub-live"
    status_word="Live"
    maybe_iso_live_message=""
@@ -163,7 +163,7 @@ fi
 ## Check if there are any read-write devices
 if echo "$lsblk_output" | grep --quiet --fixed-strings -- "0" ; then
    true "INFO: At least one '0' found. Conclusion: not all devices are read-only; some are read-write."
-   if echo "${proc_cmdline_output}" | grep --quiet -- 'boot=live\|root=live\|rd.live.image'; then
+   if echo "${proc_cmdline_output}" | grep --quiet --fixed-strings -e 'boot=live' -e 'root=live' -e 'rd.live.image'; then
       true "INFO: Live mode (grub-live or ISO live) is enabled."
       if [ "$live_mode_environment" = "grub-live" ]; then
          img="${icon_grub_live_without_read_only}"
