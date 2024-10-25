@@ -151,7 +151,7 @@ if echo "${proc_cmdline_output}" | grep --quiet --fixed-strings -e 'root=live' -
    status_word="ISO"
    live_status="true"
    maybe_iso_live_message="<br/><u>This message can be safely ignored if only using this ISO to install to the hard drive.</u><br/>"
-elif echo "${proc_cmdline_output}" | grep --quiet --fixed-strings -e 'boot=live' ; then
+elif echo "${proc_cmdline_output}" | grep --quiet --fixed-strings -e 'boot=live' -e 'rootovl' -e 'rd.live.overlay.overlayfs=1' ; then
    live_mode_environment="grub-live"
    status_word="Live"
    live_status="true"
