@@ -145,14 +145,15 @@ if [[ "${1:-}" == "test" ]]; then
 fi
 
 ## Detect if the system was booted in live mode
-if echo "${proc_cmdline_output}" | grep --quiet -- 'boot=live' ; then
-   live_mode_environment="grub-live"
-   status_word="Live"
-   maybe_iso_live_message=""
-elif echo "${proc_cmdline_output}" | grep --quiet -- 'root=live\|rd.live.image' ; then
+## Check for 'rd.live.image' first, because both, ISO and grub-live come with 'boot=live' kernel parameter.
+if echo "${proc_cmdline_output}" | grep --quiet -- 'root=live\|rd.live.image' ; then
    live_mode_environment="ISO Live"
    status_word="ISO"
    maybe_iso_live_message="<br/><u>This message can be safely ignored if only using this ISO to install to the hard drive.</u><br/>"
+elif echo "${proc_cmdline_output}" | grep --quiet -- 'boot=live' ; then
+   live_mode_environment="grub-live"
+   status_word="Live"
+   maybe_iso_live_message=""
 else
    live_mode_environment="false"
    status_word="persistent"
