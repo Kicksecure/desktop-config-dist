@@ -149,21 +149,24 @@ fi
 if echo "${proc_cmdline_output}" | grep --quiet --fixed-strings -e 'root=live' -e 'rd.live.image'; then
    live_mode_environment="ISO Live"
    status_word="ISO"
+   live_status="true"
    maybe_iso_live_message="<br/><u>This message can be safely ignored if only using this ISO to install to the hard drive.</u><br/>"
 elif echo "${proc_cmdline_output}" | grep --quiet --fixed-strings -e 'boot=live' ; then
    live_mode_environment="grub-live"
    status_word="Live"
+   live_status="true"
    maybe_iso_live_message=""
 else
    live_mode_environment="false"
    status_word="persistent"
+   live_status="false"
    maybe_iso_live_message=""
 fi
 
 ## Check if there are any read-write devices
 if echo "$lsblk_output" | grep --quiet --fixed-strings -- "0" ; then
    true "INFO: At least one '0' found. Conclusion: not all devices are read-only; some are read-write."
-   if echo "${proc_cmdline_output}" | grep --quiet --fixed-strings -e 'boot=live' -e 'root=live' -e 'rd.live.image'; then
+   if [ "$live_status" = "true" ]; then
       true "INFO: Live mode (grub-live or ISO live) is enabled."
       if [ "$live_mode_environment" = "grub-live" ]; then
          img="${icon_grub_live_without_read_only}"
