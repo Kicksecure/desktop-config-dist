@@ -1,3 +1,35 @@
+commit ed68827972e6d906383eea507bd40bc6f338e7d2
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Oct 25 11:29:09 2024 -0400
+
+    detect grub-live based on 'rootovl' and 'rd.live.overlay.overlayfs=1' kernel parameters
+
+commit b3a1b50c2088bda62b75686409c844793045ec40
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Oct 25 11:27:06 2024 -0400
+
+    refactoring
+
+commit 97ea3a1f8e7d91bf389460a0e7974dfdd21656fc
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Oct 25 11:24:55 2024 -0400
+
+    refactoring
+
+commit 3a9c89e135d559fd3e0d6852f93d11d66feb462e
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Oct 25 11:09:59 2024 -0400
+
+    fix live type (grub-live vs ISO) detection
+    
+    Check for 'rd.live.image' first, because both, ISO and grub-live come with 'boot=live' kernel parameter.
+
+commit 9d811004cbf646ca3c30452ae9ac99426dd1c755
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Oct 23 09:55:21 2024 +0000
+
+    bumped changelog version
+
 commit d4324d8334c2872c0331b9ad0f265a83bb384095
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Wed Oct 23 05:52:10 2024 -0400
