@@ -80,14 +80,8 @@ save_function() {
    [ -n "${txt}" ] && append-once "${save_file}" "<txt>${txt}</txt>"
    [ -n "${tool}" ] && append-once "${save_file}" "<tool>${tool}</tool>"
    [ -n "${click}" ] && {
-      ## TODO: fix append-once bug
-      #append-once "${save_file}" "<click>${click}</click>"
-      #append-once "${save_file}" "<txtclick>${click}</txtclick>"
-
-      ## Workaround for above append-once bug.
-      append-once "${save_file}" "\
-<click>${click}</click>
-<txtclick>${click}</txtclick>"
+      append-once "${save_file}" "<click>${click}</click>"
+      append-once "${save_file}" "<txtclick>${click}</txtclick>"
    }
 }
 
