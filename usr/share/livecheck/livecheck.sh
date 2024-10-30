@@ -80,13 +80,30 @@ save_function() {
    [ -n "${txt}" ] && append-once "${save_file}" "<txt>${txt}</txt>"
    [ -n "${tool}" ] && append-once "${save_file}" "<tool>${tool}</tool>"
    [ -n "${click}" ] && {
-      append-once "${save_file}" "<click>${click}</click>"
-      append-once "${save_file}" "<txtclick>${click}</txtclick>"
+      ## TODO: fix append-once bug
+      #append-once "${save_file}" "<click>${click}</click>"
+      #append-once "${save_file}" "<txtclick>${click}</txtclick>"
+
+      ## Workaround for above append-once bug.
+      append-once "${save_file}" "\
+<click>${click}</click>
+<txtclick>${click}</txtclick>"
    }
 }
 
 save_dir="/run/user/${UID}/desktop-config-dist/livecheck"
 save_file="${save_dir}/lastresult"
+
+proc_cmdline_output=$(cat /proc/cmdline)
+
+## Debugging.
+#safe-rm -f "${save_file}"
+
+## Test mode overrides
+if [[ "${1:-}" == "test" ]]; then
+   safe-rm -f "${save_file}"
+   proc_cmdline_output="$2"
+fi
 
 if test -f "${save_file}" ; then
    output_function
@@ -154,11 +171,7 @@ ${bug_message}"
 fi
 ## lsblk command succeeded
 
-proc_cmdline_output=$(cat /proc/cmdline)
-
-## Test mode overrides
 if [[ "${1:-}" == "test" ]]; then
-   proc_cmdline_output="$2"
    lsblk_output="$3"
 fi
 

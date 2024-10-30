@@ -16,6 +16,8 @@ cd "$MYDIR"
 
 mkdir --parents ~/livechecktest
 
+safe-rm ~/livechecktest/*
+
 run_test_case() {
    ./livecheck.sh "$@"
 }
