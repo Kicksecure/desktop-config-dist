@@ -1,5 +1,5 @@
 Command=/bin/bash /usr/share/livecheck/livecheck.sh
 UseLabel=0
 Text=live
-UpdatePeriod=86400
+UpdatePeriod=86400000
 Font=Sans 10

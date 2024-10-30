@@ -67,14 +67,31 @@ set -o pipefail
 #if sudo --non-interactive /bin/lsblk --noheadings --raw --output RO | grep --invert-match --fixed-strings -- "0" ; then
 
 output_function() {
-   [ -n "${img}" ] && echo "<img>${img}</img>"
-   [ -n "${txt}" ] && echo "<txt>${txt}</txt>"
-   [ -n "${tool}" ] && echo "<tool>${tool}</tool>"
+   cat "${save_file}"
+}
+
+save_function() {
+   if [ -e "${save_file}" ]; then
+      1>&2 echo 'Something went wrong - save_function called when save file exists!'
+      exit 1;
+   fi
+   mkdir -p "${save_dir}"
+   [ -n "${img}" ] && append-once "${save_file}" "<img>${img}</img>"
+   [ -n "${txt}" ] && append-once "${save_file}" "<txt>${txt}</txt>"
+   [ -n "${tool}" ] && append-once "${save_file}" "<tool>${tool}</tool>"
    [ -n "${click}" ] && {
-      echo "<click>${click}</click>"
-      echo "<txtclick>${click}</txtclick>"
+      append-once "${save_file}" "<click>${click}</click>"
+      append-once "${save_file}" "<txtclick>${click}</txtclick>"
    }
 }
+
+save_dir="/run/user/${UID}/desktop-config-dist/livecheck"
+save_file="${save_dir}/lastresult"
+
+if test -f "${save_file}" ; then
+   output_function
+   exit 0
+fi
 
 if test -f /usr/share/whonix/marker ; then
    homepage="https://www.whonix.org"
@@ -131,6 +148,7 @@ ${link}.<br/><br/>
 ${bug_message}"
    click="${msg_cmd} error '${title}' '${msg}' '' ok"
    tool="<b>Live Detection Test:</b> Minor issue. Click on the icon for more information."
+   save_function
    output_function
    exit 0
 fi
@@ -216,6 +234,7 @@ ${bug_message}"
       click="${msg_cmd} info '${title}' '${msg}' '' ok"
       tool="<b>Persistent Mode Active:</b> All changes to the disk will be preserved after a reboot. Click on the icon for more information.${bug_message}"
    fi
+   save_function
    output_function
    exit 0
 fi
@@ -240,5 +259,6 @@ ${bug_message}"
 click="${msg_cmd} warning '${title}' '${msg}' '' ok"
 tool="<b>Live Mode Active (${live_mode_environment}):</b> No changes will be made to disk. Click on the icon for more information.${bug_message}"
 
+save_function
 output_function
 exit 0
