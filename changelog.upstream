@@ -1,3 +1,53 @@
+commit ece09e44dda31797e6b8ef57da50d34a8a4a76ee
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Nov 1 12:16:56 2024 -0400
+
+    cleanup
+
+commit 6ad8df1eca3c58e5e4b4e5804aa372413391471d
+Merge: 4b8095c e47dc75
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Nov 1 11:17:10 2024 -0400
+
+    Merge remote-tracking branch 'ArrayBolt3/arraybolt3/livecheck-fix2'
+
+commit e47dc757472840049fe5ac62edf5e1750d7773eb
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Wed Oct 30 17:22:26 2024 -0500
+
+    Use udevadm settle to make sure livecheck output is reliable
+
+commit d0e190131352c6ab67dd7c2ac143895d59da7f22
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Wed Oct 30 17:21:03 2024 -0500
+
+    Revert back to prior way of using append-once, bug is fixed
+
+commit 4b8095cd059c19d624a1a759c5a229715090397c
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Oct 30 06:46:01 2024 -0400
+
+    livecheck: fix unit test and workaround append-once bug
+
+commit 2070f61e208b857e42c43ab0e8bfbac2d8a627d5
+Merge: 4fbed35 2f25ea0
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Oct 30 06:22:33 2024 -0400
+
+    Merge remote-tracking branch 'ArrayBolt3/arraybolt3/livecheck-fix'
+
+commit 2f25ea0d44bed755364e9791e62efed64735b2f8
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Mon Oct 28 23:09:33 2024 -0500
+
+    Only run livecheck detection once per boot
+
+commit 4fbed3572196a0bc189b815798d031577725b2ef
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Oct 25 15:37:37 2024 +0000
+
+    bumped changelog version
+
 commit ed68827972e6d906383eea507bd40bc6f338e7d2
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Fri Oct 25 11:29:09 2024 -0400
