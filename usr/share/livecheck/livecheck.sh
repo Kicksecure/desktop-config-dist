@@ -80,14 +80,8 @@ save_function() {
    [ -n "${txt}" ] && append-once "${save_file}" "<txt>${txt}</txt>"
    [ -n "${tool}" ] && append-once "${save_file}" "<tool>${tool}</tool>"
    [ -n "${click}" ] && {
-      ## TODO: fix append-once bug
-      #append-once "${save_file}" "<click>${click}</click>"
-      #append-once "${save_file}" "<txtclick>${click}</txtclick>"
-
-      ## Workaround for above append-once bug.
-      append-once "${save_file}" "\
-<click>${click}</click>
-<txtclick>${click}</txtclick>"
+      append-once "${save_file}" "<click>${click}</click>"
+      append-once "${save_file}" "<txtclick>${click}</txtclick>"
    }
 }
 
@@ -141,6 +135,12 @@ else
 fi
 
 heading_line="<u><b>Live Check Result:</b></u>"
+
+## livecheck runs early enough in startup that udev may not have found all
+## devices yet. This may result in the livecheck notifier erroneously stating
+## that the system is in read-only mode. Wait until udev is done finding
+## devices before proceeding.
+udevadm settle
 
 ## We use `sudo` to run `lsblk` because `hide-hardware-info.service` makes it readable only by the `root` user.
 ## https://forums.whonix.org/t/restrict-hardware-information-to-root-testers-wanted/8618/13
