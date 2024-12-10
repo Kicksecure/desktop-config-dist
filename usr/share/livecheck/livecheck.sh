@@ -90,6 +90,8 @@ save_file="${save_dir}/lastresult"
 
 proc_cmdline_output=$(cat /proc/cmdline)
 
+lsblk_output_file='/run/desktop-config-dist/livecheck-lsblk'
+
 ## Debugging.
 #safe-rm -f "${save_file}"
 
@@ -142,16 +144,14 @@ heading_line="<u><b>Live Check Result:</b></u>"
 ## devices before proceeding.
 udevadm settle
 
-## We use `sudo` to run `lsblk` because `hide-hardware-info.service` makes it readable only by the `root` user.
+## We use a systemd unit to run `lsblk` because `hide-hardware-info.service` makes it readable only by the `root` user. We then read the result from a designated temp file. See:
 ## https://forums.whonix.org/t/restrict-hardware-information-to-root-testers-wanted/8618/13
 ##
-## This has a sudoers exception in file:
-## /etc/sudoers.d/desktop-config-dist
-##
-## Check if the lsblk command fails (e.g., due to insufficient sudo permissions)
-if ! lsblk_output="$(sudo --non-interactive /bin/lsblk --noheadings --raw --output RO)" ; then
+## Check if the cat command fails (e.g., due to a missing file)
+while [ ! -f "${lsblk_output_file}" ]; do sleep 1; done
+if ! lsblk_output="$(cat "${lsblk_output_file}")" ; then
    # lsblk command failed with a non-zero exit code
-   true "INFO: Running 'sudo --non-interactive /bin/lsblk --noheadings --raw --output RO' failed!"
+   true "INFO: Running 'cat \"${lsblk_output_file}\"' failed!"
    img="${icon_error}"
    txt="Error"
    title="Livecheck"
