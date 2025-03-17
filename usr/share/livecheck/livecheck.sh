@@ -175,27 +175,15 @@ if [[ "${1:-}" == "test" ]]; then
    lsblk_output="$3"
 fi
 
-## Detect if the system was booted in live mode
-## Check for 'rd.live.image' first, because both, ISO and grub-live come with 'boot=live' kernel parameter.
-if printf "%s" "${proc_cmdline_output}" | grep --quiet --fixed-strings -e 'root=live' -e 'rd.live.image'; then
-   live_status_detected_live_mode_environment_pretty="ISO Live"
-   live_status_detected_live_mode_environment_machine="iso-live"
-   live_status_word_pretty="ISO"
-   live_status_detected="true"
-   live_status_maybe_iso_live_message="<br/><u>This message can be safely ignored if only using this ISO to install to the hard drive.</u><br/>"
-elif printf "%s" "${proc_cmdline_output}" | grep --quiet --fixed-strings -e 'boot=live' -e 'rootovl' -e 'rd.live.overlay.overlayfs=1' ; then
-   live_status_detected_live_mode_environment_pretty="grub-live"
-   live_status_detected_live_mode_environment_machine="grub-live"
-   live_status_word_pretty="Live"
-   live_status_detected="true"
-   live_status_maybe_iso_live_message=""
-else
-   live_status_detected_live_mode_environment_pretty="false"
-   live_status_detected_live_mode_environment_machine="false"
-   live_status_word_pretty="persistent"
-   live_status_detected="false"
-   live_status_maybe_iso_live_message=""
-fi
+## requires:
+## proc_cmdline_output
+## sets:
+## live_status_detected_live_mode_environment_pretty
+## live_status_detected_live_mode_environment_machine
+## live_status_word_pretty
+## live_status_detected
+## live_status_maybe_iso_live_message=
+source /usr/libexec/helper-scripts/live-mode.sh
 
 ## Check if there are any read-write devices
 if printf "%s" "$lsblk_output" | grep --quiet --fixed-strings -- "0" ; then
