@@ -10,9 +10,9 @@ set -o nounset
 set -o errtrace
 set -o pipefail
 
-## 'true' versus 'echo':
-## Using 'true' for output and not 'echo' because this script's output gets
-## parsed by Xfce genmon, which gets confused by additional 'echo's.
+## 'true' versus 'printf "%s"':
+## Using 'true' for output and not 'printf "%s"' because this script's output gets
+## parsed by Xfce genmon, which gets confused by additional 'printf "%s"'s.
 
 ## The following command lists the block devices:
 ## sudo /bin/lsblk
@@ -67,12 +67,12 @@ set -o pipefail
 #if sudo --non-interactive /bin/lsblk --noheadings --raw --output RO | grep --invert-match --fixed-strings -- "0" ; then
 
 output_function() {
-   cat "${save_file}"
+   cat -- "${save_file}"
 }
 
 save_function() {
    if [ -e "${save_file}" ]; then
-      1>&2 echo 'Something went wrong - save_function called when save file exists!'
+      1>&2 printf "%s" 'Something went wrong - save_function called when save file exists!'
       exit 1;
    fi
    mkdir -p "${save_dir}"
@@ -88,7 +88,7 @@ save_function() {
 save_dir="/run/user/${UID}/desktop-config-dist/livecheck"
 save_file="${save_dir}/lastresult"
 
-proc_cmdline_output=$(cat /proc/cmdline)
+proc_cmdline_output=$(cat -- /proc/cmdline)
 
 lsblk_output_file='/run/desktop-config-dist/livecheck-lsblk'
 
@@ -149,9 +149,9 @@ udevadm settle
 ##
 ## Check if the cat command fails (e.g., due to a missing file)
 while [ ! -f "${lsblk_output_file}" ]; do sleep 1; done
-if ! lsblk_output="$(cat "${lsblk_output_file}")" ; then
+if ! lsblk_output="$(cat -- "${lsblk_output_file}")" ; then
    # lsblk command failed with a non-zero exit code
-   true "INFO: Running 'cat \"${lsblk_output_file}\"' failed!"
+   true "INFO: Running 'cat -- \"${lsblk_output_file}\"' failed!"
    img="${icon_error}"
    txt="Error"
    title="Livecheck"
@@ -177,32 +177,35 @@ fi
 
 ## Detect if the system was booted in live mode
 ## Check for 'rd.live.image' first, because both, ISO and grub-live come with 'boot=live' kernel parameter.
-if echo "${proc_cmdline_output}" | grep --quiet --fixed-strings -e 'root=live' -e 'rd.live.image'; then
-   live_mode_environment="ISO Live"
-   status_word="ISO"
-   live_status="true"
-   maybe_iso_live_message="<br/><u>This message can be safely ignored if only using this ISO to install to the hard drive.</u><br/>"
-elif echo "${proc_cmdline_output}" | grep --quiet --fixed-strings -e 'boot=live' -e 'rootovl' -e 'rd.live.overlay.overlayfs=1' ; then
-   live_mode_environment="grub-live"
-   status_word="Live"
-   live_status="true"
-   maybe_iso_live_message=""
+if printf "%s" "${proc_cmdline_output}" | grep --quiet --fixed-strings -e 'root=live' -e 'rd.live.image'; then
+   live_status_detected_live_mode_environment_pretty="ISO Live"
+   live_status_detected_live_mode_environment_machine="iso-live"
+   live_status_word_pretty="ISO"
+   live_status_detected="true"
+   live_status_maybe_iso_live_message="<br/><u>This message can be safely ignored if only using this ISO to install to the hard drive.</u><br/>"
+elif printf "%s" "${proc_cmdline_output}" | grep --quiet --fixed-strings -e 'boot=live' -e 'rootovl' -e 'rd.live.overlay.overlayfs=1' ; then
+   live_status_detected_live_mode_environment_pretty="grub-live"
+   live_status_detected_live_mode_environment_machine="grub-live"
+   live_status_word_pretty="Live"
+   live_status_detected="true"
+   live_status_maybe_iso_live_message=""
 else
-   live_mode_environment="false"
-   status_word="persistent"
-   live_status="false"
-   maybe_iso_live_message=""
+   live_status_detected_live_mode_environment_pretty="false"
+   live_status_detected_live_mode_environment_machine="false"
+   live_status_word_pretty="persistent"
+   live_status_detected="false"
+   live_status_maybe_iso_live_message=""
 fi
 
 ## Check if there are any read-write devices
-if echo "$lsblk_output" | grep --quiet --fixed-strings -- "0" ; then
+if printf "%s" "$lsblk_output" | grep --quiet --fixed-strings -- "0" ; then
    true "INFO: At least one '0' found. Conclusion: not all devices are read-only; some are read-write."
-   if [ "$live_status" = "true" ]; then
+   if [ "$live_status_detected" = "true" ]; then
       true "INFO: Live mode (grub-live or ISO live) is enabled."
-      if [ "$live_mode_environment" = "grub-live" ]; then
+      if [ "$live_status_detected_live_mode_environment_pretty" = "grub-live" ]; then
          img="${icon_grub_live_without_read_only}"
          msg_type="warning"
-      elif [ "$live_mode_environment" = "ISO Live" ]; then
+      elif [ "$live_status_detected_live_mode_environment_pretty" = "ISO Live" ]; then
          img="${icon_iso}"
          msg_type="warning"
       else
@@ -210,27 +213,27 @@ if echo "$lsblk_output" | grep --quiet --fixed-strings -- "0" ; then
          msg_type="error"
       fi
       ## Show "Live" or "ISO" next to info symbol in systray.
-      txt="${status_word}"
+      txt="${live_status_word_pretty}"
       title="Livecheck"
       link="<a href=\"${homepage}/wiki/Live_Mode\">${homepage}/wiki/Live_Mode</a>"
       msg="\
 ${heading_line}<br/><br/>
-<b>Live Mode Active:</b> <b>Yes</b> (${live_mode_environment})<br/>
+<b>Live Mode Active:</b> <b>Yes</b> (${live_status_detected_live_mode_environment_pretty})<br/>
 <b>Persistent Mode Active:</b> No<br/><br/>
 No changes will be made to disk.
 <ul>
    <li>For added security, consider <a href=\"${homepage}/wiki/Read-only\">setting your disk to read-only mode</a>.</li>
 </ul>
-${maybe_iso_live_message}<br/>
+${live_status_maybe_iso_live_message}<br/>
 For more information, see: ${link}<br/><br/>
 ${bug_message}"
       click="${msg_cmd} ${msg_type} '${title}' '${msg}' '' ok"
-      tool="<b>Live Mode Active (${live_mode_environment}):</b> No changes will be made to disk. Click on the icon for more information.${maybe_iso_live_message}${bug_message}"
+      tool="<b>Live Mode Active (${live_status_detected_live_mode_environment_pretty}):</b> No changes will be made to disk. Click on the icon for more information.${live_status_maybe_iso_live_message}${bug_message}"
    else
       true "INFO: Live mode (grub-live or ISO live) is disabled."
       img="${icon_persistent_mode}"
       ## Do not show "Persistent" next to info symbol in systray.
-      #txt="${status_word}"
+      #txt="${live_status_word_pretty}"
       txt=""
       title="Livecheck"
       link="<a href=\"${homepage}/wiki/Persistent_Mode\">${homepage}/wiki/Persistent_Mode</a>"
@@ -261,7 +264,7 @@ title="Livecheck"
 link="<a href=\"${homepage}/wiki/Live_Mode\">${homepage}/wiki/Live_Mode</a>"
 msg="\
 ${heading_line}<br/><br/>
-<b>Live Mode Active:</b> <b>Yes</b> (${live_mode_environment})<br/>
+<b>Live Mode Active:</b> <b>Yes</b> (${live_status_detected_live_mode_environment_pretty})<br/>
 <b>Persistent Mode Active:</b> No
 <ul>
    <li>No changes will be made to disk.</li>
@@ -270,7 +273,7 @@ ${heading_line}<br/><br/>
 ${link}<br/><br/>
 ${bug_message}"
 click="${msg_cmd} warning '${title}' '${msg}' '' ok"
-tool="<b>Live Mode Active (${live_mode_environment}):</b> No changes will be made to disk. Click on the icon for more information.${bug_message}"
+tool="<b>Live Mode Active (${live_status_detected_live_mode_environment_pretty}):</b> No changes will be made to disk. Click on the icon for more information.${bug_message}"
 
 save_function
 output_function
