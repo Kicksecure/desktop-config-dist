@@ -202,10 +202,10 @@ if printf "%s" "$lsblk_output" | grep --quiet --fixed-strings -- "0" ; then
    true "INFO: At least one '0' found. Conclusion: not all devices are read-only; some are read-write."
    if [ "$live_status_detected" = "true" ]; then
       true "INFO: Live mode (grub-live or ISO live) is enabled."
-      if [ "$live_status_detected_live_mode_environment_pretty" = "grub-live" ]; then
+      if [ "$live_status_detected_live_mode_environment_machine" = "grub-live" ]; then
          img="${icon_grub_live_without_read_only}"
          msg_type="warning"
-      elif [ "$live_status_detected_live_mode_environment_pretty" = "ISO Live" ]; then
+      elif [ "$live_status_detected_live_mode_environment_machine" = "iso-live" ]; then
          img="${icon_iso}"
          msg_type="warning"
       else
