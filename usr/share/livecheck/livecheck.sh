@@ -204,7 +204,21 @@ if printf "%s" "$lsblk_output" | grep --quiet --fixed-strings -- "0" ; then
       txt="${live_status_word_pretty}"
       title="Livecheck"
       link="<a href=\"${homepage}/wiki/Live_Mode\">${homepage}/wiki/Live_Mode</a>"
-      msg="\
+      if [ "$live_status_detected_live_mode_environment_machine" = "grub-live-semi-persistent" ]; then
+        msg="\
+${heading_line}<br/><br/>
+<b>Live Mode Active:</b> <b>Yes</b> (${live_status_detected_live_mode_environment_pretty})<br/>
+<b>Persistent Mode Active:</b> <b>Yes</b> (home directory is writable)<br/><br/>
+Changes to your home directory will persist. Changes to the root filesystem will not be saved.
+<ul>
+   <li>For added security, consider <a href=\"${homepage}/wiki/Read-only\">setting your disk to read-only mode</a>.</li>
+</ul>
+${live_status_maybe_iso_live_message}<br/>
+For more information, see: ${link}<br/><br/>
+${bug_message}"
+        tool="<b>Live Mode Active (${live_status_detected_live_mode_environment_pretty}):</b> Changes to your home directory will persist. Changes to the root filesystem will not be saved. Click on the icon for more information.${live_status_maybe_iso_live_message}${bug_message}"
+      else
+        msg="\
 ${heading_line}<br/><br/>
 <b>Live Mode Active:</b> <b>Yes</b> (${live_status_detected_live_mode_environment_pretty})<br/>
 <b>Persistent Mode Active:</b> No<br/><br/>
@@ -215,8 +229,9 @@ No changes will be made to disk.
 ${live_status_maybe_iso_live_message}<br/>
 For more information, see: ${link}<br/><br/>
 ${bug_message}"
+        tool="<b>Live Mode Active (${live_status_detected_live_mode_environment_pretty}):</b> No changes will be made to disk. Click on the icon for more information.${live_status_maybe_iso_live_message}${bug_message}"
+      fi
       click="${msg_cmd} ${msg_type} '${title}' '${msg}' '' ok"
-      tool="<b>Live Mode Active (${live_status_detected_live_mode_environment_pretty}):</b> No changes will be made to disk. Click on the icon for more information.${live_status_maybe_iso_live_message}${bug_message}"
    else
       true "INFO: Live mode (grub-live or ISO live) is disabled."
       img="${icon_persistent_mode}"
