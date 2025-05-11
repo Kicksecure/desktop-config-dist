@@ -1,3 +1,22 @@
+commit aee983fdd481effa0e536fdfa3a0c80ee42016ea
+Merge: 655f4bd bc6d400
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun May 11 11:15:31 2025 -0400
+
+    Merge remote-tracking branch 'ArrayBolt3/arraybolt3/live-mode'
+
+commit bc6d400a3a913a35e38cf32d9ed270c8900dadb7
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Sun May 4 22:54:57 2025 -0500
+
+    Add support for semi-persistent state detection
+
+commit 655f4bd69d83aab3e6d7d15c728ed92c4241a409
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Mar 17 08:52:30 2025 +0000
+
+    bumped changelog version
+
 commit 83273ef86010cfb2f32624aa3f281987bdf11a69
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Mon Mar 17 04:14:54 2025 -0400
