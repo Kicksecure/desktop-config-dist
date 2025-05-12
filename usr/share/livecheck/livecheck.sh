@@ -76,12 +76,12 @@ save_function() {
       exit 1;
    fi
    mkdir -p "${save_dir}"
-   [ -n "${img}" ] && append-once "${save_file}" "<img>${img}</img>"
-   [ -n "${txt}" ] && append-once "${save_file}" "<txt>${txt}</txt>"
-   [ -n "${tool}" ] && append-once "${save_file}" "<tool>${tool}</tool>"
+   [ -n "${img}" ] && append-once "${save_file}" "<img>${img}</img>" >/dev/null
+   [ -n "${txt}" ] && append-once "${save_file}" "<txt>${txt}</txt>" >/dev/null
+   [ -n "${tool}" ] && append-once "${save_file}" "<tool>${tool}</tool>" >/dev/null
    [ -n "${click}" ] && {
-      append-once "${save_file}" "<click>${click}</click>"
-      append-once "${save_file}" "<txtclick>${click}</txtclick>"
+      append-once "${save_file}" "<click>${click}</click>" >/dev/null
+      append-once "${save_file}" "<txtclick>${click}</txtclick>" >/dev/null
    }
 }
 
