@@ -88,11 +88,38 @@ save_function() {
 save_dir="/run/user/${UID}/desktop-config-dist/livecheck"
 save_file="${save_dir}/lastresult"
 
-# debug_file="${save_dir}/debug.txt"
-# safe-rm -f -- "$debug_file"
-# true "INFO: Logging to debug_file: $debug_file"
-# exec 5>&1 1>> "$debug_file"
-# exec 6>&2 2>> "$debug_file"
+log_file_user="${save_dir}/user.txt"
+log_file_debug="${save_dir}/debug.txt"
+
+touch -- "${log_file_user}"
+touch -- "${log_file_debug}"
+
+## By appending '&' at the end, log_file_user would remain empty.
+true "\
+exec > >(tee -a -- \"${log_file_user}\") \
+   2> >(tee -a \"${log_file_debug}\" >&2)"
+exec > >(tee -a -- "${log_file_user}") \
+   2> >(tee -a -- "${log_file_debug}" >&2)
+
+temp_folder="$(mktemp --directory)"
+xtrace_fifo="/${temp_folder}/xtrace_fifo"
+mkfifo -- "$xtrace_fifo"
+
+if test -o xtrace; then
+   ## log_level is debug or xtrace is already enabled.
+   ## Therefore keep send xtrace to both console and debug file.
+   tee -a -- "${log_file_debug}" < "$xtrace_fifo" >&2 &
+else
+   tee -a -- "${log_file_debug}" < "$xtrace_fifo" > /dev/null &
+fi
+
+## Automatically exits at the end of this script.
+#xtrace_pid="$!"
+
+exec 9> "$xtrace_fifo"
+export BASH_XTRACEFD=9
+set -o xtrace
+xtrace=1
 
 mount_command_output="$(mount)"
 
