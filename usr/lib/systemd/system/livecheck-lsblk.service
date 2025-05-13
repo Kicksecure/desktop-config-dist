@@ -4,9 +4,9 @@ Description=Obtains lsblk output for use by livecheck
 [Service]
 Type=oneshot
 RemainAfterExit=no
-ExecStartPre=
+ExecStartPre=bash -c 'safe-rm -r -f -- /run/desktop-config-dist'
 ExecStart=/usr/share/livecheck/livecheck-lsblk
-ExecStartPost=
+ExecStartPost=bash -c 'touch /run/desktop-config-dist/done'
 
 [Install]
 WantedBy=multi-user.target

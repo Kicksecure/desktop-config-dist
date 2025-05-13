@@ -148,7 +148,7 @@ udevadm settle
 ## https://forums.whonix.org/t/restrict-hardware-information-to-root-testers-wanted/8618/13
 ##
 ## Check if the 'cat' command fails (e.g., due to a missing file)
-while [ ! -r "${lsblk_output_file}" ]; do
+while [ ! -r "/run/desktop-config-dist/done" ]; do
    sleep 1
 done
 
