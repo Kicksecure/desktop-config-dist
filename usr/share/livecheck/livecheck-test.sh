@@ -9,13 +9,13 @@ set -o nounset
 set -o errtrace
 set -o pipefail
 
-MYDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+MYDIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" && pwd )"
 
-cd "$MYDIR"
+cd -- "$MYDIR"
 
-mkdir --parents ~/livechecktest
+mkdir --parents -- ~/livechecktest
 
-safe-rm ~/livechecktest/*
+safe-rm -- ~/livechecktest/*
 
 run_test_case() {
    ./livecheck.sh "$@"

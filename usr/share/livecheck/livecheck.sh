@@ -88,17 +88,17 @@ save_function() {
 save_dir="/run/user/${UID}/desktop-config-dist/livecheck"
 save_file="${save_dir}/lastresult"
 
-proc_cmdline_output=$(cat -- /proc/cmdline)
+mount_command_output="$(mount)"
 
 lsblk_output_file='/run/desktop-config-dist/livecheck-lsblk'
 
 ## Debugging.
-#safe-rm -f "${save_file}"
+#safe-rm -f -- "${save_file}"
 
 ## Test mode overrides
 if [[ "${1:-}" == "test" ]]; then
    safe-rm -f "${save_file}"
-   proc_cmdline_output="$2"
+   mount_command_output="$2"
 fi
 
 if test -f "${save_file}" ; then
@@ -175,8 +175,8 @@ if [[ "${1:-}" == "test" ]]; then
    lsblk_output="$3"
 fi
 
-## requires:
-## proc_cmdline_output
+## optional:
+## mount_command_output
 ## sets:
 ## live_status_detected_live_mode_environment_pretty
 ## live_status_detected_live_mode_environment_machine
