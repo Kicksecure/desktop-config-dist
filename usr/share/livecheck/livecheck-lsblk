@@ -11,6 +11,6 @@ set -o pipefail
 
 mkdir --parents -- /run/desktop-config-dist
 
-lsblk_output="$(lsblk --noheadings --raw --output RO)"
+lsblk_output="$(lsblk --noheadings --raw --output RO 2>&1)"
 
-overwrite /run/desktop-config-dist/livecheck-lsblk "$lsblk_output"
+overwrite /run/desktop-config-dist/livecheck-lsblk "$lsblk_output" >/dev/null

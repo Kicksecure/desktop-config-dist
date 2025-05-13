@@ -67,7 +67,7 @@ set -o pipefail
 #if sudo --non-interactive /bin/lsblk --noheadings --raw --output RO | grep --invert-match --fixed-strings -- "0" ; then
 
 output_function() {
-   cat -- "${save_file}"
+   stcat "${save_file}"
 }
 
 save_function() {
@@ -152,9 +152,20 @@ while [ ! -r "/run/desktop-config-dist/done" ]; do
    sleep 1
 done
 
-if ! lsblk_output="$(cat -- "${lsblk_output_file}")" ; then
+error_detected=fallback
+
+if ! lsblk_output="$(stcat "${lsblk_output_file}")" ; then
    ## lsblk command failed with a non-zero exit code
-   true "INFO: Running 'cat -- \"${lsblk_output_file}\"' failed!"
+   true "ERROR: Running 'stcat \"${lsblk_output_file}\"' failed!"
+   error_detected=yes
+fi
+
+if ! printf "%s" "$lsblk_output" | grep -E --quiet -- '^[01]+$'; then
+   true "ERROR: lsblk_output_file ${lsblk_output_file} contains content other than 0 or 1."
+   error_detected=yes
+fi
+
+if [ "$error_detected" = "yes" ]; then
    img="${icon_error}"
    txt="Error"
    title="Livecheck"
