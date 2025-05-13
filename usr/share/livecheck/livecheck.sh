@@ -67,7 +67,9 @@ set -o pipefail
 #if sudo --non-interactive /bin/lsblk --noheadings --raw --output RO | grep --invert-match --fixed-strings -- "0" ; then
 
 output_function() {
-   stcat "${save_file}"
+   ## stcat:
+   ## https://github.com/Kicksecure/helper-scripts/issues/26
+   cat -- "${save_file}"
 }
 
 save_function() {
@@ -187,9 +189,9 @@ done
 
 error_detected=fallback
 
-if ! lsblk_output="$(stcat "${lsblk_output_file}")" ; then
+if ! lsblk_output="$(cat -- "${lsblk_output_file}")" ; then
    ## lsblk command failed with a non-zero exit code
-   true "ERROR: Running 'stcat \"${lsblk_output_file}\"' failed!"
+   true "ERROR: Running 'cat -- \"${lsblk_output_file}\"' failed!"
    error_detected=yes
 fi
 
