@@ -72,7 +72,7 @@ output_function() {
 
 save_function() {
    if [ -e "${save_file}" ]; then
-      1>&2 printf "%s" 'Something went wrong - save_function called when save file exists!'
+      1>&2 printf '%s\n' 'Something went wrong - save_function called when save file exists!'
       exit 1
    fi
    mkdir -p -- "${save_dir}"
