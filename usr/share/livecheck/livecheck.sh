@@ -195,7 +195,7 @@ if ! lsblk_output="$(cat -- "${lsblk_output_file}")" ; then
    error_detected=yes
 fi
 
-if ! printf "%s" "$lsblk_output" | grep -E --quiet -- '^[01]+$'; then
+if ! grep -E --quiet -- '^[01]+$' <<< "$lsblk_output" ; then
    true "ERROR: lsblk_output_file ${lsblk_output_file} is empty or contains content other than 0 or 1."
    error_detected=yes
 fi
@@ -235,7 +235,7 @@ fi
 source /usr/libexec/helper-scripts/live-mode.sh
 
 ## Check if there are any read-write devices
-if printf "%s" "$lsblk_output" | grep --quiet --fixed-strings -- "0" ; then
+if grep --quiet --fixed-strings -- "0" <<< "$lsblk_output" ; then
    true "INFO: At least one '0' found. Conclusion: not all devices are read-only; some are read-write."
    if [ "$live_status_detected" = "true" ]; then
       true "INFO: Live mode (grub-live or ISO live) is enabled."
