@@ -148,9 +148,12 @@ udevadm settle
 ## https://forums.whonix.org/t/restrict-hardware-information-to-root-testers-wanted/8618/13
 ##
 ## Check if the 'cat' command fails (e.g., due to a missing file)
-while [ ! -f "${lsblk_output_file}" ]; do sleep 1; done
+while [ ! -f "${lsblk_output_file}" ]; do
+   sleep 1
+done
+
 if ! lsblk_output="$(cat -- "${lsblk_output_file}")" ; then
-   # lsblk command failed with a non-zero exit code
+   ## lsblk command failed with a non-zero exit code
    true "INFO: Running 'cat -- \"${lsblk_output_file}\"' failed!"
    img="${icon_error}"
    txt="Error"
