@@ -4,7 +4,6 @@
 ## Copyright (C) 2018 Algernon <33966997+Algernon-01@users.noreply.github.com>
 ## See the file COPYING for copying conditions.
 
-set -e
 set -o errexit
 set -o nounset
 set -o errtrace
