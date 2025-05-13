@@ -1,0 +1,16 @@
+#!/bin/bash
+
+## Copyright (C) 2018 - 2025 ENCRYPTED SUPPORT LLC <adrelanos@whonix.org>
+## Copyright (C) 2018 Algernon <33966997+Algernon-01@users.noreply.github.com>
+## See the file COPYING for copying conditions.
+
+set -o errexit
+set -o nounset
+set -o errtrace
+set -o pipefail
+
+mkdir --parents -- /run/desktop-config-dist
+
+lsblk_output="$(lsblk --noheadings --raw --output RO)"
+
+overwrite /run/desktop-config-dist/livecheck-lsblk "$lsblk_output"

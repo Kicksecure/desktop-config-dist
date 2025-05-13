@@ -4,7 +4,7 @@ Description=Obtains lsblk output for use by livecheck
 [Service]
 Type=oneshot
 RemainAfterExit=no
-ExecStart=bash -c 'mkdir -p /run/desktop-config-dist; /bin/lsblk --noheadings --raw --output RO > /run/desktop-config-dist/livecheck-lsblk'
+ExecStart=/usr/share/livecheck/livecheck-lsblk
 
 [Install]
 WantedBy=multi-user.target
