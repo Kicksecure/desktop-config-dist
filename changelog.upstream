@@ -1,3 +1,21 @@
+commit a799a91d798ee8bcd8e63f485257e698c41ed036
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue May 13 14:24:55 2025 -0400
+
+    avoid pipefail
+
+commit 78460504ad79cd6de9b887f4f3b14b1db71c2b1f
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue May 13 14:16:11 2025 -0400
+
+    minor
+
+commit 7f839cdfa51294b2f9220283ae5e940aaf05e868
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue May 13 15:07:21 2025 +0000
+
+    bumped changelog version
+
 commit 2caefce7351e204a9c8107c3a0928221ec120204
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Tue May 13 11:07:09 2025 -0400
