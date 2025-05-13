@@ -1,3 +1,63 @@
+commit f7b63c95ae9a4821779151603776d1ba9e597217
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue May 13 08:54:22 2025 -0400
+
+    output
+
+commit f0e6bb203141d7341b99c09f23db0d5ab9298842
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue May 13 08:51:32 2025 -0400
+
+    livecheck: more robust by validation of output of lsblk
+
+commit 8003f77429686826347032c4baaf4c8e50e17aaf
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue May 13 08:32:01 2025 -0400
+
+    fix race condition
+
+commit 925e1cc9dfa0de45030e5d03b34c31b38bfa60e6
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue May 13 08:28:48 2025 -0400
+
+    todo
+
+commit 35fc156907faeae7f4a150cca99e45fb94ee1aa8
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue May 13 08:27:01 2025 -0400
+
+    refactoring
+
+commit f5b8b465382612be16f5a9bca8cf536be59f0497
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue May 13 08:23:28 2025 -0400
+
+    minor
+
+commit 3f6a58222c0ace3a4922635ea47ba03e0737a73f
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue May 13 08:20:54 2025 -0400
+
+    refactoring
+
+commit e673a5eeaf7c0f3114573ff6a8828d3845a88b98
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue May 13 08:19:35 2025 -0400
+
+    minor
+
+commit f6b020c645c77c6fe53c5a278b323b5c8d52f4fd
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue May 13 08:16:58 2025 -0400
+
+    fix
+
+commit 43bdd78a14262f5925aacb827d2c0fe982cf433b
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon May 12 14:02:49 2025 +0000
+
+    bumped changelog version
+
 commit 981dbf0bf8281ebbb0d15025d3fd8711f650bd2a
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Mon May 12 09:44:05 2025 -0400
