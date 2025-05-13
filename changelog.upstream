@@ -1,3 +1,17 @@
+commit 8baabe2e2f9b8248682e077613036a9a514946db
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue May 13 10:52:39 2025 -0400
+
+    work around stcat bug
+    
+    https://github.com/Kicksecure/helper-scripts/issues/26
+
+commit 70bc5fab5ce7b18387d4352f38341731fda23a88
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue May 13 14:18:10 2025 +0000
+
+    bumped changelog version
+
 commit afaad1572e26f5ae3fa75002d9b7959b3064a998
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Tue May 13 10:17:42 2025 -0400
