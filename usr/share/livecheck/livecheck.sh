@@ -88,6 +88,12 @@ save_function() {
 save_dir="/run/user/${UID}/desktop-config-dist/livecheck"
 save_file="${save_dir}/lastresult"
 
+# debug_file="${save_dir}/debug.txt"
+# safe-rm -f -- "$debug_file"
+# true "INFO: Logging to debug_file: $debug_file"
+# exec 5>&1 1>> "$debug_file"
+# exec 6>&2 2>> "$debug_file"
+
 mount_command_output="$(mount)"
 
 lsblk_output_file='/run/desktop-config-dist/livecheck-lsblk'
