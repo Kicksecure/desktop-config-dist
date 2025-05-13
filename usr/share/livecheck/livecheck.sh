@@ -77,7 +77,6 @@ save_function() {
       1>&2 printf '%s\n' 'Something went wrong - save_function called when save file exists!'
       exit 1
    fi
-   mkdir -p -- "${save_dir}"
    [ -n "${img}" ] && append-once "${save_file}" "<img>${img}</img>" >/dev/null
    [ -n "${txt}" ] && append-once "${save_file}" "<txt>${txt}</txt>" >/dev/null
    [ -n "${tool}" ] && append-once "${save_file}" "<tool>${tool}</tool>" >/dev/null
@@ -88,6 +87,8 @@ save_function() {
 }
 
 save_dir="/run/user/${UID}/desktop-config-dist/livecheck"
+mkdir -p -- "${save_dir}"
+
 save_file="${save_dir}/lastresult"
 
 log_file_user="${save_dir}/user.txt"
