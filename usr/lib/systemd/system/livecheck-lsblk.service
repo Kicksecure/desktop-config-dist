@@ -4,7 +4,9 @@ Description=Obtains lsblk output for use by livecheck
 [Service]
 Type=oneshot
 RemainAfterExit=no
+ExecStartPre=
 ExecStart=/usr/share/livecheck/livecheck-lsblk
+ExecStartPost=
 
 [Install]
 WantedBy=multi-user.target
