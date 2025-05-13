@@ -73,9 +73,9 @@ output_function() {
 save_function() {
    if [ -e "${save_file}" ]; then
       1>&2 printf "%s" 'Something went wrong - save_function called when save file exists!'
-      exit 1;
+      exit 1
    fi
-   mkdir -p "${save_dir}"
+   mkdir -p -- "${save_dir}"
    [ -n "${img}" ] && append-once "${save_file}" "<img>${img}</img>" >/dev/null
    [ -n "${txt}" ] && append-once "${save_file}" "<txt>${txt}</txt>" >/dev/null
    [ -n "${tool}" ] && append-once "${save_file}" "<tool>${tool}</tool>" >/dev/null
@@ -97,7 +97,7 @@ lsblk_output_file='/run/desktop-config-dist/livecheck-lsblk'
 
 ## Test mode overrides
 if [[ "${1:-}" == "test" ]]; then
-   safe-rm -f "${save_file}"
+   safe-rm -f -- "${save_file}"
    mount_command_output="$2"
 fi
 
@@ -147,7 +147,7 @@ udevadm settle
 ## We use a systemd unit to run `lsblk` because `hide-hardware-info.service` makes it readable only by the `root` user. We then read the result from a designated temp file. See:
 ## https://forums.whonix.org/t/restrict-hardware-information-to-root-testers-wanted/8618/13
 ##
-## Check if the cat command fails (e.g., due to a missing file)
+## Check if the 'cat' command fails (e.g., due to a missing file)
 while [ ! -f "${lsblk_output_file}" ]; do sleep 1; done
 if ! lsblk_output="$(cat -- "${lsblk_output_file}")" ; then
    # lsblk command failed with a non-zero exit code
