@@ -161,7 +161,7 @@ if ! lsblk_output="$(stcat "${lsblk_output_file}")" ; then
 fi
 
 if ! printf "%s" "$lsblk_output" | grep -E --quiet -- '^[01]+$'; then
-   true "ERROR: lsblk_output_file ${lsblk_output_file} contains content other than 0 or 1."
+   true "ERROR: lsblk_output_file ${lsblk_output_file} is empty or contains content other than 0 or 1."
    error_detected=yes
 fi
 
