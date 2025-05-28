@@ -65,16 +65,24 @@ set -o pipefail
 ## http://forums.whonix.org/t/wickr-me-gets-whonix-stuck-in-live-mode/9834/1
 #if sudo --non-interactive /bin/lsblk --noheadings --raw --output RO | grep --invert-match --fixed-strings -- "0" ; then
 
+separator() {
+   true "--------------------------------------------------"
+   true "--------------------------------------------------"
+   true "--------------------------------------------------"
+}
+
 exit_handler() {
    true "exit_handler: START"
    show_log_files_during_xtrace
    true "exit_handler: END"
+   separator
 }
 
 show_log_files_during_xtrace() {
    ## Pretty xtrace.
-   true "${log_file_user}"
-   true "${log_file_debug}"
+   true "${save_file:-}"
+   true "${log_file_user:-}"
+   true "${log_file_debug:-}"
 }
 
 output_function() {
@@ -135,8 +143,7 @@ fi
 ## Automatically exits at the end of this script.
 #xtrace_pid="$!"
 
-exec 9> "$xtrace_fifo"
-export BASH_XTRACEFD=9
+export BASH_XTRACEFD=2
 set -o xtrace
 xtrace=1
 
