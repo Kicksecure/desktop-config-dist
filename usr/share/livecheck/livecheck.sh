@@ -104,6 +104,9 @@ exec > >(tee -a -- "${log_file_user}") \
    2> >(tee -a -- "${log_file_debug}" >&2)
 
 temp_folder="$(mktemp --directory)"
+## example temp_folder:
+## /tmp/user/1000/tmp.Q4PkZWDEz7
+
 xtrace_fifo="/${temp_folder}/xtrace_fifo"
 mkfifo -- "$xtrace_fifo"
 
