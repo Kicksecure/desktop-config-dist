@@ -105,6 +105,7 @@ save_function() {
    }
 }
 
+## TODO: folder '/run/user/${UID}' might not exist in minimal environments.
 save_dir="/run/user/${UID}/desktop-config-dist/livecheck"
 mkdir -p -- "${save_dir}"
 
