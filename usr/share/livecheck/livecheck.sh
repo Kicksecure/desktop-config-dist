@@ -9,8 +9,8 @@ set -o nounset
 set -o errtrace
 set -o pipefail
 
-## 'true' versus 'printf "%s"':
-## Using 'true' for debug output and not 'printf "%s"' because this script's
+## 'true' versus 'printf "%s\n"':
+## Using 'true' for debug output and not 'printf "%s\n"' because this script's
 ## output gets parsed by Xfce genmon, which gets confused by additional stdout.
 
 ## The following command lists the block devices:
