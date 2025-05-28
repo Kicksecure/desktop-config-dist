@@ -111,10 +111,12 @@ xtrace_fifo="/${temp_folder}/xtrace_fifo"
 mkfifo -- "$xtrace_fifo"
 
 if test -o xtrace; then
-   ## log_level is debug or xtrace is already enabled.
-   ## Therefore keep send xtrace to both console and debug file.
+   ## xtrace is already enabled.
+   ## Therefore, keep sending xtrace output to both the console (stderr) and the debug log file.
    tee -a -- "${log_file_debug}" < "$xtrace_fifo" >&2 &
 else
+   ## xtrace is disabled.
+   ## Therefore, suppress xtrace output from the console and write it only to the debug log file.
    tee -a -- "${log_file_debug}" < "$xtrace_fifo" > /dev/null &
 fi
 
