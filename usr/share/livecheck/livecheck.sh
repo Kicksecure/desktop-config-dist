@@ -140,12 +140,7 @@ else
    tee -a -- "${log_file_debug}" < "$xtrace_fifo" > /dev/null &
 fi
 
-## Automatically exits at the end of this script.
-#xtrace_pid="$!"
-
-export BASH_XTRACEFD=2
 set -o xtrace
-xtrace=1
 
 show_log_files_during_xtrace
 
