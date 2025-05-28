@@ -10,8 +10,8 @@ set -o errtrace
 set -o pipefail
 
 ## 'true' versus 'printf "%s"':
-## Using 'true' for output and not 'printf "%s"' because this script's output gets
-## parsed by Xfce genmon, which gets confused by additional 'printf "%s"'s.
+## Using 'true' for debug output and not 'printf "%s"' because this script's
+## output gets parsed by Xfce genmon, which gets confused by additional stdout.
 
 ## The following command lists the block devices:
 ## sudo /bin/lsblk
