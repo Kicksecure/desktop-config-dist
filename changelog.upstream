@@ -1,3 +1,57 @@
+commit 45956a2caae70d383e8efcd6380820a7dc2ec3fa
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed May 28 09:43:59 2025 -0400
+
+    comment
+
+commit 0aa774d2f1d480c5f7a8f3502c2ce072b68ed4e7
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed May 28 09:40:05 2025 -0400
+
+    fix
+
+commit e116d9ff14550773da8201527528a9190d0e8645
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed May 28 09:34:26 2025 -0400
+
+    fix duplicate tee writing to the same file
+
+commit 891d23225d805e40e9ad3dc3a516baeea4105c88
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed May 28 09:22:13 2025 -0400
+
+    debugging
+
+commit 84ee89901bff99f24b1b2b0a06081da6d78f1a4d
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed May 28 09:10:39 2025 -0400
+
+    comment
+
+commit f6240a0a8740c9f4fbc0fb5486941fee163dfb81
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed May 28 09:08:04 2025 -0400
+
+    comment
+
+commit 7c9b577384ab129e5826c195db005c43e10f3728
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed May 28 09:07:44 2025 -0400
+
+    comment
+
+commit 505fe4f4ac19feaf7975c48a47ead89299862c59
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed May 28 09:06:34 2025 -0400
+
+    output
+
+commit ad574cd3994fd58850d7e208b528a24d630546ff
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue May 13 18:42:07 2025 +0000
+
+    bumped changelog version
+
 commit a799a91d798ee8bcd8e63f485257e698c41ed036
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Tue May 13 14:24:55 2025 -0400
