@@ -17,7 +17,7 @@ Architecture: all
 Provides: whonix-xfce-desktop-config
 Replaces: whonix-xfce-desktop-config
 Conflicts: whonix-xfce-desktop-config
-Depends: ${misc:Depends}
+Depends: python3, ${misc:Depends}
 Description: Configuration for Derivative Desktop
  Sets desktop and display setting, wallpaper and desktop icons.
  Sets icon theme and style.
