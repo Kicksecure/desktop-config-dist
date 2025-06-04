@@ -190,6 +190,7 @@ class LiveTextWindow(QDialog):
 class TrayUi(QObject):
     def __init__(self):
         super().__init__()
+        self.prev_live_state = "loading"
         self.active_text = loading_text
 
         self.tray_icon = QSystemTrayIcon()
@@ -210,6 +211,15 @@ class TrayUi(QObject):
         ltw = LiveTextWindow(self.active_text)
         ltw.open()
 
+    def show_notification(self, live_mode_str):
+        self.tray_icon.showMessage(
+            title="livecheck",
+            message=(
+                "The system's live state has changed. Current state: "
+                f"'{live_mode_str}'"
+            ),
+        )
+
     @pyqtSlot(str, str, str)
     def update_mount_state(
         self,
@@ -217,6 +227,10 @@ class TrayUi(QObject):
         safe_fs_list_str,
         danger_fs_list_str,
     ):
+        ## Clean up an unsightly historical artifact from live-mode.sh
+        if live_mode_str == "false":
+            live_mode_str = "persistent"
+
         match live_mode_str:
             case "iso-live":
                 self.active_text = iso_live_mode_text
@@ -280,12 +294,20 @@ class TrayUi(QObject):
                 self.tray_icon.setIcon(
                     QIcon(icon_base_path + semi_persistent_danger_mode_icon)
                 )
-            case "false":
+            case "persistent":
                 self.active_text = persistent_mode_text
                 self.tray_icon.setToolTip(persistent_mode_tooltip)
                 self.tray_icon.setIcon(
                     QIcon(icon_base_path + persistent_mode_icon)
                 )
+
+        if self.prev_live_state != "loading":
+            if live_mode_str not in ("iso-live", "grub-live"):
+                self.show_notification(live_mode_str)
+            elif self.prev_live_state not in ("iso-live", "grub-live"):
+                self.show_notification(live_mode_str)
+
+        self.prev_live_state = live_mode_str
 
 class MountMonitor(QObject):
     mountStateChanged = pyqtSignal(str, str, str)
