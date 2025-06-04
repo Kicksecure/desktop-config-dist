@@ -10,6 +10,7 @@ livecheck.py - Monitors the system and reports whether it is persistent,
 import sys
 import select
 import subprocess
+from pathlib import Path
 
 from PyQt5.QtCore import QObject, QThread, pyqtSignal, pyqtSlot
 from PyQt5.QtGui import QIcon
@@ -217,13 +218,13 @@ class TrayUi(QObject):
         danger_fs_list_str,
     ):
         match live_mode_str:
-            case 'iso-live':
+            case "iso-live":
                 self.active_text = iso_live_mode_text
                 self.tray_icon.setToolTip(iso_live_mode_tooltip)
                 self.tray_icon.setIcon(
                     QIcon(icon_base_path + iso_live_mode_icon)
                 )
-            case 'iso-live-semi-persistent':
+            case "iso-live-semi-persistent":
                 self.active_text = (
                     iso_semi_persistent_safe_mode_text.replace(
                         "XXX_SAFE_WRITABLE_FILESYSTEMS_XXX",
@@ -236,7 +237,7 @@ class TrayUi(QObject):
                 self.tray_icon.setIcon(
                     QIcon(icon_base_path + semi_persistent_safe_mode_icon)
                 )
-            case 'iso-live-semi-persistent-unsafe':
+            case "iso-live-semi-persistent-unsafe":
                 self.active_text = (
                     iso_semi_persistent_danger_mode_text.replace(
                         "XXX_SAFE_WRITABLE_FILESYSTEMS_XXX",
@@ -252,13 +253,13 @@ class TrayUi(QObject):
                 self.tray_icon.setIcon(
                     QIcon(icon_base_path + semi_persistent_danger_mode_icon)
                 )
-            case 'grub-live':
+            case "grub-live":
                 self.active_text = live_mode_text
                 self.tray_icon.setToolTip(live_mode_tooltip)
                 self.tray_icon.setIcon(
                     QIcon(icon_base_path + live_mode_icon)
                 )
-            case 'grub-live-semi-persistent':
+            case "grub-live-semi-persistent":
                 self.active_text = semi_persistent_safe_mode_text.replace(
                     "XXX_SAFE_WRITABLE_FILESYSTEMS_XXX",
                     safe_fs_list_str,
@@ -267,7 +268,7 @@ class TrayUi(QObject):
                 self.tray_icon.setIcon(
                     QIcon(icon_base_path + semi_persistent_safe_mode_icon)
                 )
-            case 'grub-live-semi-persistent-unsafe':
+            case "grub-live-semi-persistent-unsafe":
                 self.active_text = semi_persistent_danger_mode_text.replace(
                     "XXX_SAFE_WRITABLE_FILESYSTEMS_XXX",
                     safe_fs_list_str,
@@ -279,7 +280,7 @@ class TrayUi(QObject):
                 self.tray_icon.setIcon(
                     QIcon(icon_base_path + semi_persistent_danger_mode_icon)
                 )
-            case 'false':
+            case "false":
                 self.active_text = persistent_mode_text
                 self.tray_icon.setToolTip(persistent_mode_tooltip)
                 self.tray_icon.setIcon(
@@ -291,27 +292,56 @@ class MountMonitor(QObject):
 
     @staticmethod
     def get_writable_fs_lists(mount_data_list):
+        ## writable_fs_lists[0] is "safe" writable filesystems,
+        ## writable_fs_lists[1] is dangerous ones. "Safe" writable
+        ## filesystems are removable media or network filesystems mounted to
+        ## /media, /mnt, or a directory under /media or /mnt. Dangerous
+        ## writable filesystems are anything else writable mounted from a
+        ## device or the network (i.e. nfs).
         writable_fs_lists = ([], [])
         for mount_data in mount_data_list:
-            if not mount_data.startswith("/dev/"):
-                continue
-
-            bit_list = mount_data.split(' ')
+            bit_list = mount_data.split(" ")
             if len(bit_list) < 6:
                 continue
 
+            device_file = bit_list[0]
             mount_point = bit_list[1]
-            mount_attr_list = bit_list[3].split(',')
-            if 'rw' in mount_attr_list:
+            fs_type = bit_list[2]
+            mount_attr_list = bit_list[3].split(",")
+            if (
+                not mount_data.startswith("/dev/")
+                and not fs_type.startswith(
+                    (
+                        "nfs",
+                        "vboxsf",
+                        "virtiofs",
+                        "9pfs",
+                    )
+                )
+            ):
+                continue
+
+            if "rw" in mount_attr_list:
                 if (
-                    not mount_point.startswith('/media/')
-                    and not mount_point.startswith('/mnt/')
-                    and mount_point != '/media'
-                    and mount_point != '/mnt'
+                    not mount_point.startswith("/media/")
+                    and not mount_point.startswith("/mnt/")
+                    and mount_point != "/media"
+                    and mount_point != "/mnt"
                 ):
                     writable_fs_lists[1].append(mount_point)
                 else:
-                    writable_fs_lists[0].append(mount_point)
+                    ## The device is mounted to a removable media location,
+                    ## but does it have the removable media bit set?
+                    ## The device name for possibly removable devices will be
+                    ## something like /dev/sda, which contains two slashes,
+                    ## so we use that as a quick way to filter.
+                    if device_file.count("/") == 2 and not Path(
+                        "/sys/class/block/"
+                        f"{Path(device_file).name}/removable"
+                    ).is_file():
+                        writable_fs_lists[1].append(mount_point)
+                    else:
+                        writable_fs_lists[0].append(mount_point)
 
         return writable_fs_lists
 
@@ -352,6 +382,7 @@ class MountMonitor(QObject):
                         safe_fs_str,
                         danger_fs_str,
                     )
+                    break
             mount_poll.poll()
 
 def main():
