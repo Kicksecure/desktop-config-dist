@@ -10,7 +10,7 @@ livecheck.py - Monitors the system and reports whether it is persistent,
 import sys
 import select
 import subprocess
-from pathlib import Path
+import re
 
 from PyQt5.QtCore import QObject, QThread, pyqtSignal, pyqtSlot
 from PyQt5.QtGui import QIcon
@@ -27,7 +27,9 @@ from PyQt5.QtWidgets import (
 icon_base_path = "/usr/share/icons/gnome-colors-common/32x32/status/"
 
 loading_icon = "user-extended-away.png"
-iso_live_mode_icon = "media-optical.png"
+## media-optical.png isn't in the status directory, and doing this some other
+## way would be a pain, so...
+iso_live_mode_icon = "../devices/media-optical.png"
 live_mode_icon = "user-available.png"
 semi_persistent_safe_mode_icon = "dialog-warning.png"
 semi_persistent_danger_mode_icon = "dialog-error.png"
@@ -42,7 +44,7 @@ Livecheck is still loading information about the system's persistence state."""
 
 iso_live_mode_text = f"""{text_header}<br/>
 <br/>
-<b>Live Mode Active:</b> <b>Yes</b> (ISO Live)
+<b>Live Mode Active:</b> <b>Yes</b> (ISO Live)<br/>
 <b>Persistent Mode Active:</b> No
 <ul>
   <li>No changes will be made to disk.</li>
@@ -213,8 +215,8 @@ class TrayUi(QObject):
 
     def show_notification(self, live_mode_str):
         self.tray_icon.showMessage(
-            title="livecheck",
-            message=(
+            "livecheck",
+            (
                 "The system's live state has changed. Current state: "
                 f"'{live_mode_str}'"
             ),
@@ -302,9 +304,13 @@ class TrayUi(QObject):
                 )
 
         if self.prev_live_state != "loading":
-            if live_mode_str not in ("iso-live", "grub-live"):
+            if live_mode_str not in ("iso-live", "grub-live", "persistent"):
                 self.show_notification(live_mode_str)
-            elif self.prev_live_state not in ("iso-live", "grub-live"):
+            elif self.prev_live_state not in (
+                "iso-live",
+                "grub-live",
+                "persistent",
+            ):
                 self.show_notification(live_mode_str)
 
         self.prev_live_state = live_mode_str
@@ -321,49 +327,39 @@ class MountMonitor(QObject):
         ## writable filesystems are anything else writable mounted from a
         ## device or the network (i.e. nfs).
         writable_fs_lists = ([], [])
-        for mount_data in mount_data_list:
-            bit_list = mount_data.split(" ")
-            if len(bit_list) < 6:
-                continue
+        ## Do NOT strip the string that is returned by
+        ## get_writable_fs_lists.sh, as doing so may trim an important empty
+        ## second line!
+        writable_fs_lists_str_list = subprocess.run(
+            [
+                "/usr/libexec/helper-scripts/get_writable_fs_lists.sh",
+            ],
+            capture_output=True,
+            encoding="utf-8",
+        ).stdout.splitlines()
 
-            device_file = bit_list[0]
-            mount_point = bit_list[1]
-            fs_type = bit_list[2]
-            mount_attr_list = bit_list[3].split(",")
-            if (
-                not mount_data.startswith("/dev/")
-                and not fs_type.startswith(
-                    (
-                        "nfs",
-                        "vboxsf",
-                        "virtiofs",
-                        "9pfs",
-                    )
-                )
-            ):
-                continue
+        if len(writable_fs_lists_str_list) != 2:
+            return writable_fs_lists
 
-            if "rw" in mount_attr_list:
-                if (
-                    not mount_point.startswith("/media/")
-                    and not mount_point.startswith("/mnt/")
-                    and mount_point != "/media"
-                    and mount_point != "/mnt"
-                ):
-                    writable_fs_lists[1].append(mount_point)
-                else:
-                    ## The device is mounted to a removable media location,
-                    ## but does it have the removable media bit set?
-                    ## The device name for possibly removable devices will be
-                    ## something like /dev/sda, which contains two slashes,
-                    ## so we use that as a quick way to filter.
-                    if device_file.count("/") == 2 and not Path(
-                        "/sys/class/block/"
-                        f"{Path(device_file).name}/removable"
-                    ).is_file():
-                        writable_fs_lists[1].append(mount_point)
-                    else:
-                        writable_fs_lists[0].append(mount_point)
+        writable_fs_lists[0].extend(
+            [x for x in writable_fs_lists_str_list[0].split(" ") if x != ""]
+        )
+        writable_fs_lists[1].extend(
+            [x for x in writable_fs_lists_str_list[1].split(" ") if x != ""]
+        )
+        decode_re = re.compile(r"\\\d+")
+        for wfl_idx, writable_fs_list in enumerate(writable_fs_lists):
+            for wf_idx, writable_fs in enumerate(writable_fs_list):
+                octal_escape_list = decode_re.findall(writable_fs)
+                for octal_escape in octal_escape_list:
+                    octal_str = octal_escape.strip("\\")
+                    try:
+                        octal_int = int(octal_str, 8)
+                    except ValueError:
+                        continue
+                    real_char = chr(octal_int)
+                    writable_fs = writable_fs.replace(octal_escape, real_char)
+                    writable_fs_lists[wfl_idx][wf_idx] = writable_fs
 
         return writable_fs_lists
 
