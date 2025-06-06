@@ -1,3 +1,52 @@
+commit b820f24933eedb06d68426182e1d7886685bd24e
+Merge: a1a7c00 e9e26f4
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Jun 6 15:44:35 2025 -0400
+
+    Merge remote-tracking branch 'ArrayBolt3/arraybolt3/livecheck'
+
+commit e9e26f497baf73b89b9283452b0417f8883b3a0b
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Thu Jun 5 21:10:11 2025 -0500
+
+    Add postinst script for enabling installer-to-livecheck communication
+
+commit d5b91ab69c9efd7d4394757fa68257710b1a7515
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Thu Jun 5 21:02:46 2025 -0500
+
+    livecheck: fix notification bubbles, add Calamares integration
+
+commit 22a25a7fa168b447a4086c710b119af3afabf6c8
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Wed Jun 4 20:49:03 2025 -0500
+
+    Bugfixes
+
+commit 57a5b465acfc27f2b65a18006bd1ea9bfa5245b6
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Wed Jun 4 17:42:33 2025 -0500
+
+    Add notification bubbles to livecheck
+
+commit 95c84aa3639bad259437cf2b97fbbceb7d7d3168
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Tue Jun 3 23:38:04 2025 -0500
+
+    Add better handling of removable media, NFS, and VM shared folders
+
+commit bb7f28b202ea117ba706ffd0cde42f89328c1575
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Tue Jun 3 01:01:26 2025 -0500
+
+    Add livecheck applet, to replace older livecheck.sh genmon plugin
+
+commit a1a7c0070fbb03290d5a29f4ae0df2e652529299
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed May 28 13:47:48 2025 +0000
+
+    bumped changelog version
+
 commit 45956a2caae70d383e8efcd6380820a7dc2ec3fa
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Wed May 28 09:43:59 2025 -0400
