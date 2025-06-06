@@ -12,7 +12,15 @@ import select
 import subprocess
 import re
 
-from PyQt5.QtCore import QObject, QThread, pyqtSignal, pyqtSlot
+from pathlib import Path
+
+from PyQt5.QtCore import (
+    QObject,
+    QThread,
+    QFileSystemWatcher,
+    pyqtSignal,
+    pyqtSlot,
+)
 from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import (
     QSystemTrayIcon,
@@ -24,16 +32,17 @@ from PyQt5.QtWidgets import (
     QDialog,
 )
 
-icon_base_path = "/usr/share/icons/gnome-colors-common/32x32/status/"
+installer_monitor_dir = Path("/var/lib/desktop-config-dist/livecheck")
+installer_monitor_file = Path("/var/lib/desktop-config-dist/livecheck/install-running")
 
-loading_icon = "user-extended-away.png"
-## media-optical.png isn't in the status directory, and doing this some other
-## way would be a pain, so...
-iso_live_mode_icon = "../devices/media-optical.png"
-live_mode_icon = "user-available.png"
-semi_persistent_safe_mode_icon = "dialog-warning.png"
-semi_persistent_danger_mode_icon = "dialog-error.png"
-persistent_mode_icon = "dialog-information.png"
+icon_base_path = "/usr/share/icons/gnome-colors-common/32x32/"
+loading_icon = "status/user-extended-away.png"
+iso_live_mode_icon = "devices/media-optical.png"
+live_mode_icon = "status/user-available.png"
+semi_persistent_safe_mode_icon = "status/dialog-warning.png"
+semi_persistent_danger_mode_icon = "status/dialog-error.png"
+installing_distribution_icon = "apps/system-installer.png"
+persistent_mode_icon = "status/dialog-information.png"
 
 kicksecure_wiki_homepage = "https://www.kicksecure.com"
 text_header = "<u><b>Live Check Result:</b></u>"
@@ -137,6 +146,10 @@ semi_persistent_danger_mode_text = f"""{text_header}<br/>
 </ul>
 <a href="{kicksecure_wiki_homepage}/wiki/Live_Mode">{kicksecure_wiki_homepage}/wiki/Live_Mode</a>"""
 
+installing_distribution_text = f"""{text_header}<br/>
+<br/>
+The system installer is currently installing this operating system."""
+
 persistent_mode_text = f"""{text_header}<br/>
 <br/>
 <b>Live Mode Active:</b> No<br/>
@@ -161,6 +174,8 @@ live_mode_tooltip = f"""Live Mode Active (grub-live): No changes will be made to
 semi_persistent_safe_mode_tooltip = f"""Live Mode Active (grub-live semi-persistent): No changes will be made to the system disk. Changes to removable media will persist. Click on the icon for more information."""
 
 semi_persistent_danger_mode_tooltip = f"""Live Mode Active (grub-live semi-persistent): Changes to the disk may be preserved after a reboot. Click on the icon for more information."""
+
+installing_distribution_tooltip = f"""The system installer is currently installing this operating system."""
 
 persistent_mode_tooltip = f"""Persistent Mode Active: All changes to the disk will be preserved after a reboot. Click on the icon for more information."""
 
@@ -201,6 +216,22 @@ class TrayUi(QObject):
         self.tray_icon.activated.connect(self.show_live_mode_text_window)
         self.tray_icon.show()
 
+        ## These strings are used to store the last received mount data from
+        ## the MountMonitor thread. This is primarily so that if something
+        ## other than the MountMonitor thread has to override the live status
+        ## data (i.e. the QFileSystemWatcher that checks for an "install in
+        ## progress" flag file from Calamares), we can restore the correct
+        ## mount information once the overriding condition is cleared.
+        self.live_mode_str = ""
+        self.safe_fs_list_str = ""
+        self.danger_fs_list_str = ""
+
+        self.os_install_active = False
+        self.os_install_checker = QFileSystemWatcher([str(installer_monitor_dir)])
+        self.os_install_checker.directoryChanged.connect(
+            self.install_monitor_dir_changed
+        )
+
         self.mount_monitor = MountMonitor()
         self.monitor_thread = QThread()
 
@@ -213,14 +244,28 @@ class TrayUi(QObject):
         ltw = LiveTextWindow(self.active_text)
         ltw.open()
 
-    def show_notification(self, live_mode_str):
-        self.tray_icon.showMessage(
-            "livecheck",
-            (
+    @staticmethod
+    def show_notification(live_mode_str):
+        subprocess.run(
+            [
+                "/usr/bin/notify-send",
+                "livecheck",
                 "The system's live state has changed. Current state: "
-                f"'{live_mode_str}'"
-            ),
+                + f"'{live_mode_str}'"
+            ]
         )
+
+    def install_monitor_dir_changed(self):
+        if installer_monitor_file.is_file():
+            self.os_install_active = True
+            self.update_mount_state("installing-distribution", "", "")
+        else:
+            self.os_install_active = False
+            self.update_mount_state(
+                self.live_mode_str,
+                self.safe_fs_list_str,
+                self.danger_fs_list_str,
+            )
 
     @pyqtSlot(str, str, str)
     def update_mount_state(
@@ -232,6 +277,14 @@ class TrayUi(QObject):
         ## Clean up an unsightly historical artifact from live-mode.sh
         if live_mode_str == "false":
             live_mode_str = "persistent"
+
+        if live_mode_str != "installing-distribution":
+            self.live_mode_str = live_mode_str
+            self.safe_fs_list_str = safe_fs_list_str
+            self.danger_fs_list_str = danger_fs_list_str
+
+            if self.os_install_active:
+                return
 
         match live_mode_str:
             case "iso-live":
@@ -296,6 +349,12 @@ class TrayUi(QObject):
                 self.tray_icon.setIcon(
                     QIcon(icon_base_path + semi_persistent_danger_mode_icon)
                 )
+            case "installing-distribution":
+                self.active_text = installing_distribution_text
+                self.tray_icon.setToolTip(installing_distribution_tooltip)
+                self.tray_icon.setIcon(
+                    QIcon(icon_base_path + installing_distribution_icon)
+                )
             case "persistent":
                 self.active_text = persistent_mode_text
                 self.tray_icon.setToolTip(persistent_mode_tooltip)
@@ -319,7 +378,7 @@ class MountMonitor(QObject):
     mountStateChanged = pyqtSignal(str, str, str)
 
     @staticmethod
-    def get_writable_fs_lists(mount_data_list):
+    def get_writable_fs_lists():
         ## writable_fs_lists[0] is "safe" writable filesystems,
         ## writable_fs_lists[1] is dangerous ones. "Safe" writable
         ## filesystems are removable media or network filesystems mounted to
@@ -369,7 +428,7 @@ class MountMonitor(QObject):
         mount_poll.register(mount_file, select.POLLPRI)
         while True:
             mount_file.seek(0)
-            mount_data_list = mount_file.read().splitlines()
+            mount_file.read()
             live_check_output = subprocess.run(
                 [ "/usr/libexec/helper-scripts/live-mode.sh" ],
                 capture_output=True,
@@ -382,9 +441,7 @@ class MountMonitor(QObject):
                     live_mode_str = line.split("=", maxsplit=1)[1].strip(
                         "'"
                     )
-                    writable_fs_lists = self.get_writable_fs_lists(
-                        mount_data_list
-                    )
+                    writable_fs_lists = self.get_writable_fs_lists()
                     safe_fs_str = ""
                     danger_fs_str = ""
                     for safe_fs in writable_fs_lists[0]:
