@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=Live status checker
+Exec=/usr/lib/python3/dist-packages/livecheck/livecheck.py
+StartupNotify=false
+NoDisplay=true
