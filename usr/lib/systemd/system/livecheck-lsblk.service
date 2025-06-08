@@ -1,5 +1,10 @@
 [Unit]
 Description=Obtains lsblk output for use by livecheck
+DefaultDependencies=no
+Requires=sysinit.target
+Requires=local-fs.target
+Before=sysinit.target
+After=local-fs.target
 
 [Service]
 Type=oneshot
