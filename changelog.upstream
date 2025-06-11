@@ -1,3 +1,16 @@
+commit 416437d41adf2b4cae447b2b135acce1b4ea7f88
+Merge: 201e57a 2c39fda
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Jun 11 14:54:38 2025 -0400
+
+    Merge remote-tracking branch 'ArrayBolt3/arraybolt3/livecheck'
+
+commit 201e57a13b4dcbaea69c58af0441ca812a83c4b0
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Jun 11 18:21:37 2025 +0000
+
+    bumped changelog version
+
 commit 50e36b2d433c76c541c3420f203eb4ed9c5cd235
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Wed Jun 11 14:18:27 2025 -0400
@@ -9,6 +22,18 @@ Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Wed Jun 11 13:48:06 2025 -0400
 
     add sigterm support
+
+commit 2c39fda09f2f685e39c325d8653bbae516d9761f
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Sun Jun 8 17:32:48 2025 -0500
+
+    Add readonly mode detection, make sure livecheck-lsblk.service runs early enough
+
+commit de4811a49696f5219312001d96bef3293d5a9554
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Sun Jun 8 16:17:19 2025 -0500
+
+    Fix broken livecheck genmon removal message
 
 commit d127092d0f0e63d67fc09be84c9d181e77bb14cd
 Author: Patrick Schleizer <adrelanos@whonix.org>
