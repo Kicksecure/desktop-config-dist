@@ -1,3 +1,21 @@
+commit 50e36b2d433c76c541c3420f203eb4ed9c5cd235
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Jun 11 14:18:27 2025 -0400
+
+    do not run livecheck-systray in Qubes
+
+commit 433e9662be8db30adb75e033a811518ca840ef82
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Jun 11 13:48:06 2025 -0400
+
+    add sigterm support
+
+commit d127092d0f0e63d67fc09be84c9d181e77bb14cd
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Jun 6 20:48:34 2025 +0000
+
+    bumped changelog version
+
 commit b820f24933eedb06d68426182e1d7886685bd24e
 Merge: a1a7c00 e9e26f4
 Author: Patrick Schleizer <adrelanos@whonix.org>
