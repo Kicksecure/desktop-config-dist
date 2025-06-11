@@ -41,6 +41,7 @@ icon_base_path = "/usr/share/icons/gnome-colors-common/32x32/"
 loading_icon = "status/user-extended-away.png"
 iso_live_mode_icon = "devices/media-optical.png"
 live_mode_icon = "status/user-available.png"
+read_only_mode_icon = "apps/computerjanitor.png"
 semi_persistent_safe_mode_icon = "status/dialog-warning.png"
 semi_persistent_danger_mode_icon = "status/dialog-error.png"
 installing_distribution_icon = "apps/system-installer.png"
@@ -112,6 +113,17 @@ live_mode_text = f"""{text_header}<br/>
 </ul>
 <a href="{kicksecure_wiki_homepage}/wiki/Live_Mode">{kicksecure_wiki_homepage}/wiki/Live_Mode</a>"""
 
+read_only_mode_text = f"""{text_header}<br/>
+<br/>
+<b>Live Mode Active:</b> <b>Yes</b> (grub-live read-only)<br/>
+<b>Persistent Mode Active:</b> No
+<ul>
+  <li>No changes will be made to disk.</li>
+  <li>All storage media available to the OS is set read-only by hardware or drivers.</li>
+  <li>For more information, see the following link:</li>
+</ul>
+<a href="{kicksecure_wiki_homepage}/wiki/Live_Mode">{kicksecure_wiki_homepage}/wiki/Live_Mode</a>"""
+
 semi_persistent_safe_mode_text = f"""{text_header}<br/>
 <br/>
 <b>Live Mode Active:</b> <b>Yes</b> (grub-live semi-persistent)<br/>
@@ -172,6 +184,8 @@ iso_semi_persistent_safe_mode_tooltip = f"""Live Mode Active (ISO Live semi-pers
 iso_semi_persistent_danger_mode_tooltip = f"""Live Mode Active (ISO Live semi-persistent): Changes to the disk may be preserved after a reboot. Click on the icon for more information."""
 
 live_mode_tooltip = f"""Live Mode Active (grub-live): No changes will be made to disk. Click on the icon for more information."""
+
+read_only_mode_tooltip = f"""Live Mode Active (grub-live read-only): No changes will be made to disk. Click on the icon for more information."""
 
 semi_persistent_safe_mode_tooltip = f"""Live Mode Active (grub-live semi-persistent): No changes will be made to the system disk. Changes to removable media will persist. Click on the icon for more information."""
 
@@ -329,6 +343,12 @@ class TrayUi(QObject):
                 self.tray_icon.setToolTip(live_mode_tooltip)
                 self.tray_icon.setIcon(
                     QIcon(icon_base_path + live_mode_icon)
+                )
+            case "grub-live-read-only":
+                self.active_text = read_only_mode_text
+                self.tray_icon.setToolTip(read_only_mode_tooltip)
+                self.tray_icon.setIcon(
+                    QIcon(icon_base_path + read_only_mode_icon)
                 )
             case "grub-live-semi-persistent":
                 self.active_text = semi_persistent_safe_mode_text.replace(

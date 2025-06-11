@@ -17,7 +17,7 @@ set -o pipefail
 output="$(cat <<EOF
 <img>/usr/share/icons/gnome-colors-common/32x32/status/dialog-warning.png</img>
 <tool><b>Please remove this widget.</b> Livecheck is no longer an XFCE panel widget, it is now its own application. Click for more details.</tool>
-<click>/usr/libexec/msgcollector/generic_gui_messagenfo 'Livecheck' '<u><b>Please remove this widget.</b></u><br/><br/>
+<click>/usr/libexec/msgcollector/generic_gui_message info 'Livecheck' '<u><b>Please remove this widget.</b></u><br/><br/>
 Livecheck is now an application, rather than an XFCE panel widget. You can find it in the system tray.<br/><br/>
 To remove this widget:
 <ul>
@@ -28,7 +28,7 @@ To remove this widget:
 <li>Click "Remove".</li>
 <li>In the pop-up that appears, click "Remove" again.</li>
 </ul>
-''' ok</click>
+' '' ok</click>
 EOF
 )"
 
