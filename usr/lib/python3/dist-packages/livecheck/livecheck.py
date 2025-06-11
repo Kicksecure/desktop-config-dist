@@ -7,6 +7,7 @@
 livecheck.py - Monitors the system and reports whether it is persistent,
   live, or semi-persistent.
 """
+import signal
 import sys
 import select
 import subprocess
@@ -20,6 +21,7 @@ from PyQt5.QtCore import (
     QFileSystemWatcher,
     pyqtSignal,
     pyqtSlot,
+    QTimer
 )
 from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import (
@@ -460,11 +462,22 @@ class MountMonitor(QObject):
                     break
             mount_poll.poll()
 
+def signal_handler(sig, frame):
+    sys.exit(128 + sig)
+
 def main():
     app = QApplication(sys.argv)
     app.setQuitOnLastWindowClosed(False)
+
+    signal.signal(signal.SIGTERM, signal_handler)
+    signal.signal(signal.SIGINT, signal_handler)
+
+    timer = QTimer()
+    timer.start(500)
+    timer.timeout.connect(lambda: None)
+
     ui = TrayUi()
-    sys.exit(app.exec_())
+    app.exec_()
 
 if __name__ == "__main__":
     main()
