@@ -21,9 +21,12 @@ from PyQt5.QtCore import (
     QFileSystemWatcher,
     pyqtSignal,
     pyqtSlot,
-    QTimer
+    QTimer,
 )
-from PyQt5.QtGui import QIcon
+from PyQt5.QtGui import (
+    QIcon,
+    QCursor,
+)
 from PyQt5.QtWidgets import (
     QSystemTrayIcon,
     QApplication,
@@ -32,6 +35,8 @@ from PyQt5.QtWidgets import (
     QPushButton,
     QLabel,
     QDialog,
+    QMenu,
+    QAction,
 )
 
 installer_monitor_dir = Path("/var/lib/desktop-config-dist/livecheck")
@@ -46,6 +51,7 @@ semi_persistent_safe_mode_icon = "status/dialog-warning.png"
 semi_persistent_danger_mode_icon = "status/dialog-error.png"
 installing_distribution_icon = "apps/system-installer.png"
 persistent_mode_icon = "status/dialog-information.png"
+exit_icon = "actions/application-exit.png"
 
 kicksecure_wiki_homepage = "https://www.kicksecure.com"
 text_header = "<u><b>Live Check Result:</b></u>"
@@ -229,7 +235,16 @@ class TrayUi(QObject):
         self.tray_icon = QSystemTrayIcon()
         self.tray_icon.setIcon(QIcon(icon_base_path + loading_icon))
         self.tray_icon.setToolTip(loading_tooltip)
-        self.tray_icon.activated.connect(self.show_live_mode_text_window)
+        self.tray_icon.activated.connect(self.handle_systray_click)
+        tray_menu = QMenu()
+        quit_action = QAction(
+            QIcon(icon_base_path + exit_icon),
+            '&Exit',
+            self,
+        )
+        quit_action.triggered.connect(sys.exit)
+        tray_menu.addAction(quit_action)
+        self.tray_icon.setContextMenu(tray_menu)
         self.tray_icon.show()
 
         ## These strings are used to store the last received mount data from
@@ -255,6 +270,15 @@ class TrayUi(QObject):
         self.mount_monitor.moveToThread(self.monitor_thread)
         self.monitor_thread.started.connect(self.mount_monitor.run)
         self.monitor_thread.start()
+
+    def handle_systray_click(self, reason):
+        if reason == QSystemTrayIcon.ActivationReason.Context:
+            self.show_context_menu()
+        else:
+            self.show_live_mode_text_window()
+
+    def show_context_menu(self):
+        self.tray_icon.contextMenu().popup(QCursor.pos())
 
     def show_live_mode_text_window(self):
         ltw = LiveTextWindow(self.active_text)
