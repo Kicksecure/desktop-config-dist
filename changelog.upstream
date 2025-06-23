@@ -1,3 +1,22 @@
+commit b5e91fbf719dd76dc2a865599fecd21867066340
+Merge: dd90436 62bc929
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Jun 19 06:50:51 2025 -0400
+
+    Merge remote-tracking branch 'ArrayBolt3/arraybolt3/livecheck-exit'
+
+commit 62bc9292a9baf5c9306399aeb30243c8fbcbe9c6
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Thu Jun 12 11:01:07 2025 -0500
+
+    Add context menu with exit button to livecheck
+
+commit dd90436d37cbdd7e4c8079f4bf3b79583d4105b1
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Jun 11 19:13:10 2025 +0000
+
+    bumped changelog version
+
 commit 416437d41adf2b4cae447b2b135acce1b4ea7f88
 Merge: 201e57a 2c39fda
 Author: Patrick Schleizer <adrelanos@whonix.org>
