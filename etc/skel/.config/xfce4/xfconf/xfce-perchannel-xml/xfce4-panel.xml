@@ -71,6 +71,5 @@
       <property name="enable-keyboard-shortcuts" type="bool" value="false"/>
       <property name="enable-multimedia-keys" type="bool" value="false"/>
     </property>
-    <property name="plugin-12" type="string" value="genmon"/>
   </property>
 </channel>
