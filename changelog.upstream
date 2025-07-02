@@ -1,3 +1,28 @@
+commit 0b237e339ab595bb6ccfee3c23b7552458677761
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Jul 2 16:14:16 2025 -0400
+
+    rm_conffile /etc/skel/.config/xfce4/panel/genmon-12.rc
+
+commit 3e9f37a7237aa0db0a6bae1452cf9cdde16830ae
+Merge: bacf2c6 f93aa80
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Jul 2 16:13:34 2025 -0400
+
+    Merge remote-tracking branch 'ArrayBolt3/arraybolt3/genmon'
+
+commit f93aa8094bb39650d082408aaa1d2a70f66abcd2
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Sun Jun 29 17:34:03 2025 -0500
+
+    Remove obsolete livecheck genmon widget
+
+commit bacf2c60ea56352ae151fd77dbc3589ded0826a4
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Jun 23 06:16:55 2025 +0000
+
+    bumped changelog version
+
 commit b5e91fbf719dd76dc2a865599fecd21867066340
 Merge: dd90436 62bc929
 Author: Patrick Schleizer <adrelanos@whonix.org>
