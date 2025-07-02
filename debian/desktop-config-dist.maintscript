@@ -7,3 +7,6 @@ rm_conffile /etc/sudoers.d/whonix-xfce-desktop-config
 
 ## replaced with systemd unit
 rm_conffile /etc/sudoers.d/desktop-config-dist
+
+## no longer using genmon
+rm_conffile /etc/skel/.config/xfce4/panel/genmon-12.rc
