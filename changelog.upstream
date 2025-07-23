@@ -1,3 +1,29 @@
+commit 5f205e5577b4404af7e69318bba6a4dd5556bd2d
+Merge: 8d693c5 90059b9
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Jul 23 00:56:23 2025 -0400
+
+    Merge remote-tracking branch 'ArrayBolt3/arraybolt3/livecheck-enhance'
+
+commit 8d693c5d9e4e90da090118d83eb29207adac99f3
+Merge: 921ab76 2f7013e
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Jul 23 00:53:51 2025 -0400
+
+    Merge remote-tracking branch 'ArrayBolt3/arraybolt3/power-manager'
+
+commit 90059b9d5a94f55a418931d24afce3833339902c
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Tue Jul 22 21:44:21 2025 -0500
+
+    livecheck: fix link, make text selectable, add applet name to context menu
+
+commit 921ab76e8fc786ed9a6577b00441875cbfb1a27f
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Jul 2 20:48:33 2025 +0000
+
+    bumped changelog version
+
 commit 0b237e339ab595bb6ccfee3c23b7552458677761
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Wed Jul 2 16:14:16 2025 -0400
@@ -10,6 +36,15 @@ Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Wed Jul 2 16:13:34 2025 -0400
 
     Merge remote-tracking branch 'ArrayBolt3/arraybolt3/genmon'
+
+commit 2f7013efe3142942ffcd283d0be9aab5db08dd2b
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Mon Jun 30 17:26:15 2025 -0500
+
+    Show power manager widget and notifications by default
+    
+    Note, we use the system tray icon rather than an XFCE power manager
+    widget so that the icon appears in sysmaint sessions as well.
 
 commit f93aa8094bb39650d082408aaa1d2a70f66abcd2
 Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
