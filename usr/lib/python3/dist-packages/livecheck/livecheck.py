@@ -16,6 +16,7 @@ import re
 from pathlib import Path
 
 from PyQt5.QtCore import (
+    Qt,
     QObject,
     QThread,
     QFileSystemWatcher,
@@ -217,6 +218,10 @@ class LiveTextWindow(QDialog):
     def setupUi(self):
         self.setWindowTitle("Livecheck")
         self.okButton.setText("OK")
+        self.text.setOpenExternalLinks(True)
+        self.text.setTextInteractionFlags(
+            Qt.LinksAccessibleByMouse | Qt.TextSelectableByMouse
+        )
         self.text.setText(self.text_str)
         self.buttonRow.addStretch()
         self.buttonRow.addWidget(self.okButton)
@@ -244,6 +249,13 @@ class TrayUi(QObject):
         )
         quit_action.triggered.connect(sys.exit)
         tray_menu.addAction(quit_action)
+        tray_menu.addSeparator()
+        livecheck_text_action = QAction(
+            'Livecheck',
+            self,
+        )
+        livecheck_text_action.setEnabled(False)
+        tray_menu.addAction(livecheck_text_action)
         self.tray_icon.setContextMenu(tray_menu)
         self.tray_icon.show()
 
