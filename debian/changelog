@@ -1,3 +1,9 @@
+desktop-config-dist (3:12.4-1) unstable; urgency=medium
+
+  * New upstream version (local package).
+
+ -- Patrick Schleizer <adrelanos@whonix.org>  Sat, 26 Jul 2025 09:06:21 +0000
+
 desktop-config-dist (3:12.3-1) unstable; urgency=medium
 
   * New upstream version (local package).

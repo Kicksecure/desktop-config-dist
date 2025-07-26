@@ -1,3 +1,38 @@
+commit 4b3f7fce526c0b74b9cfed1b07159c92ba965d9c
+Merge: 8877aa7 9d8f939
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Jul 26 04:55:45 2025 -0400
+
+    Merge remote-tracking branch 'ArrayBolt3/arraybolt3/zsh-harden'
+
+commit 9d8f9395cb33acc1c8cf1b1782ae927b02db2b21
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Thu Jul 24 22:46:37 2025 -0500
+
+    Improve zsh configuration usability and security
+    
+    * Remove the '-n' option from the 'ls' alias. This option would cause
+      strings with spaces or other special characters in them to not be
+      quoted, making it unsafe to copy-paste them into the shell for the
+      purposes of using 'cd'.
+    * Add an 'rgrep' alias, since we have egrep and fgrep aliases already.
+    * Fix the comment for the LESS_TERMCAP_me variable.
+    * Fix an incorrectly specified match pattern in zshrc_completions.
+    * Disable zsh's compctl completion mechanism for security reasons, use
+      only compsys.
+      * compctl is a completion mechanism implemented mostly or entirely in
+        C, it appears to be very complex, and the completion engine has to
+        process potentially untrusted data, thus it is considered a
+        liability.
+    * Enable ownership security checks when loading compsys completion
+      functions with compinit.
+
+commit 8877aa77e021ff17ffaccb2eafa365bfb80b3e12
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Jul 23 08:19:06 2025 +0000
+
+    bumped changelog version
+
 commit 5f205e5577b4404af7e69318bba6a4dd5556bd2d
 Merge: 8d693c5 90059b9
 Author: Patrick Schleizer <adrelanos@whonix.org>
