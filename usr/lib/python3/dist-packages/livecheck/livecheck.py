@@ -297,15 +297,24 @@ class TrayUi(QObject):
         ltw.open()
 
     @staticmethod
-    def show_notification(live_mode_str):
-        subprocess.run(
-            [
-                "/usr/bin/notify-send",
-                "livecheck",
-                "The system's live state has changed. Current state: "
-                + f"'{live_mode_str}'"
-            ]
-        )
+    def show_notification(live_mode_str, is_first_popup):
+        if is_first_popup:
+            subprocess.run(
+                [
+                    "/usr/bin/notify-send",
+                    "livecheck",
+                    f"The system's live state is '{live_mode_str}'."
+                ]
+            )
+        else:
+            subprocess.run(
+                [
+                    "/usr/bin/notify-send",
+                    "livecheck",
+                    "The system's live state has changed. Current state: "
+                    + f"'{live_mode_str}'."
+                ]
+            )
 
     def install_monitor_dir_changed(self):
         if installer_monitor_file.is_file():
@@ -422,13 +431,15 @@ class TrayUi(QObject):
 
         if self.prev_live_state != "loading":
             if live_mode_str not in ("iso-live", "grub-live", "persistent"):
-                self.show_notification(live_mode_str)
+                self.show_notification(live_mode_str, False)
             elif self.prev_live_state not in (
                 "iso-live",
                 "grub-live",
                 "persistent",
             ):
-                self.show_notification(live_mode_str)
+                self.show_notification(live_mode_str, False)
+        elif live_mode_str != "persistent":
+            self.show_notification(live_mode_str, True)
 
         self.prev_live_state = live_mode_str
 
