@@ -5,6 +5,6 @@
 <channel name="xsettings" version="1.0">
   <property name="Net" type="empty">
     <property name="ThemeName" type="string" value="Arc"/>
-    <property name="IconThemeName" type="string" value="Arc"/>
+    <property name="IconThemeName" type="string" value="gnome-brave"/>
   </property>
 </channel>
