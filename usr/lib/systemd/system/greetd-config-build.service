@@ -1,0 +1,15 @@
+[Unit]
+Description=Builds config files for greetd
+DefaultDependencies=no
+Requires=sysinit.target
+Requires=local-fs.target
+Before=sysinit.target
+After=local-fs.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=no
+ExecStart=/usr/libexec/desktop-config-dist/greetd-config-build
+
+[Install]
+WantedBy=multi-user.target

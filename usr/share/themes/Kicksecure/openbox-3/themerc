@@ -1,0 +1,64 @@
+!! Copyright (C) 2025 - 2025 ENCRYPTED SUPPORT LLC <adrelanos@whonix.org>
+!! See the file COPYING for copying conditions.
+
+!! Based on the Bear2 theme by David Barr <david@chalkskeletons.com>
+!! http://david.chalkskeletons.com
+
+!!General
+
+window.handle.width: 4
+window.client.padding.width: 0
+window.client.padding.height: 0
+border.Width: 1
+padding.width: 3
+menu.overlap: 2
+border.color: #4e4e4e
+window.frameColor: #eeeeec
+window.*.client.color: #eeeeec
+*.text.justify: center
+
+!!Fonts
+
+window.active.label.text.font: shadow=y:shadowoffset=1:shadowtint=3
+window.inactive.label.text.font: shadow=y:shadowoffset=1:shadowtint=0
+menu.items.font:
+menu.title.text.font: shadow=y:shadowoffset=1:shadowtint=30
+
+!!Active
+
+window.active.title.bg: flat border gradient osx
+window.active.title.bg.color: #e7e8eb
+window.active.title.bg.colorTo: #e7e8eb
+window.active.title.bg.border.color: #8a8a8c
+
+window.active.label.bg: parentrelative
+window.active.label.text.color: #000000
+
+window.active.button.*.bg: parentrelative
+window.active.button.*.image.color: #8a8a8c
+window.active.button.hover.bg.color: #8a8a8c
+window.active.button.hover.image.color: #e7e8eb
+window.active.button.pressed.bg.color: #bcbdbf
+window.active.button.disabled.image.color: #d1d2d4
+
+window.active.handle.bg: raised solid
+window.active.handle.bg.color: #e7e7e7
+window.*.grip.bg: parentrelative
+
+!!Inactive
+
+window.inactive.title.bg: flat border gradient osx
+window.inactive.title.bg.color: #dcdcdc
+window.inactive.title.bg.colorTo: #eeeeec
+window.inactive.title.bg.border.color: #efefef
+window.inactive.label.bg: parentrelative
+window.inactive.label.text.color: #888a85
+
+window.inactive.button.*.bg: parentrelative
+window.inactive.button.*.image.color:  #888a85
+window.inactive.button.pressed.bg.color: #d3d7cf
+window.inactive.button.pressed.bg.color: #4f5051
+window.inactive.button.disabled.image.color: #d0d0d0
+
+window.inactive.handle.bg: raised solid
+window.inactive.handle.bg.color: #e7e7e7

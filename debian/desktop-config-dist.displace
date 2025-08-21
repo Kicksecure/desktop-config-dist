@@ -3,3 +3,6 @@
 
 /etc/zsh/zshrc.dist
 /etc/zsh/zprofile.dist
+
+/etc/xdg/waybar/config.jsonc.dist
+/etc/xdg/waybar/style.css.dist
