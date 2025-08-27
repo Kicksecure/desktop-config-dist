@@ -7,3 +7,7 @@
 ## Avoid the confusing Xfce logo, default image by hiding Xfce's default
 ## background image file.
 /usr/share/backgrounds/xfce/xfce-shapes.svg
+
+## We dynamically generate these files from configuration directories.
+/etc/greetd/config.toml
+/etc/greetd/wlgreet.toml

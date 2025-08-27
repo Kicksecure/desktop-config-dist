@@ -1,0 +1,16 @@
+## Copyright (C) 2018 - 2025 ENCRYPTED SUPPORT LLC <adrelanos@whonix.org>
+## See the file COPYING for copying conditions.
+
+## NOTE: This file must be vendored under debian/ rather than under
+## /usr/share/glib2.0/schemas/ in order to trigger dh_installgsettings to
+## recompile schemas on installation. See
+## https://manpages.debian.org/testing/debhelper/dh_installgsettings.1.en.html
+##
+## NOTE: This file must be named exactly
+## 'desktop-config-dist.gsettings-override` to be picked up by
+## dh_installgsettings. Do NOT attempt to rename it with a number at the start
+## of the name to enforce ordering, and do NOT change the file name extension.
+
+## Add minimize and maximize buttons to GTK applications like Firefox
+[org.gnome.desktop.wm.preferences]
+button-layout='icon:minimize,maximize,close'
