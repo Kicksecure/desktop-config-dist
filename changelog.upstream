@@ -1,3 +1,40 @@
+commit 8f6e634163e0d38c36eed0486f4016fefa1eb5a5
+Merge: 1ebd993 03aa359
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Aug 20 07:13:25 2025 -0400
+
+    Merge remote-tracking branch 'ArrayBolt3/arraybolt3/trixie'
+
+commit 1ebd993ef7e393feb26cfb35c8062780b3468946
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Aug 20 06:57:25 2025 -0400
+
+    bumped Standards-Version
+
+commit 38d7bd75de768c40e71500b6e7550436b764ae5e
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Aug 20 06:25:31 2025 -0400
+
+    readme
+
+commit 03aa359bc5d54958a1e6f4edd29b2c79610c7668
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Fri Aug 15 17:59:12 2025 -0500
+
+    Show a notification about the system's live state on login, when not booting in persistent mode
+
+commit e2bf223d438e5105a61b6a1239bde311366496c9
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Tue Aug 5 22:57:59 2025 -0500
+
+    Port to Trixie.
+
+commit 6ec325db9bffa88246ccaa39c91bd1f8f2b5b1c2
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Jul 26 09:06:21 2025 +0000
+
+    bumped changelog version
+
 commit 4b3f7fce526c0b74b9cfed1b07159c92ba965d9c
 Merge: 8877aa7 9d8f939
 Author: Patrick Schleizer <adrelanos@whonix.org>
