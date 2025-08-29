@@ -1,5 +1,6 @@
 [Unit]
 Description=Builds config files for greetd
+ConditionPathExists=!/usr/share/qubes/marker-vm
 DefaultDependencies=no
 Requires=sysinit.target
 Requires=local-fs.target
