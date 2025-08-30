@@ -1,3 +1,40 @@
+commit c935aa39d8f750a5e0fd3f078994896251af39e2
+Merge: 1ae5760 a352013
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Aug 30 07:50:40 2025 -0400
+
+    Merge remote-tracking branch 'ArrayBolt3/arraybolt3/trixie'
+
+commit a352013f5e02f8de36fb33a9c29ada43bfae9206
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Fri Aug 29 16:47:59 2025 -0500
+
+    Turn off the empty tooltip on the Waybar clock
+
+commit 245c3e7a9d2edcb65b0d78c614a6c0d0ec72632a
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Fri Aug 29 16:42:08 2025 -0500
+
+    Add volume widget to Waybar
+
+commit 4ad6495a369f60be0907adf1097d838d6d0c5061
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Fri Aug 29 15:50:35 2025 -0500
+
+    Make Waybar clock update every second
+
+commit fc141e7e5ef852b216ad6c24d9bc6e140046326e
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Thu Aug 28 22:51:19 2025 -0500
+
+    Don't run greetd config builder in Qubes
+
+commit 1ae57606d9a087f601028d279d1203354e838222
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Aug 27 19:16:19 2025 +0000
+
+    bumped changelog version
+
 commit c14990bb255b6389d1a358573cd74e21db7655d3
 Merge: 21e2b87 9da6e27
 Author: Patrick Schleizer <adrelanos@whonix.org>
