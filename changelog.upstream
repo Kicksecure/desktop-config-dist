@@ -1,3 +1,22 @@
+commit c15f89afd1379cf0acb5b6cf8e6d3606c80ceabc
+Merge: a20f5a3 8dfb013
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Sep 4 11:23:46 2025 -0400
+
+    Merge remote-tracking branch 'ArrayBolt3/arraybolt3/trixie'
+
+commit 8dfb0131cfc8cc07f7e8eb237a952f8015cc4e53
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Thu Sep 4 10:16:29 2025 -0500
+
+    Make Ctrl+Alt+T launch QTerminal
+
+commit a20f5a3396fc69f0040e7e727ab1935d5c17a620
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Sep 2 15:13:15 2025 +0000
+
+    bumped changelog version
+
 commit 26148664651e0a369885ac1111fa84cc94231c5f
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Sat Aug 30 14:14:09 2025 +0000
