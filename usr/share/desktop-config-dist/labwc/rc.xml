@@ -265,8 +265,8 @@
     <keybind key="A-Tab">
       <action name="NextWindow" />
     </keybind>
-    <keybind key="W-Return">
-      <action name="Execute" command="alacritty" />
+    <keybind key="C-A-t">
+      <action name="Execute" command="qterminal" />
     </keybind>
     <keybind key="A-F3">
       <action name="Execute" command="bemenu-run" />
