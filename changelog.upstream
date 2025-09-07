@@ -1,3 +1,22 @@
+commit 5f6c91bf66a161198ab9033ef98aabe5b62da3fe
+Merge: 846054b 5bdf32c
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Sep 7 03:12:58 2025 -0400
+
+    Merge remote-tracking branch 'ArrayBolt3/arraybolt3/trixie'
+
+commit 5bdf32c9135d9e7ad14a7abdc33b1bf4fe09edfa
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Sat Sep 6 22:30:11 2025 -0500
+
+    Fix xdg-desktop-portal support in sysmaint sessions, remove unnecessary dependencies
+
+commit 846054bd3ab6965116d9f2a63c9976e69bbfa246
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Sep 4 15:24:53 2025 +0000
+
+    bumped changelog version
+
 commit c15f89afd1379cf0acb5b6cf8e6d3606c80ceabc
 Merge: a20f5a3 8dfb013
 Author: Patrick Schleizer <adrelanos@whonix.org>
