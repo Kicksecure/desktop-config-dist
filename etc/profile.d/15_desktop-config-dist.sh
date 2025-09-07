@@ -8,11 +8,16 @@ if [ "$(systemd-detect-virt)" != 'none' ]; then
   export WLR_RENDERER='pixman'
 fi
 
-## Make gtk3 use Wayland by default
-export GDK_BACKEND=wayland
+if [ -f '/usr/share/qubes/marker-vm' ]; then
+  ## https://github.com/QubesOS/qubes-issues/issues/3366
+  true "$0: Qubes does not support Wayland yet. Not setting GDK_BACKEND and QT_QPA_PLATFORM, ok."
+else
+  ## Make gtk3 use Wayland by default
+  export GDK_BACKEND=wayland
 
-## Make Qt use Wayland by default
-export QT_QPA_PLATFORM=wayland
+  ## Make Qt use Wayland by default
+  export QT_QPA_PLATFORM=wayland
+fi
 
 ## Indicate to Kicksecure sessions that the profile scripts have been run.
 export PROFILE_SCRIPTS_WERE_SOURCED='yes'
