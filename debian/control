@@ -43,8 +43,7 @@ Description: Configuration for Derivative Desktop
 
 Package: desktop-config-dist-dependencies
 Architecture: all
-Depends: arc-theme, gnome-themes-extra, gnome-themes-extra-data,
- gtk2-engines-murrine, gnome-colors-common, adwaita-icon-theme,
+Depends: gnome-colors-common, adwaita-icon-theme,
  ${misc:Depends}
 Description: Dependencies of desktop-config-dist
  A metapackage with dependencies for package desktop-config-dist.
