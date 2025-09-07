@@ -1,3 +1,17 @@
+commit 17cafb02df4dfb5d2e2d6802b0989ecaf5554de0
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Sep 7 04:53:04 2025 -0400
+
+    fix: Qubes does not support Wayland yet. Not setting GDK_BACKEND and QT_QPA_PLATFORM.
+    
+    https://github.com/QubesOS/qubes-issues/issues/3366
+
+commit fb0438e5d886cf48145d6d94a410a4632284f571
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Sep 7 07:59:17 2025 +0000
+
+    bumped changelog version
+
 commit 5f6c91bf66a161198ab9033ef98aabe5b62da3fe
 Merge: 846054b 5bdf32c
 Author: Patrick Schleizer <adrelanos@whonix.org>
