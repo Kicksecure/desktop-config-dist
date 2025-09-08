@@ -1,3 +1,27 @@
+commit 7567df767416f80632646c53a44df8a6684b7a9d
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Sep 8 10:49:07 2025 -0400
+
+    fix: export XDG_CONFIG_DIRS and XDG_DATA_DIRS
+
+commit 615ffd06309ca810e7daff4cf366f3f7020048f4
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Sep 8 10:48:30 2025 -0400
+
+    fix: hide stderr
+
+commit 68ff5eb888683c02bdc742f51ac2c9f7fb42dea5
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Sep 8 10:47:10 2025 -0400
+
+    fix: set WLR_RENDERER in non-Qubes and non-VMs only
+
+commit 59a76f67b3fb77bd683f160343efa744baba2e0a
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Sep 7 08:53:37 2025 +0000
+
+    bumped changelog version
+
 commit 17cafb02df4dfb5d2e2d6802b0989ecaf5554de0
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Sun Sep 7 04:53:04 2025 -0400
