@@ -8,7 +8,7 @@ if [ -f '/usr/share/qubes/marker-vm' ]; then
   true "$0: Qubes does not support Wayland yet. Not setting GDK_BACKEND and QT_QPA_PLATFORM, ok."
 else
   ## Fix wlroots glitches with virtualized graphics
-  if [ "$(systemd-detect-virt)" != 'none' ]; then
+  if [ "$(systemd-detect-virt 2>/dev/null)" != 'none' ]; then
     export WLR_RENDERER='pixman'
   fi
 
