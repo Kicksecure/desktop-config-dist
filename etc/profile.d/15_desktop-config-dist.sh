@@ -24,9 +24,11 @@ export PROFILE_SCRIPTS_WERE_SOURCED='yes'
 
 if [ -z "$XDG_CONFIG_DIRS" ]; then
   XDG_CONFIG_DIRS="/etc:/etc/xdg:/usr/share"
+  export XDG_CONFIG_DIRS
 fi
 if [ -z "$XDG_DATA_DIRS" ]; then
   XDG_DATA_DIRS="/usr/local/share/:/usr/share/"
+  export XDG_DATA_DIRS
 fi
 
 if ! printf '%s\n' "$XDG_CONFIG_DIRS" | grep -- "/usr/share/desktop-config-dist" >/dev/null 2>/dev/null; then
