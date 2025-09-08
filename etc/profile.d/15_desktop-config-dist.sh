@@ -3,15 +3,15 @@
 ## Copyright (C) 2025 - 2025 ENCRYPTED SUPPORT LLC <adrelanos@whonix.org>
 ## See the file COPYING for copying conditions.
 
-## Fix wlroots glitches with virtualized graphics
-if [ "$(systemd-detect-virt)" != 'none' ]; then
-  export WLR_RENDERER='pixman'
-fi
-
 if [ -f '/usr/share/qubes/marker-vm' ]; then
   ## https://github.com/QubesOS/qubes-issues/issues/3366
   true "$0: Qubes does not support Wayland yet. Not setting GDK_BACKEND and QT_QPA_PLATFORM, ok."
 else
+  ## Fix wlroots glitches with virtualized graphics
+  if [ "$(systemd-detect-virt)" != 'none' ]; then
+    export WLR_RENDERER='pixman'
+  fi
+
   ## Make gtk3 use Wayland by default
   export GDK_BACKEND=wayland
 
