@@ -21,7 +21,7 @@ Description: Configuration for Derivative Desktop
  Settings for the default panel aka task bar, like panel position/color/size
  and panel plugins/shortcuts.
  .
- Autologin for user 'user' setting in lightdm.
+ Autologin for account 'user' setting in lightdm.
  .
  Live check systray indicator which indicates the status of grub-live, whether
  the system was booted into persistent or live mode. See also:
