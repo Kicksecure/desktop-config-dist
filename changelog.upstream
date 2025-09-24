@@ -1,3 +1,22 @@
+commit 5d41655d401068eb500798cb0b67d6672973e1e5
+Merge: 6ca1f87 3f9570a
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Sep 24 10:03:01 2025 -0400
+
+    Merge remote-tracking branch 'ArrayBolt3/arraybolt3/trixie'
+
+commit 3f9570a5f2e9b732c3ecbf0ee694d44600b98da2
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Tue Sep 23 21:05:46 2025 -0500
+
+    Slow down the mouse pointer, the previous config made it way too fast
+
+commit 6ca1f874f3c0a8753972b33abfa2ff60e7609e36
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Sep 22 17:12:09 2025 +0000
+
+    bumped changelog version
+
 commit 44f63c591364b76de4c410a060408c6ac241130c
 Merge: e98b10c 377ed8d
 Author: Patrick Schleizer <adrelanos@whonix.org>
