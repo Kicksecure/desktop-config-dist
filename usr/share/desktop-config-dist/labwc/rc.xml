@@ -598,7 +598,7 @@
     <device category="default">
       <naturalScroll></naturalScroll>
       <leftHanded></leftHanded>
-      <pointerSpeed>1</pointerSpeed>
+      <!--<pointerSpeed>1</pointerSpeed>-->
       <accelProfile></accelProfile>
       <tap>yes</tap>
       <tapButtonMap></tapButtonMap>
