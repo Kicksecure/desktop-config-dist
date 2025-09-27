@@ -1,3 +1,22 @@
+commit 7adda5f57f5a4b7be02417f6b9018e34f9517182
+Merge: 1479565 e37430b
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Sep 27 03:54:31 2025 -0400
+
+    Merge remote-tracking branch 'ArrayBolt3/arraybolt3/trixie'
+
+commit e37430be671458e7fb6f61eb306e3d5e032eb3aa
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Fri Sep 26 18:05:11 2025 -0500
+
+    Fix Qt app theming under Qubes OS
+
+commit 14795659fc20e6226e6e97e13edf2aa84e1f64d9
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Sep 24 14:06:13 2025 +0000
+
+    bumped changelog version
+
 commit 5d41655d401068eb500798cb0b67d6672973e1e5
 Merge: 6ca1f87 3f9570a
 Author: Patrick Schleizer <adrelanos@whonix.org>
