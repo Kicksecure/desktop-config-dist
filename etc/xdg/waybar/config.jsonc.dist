@@ -3,7 +3,8 @@
 	"height": 30,
 	"modules-right": ["battery", "pulseaudio", "tray", "clock"],
 	"battery": {
-		"format": "Battery: {capacity}% {icon}"
+		"format": "Battery: {capacity}% {icon}",
+		"interval": 5
 	},
 	"pulseaudio": {
 		"format": "Volume: {volume}%"
