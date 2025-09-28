@@ -1,3 +1,15 @@
+commit 4e3086ea8563a84621ed96cac8b3e01664ef85e7
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Sep 28 09:17:06 2025 -0400
+
+    move zsh configuration to usability-misc
+
+commit 6de7f22dc98531f271c6ba9ff13c9fe9731c3093
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Sep 27 07:54:51 2025 +0000
+
+    bumped changelog version
+
 commit 7adda5f57f5a4b7be02417f6b9018e34f9517182
 Merge: 1479565 e37430b
 Author: Patrick Schleizer <adrelanos@whonix.org>
