@@ -21,10 +21,6 @@ Disables thumbnails for better security.
 
 Disables save on exit for better privacy.
 
-Ships `zsh` derivative configuration settings folder `/etc/zsh`.
-But does not configure `zsh` as default shell.
-(That is up to package `dist-base-files`.)
-
 ## How to install `desktop-config-dist` using apt-get ##
 
 1\. Download the APT Signing Key.
