@@ -1,8 +1,40 @@
+commit 73c8d8e0b61c7cac98e83ead00250b0121e4a86c
+Merge: b4bf494 d99f8f9
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Oct 1 05:38:13 2025 -0400
+
+    Merge remote-tracking branch 'ArrayBolt3/arraybolt3/trixie'
+
+commit d99f8f93a7491a17cdf9d87addec09812d535cc1
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Sun Sep 28 12:00:52 2025 -0500
+
+    Move swaylock configuration out of desktop-config-dist
+
+commit 090b2aad24e345eb3ca89e9e1bd99e0a60a81038
+Merge: 35711ba b4bf494
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Sun Sep 28 10:57:39 2025 -0500
+
+    Merge branch 'master' into arraybolt3/trixie
+
+commit b4bf494cc6bba0946fd07cabecbc6e5f7989390a
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Sep 28 13:37:54 2025 +0000
+
+    bumped changelog version
+
 commit 4e3086ea8563a84621ed96cac8b3e01664ef85e7
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Sun Sep 28 09:17:06 2025 -0400
 
     move zsh configuration to usability-misc
+
+commit 35711baee2acee178dc8566a551a62440f7448e0
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Sat Sep 27 22:54:46 2025 -0500
+
+    Make the battery indicator in sysmaint sessions detect AC plug/unplug more quickly
 
 commit 6de7f22dc98531f271c6ba9ff13c9fe9731c3093
 Author: Patrick Schleizer <adrelanos@whonix.org>
