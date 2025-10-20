@@ -1,3 +1,28 @@
+commit 5ea7910da97115c84dd9121749b2acdf7544f45f
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Oct 20 10:43:23 2025 -0400
+
+    minor
+
+commit e4a310dfb272b7270b0e67508ee8c0693fb4b0ee
+Merge: 94a29b2 673dd50
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Oct 20 10:14:17 2025 -0400
+
+    Merge remote-tracking branch 'ArrayBolt3/arraybolt3/trixie'
+
+commit 673dd505ddfc2683c56fabcc9b35801f3a5926c6
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Sun Oct 19 22:10:08 2025 -0500
+
+    Create backlight helper tool, bind to brightness keys and enable brightness restore on login
+
+commit 94a29b20118a0153471dd93249c9e45b44290e9c
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Oct 13 13:45:19 2025 +0000
+
+    bumped changelog version
+
 commit 8edab53c0b4de600e902bf98bdb9c2625c30b952
 Merge: 78b42c2 fe202aa
 Author: Patrick Schleizer <adrelanos@whonix.org>
