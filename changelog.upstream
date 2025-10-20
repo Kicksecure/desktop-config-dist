@@ -1,3 +1,17 @@
+commit fe349b4c55b82c8955fa51fd69f49250896d97fc
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Oct 20 12:38:52 2025 -0400
+
+    add missing dependencies for `wlr-resize-watcher`
+    
+    `python3-pyudev` and `wlr-randr`
+
+commit 29a05183259f3bda738b031413a80d8ef2b1da45
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Oct 20 14:50:58 2025 +0000
+
+    bumped changelog version
+
 commit 5ea7910da97115c84dd9121749b2acdf7544f45f
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Mon Oct 20 10:43:23 2025 -0400
