@@ -11,3 +11,8 @@
 ## We dynamically generate these files from configuration directories.
 /etc/greetd/config.toml
 /etc/greetd/wlgreet.toml
+
+## lxqt-config-brightness does not work under Kicksecure when
+## user-sysmaint-split is installed, due to pkexec access being denied. We've
+## created a replacement, backlight-tool-dist.
+/usr/share/applications/lxqt-config-brightness.desktop

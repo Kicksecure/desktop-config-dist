@@ -314,10 +314,10 @@
       <action name="Execute" command="amixer sset Master toggle" />
     </keybind>
     <keybind key="XF86_MonBrightnessUp">
-      <action name="Execute" command="lxqt-config-brightness -i" />
+      <action name="Execute" command="/usr/bin/backlight-tool-dist-agent inc" />
     </keybind>
     <keybind key="XF86_MonBrightnessDown">
-      <action name="Execute" command="lxqt-config-brightness -d" />
+      <action name="Execute" command="/usr/bin/backlight-tool-dist-agent dec" />
     </keybind>
   <!-- SnapToRegion via W-Numpad -->
   <!--
