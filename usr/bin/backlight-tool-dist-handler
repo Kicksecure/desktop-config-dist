@@ -71,14 +71,14 @@ get_backlight_driver() {
       continue
     fi
     case "$cur_bl_driver_type" in
-    ## LXQt's backlight helper prioritizes backlight drivers with `firmware`
-    ## being most preferable, `platform` below `firmware`, `raw` below
-    ## `platform`, and everything else below `raw`. Replicate that behavior
-    ## here.
-    'firmware') cur_bl_driver_prio='4';;
-    'platform') cur_bl_driver_prio='3';;
-    'raw')      cur_bl_driver_prio='2';;
-    *)          cur_bl_driver_prio='1';;
+      ## LXQt's backlight helper prioritizes backlight drivers with `firmware`
+      ## being most preferable, `platform` below `firmware`, `raw` below
+      ## `platform`, and everything else below `raw`. Replicate that behavior
+      ## here.
+      'firmware') cur_bl_driver_prio='4';;
+      'platform') cur_bl_driver_prio='3';;
+      'raw')      cur_bl_driver_prio='2';;
+      *)          cur_bl_driver_prio='1';;
     esac
     if (( cur_bl_driver_prio >= bl_driver_prio )); then
       bl_driver="$bl_dir"
