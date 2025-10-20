@@ -14,7 +14,7 @@ Rules-Requires-Root: no
 
 Package: desktop-config-dist
 Architecture: all
-Depends: python3, python3-pyudev, wlr-randr, helper-scripts,
+Depends: python3, helper-scripts,
  ${misc:Depends}
 Description: Configuration for Derivative Desktop
  Sets desktop and display setting, wallpaper and desktop icons.
@@ -41,7 +41,7 @@ Description: Configuration for Derivative Desktop
 Package: desktop-config-dist-dependencies
 Architecture: all
 Depends: gnome-colors-common, adwaita-icon-theme,
- ${misc:Depends}
+ python3-pyudev, wlr-randr, ${misc:Depends}
 Description: Dependencies of desktop-config-dist
  A metapackage with dependencies for package desktop-config-dist.
  .
