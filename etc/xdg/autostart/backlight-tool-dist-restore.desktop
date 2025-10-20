@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=Backlight state restore
+Exec=/usr/bin/backlight-tool-dist-agent restore
+StartupNotify=false
+NoDisplay=true

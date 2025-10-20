@@ -1,0 +1,11 @@
+## Copyright (c) 2025 - 2025 ENCRYPTED SUPPORT LLC <adrelanos@whonix.org>
+## See the file COPYING for copying conditions.
+
+[Desktop Entry]
+Type=Application
+Exec=/usr/bin/backlight-tool-dist
+Name=Backlight Tool
+Comment=Adjust display brightness
+Icon=brightness
+Categories=System;Settings;DesktopSettings;Qt;HardwareSettings;
+Keywords=brightness;screen;display;backlight;

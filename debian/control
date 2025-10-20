@@ -14,7 +14,7 @@ Rules-Requires-Root: no
 
 Package: desktop-config-dist
 Architecture: all
-Depends: python3, ${misc:Depends}
+Depends: python3, helper-scripts, ${misc:Depends}
 Description: Configuration for Derivative Desktop
  Sets desktop and display setting, wallpaper and desktop icons.
  Sets icon theme and style.
