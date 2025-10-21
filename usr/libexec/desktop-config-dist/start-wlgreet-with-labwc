@@ -5,5 +5,5 @@
 
 set -e
 
-/usr/sbin/wlgreet >/dev/null 2>/dev/null
+/usr/sbin/wlgreet >/dev/null 2>/dev/null || true
 labwc --exit >/dev/null 2>/dev/null
