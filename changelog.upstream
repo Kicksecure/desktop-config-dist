@@ -1,3 +1,22 @@
+commit e7fb70ae46e21af84eb64f0fe254a813a4fd610a
+Merge: ed3ad05 490b683
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Oct 21 23:19:28 2025 -0400
+
+    Merge remote-tracking branch 'ArrayBolt3/arraybolt3/trixie'
+
+commit 490b6833915f95ae66ce72c02aca6df23e9d13f2
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Mon Oct 20 21:25:52 2025 -0500
+
+    Avoid greetd from getting stuck on a black screen on auth failure
+
+commit ed3ad05555eee65542c566e6a1de3eb7bfecbfdb
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Oct 20 16:57:11 2025 +0000
+
+    bumped changelog version
+
 commit 099b0ea914e2c445d293ede9054d1b1d3ede87c9
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Mon Oct 20 12:57:00 2025 -0400
