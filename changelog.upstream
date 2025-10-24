@@ -1,3 +1,15 @@
+commit 44050bb48e7824c1fd9c037946a05a500a090434
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Oct 24 04:04:08 2025 -0400
+
+    chmod +x
+
+commit 27bb92b2bfb638ec4bb4fa19814db9eea5c6b0ea
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Oct 24 04:26:16 2025 +0000
+
+    bumped changelog version
+
 commit d887a86a9b89832ec782f530c753e59d6acb7814
 Merge: 3bfeb51 98ac226
 Author: Patrick Schleizer <adrelanos@whonix.org>
