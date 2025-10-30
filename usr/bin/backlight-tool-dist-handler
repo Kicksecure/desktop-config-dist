@@ -15,9 +15,8 @@ true "$0: START"
 source /usr/libexec/helper-scripts/lockfile.sh
 source /usr/libexec/helper-scripts/strings.bsh
 
-#[[ -v manual_debugging ]] || manual_debugging="false"
-
-#manual_debugging=true
+manual_debugging=false
+manual_debugging=true
 
 bl_pct_file='/run/backlight-tool-dist/bl_pct'
 
@@ -88,7 +87,9 @@ backlight_get_val() {
     return 1
   fi
 
-  bl_pct=$(( (bl_brightness * 100) / bl_max_brightness )) || true
+  bl_pct=$(( bl_brightness * 100 )) || true
+  bl_pct=$(( bl_pct / bl_max_brightness )) || true
+
   if (( bl_pct < 1 )); then
     bl_pct='1'
   elif (( bl_pct > 100 )); then
