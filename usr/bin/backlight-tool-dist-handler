@@ -113,6 +113,7 @@ backlight_set_val() {
     calc_bl_brightness='1'
   fi
 
+  ## TODO: use 'overwrite' (does not support yet writing to kernel files)
   true "INFO: over writing file ${bl_driver}/brightness $calc_bl_brightness"
   if ! printf '%s\n' "$calc_bl_brightness" > "${bl_driver}/brightness" ; then
     printf '%s\n' "$0: ERROR: Could not write brightness value to '${bl_driver}/brightness'!" >&2
