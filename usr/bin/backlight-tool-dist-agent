@@ -47,7 +47,7 @@ backlight_set_val() {
     return 1
   fi
   if ! leaprun backlight-tool-dist-handler-set ; then
-    printf '%s\n' "$0: ERROR: 'leaprun backlight-tool-dist-handler' exited with code '$?'!" >&2
+    printf '%s\n' "$0: ERROR: 'leaprun backlight-tool-dist-handler' exited with non-zero exit code!" >&2
     return 1
   fi
 }
@@ -86,7 +86,7 @@ backlight_save_val() {
 
   ## Sets: last_bright_file
   prep_config_dir || return 1
-  if ! overwrite "$last_bright_file" "$bl_pct" ; then
+  if ! overwrite "$last_bright_file" "$bl_pct" >/dev/null ; then
     printf '%s\n' "$0: ERROR: Unable to save brightness percentage to '$last_bright_file'!" >&2
     return 1
   fi

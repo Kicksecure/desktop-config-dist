@@ -3,6 +3,8 @@
 ## Copyright (C) 2025 - 2025 ENCRYPTED SUPPORT LLC <adrelanos@whonix.org>
 ## See the file COPYING for copying conditions.
 
+#set -x
+
 set -o errexit
 set -o nounset
 set -o errtrace
@@ -14,6 +16,15 @@ source /usr/libexec/helper-scripts/lockfile.sh
 source /usr/libexec/helper-scripts/strings.bsh
 
 bl_pct_file='/run/backlight-tool-dist/bl_pct'
+
+manual_debugging() {
+  ## Manual debugging.
+  ## Hardcoded. 'backlight-tool-dist-agent' uses 'leaprun'.
+  ## Therefore '$HOME' cannot be used.
+  cd "/home/user/derivative-maker/packages/kicksecure/desktop-config-dist"
+}
+
+#manual_debugging
 
 get_backlight_driver() {
   local bl_driver bl_driver_prio bl_dir cur_bl_driver_type cur_bl_driver_prio;
