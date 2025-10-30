@@ -1,3 +1,22 @@
+commit 05de1cbaaeba71a7054e480991a819776cae7876
+Merge: d590aa0 d4b1849
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Oct 30 01:41:22 2025 -0400
+
+    Merge remote-tracking branch 'ArrayBolt3/arraybolt3/trixie'
+
+commit d4b1849d9549682e538da42e33a4b0fb328de7bc
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Thu Oct 30 00:17:13 2025 -0500
+
+    Add generic lock screen background
+
+commit d590aa0acb5e334a3334879c33695209d08285fe
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Oct 27 11:41:56 2025 +0000
+
+    bumped changelog version
+
 commit 8244dd907a4051a2df58494039e55078e135f3f1
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Mon Oct 27 07:05:39 2025 -0400
