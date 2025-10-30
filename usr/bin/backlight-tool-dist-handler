@@ -126,6 +126,13 @@ backlight_set_val() {
     printf '%s\n' "$0: ERROR: Could not write brightness value to '${bl_driver}/brightness'!" >&2
     return 1
   fi
+
+  if [ "$manual_debugging" = "true" ] ; then
+    if ! printf '%s\n' "$calc_bl_brightness" > "${bl_driver}/actual_brightness" ; then
+      true "INFO: Unable to update '${bl_driver}/actual_brightness' during manual debugging."
+      return 1
+    fi
+  fi
 }
 
 backlight_set_val_from_file() {
