@@ -113,7 +113,9 @@ backlight_set_val() {
     return 1
   fi
 
-  calc_bl_brightness=$(( (bl_max_brightness * bl_pct) / 100 )) || true
+  calc_bl_brightness=$(( (bl_max_brightness * bl_pct) )) || true
+  calc_bl_brightness=$(( calc_bl_brightness / 100 )) || true
+
   if [ "$calc_bl_brightness" = '0' ]; then
     calc_bl_brightness='1'
   fi
