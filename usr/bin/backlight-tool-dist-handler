@@ -15,16 +15,21 @@ true "$0: START"
 source /usr/libexec/helper-scripts/lockfile.sh
 source /usr/libexec/helper-scripts/strings.bsh
 
+[[ -v manual_debugging ]] || manual_debugging="false"
+
+## TODO: remove
+manual_debugging=true
+
 bl_pct_file='/run/backlight-tool-dist/bl_pct'
 
-manual_debugging() {
-  ## Manual debugging.
+if [ "$manual_debugging" = "true" ]; then
   ## Hardcoded. 'backlight-tool-dist-agent' uses 'leaprun'.
   ## Therefore '$HOME' cannot be used.
   cd "/home/user/derivative-maker/packages/kicksecure/desktop-config-dist"
-}
-
-#manual_debugging
+  kernel_backlight_folder=./backlight-tool-test
+else
+  kernel_backlight_folder=/sys/class/backlight
+fi
 
 get_backlight_driver() {
   local bl_driver bl_driver_prio bl_dir cur_bl_driver_type cur_bl_driver_prio;
@@ -35,7 +40,7 @@ get_backlight_driver() {
   ## Manual debugging.
   #for bl_dir in ./backlight-tool-test/* ; do
 
-  for bl_dir in /sys/class/backlight/* ; do
+  for bl_dir in "${kernel_backlight_folder}/"* ; do
     if [ ! -d "$bl_dir" ] ; then
       true "INFO: bl_dir $bl_dir is not a folder or an empty empty."
       continue
