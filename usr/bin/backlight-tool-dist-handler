@@ -57,6 +57,7 @@ get_backlight_driver() {
     printf '%s\n' "$0: ERROR: No backlight driver found!" >&2
     return 1
   fi
+  true "INFO: printf bl_driver:"
   printf '%s\n' "$bl_driver"
 }
 
@@ -78,6 +79,7 @@ backlight_get_val() {
   elif (( bl_pct > 100 )); then
     bl_pct='100'
   fi
+  true "INFO: printf bl_pct:"
   printf '%s\n' "$bl_pct"
 }
 
@@ -100,6 +102,7 @@ backlight_set_val() {
     calc_bl_brightness='1'
   fi
 
+  true "INFO: over writing file ${bl_driver}/brightness $calc_bl_brightness"
   if ! printf '%s\n' "$calc_bl_brightness" > "${bl_driver}/brightness" ; then
     printf '%s\n' "$0: ERROR: Could not write brightness value to '${bl_driver}/brightness'!" >&2
     return 1
