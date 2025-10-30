@@ -16,7 +16,7 @@ source /usr/libexec/helper-scripts/lockfile.sh
 source /usr/libexec/helper-scripts/strings.bsh
 
 manual_debugging=false
-manual_debugging=true
+#manual_debugging=true
 
 bl_pct_file='/run/backlight-tool-dist/bl_pct'
 
