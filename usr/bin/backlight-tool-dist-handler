@@ -20,11 +20,21 @@ get_backlight_driver() {
 
   bl_driver=""
   bl_driver_prio=""
+
+  ## Manual debugging.
+  #for bl_dir in ./backlight-tool-test/* ; do
+
   for bl_dir in /sys/class/backlight/* ; do
-    if [ ! -d "$bl_dir" ]; then
+    if [ ! -d "$bl_dir" ] ; then
+      true "INFO: bl_dir $bl_dir is not a folder or an empty empty."
+      continue
+    fi
+    if ! test -f "${bl_dir}/type" ; then
+      true "INFO: file ${bl_dir}/type does not exist."
       continue
     fi
     if ! cur_bl_driver_type="$(stcat "${bl_dir}/type")" ; then
+      true "INFO: stcat file ${bl_dir}/type does failed."
       continue
     fi
     case "$cur_bl_driver_type" in
