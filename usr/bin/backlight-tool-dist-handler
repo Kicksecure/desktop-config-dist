@@ -11,7 +11,7 @@ set -o pipefail
 true "$0: START"
 
 source /usr/libexec/helper-scripts/lockfile.sh
-source /usr/libexec/helper-scripts/strings.sh
+source /usr/libexec/helper-scripts/strings.bsh
 
 bl_pct_file='/run/backlight-tool-dist/bl_pct'
 
@@ -24,7 +24,7 @@ get_backlight_driver() {
     if [ ! -d "$bl_dir" ]; then
       continue
     fi
-    if ! cur_bl_driver_type="$(cat "${bl_dir}/type")" ; then
+    if ! cur_bl_driver_type="$(stcat "${bl_dir}/type")" ; then
       continue
     fi
     case "$cur_bl_driver_type" in
@@ -44,7 +44,7 @@ get_backlight_driver() {
   done
 
   if [ -z "$bl_driver" ]; then
-    printf '%s\n' "$0: ERROR: No backlight driver found!"
+    printf '%s\n' "$0: ERROR: No backlight driver found!" >&2
     return 1
   fi
   printf '%s\n' "$bl_driver"
@@ -76,7 +76,7 @@ backlight_set_val() {
 
   bl_pct="${1:-}"
   if [ -z "$bl_pct" ]; then
-    printf '%s\n' "$0: ERROR: No backlight percentage specified!"
+    printf '%s\n' "$0: ERROR: No backlight percentage specified!" >&2
     return 1
   fi
 
@@ -91,7 +91,7 @@ backlight_set_val() {
   fi
 
   if ! printf '%s\n' "$calc_bl_brightness" > "${bl_driver}/brightness" ; then
-    printf '%s\n' "$0: ERROR: Could not write brightness value to '${bl_driver}/brightness'!"
+    printf '%s\n' "$0: ERROR: Could not write brightness value to '${bl_driver}/brightness'!" >&2
     return 1
   fi
 }
