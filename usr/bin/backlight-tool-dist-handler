@@ -15,10 +15,9 @@ true "$0: START"
 source /usr/libexec/helper-scripts/lockfile.sh
 source /usr/libexec/helper-scripts/strings.bsh
 
-[[ -v manual_debugging ]] || manual_debugging="false"
+#[[ -v manual_debugging ]] || manual_debugging="false"
 
-## TODO: remove
-manual_debugging=true
+#manual_debugging=true
 
 bl_pct_file='/run/backlight-tool-dist/bl_pct'
 
