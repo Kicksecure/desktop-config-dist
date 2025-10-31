@@ -1,3 +1,22 @@
+commit e275142f28c2ca73b4ca2002bdc8a734c978bdac
+Merge: def1188 131f7d0
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Oct 31 09:59:29 2025 -0400
+
+    Merge remote-tracking branch 'ArrayBolt3/arraybolt3/trixie'
+
+commit 131f7d00b948859459691b56d5119a25fe02b150
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Thu Oct 30 21:39:52 2025 -0500
+
+    backlight-tool-dist debugging string changes, improve messaging when there is no brightness to restore
+
+commit def118835607bd547ee9de5001d7500289131ebf
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Oct 30 09:10:12 2025 +0000
+
+    bumped changelog version
+
 commit fecf7afafabb49b970d729a65333856d78ffbde7
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Thu Oct 30 04:53:35 2025 -0400
