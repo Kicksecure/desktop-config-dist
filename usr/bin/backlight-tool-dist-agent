@@ -98,6 +98,10 @@ backlight_restore_val() {
   ## Sets: last_bright_file
   prep_config_dir || return 1
 
+  if ! [ -f "$last_bright_file" ]; then
+    printf '%s\n' "$0: INFO: No brightness value saved at '$last_bright_file', therefore not restoring, ok."
+    return 0
+  fi
   if ! bl_pct="$(read_integer_file "$last_bright_file" 1 100)" ; then
     return 0
   fi
