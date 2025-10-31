@@ -40,15 +40,15 @@ get_backlight_driver() {
 
   for bl_dir in "${kernel_backlight_folder}/"* ; do
     if [ ! -d "$bl_dir" ] ; then
-      true "INFO: bl_dir $bl_dir is not a folder or an empty empty."
+      true "INFO: bl_dir '$bl_dir' is not a folder."
       continue
     fi
     if ! test -f "${bl_dir}/type" ; then
-      true "INFO: file ${bl_dir}/type does not exist."
+      true "INFO: file '${bl_dir}/type' does not exist."
       continue
     fi
     if ! cur_bl_driver_type="$(stcat "${bl_dir}/type")" ; then
-      true "INFO: stcat file ${bl_dir}/type does failed."
+      true "INFO: stcat file '${bl_dir}/type' failed."
       continue
     fi
     case "$cur_bl_driver_type" in
@@ -71,7 +71,7 @@ get_backlight_driver() {
     printf '%s\n' "$0: ERROR: No backlight driver found!" >&2
     return 1
   fi
-  true "INFO: printf bl_driver:"
+  true "INFO: bl_driver is '$bl_driver'."
   printf '%s\n' "$bl_driver"
 }
 
@@ -95,7 +95,7 @@ backlight_get_val() {
   elif (( bl_pct > 100 )); then
     bl_pct='100'
   fi
-  true "INFO: printf bl_pct:"
+  true "INFO: bl_pct is '$bl_pct'."
   printf '%s\n' "$bl_pct"
 }
 
@@ -121,7 +121,7 @@ backlight_set_val() {
   fi
 
   ## TODO: use 'overwrite' (does not support yet writing to kernel files)
-  true "INFO: over writing file ${bl_driver}/brightness $calc_bl_brightness"
+  true "INFO: over writing file '${bl_driver}/brightness' with value '$calc_bl_brightness'"
   if ! printf '%s\n' "$calc_bl_brightness" > "${bl_driver}/brightness" ; then
     printf '%s\n' "$0: ERROR: Could not write brightness value to '${bl_driver}/brightness'!" >&2
     return 1
