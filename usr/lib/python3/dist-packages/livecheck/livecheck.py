@@ -12,6 +12,7 @@ import sys
 import select
 import subprocess
 import re
+import functools
 
 from pathlib import Path
 
@@ -231,6 +232,7 @@ class LiveTextWindow(QDialog):
         self.layout.addLayout(self.buttonRow)
         self.resize(self.minimumWidth(), self.minimumHeight())
 
+
 class TrayUi(QObject):
     def __init__(self):
         super().__init__()
@@ -256,6 +258,7 @@ class TrayUi(QObject):
         )
         livecheck_text_action.setEnabled(False)
         tray_menu.addAction(livecheck_text_action)
+        self.is_window_open = False
         self.tray_icon.setContextMenu(tray_menu)
         self.tray_icon.show()
 
@@ -292,9 +295,15 @@ class TrayUi(QObject):
     def show_context_menu(self):
         self.tray_icon.contextMenu().popup(QCursor.pos())
 
+    def record_window_closed(self):
+        self.is_window_open = False
+
     def show_live_mode_text_window(self):
-        ltw = LiveTextWindow(self.active_text)
-        ltw.open()
+        if not self.is_window_open:
+            ltw = LiveTextWindow(self.active_text)
+            ltw.finished.connect(functools.partial(self.record_window_closed))
+            ltw.open()
+            self.is_window_open = True
 
     @staticmethod
     def show_notification(live_mode_str, is_first_popup):
