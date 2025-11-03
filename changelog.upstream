@@ -1,3 +1,28 @@
+commit 29759f1f6fa7204b7c1905044670f6cbaeedc6d8
+Merge: d96e743 43a17d3
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Nov 3 03:28:49 2025 -0500
+
+    Merge remote-tracking branch 'ArrayBolt3/arraybolt3/trixie'
+
+commit 43a17d3fb75b35dc53bcd9c2b8bfeffa59889aa1
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Sun Nov 2 19:21:55 2025 -0600
+
+    Update default power management settings
+
+commit b1ad8d37c1c0abfbd49d159a7efb2ed17ec46722
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Sun Nov 2 18:12:57 2025 -0600
+
+    Prevent more than one livecheck window from being open at once
+
+commit d96e7430b6552a63b2eeb65418d504e8bbcfcdc9
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Oct 31 14:37:04 2025 +0000
+
+    bumped changelog version
+
 commit e275142f28c2ca73b4ca2002bdc8a734c978bdac
 Merge: def1188 131f7d0
 Author: Patrick Schleizer <adrelanos@whonix.org>
