@@ -3,7 +3,7 @@
 ## Copyright (C) 2025 - 2025 ENCRYPTED SUPPORT LLC <adrelanos@whonix.org>
 ## See the file COPYING for copying conditions.
 
-source /usr/libexec/helper_scripts/light_sleep.bsh
+source /usr/libexec/helper-scripts/light_sleep.bsh
 
 if [ "$(id -un)" = 'sysmaint' ]; then
   printf '%s\n' "ERROR: Cannot log into full desktop session with account 'sysmaint'."
