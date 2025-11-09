@@ -3,5 +3,26 @@
 ## Copyright (C) 2025 - 2025 ENCRYPTED SUPPORT LLC <adrelanos@whonix.org>
 ## See the file COPYING for copying conditions.
 
+source /usr/libexec/helper_scripts/light_sleep.bsh
+
+if [ "$(id -un)" = 'sysmaint' ]; then
+  printf '%s\n' "ERROR: Cannot log into full desktop session with account 'sysmaint'."
+  light_sleep 5
+  exit 1
+fi
+
+kernel_cmdline=''
+if [ -f /proc/cmdline ]; then
+  kernel_cmdline="$(cat -- /proc/cmdline)"
+elif [ -f /proc/1/cmdline ]; then
+  kernel_cmdline="$(cat -- /proc/1/cmdline)"
+fi
+
+if [[ "${kernel_cmdline}" =~ 'boot-role=sysmaint' ]]; then
+  printf '%s\n' "ERROR: Cannot log into full desktop session when booted in sysmaint mode."
+  light_sleep 5
+  exit 1
+fi
+
 leaprun signal-wayland-session-started
 exec systemd-cat --identifier=lxqt startlxqtwayland
