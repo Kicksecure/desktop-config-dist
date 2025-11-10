@@ -1,3 +1,22 @@
+commit 44c6b492615f15ec3ac43a482b0038a015fc4a32
+Merge: 7ea58bb 46ebfbe
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Nov 10 01:55:04 2025 -0500
+
+    Merge remote-tracking branch 'ArrayBolt3/arraybolt3/trixie'
+
+commit 46ebfbece688c6927af0ca556b403c49d2f3d52a
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Sun Nov 9 19:51:53 2025 -0600
+
+    Redirect desktop stdout/stderr to /dev/null unless debugging is needed
+
+commit 7ea58bbf494c8cfb1e6a9e29d3629ae035964d23
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Nov 9 13:16:02 2025 +0000
+
+    bumped changelog version
+
 commit af0399cb9f5739f9eb1bc5e4b95a24c4a0bdecd9
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Sun Nov 9 08:15:45 2025 -0500
