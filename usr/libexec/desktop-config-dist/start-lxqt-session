@@ -25,4 +25,6 @@ if [[ "${kernel_cmdline}" =~ 'boot-role=sysmaint' ]]; then
 fi
 
 leaprun signal-wayland-session-started
-exec systemd-cat --identifier=lxqt startlxqtwayland
+## For debugging, uncomment this line and comment out the next one.
+#exec systemd-cat --identifier=lxqt startlxqtwayland
+exec startlxqtwayland >/dev/null 2>&1
