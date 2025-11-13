@@ -19,7 +19,7 @@ elif [ -f /proc/1/cmdline ]; then
 fi
 
 if [[ "${kernel_cmdline}" =~ 'boot-role=sysmaint' ]]; then
-  printf '%s\n' "ERROR: Cannot log into full desktop session when booted in sysmaint mode."
+  printf '%s\n' "ERROR: Cannot log into full desktop session when booted in sysmaint session."
   light_sleep 5
   exit 1
 fi
