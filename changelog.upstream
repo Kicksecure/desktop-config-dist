@@ -1,3 +1,22 @@
+commit 67d4066f4a878807933b2f8dc27ec3463e680ef2
+Merge: 22086e1 3449115
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Nov 13 01:05:06 2025 -0500
+
+    Merge remote-tracking branch 'ArrayBolt3/arraybolt3/trixie'
+
+commit 3449115496e7287e0eef5514a916df0417f2ef3f
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Wed Nov 12 21:10:54 2025 -0600
+
+    Run livecheck-lsblk.service after systemd-tmpfiles-setup.service
+
+commit 22086e1f315c8798e1efba61da99202110379fac
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Nov 10 07:55:34 2025 +0000
+
+    bumped changelog version
+
 commit 44c6b492615f15ec3ac43a482b0038a015fc4a32
 Merge: 7ea58bb 46ebfbe
 Author: Patrick Schleizer <adrelanos@whonix.org>
