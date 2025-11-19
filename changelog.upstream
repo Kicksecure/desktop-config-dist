@@ -1,3 +1,22 @@
+commit fe0a886c38eb2ffcf983cda88a095dbc8506b405
+Merge: 81baae5 523664d
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Nov 19 02:03:41 2025 -0500
+
+    Merge remote-tracking branch 'ArrayBolt3/arraybolt3/trixie'
+
+commit 523664d161596437efe25319fc8d9f7ea513096c
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Tue Nov 18 20:02:49 2025 -0600
+
+    Fix black screen issue occurring when the first user session reboot / shutdown is done via the command line
+
+commit 81baae5408313a239b928cee4d634d35e8de5287
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Nov 13 12:23:24 2025 +0000
+
+    bumped changelog version
+
 commit 0c1d00835e7b57cf13c50d1c86518ee92c115a00
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Thu Nov 13 07:21:25 2025 -0500
