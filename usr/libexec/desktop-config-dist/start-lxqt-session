@@ -24,6 +24,12 @@ if [[ "${kernel_cmdline}" =~ 'boot-role=sysmaint' ]]; then
   exit 1
 fi
 
+## This file should never exist at startup. pcmanfm-qt may create it if force-
+## terminated during a reboot though, and if it exists at startup, it will
+## break theming badly (desktop turns black, icons end up shifted up, default
+## terminal becomes xterm).
+safe-rm --force -- "$HOME/.config/pcmanfm-qt/lxqt/settings.conf.lock"
+
 leaprun signal-wayland-session-started
 ## For debugging, uncomment this line and comment out the next one.
 #exec systemd-cat --identifier=lxqt startlxqtwayland
