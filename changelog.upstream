@@ -1,3 +1,28 @@
+commit 0cc6651bb2babb5f86d86ee32377ee9681ecafb5
+Merge: 3e7770c 14308ad
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Nov 21 02:15:34 2025 -0500
+
+    Merge remote-tracking branch 'ArrayBolt3/arraybolt3/trixie'
+
+commit 14308ade72b328d0d661e9e9b25a813f3d8af62d
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Thu Nov 20 23:46:18 2025 -0600
+
+    Redirect output from greeter-launched labwc instances to the journal
+
+commit ea23a08e46e7061c5d6b0168ee32618e4818044b
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Wed Nov 19 19:13:20 2025 -0600
+
+    Fix black screen issue for users who have already triggered it
+
+commit 3e7770c1af898016cb45d1115a043a090fa44e3d
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Nov 19 07:06:19 2025 +0000
+
+    bumped changelog version
+
 commit fe0a886c38eb2ffcf983cda88a095dbc8506b405
 Merge: 81baae5 523664d
 Author: Patrick Schleizer <adrelanos@whonix.org>
