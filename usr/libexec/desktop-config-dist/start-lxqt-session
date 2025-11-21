@@ -30,6 +30,64 @@ fi
 ## terminal becomes xterm).
 safe-rm --force -- "$HOME/.config/pcmanfm-qt/lxqt/settings.conf.lock"
 
+## If the user is already in a situation where pcmanfm-qt is broken, we need
+## to erase pcmanfm-qt's config before LXQt starts. Unfortunately there's no
+## perfect way to tell if the configuration is broken or if the user just
+## intentionally set an odd combination of settings, but there is a good
+## heuristic we can use. We consider the pcmanfm-qt configuration broken if:
+##
+## * The wallpaper background color is solid black,
+## * No wallpaper image is set,
+## * The wallpaper mode is "none",
+## * The work area margins are all set to 12,
+## * The terminal default is "xterm", and
+## * The LXQt panel is at the top.
+##
+## This is a good heuristic because when the work area margins are all set to
+## 12 and the panel is at the top of the screen, the panel will partially
+## overlap some icons, which looks broken and is thus a configuration the user
+## will probably *not* set. If this occurs in combination with the other
+## symptoms of broken configuration, we can semi-safely say that the
+## configuration is unintentional and the result of breakage, and wipe it.
+# shellcheck disable=SC2043
+for _ in 1; do
+  pcmanfm_qt_settings_conf_contents="$(cat -- "$HOME/.config/pcmanfm-qt/lxqt/settings.conf")" || break
+  lxqt_panel_conf_contents="$(cat -- "$HOME/.config/lxqt/panel.conf")" || break
+  pcmanfm_qt_check_config_lines=(
+    'BgColor=#000000'
+    'Wallpaper='
+    'WallpaperMode=none'
+    'WorkAreaMargins=12, 12, 12, 12'
+    'Terminal=xterm'
+  )
+  lxqt_panel_check_config_lines=(
+    'position=Top'
+  )
+  bail_on_config_reset='false'
+
+  for check_config_line in "${pcmanfm_qt_check_config_lines[@]}"; do
+    if ! grep -q -- "^${check_config_line}\$" <<< "${pcmanfm_qt_settings_conf_contents}" ; then
+      bail_on_config_reset='true'
+      break
+    fi
+  done
+  if [ "${bail_on_config_reset}" = 'true' ]; then
+    break
+  fi
+
+  for check_config_line in "${lxqt_panel_check_config_lines[@]}"; do
+    if ! grep -q -- "^${check_config_line}\$" <<< "${lxqt_panel_conf_contents}" ; then
+      bail_on_config_reset='true'
+      break
+    fi
+  done
+  if [ "${bail_on_config_reset}" = 'true' ]; then
+    break
+  fi
+
+  safe-rm --recursive --force -- "$HOME/.config/pcmanfm-qt/lxqt"
+done
+
 leaprun signal-wayland-session-started
 ## For debugging, uncomment this line and comment out the next one.
 #exec systemd-cat --identifier=lxqt startlxqtwayland
