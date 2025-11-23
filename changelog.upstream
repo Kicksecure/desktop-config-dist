@@ -1,3 +1,22 @@
+commit c6a2d6c603716cb0979cf1f9af1db6c2ddeed9dd
+Merge: 0609052 8fb24d2
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Nov 23 04:07:08 2025 -0500
+
+    Merge remote-tracking branch 'ArrayBolt3/arraybolt3/trixie'
+
+commit 8fb24d25cc6d276b4d81d490aa0f321d59b03805
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Sat Nov 22 23:31:56 2025 -0600
+
+    Prevent lxqt-powermanagement from overriding system-wide defaults with autoconfiguration
+
+commit 0609052d903eb950620c7ee8adadc1381074907c
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Nov 21 09:16:28 2025 +0000
+
+    bumped changelog version
+
 commit 0cc6651bb2babb5f86d86ee32377ee9681ecafb5
 Merge: 3e7770c 14308ad
 Author: Patrick Schleizer <adrelanos@whonix.org>
