@@ -70,7 +70,7 @@ for _ in 1; do
   bail_on_config_reset='false'
 
   for check_config_line in "${pcmanfm_qt_check_config_lines[@]}"; do
-    if ! grep -q -- "^${check_config_line}\$" <<< "${pcmanfm_qt_settings_conf_contents}" ; then
+    if ! grep --quiet -- "^${check_config_line}\$" <<< "${pcmanfm_qt_settings_conf_contents}" ; then
       bail_on_config_reset='true'
       break
     fi
@@ -80,7 +80,7 @@ for _ in 1; do
   fi
 
   for check_config_line in "${lxqt_panel_check_config_lines[@]}"; do
-    if ! grep -q -- "^${check_config_line}\$" <<< "${lxqt_panel_conf_contents}" ; then
+    if ! grep --quiet -- "^${check_config_line}\$" <<< "${lxqt_panel_conf_contents}" ; then
       bail_on_config_reset='true'
       break
     fi
