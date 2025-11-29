@@ -51,6 +51,7 @@ safe-rm --force -- "$HOME/.config/pcmanfm-qt/lxqt/settings.conf.lock"
 ## configuration is unintentional and the result of breakage, and wipe it.
 # shellcheck disable=SC2043
 for _ in 1; do
+  test -f "$HOME/.config/pcmanfm-qt/lxqt/settings.conf" || break
   pcmanfm_qt_settings_conf_contents="$(cat -- "$HOME/.config/pcmanfm-qt/lxqt/settings.conf")" || break
   lxqt_panel_conf_contents="$(cat -- "$HOME/.config/lxqt/panel.conf")" || break
   pcmanfm_qt_check_config_lines=(
