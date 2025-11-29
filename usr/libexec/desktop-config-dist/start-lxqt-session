@@ -53,11 +53,11 @@ fi
 ## configuration is unintentional and the result of breakage, and wipe it.
 # shellcheck disable=SC2043
 for _ in 1; do
-  test -f "$HOME/.config/pcmanfm-qt/lxqt/settings.conf" || break
-  pcmanfm_qt_settings_conf_contents="$(cat -- "$HOME/.config/pcmanfm-qt/lxqt/settings.conf")" || break
+  test -f "$HOME/.config/pcmanfm-qt/lxqt/settings.conf" &&
+    pcmanfm_qt_settings_conf_contents="$(cat -- "$HOME/.config/pcmanfm-qt/lxqt/settings.conf")" || break
 
-  test -f "$HOME/.config/lxqt/panel.conf" || break
-  lxqt_panel_conf_contents="$(cat -- "$HOME/.config/lxqt/panel.conf")" || break
+  test -f "$HOME/.config/lxqt/panel.conf" &&
+    lxqt_panel_conf_contents="$(cat -- "$HOME/.config/lxqt/panel.conf")" || break
 
   pcmanfm_qt_check_config_lines=(
     'BgColor=#000000'
@@ -72,7 +72,7 @@ for _ in 1; do
   bail_on_config_reset='false'
 
   for check_config_line in "${pcmanfm_qt_check_config_lines[@]}"; do
-    if ! grep --quiet -- "^${check_config_line}\$" <<< "${pcmanfm_qt_settings_conf_contents}" ; then
+    if ! grep --quiet --ignore-case --fixed-strings -- "^${check_config_line}\$" <<< "${pcmanfm_qt_settings_conf_contents}" ; then
       bail_on_config_reset='true'
       break
     fi
@@ -82,7 +82,7 @@ for _ in 1; do
   fi
 
   for check_config_line in "${lxqt_panel_check_config_lines[@]}"; do
-    if ! grep --quiet -- "^${check_config_line}\$" <<< "${lxqt_panel_conf_contents}" ; then
+    if ! grep --quiet --ignore-case --fixed-strings -- "^${check_config_line}\$" <<< "${lxqt_panel_conf_contents}" ; then
       bail_on_config_reset='true'
       break
     fi
