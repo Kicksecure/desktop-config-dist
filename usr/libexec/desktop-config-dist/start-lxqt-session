@@ -28,7 +28,9 @@ fi
 ## terminated during a reboot though, and if it exists at startup, it will
 ## break theming badly (desktop turns black, icons end up shifted up, default
 ## terminal becomes xterm).
-safe-rm --force -- "$HOME/.config/pcmanfm-qt/lxqt/settings.conf.lock"
+if test -f "$HOME/.config/pcmanfm-qt/lxqt/settings.conf.lock"; then
+  safe-rm --force -- "$HOME/.config/pcmanfm-qt/lxqt/settings.conf.lock"
+fi
 
 ## If the user is already in a situation where pcmanfm-qt is broken, we need
 ## to erase pcmanfm-qt's config before LXQt starts. Unfortunately there's no
