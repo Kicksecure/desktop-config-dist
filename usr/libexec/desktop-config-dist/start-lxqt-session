@@ -55,6 +55,7 @@ fi
 for _ in 1; do
   test -f "$HOME/.config/pcmanfm-qt/lxqt/settings.conf" || break
   pcmanfm_qt_settings_conf_contents="$(cat -- "$HOME/.config/pcmanfm-qt/lxqt/settings.conf")" || break
+  test -f "$HOME/.config/lxqt/panel.conf" || break
   lxqt_panel_conf_contents="$(cat -- "$HOME/.config/lxqt/panel.conf")" || break
   pcmanfm_qt_check_config_lines=(
     'BgColor=#000000'
