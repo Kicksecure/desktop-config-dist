@@ -94,6 +94,16 @@ for _ in 1; do
   safe-rm --recursive --force -- "$HOME/.config/pcmanfm-qt/lxqt"
 done
 
+## An empty `~/.config/pcmanfm-qt/lxqt` directory will also cause a black
+## screen. Remove the directory if it is empty.
+##
+## Note that `~/.config/pcmanfm-qt` may contain multiple configuration
+## profiles. `lxqt` is only one profile. Therefore we likely do not need to
+## remove an empty `~/.config/pcmanfm-qt` directory.
+if [ -d "$HOME/.config/pcmanfm-qt/lxqt" ]; then
+  rmdir --ignore-fail-on-non-empty -- "$HOME/.config/pcmanfm-qt/lxqt"
+fi
+
 leaprun signal-wayland-session-started
 ## For debugging, uncomment this line and comment out the next one.
 #exec systemd-cat --identifier=lxqt startlxqtwayland
