@@ -1,3 +1,58 @@
+commit 55272dadbcf3fbfcea356f57b467b78c4aaf7caf
+Merge: 9e2d6f4 1d0d2d5
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Dec 1 23:34:19 2025 -0500
+
+    Merge remote-tracking branch 'ArrayBolt3/arraybolt3/trixie'
+
+commit 1d0d2d5a56097fe63aeb7f7b860765183d3d8d72
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Sat Nov 29 19:08:05 2025 -0600
+
+    Remove '~/.config/pcmanfm-qt/lxqt' if it exists and is an empty directory
+
+commit 9e2d6f4ab0209a7c740c070bbaf587b0de561f1d
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Nov 29 08:49:29 2025 -0500
+
+    fix
+
+commit 1a4dfc17d20f85902a2dca9db2c81e92cd4a80e7
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Nov 29 08:30:57 2025 -0500
+
+    minor
+
+commit 68e08aad4964984e7eaf88ff4b449a96714039a9
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Nov 29 08:29:22 2025 -0500
+
+    long option names
+
+commit 6e638c5afb1a3aea90fc63c50b19650eaf83f63c
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Nov 29 08:28:18 2025 -0500
+
+    fix
+
+commit 3912a67706d6a8c6430867b27735c0328e3f224b
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Nov 29 08:27:12 2025 -0500
+
+    performance
+
+commit 1146eb87a702b389a3d8d49c0856150580e3eb0e
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Nov 29 08:25:48 2025 -0500
+
+    fix
+
+commit 63ce6f7a8054c123a0e540dfdf27fea3a6323758
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Nov 23 09:11:17 2025 +0000
+
+    bumped changelog version
+
 commit c6a2d6c603716cb0979cf1f9af1db6c2ddeed9dd
 Merge: 0609052 8fb24d2
 Author: Patrick Schleizer <adrelanos@whonix.org>
