@@ -1,3 +1,28 @@
+commit 256dbc46c775769fd4659ccbaf667d6a5838da28
+Merge: dce7810 8c5ef00
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Dec 19 03:24:48 2025 -0500
+
+    Merge remote-tracking branch 'ArrayBolt3/arraybolt3/trixie'
+
+commit 8c5ef005e82369679bf21a02566cf96e421be5ad
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Wed Dec 17 22:01:11 2025 -0600
+
+    Don't set a system-wide location for qterminal's bookmarks file
+
+commit 5ae78507e33fa7c927e35e2b5174ba6dcf7ae6f7
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Wed Dec 17 17:21:48 2025 -0600
+
+    Require confirmation before allowing a multi-line paste
+
+commit dce7810f109971f180e9de4c0abb9e4f22dbef3d
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Dec 3 08:24:20 2025 +0000
+
+    bumped changelog version
+
 commit 55272dadbcf3fbfcea356f57b467b78c4aaf7caf
 Merge: 9e2d6f4 1d0d2d5
 Author: Patrick Schleizer <adrelanos@whonix.org>
