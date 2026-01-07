@@ -5,7 +5,7 @@ After=pipewire-pulse.service
 
 [Service]
 Type=oneshot
-ExecStart=/usr/bin/pactl set-sink-volume @DEFAULT_SINK@ 50%
+ExecStart=set-safe-speaker-volume
 RemainAfterExit=true
 
 [Install]

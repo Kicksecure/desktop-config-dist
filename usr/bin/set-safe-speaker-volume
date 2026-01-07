@@ -1,0 +1,18 @@
+#!/bin/bash
+
+## Copyright (C) 2025 - 2025 ENCRYPTED SUPPORT LLC <adrelanos@whonix.org>
+## See the file COPYING for copying conditions.
+
+set -o errexit
+set -o nounset
+set -o errtrace
+set -o pipefail
+
+# shellcheck source=/usr/libexec/helper-scripts/has.sh
+source /usr/libexec/helper-scripts/has.sh
+
+if ! has pactl; then
+  exit 0
+fi
+
+pactl set-sink-volume @DEFAULT_SINK@ 50%
