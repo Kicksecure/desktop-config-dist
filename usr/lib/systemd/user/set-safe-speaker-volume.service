@@ -1,0 +1,12 @@
+[Unit]
+Description=Set speaker volume to a safe value on bootup
+ConditionPathExists=!/usr/share/qubes/marker-vm
+After=pipewire-pulse.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/pactl set-sink-volume @DEFAULT_SINK@ 50%
+RemainAfterExit=true
+
+[Install]
+WantedBy=default.target
