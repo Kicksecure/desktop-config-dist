@@ -1,3 +1,28 @@
+commit e8cdef814edbca06cf56ec1a729cb88652e1d706
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Jan 7 02:19:12 2026 -0500
+
+    improve set-safe-speaker-volume
+
+commit a33d31fd3e42cbb747ca8c41ebcb6e46e644b85e
+Merge: a121166 533c8d2
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Jan 7 02:06:51 2026 -0500
+
+    Merge remote-tracking branch 'ArrayBolt3/arraybolt3/trixie'
+
+commit 533c8d26fe7049e8169f608b8a79a16be3c3e31e
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Tue Jan 6 23:53:40 2026 -0600
+
+    Set speaker volume to 50% on startup
+
+commit a121166e1548398e57255df020edf0a3727ff16b
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Dec 19 09:46:36 2025 +0000
+
+    bumped changelog version
+
 commit 256dbc46c775769fd4659ccbaf667d6a5838da28
 Merge: dce7810 8c5ef00
 Author: Patrick Schleizer <adrelanos@whonix.org>
