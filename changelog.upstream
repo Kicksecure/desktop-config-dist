@@ -1,3 +1,22 @@
+commit ad1829c9ca94208290fc760b47a5b4a251702266
+Merge: 2b9696e 68db92a
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Jan 8 02:18:08 2026 -0500
+
+    Merge remote-tracking branch 'ArrayBolt3/arraybolt3/trixie'
+
+commit 68db92ab1252974d4cef5b66cf73e92bdc699caf
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Wed Jan 7 23:08:53 2026 -0600
+
+    Remove set-safe-speaker-volume, initial implementation was non-ideal
+
+commit 2b9696e66358513d2cb36ff1a6814fc2a741e435
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Jan 7 10:18:26 2026 +0000
+
+    bumped changelog version
+
 commit e8cdef814edbca06cf56ec1a729cb88652e1d706
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Wed Jan 7 02:19:12 2026 -0500
