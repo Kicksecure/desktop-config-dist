@@ -104,6 +104,26 @@ if [ -d "$HOME/.config/pcmanfm-qt/lxqt" ]; then
   rmdir --ignore-fail-on-non-empty -- "$HOME/.config/pcmanfm-qt/lxqt"
 fi
 
+## When not running under a VM, try to set the speaker volume to a safe
+## default (50%). Only do this once.
+## Also in
+## user-sysmaint-split/usr/libexec/user-sysmaint-split/sysmaint-session-wayland.
+do_once_dir="$HOME/.local/share/kicksecure/do_once"
+mkdir --parents -- "${do_once_dir}"
+if ! [ -f "${do_once_dir}/set_safe_speaker_volume" ]; then
+  touch "${do_once_dir}/set_safe_speaker_volume"
+  if [ "$(systemd-detect-virt 2>/dev/null || true)" = 'none' ]; then
+    max_audio_wait_count=20
+    current_audio_wait_count=0
+    while [ "$(pactl get-default-sink)" = '@DEFAULT_SINK@' ] \
+      && (( current_audio_wait_count <= max_audio_wait_count )); do
+      sleep 0.1
+      (( current_audio_wait_count++ )) || true
+    done
+    pactl set-sink-volume @DEFAULT_SINK@ 50% || true
+  fi
+fi
+
 leaprun signal-wayland-session-started
 ## For debugging, uncomment this line and comment out the next one.
 #exec systemd-cat --identifier=lxqt startlxqtwayland
