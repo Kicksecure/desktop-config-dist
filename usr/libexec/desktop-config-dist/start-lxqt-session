@@ -111,7 +111,7 @@ fi
 do_once_dir="$HOME/.local/share/kicksecure/do_once"
 mkdir --parents -- "${do_once_dir}"
 if ! [ -f "${do_once_dir}/set_safe_speaker_volume" ]; then
-  touch "${do_once_dir}/set_safe_speaker_volume"
+  touch -- "${do_once_dir}/set_safe_speaker_volume"
   if [ "$(systemd-detect-virt 2>/dev/null || true)" = 'none' ]; then
     max_audio_wait_count=20
     current_audio_wait_count=0
