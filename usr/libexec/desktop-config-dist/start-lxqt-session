@@ -3,7 +3,14 @@
 ## Copyright (C) 2025 - 2025 ENCRYPTED SUPPORT LLC <adrelanos@whonix.org>
 ## See the file COPYING for copying conditions.
 
+# shellcheck source=../../../../helper-scripts/usr/libexec/helper-scripts/light_sleep.bsh
 source /usr/libexec/helper-scripts/light_sleep.bsh
+
+# shellcheck source=../../../../helper-scripts/usr/libexec/helper-scripts/has.sh
+source /usr/libexec/helper-scripts/has.sh
+
+# shellcheck source=../../../../helper-scripts/usr/libexec/helper-scripts/try_wait_for_audio_ready.bsh
+source /usr/libexec/helper-scripts/try_wait_for_audio_ready.bsh
 
 if [ "$(id -un)" = 'sysmaint' ]; then
   printf '%s\n' "ERROR: Cannot log into full desktop session with account 'sysmaint'."
@@ -104,23 +111,22 @@ if [ -d "$HOME/.config/pcmanfm-qt/lxqt" ]; then
   rmdir --ignore-fail-on-non-empty -- "$HOME/.config/pcmanfm-qt/lxqt"
 fi
 
-## When not running under a VM, try to set the speaker volume to a safe
-## default (50%). Only do this once.
-## Also in
-## user-sysmaint-split/usr/libexec/user-sysmaint-split/sysmaint-session-wayland.
 do_once_dir="$HOME/.local/share/kicksecure/do_once"
 mkdir --parents -- "${do_once_dir}"
-if ! [ -f "${do_once_dir}/set_safe_speaker_volume" ]; then
-  touch -- "${do_once_dir}/set_safe_speaker_volume"
-  if [ "$(systemd-detect-virt 2>/dev/null || true)" = 'none' ]; then
-    max_audio_wait_count=20
-    current_audio_wait_count=0
-    while [ "$(pactl get-default-sink)" = '@DEFAULT_SINK@' ] \
-      && (( current_audio_wait_count <= max_audio_wait_count )); do
-      sleep 0.1
-      (( current_audio_wait_count++ )) || true
-    done
-    pactl set-sink-volume @DEFAULT_SINK@ 50% || true
+
+if has pactl; then
+  ## When not running under a VM, try to set the speaker volume to a safe
+  ## default (50%). Only do this once. If the attempt fails for whatever
+  ## reason, or the use of a VM is detected, skip setting the speaker volume
+  ## and don't try to set it again in the future.
+  ## Also in
+  ## user-sysmaint-split/usr/libexec/user-sysmaint-split/sysmaint-session-wayland.
+  if ! [ -f "${do_once_dir}/set_safe_speaker_volume" ]; then
+    touch -- "${do_once_dir}/set_safe_speaker_volume"
+    if [ "$(systemd-detect-virt 2>/dev/null || true)" = 'none' ]; then
+      try_wait_for_audio_ready
+      timeout --kill-after="1" "1" pactl set-sink-volume @DEFAULT_SINK@ 50% || true
+    fi
   fi
 fi
 
