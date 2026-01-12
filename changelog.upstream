@@ -1,3 +1,22 @@
+commit fc6c05443746b290d14f2568e9997e76c20c18e3
+Merge: fec9e34 db632fb
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Jan 12 10:12:30 2026 -0500
+
+    Merge remote-tracking branch 'ArrayBolt3/arraybolt3/trixie'
+
+commit db632fbdefcb5d9ab2ec391565564aeca905dcfa
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Sun Jan 11 12:34:21 2026 -0600
+
+    Simplify and improve robustness of volume fix code
+
+commit fec9e34586f193636862f227be2092647226ce82
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Jan 11 10:53:08 2026 +0000
+
+    bumped changelog version
+
 commit c65518712ccc8e321ca2b1399283c7adf26270a7
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Sun Jan 11 03:27:49 2026 -0500
