@@ -1,0 +1,11 @@
+## Copyright (C) 2025 - 2026 ENCRYPTED SUPPORT LLC <adrelanos@whonix.org>
+## See the file COPYING for copying conditions.
+
+[Unit]
+Description=Live status monitor (user service)
+ConditionPathExists=!/usr/share/qubes/marker-vm
+
+[Service]
+Type=exec
+ExecStart=/usr/bin/livecheck-systray
+Restart=no

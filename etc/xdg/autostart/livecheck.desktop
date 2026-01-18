@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
 Name=Live status checker
-Exec=livecheck-systray
+Exec=systemctl --user start livecheck-systray.service
 StartupNotify=false
 NoDisplay=true
