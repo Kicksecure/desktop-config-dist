@@ -1155,6 +1155,10 @@ def main_cli() -> NoReturn:
     if live_mode_str == "false":
         live_mode_str = "persistent"
 
+    ## Check to see if the distribution is being installed
+    if installer_monitor_file.is_file():
+        live_mode_str = "installing-distribution"
+
     match live_mode_str:
         case "iso-live":
             print(iso_live_mode_text_cli)
