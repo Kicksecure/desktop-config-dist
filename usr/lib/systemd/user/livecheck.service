@@ -7,5 +7,5 @@ ConditionPathExists=!/usr/share/qubes/marker-vm
 
 [Service]
 Type=exec
-ExecStart=/usr/bin/livecheck-systray
+ExecStart=/usr/bin/livecheck --gui
 Restart=no
