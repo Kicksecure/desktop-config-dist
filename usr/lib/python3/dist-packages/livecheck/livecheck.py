@@ -371,10 +371,9 @@ Technical information: The script \
 <code>/usr/libexec/helper-scripts/live-mode.sh</code> exited with code \
 'XXX_EXIT_CODE_XXX'.<br/>
 <br/>
-<code>live-mode.sh</code> output:<br/>
+<code>live-mode.sh</code> output:
 <pre>
-XXX_SCRIPT_OUTPUT_XXX
-</pre><br/>
+XXX_SCRIPT_OUTPUT_XXX</pre>
 Please report this bug!"""
 
 error_live_mode_text_cli: str = f"""{text_header_cli}
@@ -387,7 +386,6 @@ with code 'XXX_EXIT_CODE_XXX'.
 
 'live-mode.sh' output:
 XXX_SCRIPT_OUTPUT_XXX
-
 Please report this bug!"""
 
 error_gwfl_text_gui: str = f"""{text_header_gui}<br/>
@@ -399,10 +397,9 @@ Technical information: The script \
 <code>/usr/libexec/helper-scripts/get_writable_fs_lists.sh</code> exited \
 with code 'XXX_EXIT_CODE_XXX'.<br/>
 <br/>
-<code>get_writable_fs_lists.sh</code> output:<br/>
+<code>get_writable_fs_lists.sh</code> output:
 <pre>
-XXX_SCRIPT_OUTPUT_XXX
-</pre><br/>
+XXX_SCRIPT_OUTPUT_XXX</pre>
 Please report this bug!"""
 
 error_gwfl_text_cli: str = f"""{text_header_cli}
@@ -416,7 +413,6 @@ Technical details: The script
 
 'get_writable_fs_lists.sh' output:
 XXX_SCRIPT_OUTPUT_XXX
-
 Please report this bug!"""
 
 error_live_mode_invalid_output_text_gui: str = f"""{text_header_gui}<br/>
@@ -428,10 +424,9 @@ Technical information: The script \
 <code>/usr/libexec/helper-scripts/live-mode.sh</code> ran successfully, but \
 its output could not be parsed.<br/>
 <br/>
-<code>live-mode.sh</code> output:<br/>
+<code>live-mode.sh</code> output:
 <pre>
-XXX_SCRIPT_OUTPUT_XXX
-</pre><br/>
+XXX_SCRIPT_OUTPUT_XXX</pre>
 Please report this bug!"""
 
 error_live_mode_invalid_output_text_cli: str = f"""{text_header_cli}
@@ -444,7 +439,6 @@ successfully, but its output could not be parsed.
 
 'live-mode.sh' output:
 XXX_SCRIPT_OUTPUT_XXX
-
 Please report this bug!"""
 
 error_gwfl_invalid_output_text_gui: str = f"""{text_header_gui}<br/>
@@ -456,10 +450,9 @@ Technical information: The script \
 <code>/usr/libexec/helper-scripts/get_writable_fs_lists.sh</code> ran \
 successfully, but its output could not be parsed.<br/>
 <br/>
-<code>get_writable_fs_lists.sh</code> output:<br/>
+<code>get_writable_fs_lists.sh</code> output:
 <pre>
-XXX_SCRIPT_OUTPUT_XXX
-</pre><br/>
+XXX_SCRIPT_OUTPUT_XXX</pre>
 Please report this bug!"""
 
 error_gwfl_invalid_output_text_cli: str = f"""{text_header_cli}
@@ -473,7 +466,6 @@ its output could not be parsed.
 
 'get_writable_fs_lists.sh' output:
 XXX_SCRIPT_OUTPUT_XXX
-
 Please report this bug!"""
 
 loading_tooltip: str = """Livecheck is loading information about the \
@@ -862,6 +854,9 @@ class TrayUi(QObject):
                 self.active_text = error_gwfl_text_gui.replace(
                     "XXX_SCRIPT_OUTPUT_XXX",
                     live_check_str_one,
+                ).replace(
+                    "XXX_EXIT_CODE_XXX",
+                    live_check_str_two,
                 )
                 self.tray_icon.setToolTip(error_live_state_tooltip)
                 self.tray_icon.setIcon(QIcon(icon_base_path + error_icon))
@@ -870,9 +865,6 @@ class TrayUi(QObject):
                     error_live_mode_invalid_output_text_gui.replace(
                         "XXX_SCRIPT_OUTPUT_XXX",
                         live_check_str_one,
-                    ).replace(
-                        "XXX_EXIT_CODE_XXX",
-                        live_check_str_two,
                     )
                 )
                 self.tray_icon.setToolTip(error_live_state_tooltip)
@@ -1223,6 +1215,9 @@ def main_cli() -> NoReturn:
                 error_gwfl_text_cli.replace(
                     "XXX_SCRIPT_OUTPUT_XXX",
                     live_check_str_one,
+                ).replace(
+                    "XXX_EXIT_CODE_XXX",
+                    live_check_str_two,
                 )
             )
         case "error-live-mode-invalid-output":
@@ -1230,9 +1225,6 @@ def main_cli() -> NoReturn:
                 error_live_mode_invalid_output_text_cli.replace(
                     "XXX_SCRIPT_OUTPUT_XXX",
                     live_check_str_one,
-                ).replace(
-                    "XXX_EXIT_CODE_XXX",
-                    live_check_str_two,
                 )
             )
         case "error-get-writable-fs-lists-invalid-output":
