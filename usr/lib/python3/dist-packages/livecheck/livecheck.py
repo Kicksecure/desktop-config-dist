@@ -62,7 +62,7 @@ live_mode_icon: str = "status/user-available.png"
 read_only_mode_icon: str = "apps/computerjanitor.png"
 semi_persistent_safe_mode_icon: str = "status/dialog-warning.png"
 ## These next two icons probably should be the other way around, but we've
-## used dialog-error to represent "danger" for long enough I don't think we
+## used dialog-error to represent "danger" for long enough that I don't think we
 ## should change it.
 ##
 ## user-offline.png could also be used possibly? It doesn't look as "scary"
@@ -231,7 +231,7 @@ read_only_mode_text_gui: str = f"""{text_header_gui}<br/>
 <b>Persistent Mode Active:</b> No
 <ul>
   <li>No changes will be made to disk.</li>
-  <li>All storage media available to the OS is set read-only by hardware or \
+  <li>All storage media available to the OS is set to read-only by hardware or \
 drivers.</li>
   <li>For more information, see the following link:</li>
 </ul>
@@ -244,7 +244,7 @@ read_only_mode_text_cli: str = f"""{text_header_cli}
 {colors.bold}Persistent Mode Active:{colors.reset} No
 
 * No changes will be made to disk.
-* All storage media available to the OS is set read-only by hardware
+* All storage media available to the OS is set to read-only by hardware
   or drivers.
 * For more information, see the following link:
 
@@ -908,7 +908,7 @@ class MountChecker(QObject):
         removable media or network filesystems mounted to /media, /mnt, or a
         directory under /media or /mnt. Dangerous writable filesystems are
         anything else writable mounted from a device or the network (i.e.
-        nfs).
+        NFS).
 
         The first returned value is the integer '0' on success, '1' on
         failure, or '2' if the script succeeded but its output could not be
@@ -1261,7 +1261,7 @@ def main() -> NoReturn:
     elif sys.argv[1] == "--cli":
         main_cli()
     print(
-        f"ERROR: Unrecognied argument '{sys.argv[1]}', expected either "
+        f"ERROR: Unrecognized argument '{sys.argv[1]}', expected either "
         "'--gui' or '--cli'!",
         file=sys.stderr,
     )
