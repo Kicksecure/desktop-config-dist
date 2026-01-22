@@ -1,9 +1,0 @@
-#!/bin/bash
-
-set -e
-
-if test -e /usr/share/qubes/marker-vm ; then
-  exit 0
-fi
-
-exec /usr/lib/python3/dist-packages/livecheck/livecheck.py
