@@ -1,3 +1,46 @@
+commit c986142f3078b1edc84443152a839d5970098a40
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Jan 22 04:06:11 2026 -0500
+
+    typo
+
+commit 12c44b2cdfbd1a7aedafa4c923fb4c7e8313bdc4
+Merge: 4184476 727ca93
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Jan 22 03:53:11 2026 -0500
+
+    Merge remote-tracking branch 'ArrayBolt3/arraybolt3/trixie'
+
+commit 727ca93cb20c04ed7a72f51544b3bc6f7ceec5b7
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Mon Jan 19 23:47:48 2026 -0600
+
+    fix
+
+commit dfc4a56dd3d0a930f9d4450aac4f45c7396976f3
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Mon Jan 19 22:06:54 2026 -0600
+
+    fix
+
+commit 326e03740b321520f19c19e737546fd4e5fc9ba0
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Mon Jan 19 20:49:03 2026 -0600
+
+    Simplify use of livecheck CLI mode, remove obsolete test cases
+
+commit acb172fa0c831273bd567d1c0d0b43ae95f1f8a0
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Sun Jan 18 11:35:02 2026 -0600
+
+    Improve livecheck error handling, add error logging and a CLI mode
+
+commit 4184476afa178f9d5a8b94ea4aecffcd48f33d50
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Jan 12 15:15:30 2026 +0000
+
+    bumped changelog version
+
 commit fc6c05443746b290d14f2568e9997e76c20c18e3
 Merge: fec9e34 db632fb
 Author: Patrick Schleizer <adrelanos@whonix.org>
