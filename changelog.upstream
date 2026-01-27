@@ -1,3 +1,22 @@
+commit 97f8fadcce8e1da1c2a87f9fcfe773473cf091e0
+Merge: c14c8e7 94b8154
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Jan 27 11:14:18 2026 -0500
+
+    Merge remote-tracking branch 'ArrayBolt3/arraybolt3/trixie'
+
+commit 94b8154af77bb47310e0614c6d1828a600d42d63
+Author: Aaron Rainbolt <arraybolt3@ubuntu.com>
+Date:   Sun Jan 25 18:32:04 2026 -0600
+
+    Move PROFILE_SCRIPTS_WERE_SOURCED variable to dist-base-files
+
+commit c14c8e7faa86c0427e9784e37cb15468e1eccebb
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Jan 22 10:57:01 2026 +0000
+
+    bumped changelog version
+
 commit c986142f3078b1edc84443152a839d5970098a40
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Thu Jan 22 04:06:11 2026 -0500
