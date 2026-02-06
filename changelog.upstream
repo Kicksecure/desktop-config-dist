@@ -1,3 +1,22 @@
+commit 18e9a63d45d2c4bfcc06a34dd12fbbaeeb39e68e
+Merge: 11b8c12 ca75ddc
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Feb 6 04:51:00 2026 -0500
+
+    Merge remote-tracking branch 'ArrayBolt3/arraybolt3/trixie'
+
+commit ca75ddc2363d623ff07b83b89fe56a15323807f5
+Author: Aaron Rainbolt <arraybolt3@gmail.com>
+Date:   Thu Feb 5 22:40:00 2026 -0600
+
+    Disable numlock by default
+
+commit 11b8c12f7026e55e1b722f65e98f88390e959736
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Jan 27 17:17:23 2026 +0000
+
+    bumped changelog version
+
 commit 97f8fadcce8e1da1c2a87f9fcfe773473cf091e0
 Merge: c14c8e7 94b8154
 Author: Patrick Schleizer <adrelanos@whonix.org>
