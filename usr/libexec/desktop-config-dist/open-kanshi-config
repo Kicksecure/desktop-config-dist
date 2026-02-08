@@ -1,0 +1,48 @@
+#!/bin/bash
+
+## Copyright (C) 2026 - 2026 ENCRYPTED SUPPORT LLC <adrelanos@whonix.org>
+## See the file COPYING for copying conditions.
+
+set -o errexit
+set -o nounset
+set -o errtrace
+set -o pipefail
+
+kanshi_config_dir="/home/$(id --user --name)/.config/kanshi"
+kanshi_config_file="${kanshi_config_dir}/config"
+TITLE='Open display configuration file (kanshi)'
+MSG=""
+
+if ! [ -e "${kanshi_config_dir}" ]; then
+  if ! mkdir --parents "${kanshi_config_dir}"; then
+    MSG="\
+<p>The display configuration folder at <code>${kanshi_config_dir}</code> does
+not exist and cannot be created!</p>"
+    /usr/libexec/msgcollector/generic_gui_message error "${TITLE}" "${MSG}" '' ok
+    exit 1
+  fi
+elif ! [ -d "${kanshi_config_dir}" ]; then
+  MSG="<p><code>${kanshi_config_dir}</code> exists but is not a folder!</p>"
+  /usr/libexec/msgcollector/generic_gui_message error "${TITLE}" "${MSG}" '' ok
+  exit 1
+fi
+
+if ! [ -e "${kanshi_config_file}" ]; then
+  if ! cp /usr/share/desktop-config-dist/kanshi-config-template \
+    "${kanshi_config_file}"; then
+    MSG="\
+<p>The display configuration file at <code>${kanshi_config_file}</code> does
+not exist and cannot be created!</p>"
+    /usr/libexec/msgcollector/generic_gui_message error "${TITLE}" "${MSG}" '' ok
+    exit 1
+  fi
+elif ! [ -f "${kanshi_config_file}" ]; then
+  MSG="<p><code>${kanshi_config_file}</code> exists but is not a file!</p>"
+  /usr/libexec/msgcollector/generic_gui_message error "${TITLE}" "${MSG}" '' ok
+  exit 1
+fi
+
+## Look up the user's default text editor and open the file with that. We do
+## not blindly use xdg-open here since that may execute code if someone has
+## put a Windows executable here and Wine is installed.
+gio launch "/usr/share/applications/$(xdg-mime query default text/plain)" "${kanshi_config_file}"

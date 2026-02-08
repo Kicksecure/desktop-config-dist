@@ -1,0 +1,14 @@
+## Copyright (c) 2026 - 2026 ENCRYPTED SUPPORT LLC <adrelanos@whonix.org>
+## See the file COPYING for copying conditions.
+
+[Unit]
+Description=Automatically configures displays when plugged and unplugged
+ConditionFileNotEmpty=%h/.config/kanshi/config
+
+[Service]
+Type=exec
+ExecStart=/usr/bin/kanshi
+
+[Install]
+WantedBy=multi-user.target
+WantedBy=sysmaint-boot.target

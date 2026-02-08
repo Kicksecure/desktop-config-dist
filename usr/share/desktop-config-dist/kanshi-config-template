@@ -1,0 +1,94 @@
+## Copyright (C) 2026 - 2026 ENCRYPTED SUPPORT LLC <adrelanos@whonix.org>
+## See the file COPYING for copying conditions.
+
+## This file contains settings for automatically configuring attached displays
+## as they are plugged and unplugged. This is useful for adjusting display
+## resolution, position, and scaling.
+##
+## You may define one or more "profiles". Each profile identifies a particular
+## set of displays that are attached at the same time. Each display may be
+## enabled or disabled, and the settings for it adjusted. When a set of
+## monitors matching a profile are attached at the same time, the profile will
+## be applied to them.
+##
+## A profile may be defined by writing:
+##
+##   profile {
+##     ...
+##   }
+##
+## Profiles may be optionally named to make them easier to tell apart, for
+## instance:
+##
+##   profile workdesk {
+##     ...
+##   }
+##
+##   profile mobile {
+##     ...
+##   }
+##
+## Each profile should contain one or more profile directives. An 'output'
+## profile directive identifies a particular display, and how to configure
+## it. An 'output' profile directive may be defined by writing:
+##
+##   output display-id configuration
+##
+## Display IDs can be seen by opening wdisplays (Start Menu -> Preferences ->
+## Displays) and looking at row of buttons underneath the window titlebar.
+## Common display IDs are 'eDP-1' or 'LVDS-1' for laptop internal displays,
+## 'HDMI-A-1' for HDMI displays, and 'Virtual-1' for virtual machine displays.
+##
+## The configuration consists of one or more output directives. Note that
+## these are not the same as 'output' profile directives. The most common
+## output directives are 'enable', 'disable', 'mode', 'position', and 'scale'.
+##
+## - 'enable' enables the specified display.
+##
+## - 'disable' disables the specified display.
+##
+## - 'mode' specifies the resolution of the display. The available resolutions
+##   for a display may be seen in wdisplays. For example, 'mode 1920x1080'
+##   will set a display's resolution to 1920x1080.
+##
+## - 'position' specifies where the upper-left corner of the display is
+##   located. The position should be written as 'x,y', where 'x' is the number
+##   of pixels from the left the display should be located, and 'y' is the
+##   number of pixels from the top.
+##
+## - 'scale' specifies how zoomed-in the display should appear. 'scale 2' will
+##   make everything on the display twice as big, while 'scale 1.5' will make
+##   it one and a half times as big.
+##
+## An example profile that simply sets a display's resolution to 1920x1080:
+##
+##   profile simple {
+##     output HDMI-A-1 enable mode 1920x1080
+##   }
+##
+## An example profile for two displays, placing a laptop built-in monitor on
+## the left, and an external monitor on the right, with the top edges aligned:
+##
+##   profile desktop {
+##     output eDP-1 enable mode 1366x768 position 0,0
+##     output HDMI-A-1 enable mode 1920x1080 position 1366,0
+##   }
+##
+## To align the bottom edges of the displays, subtract the height of the
+## shorter display from the height of the taller display, and use that as the
+## 'y' value in the shorter display's position. For example:
+##
+##   profile desktop {
+##     output eDP-1 enable mode 1366x768 position 0,312
+##     output HDMI-A-1 enable mode 1920x1080 position 1366,0
+##   }
+##
+## Once you have written your configuration and saved it, apply the new
+## configuration. To do this in a user session, click 'Start Menu' ->
+## 'Preferences' -> 'Apply display configuration (restart kanshi)'. In a
+## sysmaint session, click 'Configure Displays' in the System Maintenance
+## Panel, then click 'Apply display configuration (restart kanshi)'. This will
+## make your settings take effect.
+##
+## For more details on display configuration, open a terminal and run
+## 'man 5 kanshi'.
