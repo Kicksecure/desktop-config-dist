@@ -15,6 +15,15 @@ source /usr/libexec/helper-scripts/light_sleep.bsh
 source /usr/libexec/helper-scripts/boot-session-detection.bsh
 
 TITLE='Apply display configuration (restart kanshi)'
+MSG=''
+
+if [ -z "${HOME}" ]; then
+  MSG="<p>The <code>\$HOME</code> environment variable is not set!</p>"
+  /usr/libexec/msgcollector/generic_gui_message error "${TITLE}" "${MSG}" '' ok
+  exit 1
+fi
+
+kanshi_config_file="$HOME/.config/kanshi/config"
 
 show_restart_diagnostic() {
   local systemctl_status_output
@@ -31,10 +40,14 @@ Technical details: The systemd unit <code>kanshi.service</code> failed after bei
 
   if [ "${boot_session}" = 'user_session' ]; then
     MSG+="
-The display configuration at <code>home/$(id --user --name)/.config/kanshi/config</code> might be invalid. To edit it, click <code>Start Menu -> Preferences -> Open display configuration file (kanshi)</code>.<br>"
+The display configuration at <code>${kanshi_config_file}</code> might be invalid. To edit it, click <code>Start Menu -> Preferences -> Open display configuration file (kanshi)</code>.<br>"
   elif [ "${boot_session}" = 'sysmaint_session' ]; then
     MSG+="
-The display configuration at <code>home/$(id --user --name)/.config/kanshi/config</code> might be invalid. To edit it, click <code>Configure Displays</code> in the System Maintenance Panel, then click <code>Open display configuration file (kanshi)</code>.<br>"
+The display configuration at <code>${kanshi_config_file}</code> might be invalid. To edit it, click <code>Configure Displays</code> in the System Maintenance Panel, then click <code>Open display configuration file (kanshi)</code>.<br>"
+  else
+    ## This should be unreachable.
+    MSG+="
+The display configuration at <code>${kanshi_config_file}</code> might be invalid.<br>"
   fi
 
   MSG+="
@@ -51,6 +64,8 @@ if ! systemctl --user restart kanshi.service >/dev/null 2>&1; then
   exit 1
 fi
 
+## kanshi may succeed launching, and then fail shortly after being launched.
+## Give it some time to get up and running.
 light_sleep 0.5
 
 if ! systemctl --user is-active kanshi.service >/dev/null 2>&1; then
