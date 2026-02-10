@@ -1,0 +1,79 @@
+#!/bin/bash
+
+## Copyright (C) 2026 - 2026 ENCRYPTED SUPPORT LLC <adrelanos@whonix.org>
+## See the file COPYING for copying conditions.
+
+set -o errexit
+set -o nounset
+set -o errtrace
+set -o pipefail
+
+TITLE='Open display configuration file (kanshi)'
+MSG=''
+
+if [ -z "${HOME}" ]; then
+  MSG="<p>The <code>\$HOME</code> environment variable is not set!</p>"
+  /usr/libexec/msgcollector/generic_gui_message error "${TITLE}" "${MSG}" '' ok
+  exit 1
+fi
+
+kanshi_config_dir="$HOME/.config/kanshi"
+kanshi_config_file="${kanshi_config_dir}/config"
+
+if ! [ -e "${kanshi_config_dir}" ]; then
+  if ! mkdir --parents "${kanshi_config_dir}"; then
+    MSG="\
+<p>The display configuration folder at <code>${kanshi_config_dir}</code> does
+not exist and cannot be created!</p>"
+    /usr/libexec/msgcollector/generic_gui_message error "${TITLE}" "${MSG}" '' ok
+    exit 1
+  fi
+elif ! [ -d "${kanshi_config_dir}" ]; then
+  MSG="<p><code>${kanshi_config_dir}</code> exists but is not a folder!</p>"
+  /usr/libexec/msgcollector/generic_gui_message error "${TITLE}" "${MSG}" '' ok
+  exit 1
+fi
+
+if ! [ -e "${kanshi_config_file}" ]; then
+  if ! cp /usr/share/desktop-config-dist/kanshi-config-template \
+    "${kanshi_config_file}"; then
+    MSG="\
+<p>The display configuration file at <code>${kanshi_config_file}</code> does
+not exist and cannot be created!</p>"
+    /usr/libexec/msgcollector/generic_gui_message error "${TITLE}" "${MSG}" '' ok
+    exit 1
+  fi
+elif ! [ -f "${kanshi_config_file}" ]; then
+  MSG="<p><code>${kanshi_config_file}</code> exists but is not a file!</p>"
+  /usr/libexec/msgcollector/generic_gui_message error "${TITLE}" "${MSG}" '' ok
+  exit 1
+fi
+
+## Look up the user's default text editor and open the file with that. We do
+## not blindly use xdg-open here since that may execute code if someone has
+## put a Windows executable here and Wine is installed.
+##
+## TODO: This doesn't support using a text editor whose desktop file is stored
+## in $HOME/.local/share/applications (or anywhere other than
+## /usr/share/applications). Unfortunately, gio doesn't know how to find a
+## desktop file itself, and it's likely undesirable to write a location
+## resolver here. Maybe we need a helper script for this in the future.
+plain_text_handler="$(xdg-mime query default text/plain)"
+if [ -z "${plain_text_handler}" ]; then
+  MSG="\
+<p>Could not find any default application for plain text files! Please manually open the file <code>${kanshi_config_file}</code> in a text editor to adjust the display configuration."
+  /usr/libexec/msgcollector/generic_gui_message error "${TITLE}" "${MSG}" '' ok
+  exit 1
+elif ! [ -f "/usr/share/applications/${plain_text_handler}" ]; then
+  MSG="\
+<p>The file <code>${plain_text_handler}</code> could not be found under <code>/usr/share/applications</code>! Please manually open the file <code>${kanshi_config_file}</code> in a text editor to adjust the display configuration."
+  /usr/libexec/msgcollector/generic_gui_message error "${TITLE}" "${MSG}" '' ok
+  exit 1
+fi
+
+if ! gio launch "/usr/share/applications/${plain_text_handler}" "${kanshi_config_file}"; then
+  MSG="\
+<p>The display configuration file could not be opened! Please manually open the file <code>${kanshi_config_file}</code> in a text editor to adjust the display configuration."
+  /usr/libexec/msgcollector/generic_gui_message error "${TITLE}" "${MSG}" '' ok
+  exit 1
+fi

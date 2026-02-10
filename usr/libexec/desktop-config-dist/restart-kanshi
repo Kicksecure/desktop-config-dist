@@ -1,0 +1,78 @@
+#!/bin/bash
+
+## Copyright (C) 2026 - 2026 ENCRYPTED SUPPORT LLC <adrelanos@whonix.org>
+## See the file COPYING for copying conditions.
+
+set -o errexit
+set -o nounset
+set -o errtrace
+set -o pipefail
+
+# shellcheck source=../../../../helper-scripts/usr/libexec/helper-scripts/light_sleep.bsh
+source /usr/libexec/helper-scripts/light_sleep.bsh
+
+# shellcheck source=../../../../helper-scripts/usr/libexec/helper-scripts/boot-session-detection.bsh
+source /usr/libexec/helper-scripts/boot-session-detection.bsh
+
+TITLE='Apply display configuration (restart kanshi)'
+MSG=''
+
+if [ -z "${HOME}" ]; then
+  MSG="<p>The <code>\$HOME</code> environment variable is not set!</p>"
+  /usr/libexec/msgcollector/generic_gui_message error "${TITLE}" "${MSG}" '' ok
+  exit 1
+fi
+
+kanshi_config_file="$HOME/.config/kanshi/config"
+
+show_restart_diagnostic() {
+  local systemctl_status_output
+
+  systemctl_status_output="$(systemctl --no-pager --full --user status kanshi.service)" || true
+  if [ -z "${systemctl_status_output}" ]; then
+    systemctl_status_output='no output'
+  fi
+
+  MSG="<p>An error occurred while applying the display configuration!<br>
+<br>
+Technical details: The systemd unit <code>kanshi.service</code> failed after being restarted.<br>
+<br>"
+
+  if [ "${boot_session}" = 'user_session' ]; then
+    MSG+="
+The display configuration at <code>${kanshi_config_file}</code> might be invalid. To edit it, click <code>Start Menu -> Preferences -> Open display configuration file (kanshi)</code>.<br>"
+  elif [ "${boot_session}" = 'sysmaint_session' ]; then
+    MSG+="
+The display configuration at <code>${kanshi_config_file}</code> might be invalid. To edit it, click <code>Configure Displays</code> in the System Maintenance Panel, then click <code>Open display configuration file (kanshi)</code>.<br>"
+  else
+    ## This should be unreachable.
+    MSG+="
+The display configuration at <code>${kanshi_config_file}</code> might be invalid.<br>"
+  fi
+
+  MSG+="
+<br>
+Output from <code>systemctl --no-pager --full --user status kanshi.service</code>:</p>
+<pre>
+${systemctl_status_output}
+</pre>"
+  /usr/libexec/msgcollector/generic_gui_message error "${TITLE}" "${MSG}" '' ok
+}
+
+if ! systemctl --user restart kanshi.service >/dev/null 2>&1; then
+  show_restart_diagnostic
+  exit 1
+fi
+
+## kanshi may succeed launching, and then fail shortly after being launched.
+## Give it some time to get up and running.
+light_sleep 0.5
+
+if ! systemctl --user is-active kanshi.service >/dev/null 2>&1; then
+  show_restart_diagnostic
+  exit 1
+fi
+
+MSG="<p>The display configuration has been applied successfully.</p>"
+/usr/libexec/msgcollector/generic_gui_message info "${TITLE}" "${MSG}" '' ok
+exit 0

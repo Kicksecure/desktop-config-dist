@@ -1,0 +1,12 @@
+## Copyright (c) 2026 - 2026 ENCRYPTED SUPPORT LLC <adrelanos@whonix.org>
+## See the file COPYING for copying conditions.
+
+[Desktop Entry]
+Name=Apply display configuration (restart kanshi)
+Icon=reload
+Comment=Make display settings take effect after making changes
+Exec=/usr/libexec/desktop-config-dist/restart-kanshi
+Terminal=false
+Type=Application
+Categories=System;Settings;DesktopSettings;Qt;HardwareSettings;
+Keywords=display;resolution;scale;position;monitor;

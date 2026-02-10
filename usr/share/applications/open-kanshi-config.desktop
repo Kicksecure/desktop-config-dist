@@ -1,0 +1,12 @@
+## Copyright (c) 2026 - 2026 ENCRYPTED SUPPORT LLC <adrelanos@whonix.org>
+## See the file COPYING for copying conditions.
+
+[Desktop Entry]
+Name=Open display configuration file (kanshi)
+Icon=display
+Comment=Adjust display configuration settings
+Exec=/usr/libexec/desktop-config-dist/open-kanshi-config
+Terminal=false
+Type=Application
+Categories=System;Settings;DesktopSettings;Qt;HardwareSettings;
+Keywords=display;resolution;scale;position;monitor;
