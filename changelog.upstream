@@ -1,3 +1,28 @@
+commit 2be7b247260238b1635329590b04e89781bbc6f8
+Merge: 9929c27 3bb3952
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Feb 10 07:05:43 2026 -0500
+
+    Merge remote-tracking branch 'ArrayBolt3/arraybolt3/trixie'
+
+commit 3bb3952fb482654f698e73215e7ded99e5c41cee
+Author: Aaron Rainbolt <arraybolt3@gmail.com>
+Date:   Sun Feb 8 19:15:34 2026 -0600
+
+    Improve open-kanshi-config and restart-kanshi after review with ChatGPT
+
+commit ca23979ebc5087105134a360c9d7b6fcfbf45cbe
+Author: Aaron Rainbolt <arraybolt3@gmail.com>
+Date:   Sun Feb 8 17:21:41 2026 -0600
+
+    Add kanshi configuration instructions and tools
+
+commit 9929c271673008c2c0669fb1ac8ba93e46f994a6
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Feb 6 10:09:53 2026 +0000
+
+    bumped changelog version
+
 commit 18e9a63d45d2c4bfcc06a34dd12fbbaeeb39e68e
 Merge: 11b8c12 ca75ddc
 Author: Patrick Schleizer <adrelanos@whonix.org>
