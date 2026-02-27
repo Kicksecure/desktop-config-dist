@@ -1,3 +1,22 @@
+commit 7d44df630f9b2cb8e2685685c2e333f82da26976
+Merge: 4761eba c510577
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Feb 27 05:03:33 2026 -0500
+
+    Merge remote-tracking branch 'ArrayBolt3/arraybolt3/trixie'
+
+commit c510577d3e17839209888e2b84ba3eda68959410
+Author: Aaron Rainbolt <arraybolt3@gmail.com>
+Date:   Tue Feb 24 23:49:33 2026 -0500
+
+    Adjust default terminal size to work better on small screens
+
+commit 4761eba61a06ae2be03c58917b2eb71a3f6cdd52
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Feb 10 12:12:59 2026 +0000
+
+    bumped changelog version
+
 commit 2be7b247260238b1635329590b04e89781bbc6f8
 Merge: 9929c27 3bb3952
 Author: Patrick Schleizer <adrelanos@whonix.org>
