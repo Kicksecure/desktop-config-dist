@@ -130,7 +130,6 @@ if has pactl; then
   fi
 fi
 
-leaprun signal-wayland-session-started
 ## For debugging, uncomment this line and comment out the next one.
 #exec systemd-cat --identifier=lxqt startlxqtwayland
 exec startlxqtwayland >/dev/null 2>&1
