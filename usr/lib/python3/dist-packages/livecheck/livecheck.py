@@ -1121,6 +1121,7 @@ def main_gui() -> NoReturn:
     """
 
     app: QApplication = QApplication(sys.argv)
+    app.setDesktopFileName("livecheck")
     app.setQuitOnLastWindowClosed(False)
 
     signal.signal(signal.SIGTERM, signal_handler)
