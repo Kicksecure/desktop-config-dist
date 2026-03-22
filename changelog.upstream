@@ -1,3 +1,28 @@
+commit 01c3a9908410ba1f517c392af25dc6b6f0ac9909
+Merge: cbf01de e886a45
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Mar 22 04:05:41 2026 -0400
+
+    Merge remote-tracking branch 'ArrayBolt3/arraybolt3/trixie'
+
+commit e886a45c8f20470d8a86d47eabd9a35166e8dce7
+Author: Aaron Rainbolt <arraybolt3@gmail.com>
+Date:   Sun Mar 22 00:03:42 2026 -0400
+
+    Set labwc icon theme properly, use a non-Python logo for livecheck
+
+commit 152c9922d5d9c678234cfb2e0430529ffe3f4318
+Author: Aaron Rainbolt <arraybolt3@gmail.com>
+Date:   Wed Mar 18 21:29:36 2026 -0400
+
+    Stop creating a flag file when the compositor is initialized, kloak no longer needs it
+
+commit cbf01de53f33b17e8e93b310697bb9235eaed05e
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Feb 27 10:48:15 2026 +0000
+
+    bumped changelog version
+
 commit 7d44df630f9b2cb8e2685685c2e333f82da26976
 Merge: 4761eba c510577
 Author: Patrick Schleizer <adrelanos@whonix.org>
