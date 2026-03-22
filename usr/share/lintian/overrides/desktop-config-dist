@@ -6,3 +6,6 @@ desktop-config-dist: package-contains-file-in-etc-skel [etc/skel/*]
 
 ## File describes the purpose of the directory it is in.
 desktop-config-dist: package-contains-documentation-outside-usr-share-doc [usr/share/desktop-config-dist/labwc/README]
+
+## systemctl / systemd is an essential package installed by default.
+desktop-config-dist: desktop-command-not-in-package systemctl [usr/share/applications/livecheck.desktop]
