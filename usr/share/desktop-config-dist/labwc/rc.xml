@@ -34,6 +34,7 @@
   <!-- <font><theme> can be defined without an attribute to set all places -->
   <theme>
     <name>Kicksecure</name>
+    <icon>Papirus-Light</icon>
     <cornerRadius>0</cornerRadius>
     <dropShadows>yes</dropShadows>
     <font place="ActiveWindow">
