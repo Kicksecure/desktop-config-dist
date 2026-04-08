@@ -15,10 +15,12 @@ else
     export WLR_RENDERER='pixman'
   fi
 
-  ## Make gtk3 use Wayland by default
+  ## Make gtk3 use Wayland by default, apps may use X11 even if they support
+  ## Wayland if this is not set
   export GDK_BACKEND=wayland
 
-  ## Make Qt use Wayland by default
+  ## Make Qt use Wayland by default, apps may use X11 even if they support
+  ## Wayland if this is not set
   export QT_QPA_PLATFORM=wayland
 fi
 
