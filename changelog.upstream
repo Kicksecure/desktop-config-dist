@@ -1,3 +1,22 @@
+commit 7cfd24e3690eb1cb211cf392c6f146943177d34c
+Merge: 615e18c 210c2da
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Apr 8 09:52:53 2026 -0400
+
+    Merge remote-tracking branch 'ArrayBolt3/arraybolt3/trixie'
+
+commit 210c2da662a2aacc06097547ba6d7c1fec2acb7c
+Author: Aaron Rainbolt <arraybolt3@gmail.com>
+Date:   Sun Apr 5 11:09:22 2026 -0400
+
+    Document rationale for GDK_BACKEND and QT_QPA_PLATFORM variables in 15_desktop-config-dist.sh
+
+commit 615e18c2792c3e7a52d1385f147da7e02f2be7a9
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Mar 22 11:11:24 2026 +0000
+
+    bumped changelog version
+
 commit 570bd43291d42cb9a53f89894b2a7ba0cf21ae9b
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Sun Mar 22 07:11:02 2026 -0400
