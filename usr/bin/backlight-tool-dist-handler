@@ -107,6 +107,10 @@ backlight_set_val() {
     printf '%s\n' "$0: ERROR: No backlight percentage specified!" >&2
     return 1
   fi
+  if ! is_whole_number "${bl_pct}"; then
+    printf '%s\n' "$0: ERROR: Backlight percentage is not a whole number!" >&2
+    return 1
+  fi
 
   if ! bl_max_brightness="$(read_integer_file "${bl_driver}/max_brightness")" ; then
     printf '%s\n' "$0: ERROR: Missing or invalid 'max_brightness' file for backlight driver '$bl_driver'!" >&2
@@ -155,6 +159,7 @@ backlight_mod_val() {
     return 1
   fi
 
+  ## backlight_get_val is guaranteed to return an integer if it succeeds.
   if ! bl_pct="$(backlight_get_val)" ; then
     printf '%s\n' "$0: ERROR: Could not get backlight brightness percentage!"
     return 1
