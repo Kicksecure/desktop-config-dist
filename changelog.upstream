@@ -1,3 +1,9 @@
+commit e05a8333eab118e565bbb315d1e454f17cc520d6
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Apr 25 09:22:58 2026 +0000
+
+    bumped changelog version
+
 commit 30c0727bdb561eb96ee06cab6e9508cc0f274774
 Merge: f369a43 8556e80
 Author: Patrick Schleizer <adrelanos@whonix.org>
@@ -3703,7 +3709,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Thu Jun 27 07:23:52 2019 +0000
 
     fix:
-    Jun 25 13:39:31 host xfconfd[1115]: Error parsing xfconf config file "/home/user/.config/xfce4/xfconf/xfce-perchannel-xml/xfwm4.xml": Error on line 8 char 11: Element “channel” was closed, but the currently open element is “property”
+    Jun 25 13:39:31 host xfconfd[1115]: Error parsing xfconf config file "/home/user/.config/xfce4/xfconf/xfce-perchannel-xml/xfwm4.xml": Error on line 8 char 11: Element _channel_ was closed, but the currently open element is _property_
 
     add:
       </property>
