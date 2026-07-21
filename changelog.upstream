@@ -1,3 +1,30 @@
+commit 7329baa69d8cbbde69705e25dda1e02c4dd16a1b
+Merge: a3fbb02 30f3c15
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Jul 21 05:59:35 2026 -0400
+
+    Merge remote-tracking branch 'refs/remotes/org-ai-assisted/master'
+
+commit 30f3c1543dbedfcd893fc716e82b4e679e7966f2
+Author: assisted-by-ai (Bot Account) (Machine Account) <228987186+assisted-by-ai@users.noreply.github.com>
+Date:   Sun Jul 19 04:16:34 2026 -0400
+
+    desktop-config-dist: use .py names for msgcollector libexec scripts (#3)
+
+    The msgcollector Python libexec scripts now ship only under their <name>.py
+    names (compat symlinks removed); update the /usr/libexec/msgcollector/... call
+    sites here to match. Derived on master, independent of the Wayland PR.
+
+    AI-Assisted
+
+    Co-authored-by: claude (dev95 d7769525-599d-4781-9f2c-f21aa34d292d) <noreply@anthropic.com>
+
+commit a3fbb02760e5b537ebe8ab149a6fb80e32e9ffff
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed May 20 22:01:15 2026 +0000
+
+    bumped changelog version
+
 commit e1368f3a8759b41252f62fdbe70d593f2ab1f8df
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Wed May 20 16:56:45 2026 -0400
