@@ -13,7 +13,7 @@ MSG=''
 
 if [ -z "${HOME}" ]; then
   MSG="<p>The <code>\$HOME</code> environment variable is not set!</p>"
-  /usr/libexec/msgcollector/generic_gui_message error "${TITLE}" "${MSG}" '' ok
+  /usr/libexec/msgcollector/generic_gui_message.py error "${TITLE}" "${MSG}" '' ok
   exit 1
 fi
 
@@ -25,12 +25,12 @@ if ! [ -e "${kanshi_config_dir}" ]; then
     MSG="\
 <p>The display configuration folder at <code>${kanshi_config_dir}</code> does
 not exist and cannot be created!</p>"
-    /usr/libexec/msgcollector/generic_gui_message error "${TITLE}" "${MSG}" '' ok
+    /usr/libexec/msgcollector/generic_gui_message.py error "${TITLE}" "${MSG}" '' ok
     exit 1
   fi
 elif ! [ -d "${kanshi_config_dir}" ]; then
   MSG="<p><code>${kanshi_config_dir}</code> exists but is not a folder!</p>"
-  /usr/libexec/msgcollector/generic_gui_message error "${TITLE}" "${MSG}" '' ok
+  /usr/libexec/msgcollector/generic_gui_message.py error "${TITLE}" "${MSG}" '' ok
   exit 1
 fi
 
@@ -40,12 +40,12 @@ if ! [ -e "${kanshi_config_file}" ]; then
     MSG="\
 <p>The display configuration file at <code>${kanshi_config_file}</code> does
 not exist and cannot be created!</p>"
-    /usr/libexec/msgcollector/generic_gui_message error "${TITLE}" "${MSG}" '' ok
+    /usr/libexec/msgcollector/generic_gui_message.py error "${TITLE}" "${MSG}" '' ok
     exit 1
   fi
 elif ! [ -f "${kanshi_config_file}" ]; then
   MSG="<p><code>${kanshi_config_file}</code> exists but is not a file!</p>"
-  /usr/libexec/msgcollector/generic_gui_message error "${TITLE}" "${MSG}" '' ok
+  /usr/libexec/msgcollector/generic_gui_message.py error "${TITLE}" "${MSG}" '' ok
   exit 1
 fi
 
@@ -62,18 +62,18 @@ plain_text_handler="$(xdg-mime query default text/plain)"
 if [ -z "${plain_text_handler}" ]; then
   MSG="\
 <p>Could not find any default application for plain text files! Please manually open the file <code>${kanshi_config_file}</code> in a text editor to adjust the display configuration."
-  /usr/libexec/msgcollector/generic_gui_message error "${TITLE}" "${MSG}" '' ok
+  /usr/libexec/msgcollector/generic_gui_message.py error "${TITLE}" "${MSG}" '' ok
   exit 1
 elif ! [ -f "/usr/share/applications/${plain_text_handler}" ]; then
   MSG="\
 <p>The file <code>${plain_text_handler}</code> could not be found under <code>/usr/share/applications</code>! Please manually open the file <code>${kanshi_config_file}</code> in a text editor to adjust the display configuration."
-  /usr/libexec/msgcollector/generic_gui_message error "${TITLE}" "${MSG}" '' ok
+  /usr/libexec/msgcollector/generic_gui_message.py error "${TITLE}" "${MSG}" '' ok
   exit 1
 fi
 
 if ! gio launch "/usr/share/applications/${plain_text_handler}" "${kanshi_config_file}"; then
   MSG="\
 <p>The display configuration file could not be opened! Please manually open the file <code>${kanshi_config_file}</code> in a text editor to adjust the display configuration."
-  /usr/libexec/msgcollector/generic_gui_message error "${TITLE}" "${MSG}" '' ok
+  /usr/libexec/msgcollector/generic_gui_message.py error "${TITLE}" "${MSG}" '' ok
   exit 1
 fi

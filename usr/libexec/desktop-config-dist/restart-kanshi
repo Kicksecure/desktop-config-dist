@@ -19,7 +19,7 @@ MSG=''
 
 if [ -z "${HOME}" ]; then
   MSG="<p>The <code>\$HOME</code> environment variable is not set!</p>"
-  /usr/libexec/msgcollector/generic_gui_message error "${TITLE}" "${MSG}" '' ok
+  /usr/libexec/msgcollector/generic_gui_message.py error "${TITLE}" "${MSG}" '' ok
   exit 1
 fi
 
@@ -56,7 +56,7 @@ Output from <code>systemctl --no-pager --full --user status kanshi.service</code
 <pre>
 ${systemctl_status_output}
 </pre>"
-  /usr/libexec/msgcollector/generic_gui_message error "${TITLE}" "${MSG}" '' ok
+  /usr/libexec/msgcollector/generic_gui_message.py error "${TITLE}" "${MSG}" '' ok
 }
 
 if ! systemctl --user restart kanshi.service >/dev/null 2>&1; then
@@ -74,5 +74,5 @@ if ! systemctl --user is-active kanshi.service >/dev/null 2>&1; then
 fi
 
 MSG="<p>The display configuration has been applied successfully.</p>"
-/usr/libexec/msgcollector/generic_gui_message info "${TITLE}" "${MSG}" '' ok
+/usr/libexec/msgcollector/generic_gui_message.py info "${TITLE}" "${MSG}" '' ok
 exit 0
