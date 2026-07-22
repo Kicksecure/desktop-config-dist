@@ -16,3 +16,7 @@
 ## user-sysmaint-split is installed, due to pkexec access being denied. We've
 ## created a replacement, backlight-tool-dist.
 /usr/share/applications/lxqt-config-brightness.desktop
+
+## gparted works when run with gsudo-x. The default start menu entry is broken
+## due to user-sysmaint-split and labwc's lazy Xwayland loading mechanism.
+/usr/share/applications/gparted.desktop
