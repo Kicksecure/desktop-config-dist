@@ -2,7 +2,7 @@
 Name=Live status checker
 Comment=Reports whether the system is in persistent or live mode
 Keywords=System;Status;Live;
-Exec=systemctl --user start livecheck.service
+Exec=livecheck --gui --show-window
 Terminal=false
 Type=Application
 Categories=System;
