@@ -1,3 +1,28 @@
+commit 4e04706d2701fd15aa8f3c62801d75e2afb4951c
+Merge: a77c835 2c08a93
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Jul 23 05:56:38 2026 -0400
+
+    Merge remote-tracking branch 'refs/remotes/ArrayBolt3/arraybolt3/trixie'
+
+commit 2c08a93593a516c630371e3f05cd616d7a589060
+Author: Aaron Rainbolt <arraybolt3@gmail.com>
+Date:   Wed Jul 22 00:31:10 2026 -0400
+
+    Only allow one running livecheck instance at once, make the start menu entry display the livecheck window
+
+commit e1cc9d30f262783537fe4e71a2c0e90251bffffe
+Author: Aaron Rainbolt <arraybolt3@gmail.com>
+Date:   Tue Jul 21 22:24:51 2026 -0400
+
+    Hide gparted start menu entry
+
+commit a77c8356da53bdefd3d4b63f16b6355f5a83017a
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Jul 21 10:33:33 2026 +0000
+
+    bumped changelog version
+
 commit 7329baa69d8cbbde69705e25dda1e02c4dd16a1b
 Merge: a3fbb02 30f3c15
 Author: Patrick Schleizer <adrelanos@whonix.org>
