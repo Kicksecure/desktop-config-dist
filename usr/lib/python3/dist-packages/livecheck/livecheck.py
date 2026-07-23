@@ -18,10 +18,11 @@ import re
 import functools
 
 from pathlib import Path
-from typing import Tuple, Pattern, TextIO, NoReturn
+from typing import Tuple, Pattern, TextIO, NoReturn, Any
 from types import FrameType
 
 from PyQt5.QtCore import (
+    Q_CLASSINFO,
     Qt,
     QObject,
     QThread,
@@ -44,6 +45,11 @@ from PyQt5.QtWidgets import (
     QDialog,
     QMenu,
     QAction,
+)
+from PyQt5.QtDBus import (
+    QDBusConnection,
+    QDBusAbstractAdaptor,
+    QDBusInterface,
 )
 
 from term_colors.term_colors import TermColors
@@ -507,6 +513,7 @@ error_live_state_tooltip: str = """ERROR: The system's live state cannot be \
 determined. Click on the icon for more information."""
 
 
+# pylint: disable=too-few-public-methods
 class LiveTextWindow(QDialog):
     """
     Popup window that appears when the Livecheck system tray icon is clicked.
@@ -559,7 +566,7 @@ class TrayUi(QObject):
     LiveTextWindow with more detailed information.
     """
 
-    def __init__(self) -> None:
+    def __init__(self, show_window_on_first_update: bool) -> None:
         """
         Init function.
         """
@@ -567,6 +574,11 @@ class TrayUi(QObject):
         super().__init__()
         self.prev_live_state: str = "loading"
         self.active_text: str = loading_text_gui
+        ## The argument says that we want the window to show on the first
+        ## update, but we implement that by show_window_on_next_update to
+        ## True, then setting it to False once we actually show the window.
+        ## Thus the name change.
+        self.show_window_on_next_update = show_window_on_first_update
 
         self.tray_icon: QSystemTrayIcon = QSystemTrayIcon()
         self.tray_icon.setIcon(QIcon(icon_base_path + loading_icon))
@@ -889,7 +901,35 @@ class TrayUi(QObject):
         elif live_mode_str != "persistent":
             self.show_notification(live_mode_str, True)
 
+        if self.show_window_on_next_update:
+            self.show_window_on_next_update = False
+            self.show_live_mode_text_window()
+
         self.prev_live_state = live_mode_str
+
+
+# pylint: disable=too-few-public-methods
+class DBusAdaptor(QDBusAbstractAdaptor):
+    """
+    Exposes TrayUi's show_live_mode_text_window method as a D-Bus method.
+    """
+
+    Q_CLASSINFO("D-Bus Interface", "com.kicksecure.livecheck")
+
+    # pylint: disable=invalid-name
+    @pyqtSlot()
+    def ShowLiveModeTextWindow(self) -> None:
+        """
+        Calls the parent to show the live mode text window.
+        """
+
+        ## We could technically just call
+        ## self.parent().show_live_mode_text_window(), but that would cause
+        ## mypy errors.
+        parent_obj: Any = self.parent()
+        assert isinstance(parent_obj, TrayUi)
+        parent_tray_ui: TrayUi = parent_obj
+        parent_tray_ui.show_live_mode_text_window()
 
 
 class MountChecker(QObject):
@@ -1115,7 +1155,7 @@ def signal_handler(sig: int, frame: FrameType | None) -> None:
     sys.exit(128 + sig)
 
 
-def main_gui() -> NoReturn:
+def main_gui(show_window: bool) -> NoReturn:
     """
     Launches the Livecheck GUI.
     """
@@ -1131,8 +1171,43 @@ def main_gui() -> NoReturn:
     timer.start(500)
     timer.timeout.connect(lambda: None)
 
+    listening_on_dbus: bool = False
+    dbus_conn: QDBusConnection = QDBusConnection.sessionBus()
+    if dbus_conn.isConnected():
+        if not dbus_conn.registerService("com.kicksecure.livecheck"):
+            dbus_iface: QDBusInterface = QDBusInterface(
+                "com.kicksecure.livecheck",
+                "/com/kicksecure/livecheck",
+                "com.kicksecure.livecheck",
+                dbus_conn,
+            )
+            if not dbus_iface.isValid():
+                print(
+                    "Can't register D-Bus service, and service isn't running?",
+                    file=sys.stderr,
+                )
+                sys.exit(1)
+
+            ## The above service check should be done regardless of whether we
+            ## call ShowLiveModeTextWindow or not, since it will help us debug
+            ## why we couldn't register the service name.
+            if show_window:
+                dbus_iface.call("ShowLiveModeTextWindow")
+
+            sys.exit(0)
+
+        listening_on_dbus = True
+    else:
+        print("D-Bus connection failed!", file=sys.stderr)
+        ## Don't treat this as a fatal error, we can still operate, albeit in
+        ## a degraded state.
+
     # pylint: disable=unused-variable
-    ui: TrayUi = TrayUi()
+    ui: TrayUi = TrayUi(show_window_on_first_update=show_window)
+    if listening_on_dbus:
+        dbus_adaptor: DBusAdaptor = DBusAdaptor(ui)
+        dbus_conn.registerObject("/com/kicksecure/livecheck", ui)
+
     app.exec_()
     sys.exit(0)
 
@@ -1250,23 +1325,44 @@ def main() -> NoReturn:
     Main function. Dispatches to either main_gui or main_cli.
     """
 
-    if len(sys.argv) < 2:
+    use_gui_mode: bool = False
+    mode_chosen: bool = False
+    show_window: bool = False
+
+    for arg in sys.argv[1:]:
+        match arg:
+            case "--gui":
+                use_gui_mode = True
+                mode_chosen = True
+            case "--cli":
+                use_gui_mode = False
+                mode_chosen = True
+            case "--show-window":
+                show_window = True
+            case _:
+                print(
+                    f"ERROR: Unrecognized argument '{sys.argv[1]}'!",
+                    file=sys.stderr,
+                )
+                sys.exit(1)
+
+    if not mode_chosen:
         print(
-            "ERROR: No argument provided, either '--gui' or '--cli' must be "
-            "specified!",
+            "ERROR: No mode specified, expected either '--gui' or '--cli'!",
             file=sys.stderr,
         )
         sys.exit(1)
-    if sys.argv[1] == "--gui":
-        main_gui()
-    elif sys.argv[1] == "--cli":
+    if show_window and not use_gui_mode:
+        print(
+            "ERROR: --cli and --show-window are mutually exclusive!",
+            file=sys.stderr,
+        )
+        sys.exit(1)
+
+    if use_gui_mode:
+        main_gui(show_window=show_window)
+    else:
         main_cli()
-    print(
-        f"ERROR: Unrecognized argument '{sys.argv[1]}', expected either "
-        "'--gui' or '--cli'!",
-        file=sys.stderr,
-    )
-    sys.exit(1)
 
 
 if __name__ == "__main__":
