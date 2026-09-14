@@ -16,8 +16,8 @@ export LC_ALL=C
 # shellcheck source=../../../../helper-scripts/usr/libexec/helper-scripts/light_sleep.bsh
 source "${HELPER_SCRIPTS_PATH:-}"/usr/libexec/helper-scripts/light_sleep.bsh
 
-# shellcheck source=../../../../helper-scripts/usr/libexec/helper-scripts/has.sh
-source "${HELPER_SCRIPTS_PATH:-}"/usr/libexec/helper-scripts/has.sh
+# shellcheck source=../../../../helper-scripts/usr/libexec/helper-scripts/has.bsh
+source "${HELPER_SCRIPTS_PATH:-}"/usr/libexec/helper-scripts/has.bsh
 
 # shellcheck source=../../../../helper-scripts/usr/libexec/helper-scripts/try_wait_for_audio_ready.bsh
 source "${HELPER_SCRIPTS_PATH:-}"/usr/libexec/helper-scripts/try_wait_for_audio_ready.bsh
