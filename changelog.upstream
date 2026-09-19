@@ -1,3 +1,22 @@
+commit 70aa6fd7810fb5c08041dd7f8e545dc0a2688769
+Merge: a32ad57 5311f43
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Sep 19 07:10:02 2026 -0400
+
+    Merge remote-tracking branch 'refs/remotes/ArrayBolt3/arraybolt3/trixie'
+
+commit 5311f43e33a71c520938a8e7649da68aded14aaf
+Author: Aaron Rainbolt <arraybolt3@gmail.com>
+Date:   Fri Sep 18 00:17:23 2026 -0400
+
+    Add missing dependency for livecheck
+
+commit a32ad57256a1bca5e0771a67ddf03dfb56e282e5
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Sep 15 11:49:23 2026 +0000
+
+    bumped changelog version
+
 commit f8635aab00bb5b558290411ee3d43e17fb3fa6eb
 Merge: 7cb3b88 3560a8b
 Author: Patrick Schleizer <adrelanos@whonix.org>
